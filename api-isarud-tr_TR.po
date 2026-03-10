@@ -1,0 +1,167 @@
+# Turkish translation for API Isarud Trade Compliance
+msgid ""
+msgstr ""
+"Project-Id-Version: API Isarud Trade Compliance 2.1.0\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Sanctions Screening"
+msgstr "Yaptırım Taraması"
+
+msgid "Marketplace APIs"
+msgstr "Pazar Yeri API'leri"
+
+msgid "Sync Log"
+msgstr "Senkronizasyon Günlüğü"
+
+msgid "Dashboard"
+msgstr "Kontrol Paneli"
+
+msgid "Orders Screened"
+msgstr "Taranan Siparişler"
+
+msgid "Sanctions Matches"
+msgstr "Yaptırım Eşleşmeleri"
+
+msgid "Successful Syncs"
+msgstr "Başarılı Senkronizasyonlar"
+
+msgid "Sync Errors"
+msgstr "Senkronizasyon Hataları"
+
+msgid "Connected Marketplaces"
+msgstr "Bağlı Pazar Yerleri"
+
+msgid "Marketplace"
+msgstr "Pazar Yeri"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Last Test"
+msgstr "Son Test"
+
+msgid "Result"
+msgstr "Sonuç"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Inactive"
+msgstr "Pasif"
+
+msgid "No marketplaces configured."
+msgstr "Yapılandırılmış pazar yeri yok."
+
+msgid "Add one"
+msgstr "Ekle"
+
+msgid "Connected"
+msgstr "Bağlandı"
+
+msgid "Not configured"
+msgstr "Yapılandırılmamış"
+
+msgid "Set API Key"
+msgstr "API Anahtarı Ayarla"
+
+msgid "Manage"
+msgstr "Yönet"
+
+msgid "Isarud API Key"
+msgstr "Isarud API Anahtarı"
+
+msgid "Get API key from isarud.com"
+msgstr "isarud.com'dan API anahtarı alın"
+
+msgid "Auto-screen orders"
+msgstr "Siparişleri otomatik tara"
+
+msgid "Automatically screen every new order against sanctions lists"
+msgstr "Her yeni siparişi yaptırım listelerinde otomatik olarak tarayın"
+
+msgid "Hold order on match"
+msgstr "Eşleşmede siparişi beklet"
+
+msgid "No — flag only"
+msgstr "Hayır — sadece işaretle"
+
+msgid "Yes — put on hold"
+msgstr "Evet — beklemeye al"
+
+msgid "Alert email"
+msgstr "Uyarı e-postası"
+
+msgid "Save Settings"
+msgstr "Ayarları Kaydet"
+
+msgid "Settings saved."
+msgstr "Ayarlar kaydedildi."
+
+msgid "Screening Coverage"
+msgstr "Tarama Kapsamı"
+
+msgid "Marketplace API Settings"
+msgstr "Pazar Yeri API Ayarları"
+
+msgid "Configure your marketplace API credentials for stock synchronization."
+msgstr "Stok senkronizasyonu için pazar yeri API kimlik bilgilerinizi yapılandırın."
+
+msgid "Not tested"
+msgstr "Test edilmedi"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Test Connection"
+msgstr "Bağlantıyı Test Et"
+
+msgid "credentials saved."
+msgstr "kimlik bilgileri kaydedildi."
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Product"
+msgstr "Ürün"
+
+msgid "Action"
+msgstr "İşlem"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "No sync activity yet."
+msgstr "Henüz senkronizasyon etkinliği yok."
+
+msgid "Not screened"
+msgstr "Taranmadı"
+
+msgid "Screen Now"
+msgstr "Şimdi Tara"
+
+msgid "Match Found"
+msgstr "Eşleşme Bulundu"
+
+msgid "Clear"
+msgstr "Temiz"
+
+msgid "Isarud Marketplace IDs"
+msgstr "Isarud Pazar Yeri Kimlikleri"
+
+msgid "connection successful!"
+msgstr "bağlantı başarılı!"
+
+msgid "Connection failed"
+msgstr "Bağlantı başarısız"
+
+msgid "Testing..."
+msgstr "Test ediliyor..."
+
+msgid "Syncing..."
+msgstr "Senkronize ediliyor..."
+
+msgid "Screening..."
+msgstr "Taranıyor..."

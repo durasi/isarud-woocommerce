@@ -5,7 +5,7 @@
 
 🌐 [isarud.com](https://isarud.com) · 📦 [WordPress.org](https://wordpress.org/plugins/api-isarud/) · 🐙 [GitHub](https://github.com/durasi/isarud-woocommerce)
 
-**Current Version:** 6.2.0
+**Current Version:** 6.2.1
 
 ---
 
@@ -211,6 +211,14 @@ Isarud is a multi-platform trade compliance and e-commerce management system. Th
 ## License
 
 GPLv2 or later
+
+---
+
+## Contributors & Acknowledgments
+
+- [@orkasoft](https://github.com/orkasoft) — Trendyol User-Agent bug report (#6)
+
+We welcome bug reports, feature requests, and pull requests! If you contribute, you will be credited here.
 
 ---
 

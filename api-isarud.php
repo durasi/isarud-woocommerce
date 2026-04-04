@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.0.4
+ * Version: 6.2.1
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('ISARUD_VERSION', '6.2.0');
+define('ISARUD_VERSION', '6.2.1');
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -625,7 +625,7 @@ class Isarud_Plugin {
         $config = $this->get_marketplace_config()[$mp] ?? null;
         if (!$config) return ['error' => 'Unknown marketplace'];
         $url = $config['base_url'] . $endpoint;
-        $headers = ['Content-Type' => 'application/json', 'User-Agent' => 'Isarud/' . ISARUD_VERSION];
+        $headers = ['Content-Type' => 'application/json', 'User-Agent' => ($mp === 'trendyol' ? ($creds['seller_id'] ?? '') . ' - Isarud/' . ISARUD_VERSION : 'Isarud/' . ISARUD_VERSION)];
         switch ($config['auth_type']) {
             case 'basic': $headers['Authorization'] = 'Basic ' . base64_encode(($creds['api_key'] ?? $creds['merchant_id'] ?? '') . ':' . ($creds['api_secret'] ?? $creds['service_key'] ?? '')); break;
             case 'bearer': $headers['Authorization'] = 'Bearer ' . ($creds['access_token'] ?? $creds['api_key'] ?? ''); break;

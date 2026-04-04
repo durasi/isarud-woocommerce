@@ -140,7 +140,7 @@ class Isarud_Category_Map {
 
     public function ajax_save_map(): void {
         check_ajax_referer('isarud_nonce', 'nonce');
-        if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
 
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
         $mp_cat = sanitize_text_field($_POST['mp_category'] ?? '');

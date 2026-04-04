@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.2.1
+ * Version: 6.2.2
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('ISARUD_VERSION', '6.2.1');
+define('ISARUD_VERSION', '6.2.2');
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -728,8 +728,9 @@ class Isarud_Plugin {
 
     public function ajax_sync_product() {
         check_ajax_referer('isarud_nonce', 'nonce');
-        $p = wc_get_product(intval($_POST['product_id'] ?? 0));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
+        $p = wc_get_product(intval($_POST['product_id'] ?? 0));
         if (!$p || !$mp) wp_send_json_error('Invalid');
         $r = $this->sync_stock($p, $mp);
         isset($r['error']) ? wp_send_json_error($r['error']) : wp_send_json_success($r);
@@ -737,6 +738,7 @@ class Isarud_Plugin {
 
     public function ajax_bulk_sync() {
         check_ajax_referer('isarud_nonce', 'nonce');
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
         $page = intval($_POST['page'] ?? 0);
         $products = wc_get_products(['status' => 'publish', 'manage_stock' => true, 'limit' => 10, 'offset' => $page * 10]);
@@ -771,6 +773,7 @@ class Isarud_Plugin {
 
     public function ajax_screen_order() {
         check_ajax_referer('isarud_nonce', 'nonce');
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
         $this->auto_screen_order(intval($_POST['order_id'] ?? 0));
         wp_send_json_success('Tarandı');
     }

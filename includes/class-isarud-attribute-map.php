@@ -199,7 +199,7 @@ class Isarud_Attribute_Map {
 
     public function ajax_save_map(): void {
         check_ajax_referer('isarud_nonce', 'nonce');
-        if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
 
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
         if (empty($mp)) wp_send_json_error('Marketplace required');
@@ -218,7 +218,7 @@ class Isarud_Attribute_Map {
 
     public function ajax_delete_map(): void {
         check_ajax_referer('isarud_nonce', 'nonce');
-        if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
 
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
         $idx = intval($_POST['index'] ?? -1);

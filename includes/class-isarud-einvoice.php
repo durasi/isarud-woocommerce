@@ -291,7 +291,7 @@ class Isarud_EInvoice {
         if (empty($vkn)) {
             $vkn = $order->get_meta('_billing_tc_no');
         }
-        if (empty($vkn)) {
+        if (empty($vkn) || !preg_match("/^[0-9]+$/", $vkn)) {
             $vkn = '11111111111'; // Varsayılan (bireysel müşteri)
         }
 

@@ -114,49 +114,48 @@ class Isarud_Currency {
             $rate += $settings['margin_value'];
         }
 
-        $products = wc_get_products(['limit' => -1, 'status' => 'publish', 'type' => ['simple', 'variable']]);
         $updated = 0;
+        $paged = 1;
+        while (true) {
+            $products = wc_get_products(['limit' => 100, 'paged' => $paged, 'status' => 'publish', 'type' => ['simple', 'variable']]);
+            if (empty($products)) break;
 
-        foreach ($products as $product) {
-            $base_price = $product->get_meta('_isarud_base_price');
-            if (empty($base_price)) {
-                $base_price = $product->get_regular_price();
-                if (empty($base_price)) continue;
-                $product->update_meta_data('_isarud_base_price', $base_price);
-            }
+            foreach ($products as $product) {
+                $base_price = $product->get_meta('_isarud_base_price');
+                if (empty($base_price)) {
+                    $base_price = $product->get_regular_price();
+                    if (empty($base_price)) continue;
+                    $product->update_meta_data('_isarud_base_price', $base_price);
+                }
 
-            $new_price = round((float)$base_price * $rate, (int)$settings['round_to']);
-            $product->set_regular_price($new_price);
+                $new_price = round((float)$base_price * $rate, (int)$settings['round_to']);
+                $product->set_regular_price($new_price);
 
-            $sale_base = $product->get_meta('_isarud_base_sale_price');
-            if (!empty($sale_base)) {
-                $new_sale = round((float)$sale_base * $rate, (int)$settings['round_to']);
-                $product->set_sale_price($new_sale);
-            }
+                $sale_base = $product->get_meta('_isarud_base_sale_price');
+                if (!empty($sale_base)) {
+                    $new_sale = round((float)$sale_base * $rate, (int)$settings['round_to']);
+                    $product->set_sale_price($new_sale);
+                }
 
-            $product->save();
-            $updated++;
+                $product->save();
+                $updated++;
 
-            if ($product->is_type('variable')) {
-                foreach ($product->get_children() as $var_id) {
-                    $variation = wc_get_product($var_id);
-                    if (!$variation) continue;
-
-                    $var_base = $variation->get_meta('_isarud_base_price');
-                    if (empty($var_base)) {
-                        $var_base = $variation->get_regular_price();
-                        if (empty($var_base)) continue;
-                        $variation->update_meta_data('_isarud_base_price', $var_base);
+                if ($product->is_type('variable')) {
+                    foreach ($product->get_children() as $var_id) {
+                        $variation = wc_get_product($var_id);
+                        if (!$variation) continue;
+                        $var_base = $variation->get_meta('_isarud_base_price') ?: $variation->get_regular_price();
+                        if ($var_base) {
+                            $variation->update_meta_data('_isarud_base_price', $var_base);
+                            $variation->set_regular_price(round((float)$var_base * $rate, (int)$settings['round_to']));
+                            $variation->save();
+                        }
                     }
-
-                    $var_new = round((float)$var_base * $rate, (int)$settings['round_to']);
-                    $variation->set_regular_price($var_new);
-                    $variation->save();
                 }
             }
+            $paged++;
         }
 
-        $settings['last_update'] = current_time('mysql');
         $settings['last_rate'] = $rate;
         $this->save_settings($settings);
 

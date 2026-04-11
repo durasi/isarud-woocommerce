@@ -123,21 +123,26 @@ $total_steps = 5;
             <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
                 <?php
                 $platforms = [
-                    ['icon' => '🌐', 'name' => 'isarud.com', 'desc' => __('Web tarayici', 'api-isarud')],
-                    ['icon' => '🖥️', 'name' => 'Windows / macOS', 'desc' => __('Masaustu uygulama', 'api-isarud')],
-                    ['icon' => '📱', 'name' => 'iOS / Android', 'desc' => __('Mobil uygulama (yakinda)', 'api-isarud')],
-                    ['icon' => '🔌', 'name' => 'WooCommerce', 'desc' => __('Bu eklenti', 'api-isarud')],
-                    ['icon' => '🛍️', 'name' => 'Shopify', 'desc' => __('Shopify uygulamasi', 'api-isarud')],
-                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Ozel entegrasyon', 'api-isarud')],
+                    ['icon' => '🌐', 'name' => 'isarud.com', 'desc' => __('Web tarayici', 'api-isarud'), 'url' => 'https://isarud.com', 'live' => true],
+                    ['icon' => '📱', 'name' => 'iOS / iPadOS / macOS', 'desc' => 'App Store', 'url' => 'https://apps.apple.com/tr/app/isarud-e-commerce-tools/id6761309959', 'live' => true],
+                    ['icon' => '🖥️', 'name' => 'Windows', 'desc' => 'Microsoft Store', 'url' => 'https://www.microsoft.com/store/apps/9PM1Z57C4GT3', 'live' => true],
+                    ['icon' => '🤖', 'name' => 'Android', 'desc' => __('Yakinda', 'api-isarud'), 'url' => '', 'live' => false],
+                    ['icon' => '🔌', 'name' => 'WooCommerce', 'desc' => __('Bu eklenti', 'api-isarud'), 'url' => '', 'live' => true],
+                    ['icon' => '🛍️', 'name' => 'Shopify', 'desc' => __('Shopify uygulamasi', 'api-isarud'), 'url' => '', 'live' => true],
+                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Ozel entegrasyon', 'api-isarud'), 'url' => 'https://isarud.com/docs', 'live' => true],
                 ];
                 foreach ($platforms as $p): ?>
-                <div style="display:flex;align-items:center;gap:8px;padding:8px;background:#fff;border-radius:6px">
+                <?php if (!empty($p['url'])): ?>
+                <a href="<?php echo $p['url']; ?>" target="_blank" style="display:flex;align-items:center;gap:8px;padding:8px;background:#fff;border-radius:6px;text-decoration:none;transition:box-shadow .2s">
+                <?php else: ?>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px;background:#fff;border-radius:6px<?php echo !$p['live'] ? ';opacity:0.7' : ''; ?>">
+                <?php endif; ?>
                     <span style="font-size:18px"><?php echo $p['icon']; ?></span>
                     <div>
                         <p style="margin:0;font-size:12px;font-weight:600;color:#333"><?php echo $p['name']; ?></p>
-                        <p style="margin:0;font-size:10px;color:#888"><?php echo $p['desc']; ?></p>
+                        <p style="margin:0;font-size:10px;color:<?php echo $p['live'] ? '#16a34a' : '#d97706'; ?>"><?php echo $p['desc']; ?><?php echo !empty($p['url']) ? ' ↗' : ''; ?></p>
                     </div>
-                </div>
+                <?php echo !empty($p['url']) ? '</a>' : '</div>'; ?>
                 <?php endforeach; ?>
             </div>
         </div>

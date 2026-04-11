@@ -187,7 +187,7 @@ Isarud is a multi-platform trade compliance and e-commerce management system. Th
 | Platform | Status | Features |
 |---|---|---|
 | **[isarud.com](https://isarud.com)** | ✅ Live | Full dashboard, screening, trade tools, marketplace management |
-| **iOS / iPadOS / macOS** | ✅ App Store | 6 tabs, 13 trade tools, WP plugin management (9 modules), Shopify sync |
+| **iOS / iPadOS / macOS** | ✅ [App Store](https://apps.apple.com/tr/app/isarud-e-commerce-tools/id6761309959) | 6 tabs, 13 trade tools, WP plugin management (9 modules), Shopify sync |
 | **Windows** | ✅ [Microsoft Store](https://www.microsoft.com/store/apps/9PM1Z57C4GT3) | Desktop app via Electron WebView |
 | **Shopify** | ✅ Shopify App Store | OAuth install, order screening, webhooks |
 | **WooCommerce** | ✅ [WordPress.org](https://wordpress.org/plugins/api-isarud/) | This plugin |

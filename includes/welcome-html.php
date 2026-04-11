@@ -129,7 +129,7 @@ $total_steps = 5;
                     ['icon' => '🤖', 'name' => 'Android', 'desc' => __('Yakinda', 'api-isarud'), 'url' => '', 'live' => false],
                     ['icon' => '🔌', 'name' => 'WooCommerce', 'desc' => __('Bu eklenti', 'api-isarud'), 'url' => '', 'live' => true],
                     ['icon' => '🛍️', 'name' => 'Shopify', 'desc' => __('Shopify uygulamasi', 'api-isarud'), 'url' => '', 'live' => true],
-                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Ozel entegrasyon', 'api-isarud'), 'url' => 'https://isarud.com/docs', 'live' => true],
+                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Ozel entegrasyon', 'api-isarud'), 'url' => 'https://isarud.com/api-docs', 'live' => true],
                 ];
                 foreach ($platforms as $p): ?>
                 <?php if (!empty($p['url'])): ?>

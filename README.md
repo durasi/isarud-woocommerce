@@ -5,7 +5,7 @@
 
 🌐 [isarud.com](https://isarud.com) · 📦 [WordPress.org](https://wordpress.org/plugins/api-isarud/) · 🐙 [GitHub](https://github.com/durasi/isarud-woocommerce)
 
-**Current Version:** 6.2.1
+**Current Version:** 6.2.3
 
 ---
 

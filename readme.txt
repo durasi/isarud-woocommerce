@@ -4,7 +4,7 @@ Tags: sanctions, compliance, marketplace, trendyol, hepsiburada, n11, woocommerc
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.2.2
+Stable tag: 6.2.3
 License: GPLv2 or later
 
 Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.

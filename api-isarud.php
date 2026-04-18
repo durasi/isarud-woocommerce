@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.2.3
+ * Version: 6.2.4
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('ISARUD_VERSION', '6.2.3');
+define('ISARUD_VERSION', '6.2.4');
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -420,6 +420,11 @@ class Isarud_Plugin {
                         <span style="font-size:24px;display:block;margin-bottom:4px">🖥️</span>
                         <strong style="color:#111;font-size:13px">Windows</strong>
                         <span style="display:block;font-size:11px;color:#16a34a;margin-top:2px">Microsoft Store ↗</span>
+                    </a>
+                    <a href="https://chromewebstore.google.com/detail/isarud-%E2%80%94-sanctions-screen/gocnpehlanonhnkfhnfepmmnlpppgcnk" target="_blank" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;text-align:center;text-decoration:none;transition:box-shadow .2s">
+                        <span style="font-size:24px;display:block;margin-bottom:4px">🧩</span>
+                        <strong style="color:#111;font-size:13px">Chrome Extension</strong>
+                        <span style="display:block;font-size:11px;color:#16a34a;margin-top:2px">Chrome Web Store ↗</span>
                     </a>
                     <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px;text-align:center">
                         <span style="font-size:24px;display:block;margin-bottom:4px">🤖</span>

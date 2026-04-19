@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.2.5
+ * Version: 6.2.4
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('ISARUD_VERSION', '6.2.5');
+define('ISARUD_VERSION', '6.2.4');
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -652,22 +652,13 @@ class Isarud_Plugin {
     // ─── API HELPER ─────────────────────────────
     private function marketplace_request(string $mp, string $endpoint, string $method = 'GET', $data = null): array {
         global $wpdb;
-        // is_active=1 şartı kaldırıldı (v6.2.5) — credentials kaydedilmişse test edebilmeli
-        $row = $wpdb->get_row($wpdb->prepare("SELECT credentials, is_active FROM {$wpdb->prefix}isarud_credentials WHERE marketplace=%s", $mp));
-        if (!$row) {
-            $this->isarud_log($mp, 'ERROR', 'Credentials not found in DB (marketplace row missing)');
-            return ['error' => $mp . ' için kayıtlı API bilgisi bulunamadı. Lütfen önce API Key/Secret bilgilerini kaydedin.'];
-        }
+        $row = $wpdb->get_row($wpdb->prepare("SELECT credentials FROM {$wpdb->prefix}isarud_credentials WHERE marketplace=%s AND is_active=1", $mp));
+        if (!$row) return ['error' => $mp . ' credentials not found'];
         $creds = json_decode($row->credentials, true);
-        if (!is_array($creds) || empty($creds)) {
-            $this->isarud_log($mp, 'ERROR', 'Credentials JSON parse failed or empty');
-            return ['error' => 'Credentials okunamadı (JSON parse hatası). Lütfen API bilgilerini yeniden girip kaydedin.'];
-        }
         $config = $this->get_marketplace_config()[$mp] ?? null;
         if (!$config) return ['error' => 'Unknown marketplace'];
         $url = $config['base_url'] . $endpoint;
-        $user_agent = ($mp === 'trendyol' ? ($creds['seller_id'] ?? '') . ' - SelfIntegration' : 'Isarud/' . ISARUD_VERSION);
-        $headers = ['Content-Type' => 'application/json', 'User-Agent' => $user_agent];
+        $headers = ['Content-Type' => 'application/json', 'User-Agent' => ($mp === 'trendyol' ? ($creds['seller_id'] ?? '') . ' - Isarud/' . ISARUD_VERSION : 'Isarud/' . ISARUD_VERSION)];
         switch ($config['auth_type']) {
             case 'basic': $headers['Authorization'] = 'Basic ' . base64_encode(($creds['api_key'] ?? $creds['merchant_id'] ?? '') . ':' . ($creds['api_secret'] ?? $creds['service_key'] ?? '')); break;
             case 'bearer': $headers['Authorization'] = 'Bearer ' . ($creds['access_token'] ?? $creds['api_key'] ?? ''); break;
@@ -676,69 +667,11 @@ class Isarud_Plugin {
         }
         $args = ['headers' => $headers, 'method' => $method, 'timeout' => 30, 'sslverify' => true];
         if ($data && in_array($method, ['POST', 'PUT'])) $args['body'] = wp_json_encode($data);
-
-        // Debug log — request detayları (Authorization sansürlü)
-        $log_headers = $headers;
-        if (isset($log_headers['Authorization'])) $log_headers['Authorization'] = substr($log_headers['Authorization'], 0, 12) . '***';
-        $this->isarud_log($mp, 'REQUEST', sprintf("%s %s | UA: %s | Headers: %s", $method, $url, $user_agent, wp_json_encode($log_headers)));
-
         $response = wp_remote_request($url, $args);
-        if (is_wp_error($response)) {
-            $err = $response->get_error_message();
-            $this->isarud_log($mp, 'WP_ERROR', $err);
-            return ['error' => 'Bağlantı kurulamadı: ' . $err . ' — Sunucu güvenlik duvarı Trendyol IP\'sini engellemiyor olmalı.'];
-        }
+        if (is_wp_error($response)) return ['error' => $response->get_error_message()];
         $code = wp_remote_retrieve_response_code($response);
-        $body = wp_remote_retrieve_body($response);
-        $body_preview = substr($body, 0, 500);
-        $this->isarud_log($mp, 'RESPONSE', sprintf("HTTP %d | Body: %s", $code, $body_preview));
-
-        if ($code >= 400) {
-            // Detaylı hata mesajı
-            $friendly = $this->interpret_api_error($mp, $code, $body);
-            return ['error' => $friendly, 'http_code' => $code, 'body' => $body_preview];
-        }
-        return array_merge(json_decode($body, true) ?: [], ['http_code' => $code]);
-    }
-
-    /**
-     * Hata koduna göre insan-okur mesaj üretir (v6.2.5)
-     */
-    private function interpret_api_error(string $mp, int $code, string $body): string {
-        $body_lc = strtolower($body);
-        $is_cf = strpos($body_lc, 'cloudflare') !== false || strpos($body_lc, 'attention required') !== false;
-
-        if ($mp === 'trendyol') {
-            if ($code === 401) return "Trendyol: API Key veya Secret yanlış (HTTP 401). Partner panelinden (partner.trendyol.com → Hesap Bilgilerim → Entegrasyon Bilgileri) bilgileri tekrar kopyalayın.";
-            if ($code === 403) {
-                if ($is_cf) return "Trendyol Cloudflare'a takıldı (HTTP 403). Seller ID (Supplier ID) doğru girilmemiş olabilir — User-Agent header Seller ID bekliyor. Partner panelindeki Seller ID'yi kontrol edin.";
-                return "Trendyol: Erişim reddedildi (HTTP 403). API Key, IP whitelist veya hesap durumu kontrol edilmeli.";
-            }
-            if ($code === 404) return "Trendyol: Seller ID bulunamadı (HTTP 404). Supplier ID format olarak sadece sayı olmalı (örn: 123456), başka karakter içermemeli.";
-            if ($code === 429) return "Trendyol: Çok fazla istek atıldı (HTTP 429 rate limit). Birkaç dakika bekleyip tekrar deneyin.";
-            if ($code >= 500) return "Trendyol sunucusu şu an yanıt vermiyor (HTTP {$code}). Trendyol tarafında geçici bir sorun var, 5-10 dk sonra tekrar deneyin.";
-        }
-
-        return sprintf("%s API hatası (HTTP %d): %s", ucfirst($mp), $code, substr($body, 0, 200));
-    }
-
-    /**
-     * Dahili log — wp-content/uploads/isarud-logs/trendyol-YYYY-MM-DD.log (v6.2.5)
-     * WP_DEBUG kapalı olsa bile çalışır, sadece bu plugin için
-     */
-    private function isarud_log(string $mp, string $type, string $message): void {
-        $upload = wp_upload_dir();
-        $log_dir = $upload['basedir'] . '/isarud-logs';
-        if (!file_exists($log_dir)) @mkdir($log_dir, 0755, true);
-        if (!is_writable($log_dir)) return;
-
-        $file = $log_dir . '/' . $mp . '-' . date('Y-m-d') . '.log';
-        $line = sprintf("[%s] [%s] %s\n", date('H:i:s'), $type, $message);
-        @file_put_contents($file, $line, FILE_APPEND);
-
-        // .htaccess ile access koruması (ilk çağrıda yaz)
-        $ht = $log_dir . '/.htaccess';
-        if (!file_exists($ht)) @file_put_contents($ht, "Deny from all\n");
+        if ($code >= 400) return ['error' => "HTTP {$code}: " . wp_remote_retrieve_body($response)];
+        return array_merge(json_decode(wp_remote_retrieve_body($response), true) ?: [], ['http_code' => $code]);
     }
 
     private function amazon_token(array $c): array {
@@ -783,18 +716,7 @@ class Isarud_Plugin {
         };
         $ok = !isset($result['error']);
         $wpdb->update($wpdb->prefix . 'isarud_credentials', ['last_test' => current_time('mysql'), 'test_status' => $ok ? 'success' : 'error'], ['marketplace' => $mp]);
-        if ($ok) {
-            $extra = '';
-            if ($mp === 'trendyol' && isset($result['totalElements'])) {
-                $extra = ' (' . intval($result['totalElements']) . ' ürün bulundu)';
-            }
-            wp_send_json_success(['message' => ucfirst($mp) . ' bağlantısı başarılı!' . $extra]);
-        } else {
-            // Error durumunda detaylı hata ver
-            $msg = $result['error'] ?? 'Bilinmeyen hata';
-            if (isset($result['http_code'])) $msg .= ' [HTTP ' . $result['http_code'] . ']';
-            wp_send_json_error(['message' => $msg, 'details' => $result]);
-        }
+        $ok ? wp_send_json_success(['message' => ucfirst($mp) . ' bağlantı başarılı!']) : wp_send_json_error(['message' => $result['error']]);
     }
 
     private function test_n11(): array {

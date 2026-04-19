@@ -4,7 +4,7 @@ Tags: sanctions, compliance, marketplace, trendyol, hepsiburada, n11, woocommerc
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.2.5
+Stable tag: 6.2.4
 License: GPLv2 or later
 
 Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
@@ -121,12 +121,6 @@ Evet. Beden ve renk varyasyonları WooCommerce ile pazar yerleri arasında senkr
 
 == Changelog ==
 
-= 6.2.5 =
-* Trendyol bağlantı hata ayıklama — ayrıntılı log (wp-content/uploads/isarud-logs/)
-* API hata mesajları artık insan-okur halinde (HTTP 401/403/404 için özel açıklamalar)
-* is_active=1 şartı test sırasında kaldırıldı (credentials kaydedilmişse hemen test edilebilir)
-* User-Agent düzeltme: Trendyol için "{seller_id} - SelfIntegration" formatı (resmi öneri)
-* ajax_test_connection yanıtı: başarılıysa ürün sayısı gösterir
 = 6.2.4 =
 * NEW: Chrome Extension link added to dashboard Multi-Platform box
 * Links to all platforms: iOS/macOS App Store, Windows Microsoft Store, Chrome Web Store, Android (coming soon), Web

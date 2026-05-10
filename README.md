@@ -5,7 +5,7 @@
 
 🌐 [isarud.com](https://isarud.com) · 📦 [WordPress.org](https://wordpress.org/plugins/api-isarud/) · 🐙 [GitHub](https://github.com/durasi/isarud-woocommerce)
 
-**Current Version:** 6.2.3
+**Current Version:** 6.6.7
 
 ---
 
@@ -26,10 +26,10 @@
 |---|---|---|---|---|---|---|---|---|---|---|
 | **Trendyol** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Hepsiburada** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
-| **N11** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — | — |
+| **N11** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | **Amazon SP-API** | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | — | — | — |
 | **Pazarama** | ✅ | ✅ | — | — | — | — | — | — | — | — |
-| **Etsy** | ✅ | ✅ | — | — | — | — | — | — | — | — |
+| **Etsy** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
 
 ### 📦 Order Management
 - Auto-sync order status: WooCommerce → marketplace (Picking / Shipped / Cancelled)

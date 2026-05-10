@@ -1,0 +1,825 @@
+# Turkish translation for API Isarud Trade Compliance
+msgid ""
+msgstr ""
+"Project-Id-Version: API Isarud Trade Compliance 5.4.0\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 Saat"
+msgstr "1 Saat"
+
+msgid "1. isarud.com Hesabı Bağla"
+msgstr "1. isarud.com Hesabı Bağla"
+
+msgid "2. WooCommerce Kur (Opsiyonel)"
+msgstr "2. WooCommerce Kur (Opsiyonel)"
+
+msgid "24 Saat"
+msgstr "24 Saat"
+
+msgid "30 Gün"
+msgstr "30 Gün"
+
+msgid "6 pazar yeri (Trendyol, HB, N11, Amazon, Pazarama, Etsy)"
+msgstr "6 pazar yeri (Trendyol, HB, N11, Amazon, Pazarama, Etsy)"
+
+msgid "7 Gün"
+msgstr "7 Gün"
+
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com'a giriş yapın</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com'a giriş yapın</a>"
+
+msgid "ABD İhracat Kontrol Listesi"
+msgstr "ABD İhracat Kontrol Listesi"
+
+msgid "AI Risk Brief (OSINT istihbaratı)"
+msgstr "AI Risk Brief (OSINT istihbaratı)"
+
+msgid "API Bilgileri"
+msgstr "API Bilgileri"
+
+msgid "API key alın ve buraya yapıştırın."
+msgstr "API key alın ve buraya yapıştırın."
+
+msgid "Account → API Keys sayfasından Bearer Token kopyalayın"
+msgstr "Account → API Keys sayfasından Bearer Token kopyalayın"
+
+msgid "Ad"
+msgstr "Ad"
+
+msgid "Ad Soyad"
+msgstr "Ad Soyad"
+
+msgid "Affiliate"
+msgstr "Affiliate"
+
+msgid "Affiliate Ekle"
+msgstr "Affiliate Ekle"
+
+msgid "Affiliate Yönetimi"
+msgstr "Affiliate Yönetimi"
+
+msgid "Affiliate eklendi. Kod:"
+msgstr "Affiliate eklendi. Kod:"
+
+msgid "Affiliate'ler"
+msgstr "Affiliate'ler"
+
+msgid "Aktar"
+msgstr "Aktar"
+
+msgid "Aktif"
+msgstr "Aktif"
+
+msgid "Aktif Platform"
+msgstr "Aktif Platform"
+
+msgid "Aktif pazar yeri yok."
+msgstr "Aktif pazar yeri yok."
+
+msgid "Aktif — veriler senkronize"
+msgstr "Aktif — veriler senkronize"
+
+msgid "Aktivite Günlüğü"
+msgstr "Aktivite Günlüğü"
+
+msgid "Amazon SP-API ile envanter senkronizasyonu"
+msgstr "Amazon SP-API ile envanter senkronizasyonu"
+
+msgid "Attribute Eşleştirme"
+msgstr "Attribute Eşleştirme"
+
+msgid "Ayarlar kaydedildi."
+msgstr "Ayarlar kaydedildi."
+
+msgid "Açık"
+msgstr "Açık"
+
+msgid "Aşağıya yapıştırın ve \"Bağlan\" butonuna tıklayın"
+msgstr "Aşağıya yapıştırın ve \"Bağlan\" butonuna tıklayın"
+
+msgid "Bağlan"
+msgstr "Bağlan"
+
+msgid "Bağlantıyı Kes"
+msgstr "Bağlantıyı Kes"
+
+msgid "Bağlantıyı Test Et"
+msgstr "Bağlantıyı Test Et"
+
+msgid "Bağlantıyı kesmek istediğinize emin misiniz?"
+msgstr "Bağlantıyı kesmek istediğinize emin misiniz?"
+
+msgid "Bağlı"
+msgstr "Bağlı"
+
+msgid "Bağlı Pazar Yerleri"
+msgstr "Bağlı Pazar Yerleri"
+
+msgid "Başarılı"
+msgstr "Başarılı"
+
+msgid "Başarılı Sync"
+msgstr "Başarılı Sync"
+
+msgid "Bu URL'yi pazar yeri panelinizdeki webhook ayarlarına ekleyin."
+msgstr "Bu URL'yi pazar yeri panelinizdeki webhook ayarlarına ekleyin."
+
+msgid "Bu dönemde aktivite bulunamadı."
+msgstr "Bu dönemde aktivite bulunamadı."
+
+msgid "CSV import/export"
+msgstr "CSV import/export"
+
+msgid "CSV İndir"
+msgstr "CSV İndir"
+
+msgid "CSV İşlemleri"
+msgstr "CSV İşlemleri"
+
+msgid "CSV'den Ürün Aktar"
+msgstr "CSV'den Ürün Aktar"
+
+msgid "CSV'yi İndir"
+msgstr "CSV'yi İndir"
+
+msgid "Cloud Sync"
+msgstr "Cloud Sync"
+
+msgid "Cloud Sync Ayarları"
+msgstr "Cloud Sync Ayarları"
+
+msgid "Cloud Sync Nedir?"
+msgstr "Cloud Sync Nedir?"
+
+msgid "Cloud Sync ile Bağlayın"
+msgstr "Cloud Sync ile Bağlayın"
+
+msgid "Cloud Sync ile bağlı"
+msgstr "Cloud Sync ile bağlı"
+
+msgid "Cloud Sync — tüm cihazlardan erişim"
+msgstr "Cloud Sync — tüm cihazlardan erişim"
+
+msgid "Cloud sync aktif değil."
+msgstr "Cloud sync aktif değil."
+
+msgid "Cloud sync devre dışı bırakıldı."
+msgstr "Cloud sync devre dışı bırakıldı."
+
+msgid "Desteklenen sütunlar: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri"
+msgstr "Desteklenen sütunlar: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri"
+
+msgid "Detay"
+msgstr "Detay"
+
+msgid "Doğan Online pazaryeri. SOAP tabanlı entegrasyon"
+msgstr "Doğan Online pazaryeri. SOAP tabanlı entegrasyon"
+
+msgid "Dropshipping"
+msgstr "Dropshipping"
+
+msgid "Dropshipping Tedarikçileri"
+msgstr "Dropshipping Tedarikçileri"
+
+msgid "Durum"
+msgstr "Durum"
+
+msgid "Ekle"
+msgstr "Ekle"
+
+msgid "Etsy v3 API listing senkronizasyonu"
+msgstr "Etsy v3 API listing senkronizasyonu"
+
+msgid "Evet"
+msgstr "Evet"
+
+msgid "Evet — beklemeye al"
+msgstr "Evet — beklemeye al"
+
+msgid "Eşleşme"
+msgstr "Eşleşme"
+
+msgid "Eşleşme Bulundu"
+msgstr "Eşleşme Bulundu"
+
+msgid "Eşleşmede beklet"
+msgstr "Eşleşmede beklet"
+
+msgid "Eşleşmeler"
+msgstr "Eşleşmeler"
+
+msgid "Fiyat"
+msgstr "Fiyat"
+
+msgid "Fiyat Margin"
+msgstr "Fiyat Margin"
+
+msgid "Fiyat güncelle"
+msgstr "Fiyat güncelle"
+
+msgid "Fiyat margin + toplu sync + dropshipping"
+msgstr "Fiyat margin + toplu sync + dropshipping"
+
+msgid "Generic webhook endpoint için gerekli. Pazar yeri webhook'ları için gerekmez."
+msgstr "Generic webhook endpoint için gerekli. Pazar yeri webhook'ları için gerekmez."
+
+msgid "Günlük"
+msgstr "Günlük"
+
+msgid "HS Kod Arama (6.938 kod)"
+msgstr "HS Kod Arama (6.938 kod)"
+
+msgid "Hata"
+msgstr "Hata"
+
+msgid "Hayır"
+msgstr "Hayır"
+
+msgid "Hayır — sadece işaretle"
+msgstr "Hayır — sadece işaretle"
+
+msgid "Henüz affiliate yok."
+msgstr "Henüz affiliate yok."
+
+msgid "Henüz bağlanmadı"
+msgstr "Henüz bağlanmadı"
+
+msgid "Henüz etkinlik yok."
+msgstr "Henüz etkinlik yok."
+
+msgid "Henüz eşleştirme yok. Ürün aktarımı sırasında otomatik oluşturulur veya aşağıdan ekleyin."
+msgstr "Henüz eşleştirme yok. Ürün aktarımı sırasında otomatik oluşturulur veya aşağıdan ekleyin."
+
+msgid "Henüz tedarikçi yok."
+msgstr "Henüz tedarikçi yok."
+
+msgid "Hesap Aç"
+msgstr "Hesap Aç"
+
+msgid "Isarud Cloud Sync"
+msgstr "Isarud Cloud Sync"
+
+msgid "Isarud'a Hoş Geldiniz!"
+msgstr "Isarud'a Hoş Geldiniz!"
+
+msgid "Kapalı"
+msgstr "Kapalı"
+
+msgid "Kategori Eşleştirme"
+msgstr "Kategori Eşleştirme"
+
+msgid "Kategori ve attribute eşleştirme"
+msgstr "Kategori ve attribute eşleştirme"
+
+msgid "Kaydedildi"
+msgstr "Kaydedildi"
+
+msgid "Kaydedildi."
+msgstr "Kaydedildi."
+
+msgid "Kaydet"
+msgstr "Kaydet"
+
+msgid "Kazanç"
+msgstr "Kazanç"
+
+msgid "Komisyon"
+msgstr "Komisyon"
+
+msgid "Komisyon Oranı"
+msgstr "Komisyon Oranı"
+
+msgid "Kurulum Durumu"
+msgstr "Kurulum Durumu"
+
+msgid "Mesaj"
+msgstr "Mesaj"
+
+msgid "Mevcut ürünleri güncelle"
+msgstr "Mevcut ürünleri güncelle"
+
+msgid "Müşteri"
+msgstr "Müşteri"
+
+msgid "Müşteri Soruları"
+msgstr "Müşteri Soruları"
+
+msgid "Nasıl Çalışır?"
+msgstr "Nasıl Çalışır?"
+
+msgid "Opsiyonel"
+msgstr "Opsiyonel"
+
+msgid "Opsiyonel — kurulursa ek özellikler"
+msgstr "Opsiyonel — kurulursa ek özellikler"
+
+msgid "Oto-Sync"
+msgstr "Oto-Sync"
+
+msgid "Oto-İlet"
+msgstr "Oto-İlet"
+
+msgid "Otomatik aktarım"
+msgstr "Otomatik aktarım"
+
+msgid "Otomatik oluşturulur"
+msgstr "Otomatik oluşturulur"
+
+msgid "Otomatik saatlik senkronizasyon"
+msgstr "Otomatik saatlik senkronizasyon"
+
+msgid "Otomatik tarama"
+msgstr "Otomatik tarama"
+
+msgid "Otomatik yaptırım taraması"
+msgstr "Otomatik yaptırım taraması"
+
+msgid "PDF rapor, portföy, uyarılar"
+msgstr "PDF rapor, portföy, uyarılar"
+
+msgid "Pazar Yeri"
+msgstr "Pazar Yeri"
+
+msgid "Pazar Yeri API"
+msgstr "Pazar Yeri API"
+
+msgid "Pazar Yeri API Ayarları"
+msgstr "Pazar Yeri API Ayarları"
+
+msgid "Pazar Yeri API Ekleyin"
+msgstr "Pazar Yeri API Ekleyin"
+
+msgid "Pazar Yeri Kategorisi"
+msgstr "Pazar Yeri Kategorisi"
+
+msgid "Pazar Yerleri"
+msgstr "Pazar Yerleri"
+
+msgid "Pazar yeri API bilgilerinizi girin ve bağlantıyı test edin."
+msgstr "Pazar yeri API bilgilerinizi girin ve bağlantıyı test edin."
+
+msgid "Pazar yeri kategori adı"
+msgstr "Pazar yeri kategori adı"
+
+msgid "Pazar yeri kategorilerini WooCommerce kategorileriyle eşleştirin. Ürün aktarımında kullanılır."
+msgstr "Pazar yeri kategorilerini WooCommerce kategorileriyle eşleştirin. Ürün aktarımında kullanılır."
+
+msgid "Pazar yerinde stok değiştiğinde WooCommerce da güncellenir"
+msgstr "Pazar yerinde stok değiştiğinde WooCommerce da güncellenir"
+
+msgid "Pazar yerinden sipariş geldiğinde WooCommerce stoğu otomatik düşer"
+msgstr "Pazar yerinden sipariş geldiğinde WooCommerce stoğu otomatik düşer"
+
+msgid "Pazar yerlerinden gelen iade taleplerini görüntüleyin ve yönetin."
+msgstr "Pazar yerlerinden gelen iade taleplerini görüntüleyin ve yönetin."
+
+msgid "Pazar yerlerinden gelen stok ve sipariş bildirimlerini almak için aşağıdaki URL'leri ilgili pazar yeri panellerine ekleyin."
+msgstr "Pazar yerlerinden gelen stok ve sipariş bildirimlerini almak için aşağıdaki URL'leri ilgili pazar yeri panellerine ekleyin."
+
+msgid "Pazar yerlerinden siparişleri WooCommerce'e aktarın."
+msgstr "Pazar yerlerinden siparişleri WooCommerce'e aktarın."
+
+msgid "Pazar yerlerinden ürünleri WooCommerce'e aktarın."
+msgstr "Pazar yerlerinden ürünleri WooCommerce'e aktarın."
+
+msgid "Pazarama REST API entegrasyonu"
+msgstr "Pazarama REST API entegrasyonu"
+
+msgid "Platform"
+msgstr "Platform"
+
+msgid "Referans Kodu"
+msgstr "Referans Kodu"
+
+msgid "Saatlik otomatik sipariş çekme"
+msgstr "Saatlik otomatik sipariş çekme"
+
+msgid "Satışlar"
+msgstr "Satışlar"
+
+msgid "Sebep"
+msgstr "Sebep"
+
+msgid "Senkronizasyon Ayarları"
+msgstr "Senkronizasyon Ayarları"
+
+msgid "Senkronizasyon Günlüğü"
+msgstr "Senkronizasyon Günlüğü"
+
+msgid "Seçenekler"
+msgstr "Seçenekler"
+
+msgid "Sipariş"
+msgstr "Sipariş"
+
+msgid "Sipariş Aktarımı"
+msgstr "Sipariş Aktarımı"
+
+msgid "Sipariş müşterileri otomatik yaptırım taramasından geçer"
+msgstr "Sipariş müşterileri otomatik yaptırım taramasından geçer"
+
+msgid "Siparişleri Aktar"
+msgstr "Siparişleri Aktar"
+
+msgid "Siparişleri otomatik ilet"
+msgstr "Siparişleri otomatik ilet"
+
+msgid "Son 24 Saat"
+msgstr "Son 24 Saat"
+
+msgid "Son 24 saatte aktivite yok."
+msgstr "Son 24 saatte aktivite yok."
+
+msgid "Son Sipariş Sync"
+msgstr "Son Sipariş Sync"
+
+msgid "Son Sync"
+msgstr "Son Sync"
+
+msgid "Son kaç gün?"
+msgstr "Son kaç gün?"
+
+msgid "Son sync:"
+msgstr "Son sync:"
+
+msgid "Son Ürün Sync"
+msgstr "Son Ürün Sync"
+
+msgid "Soru bulunamadı."
+msgstr "Soru bulunamadı."
+
+msgid "Soruları Getir"
+msgstr "Soruları Getir"
+
+msgid "Stok"
+msgstr "Stok"
+
+msgid "Stok güncelle"
+msgstr "Stok güncelle"
+
+msgid "Sync"
+msgstr "Sync"
+
+msgid "Sync Hataları"
+msgstr "Sync Hataları"
+
+msgid "Tarama"
+msgstr "Tarama"
+
+msgid "Taranan Siparişler"
+msgstr "Taranan Siparişler"
+
+msgid "Taranmadı"
+msgstr "Taranmadı"
+
+msgid "Tarih"
+msgstr "Tarih"
+
+msgid "Tarih/Saat"
+msgstr "Tarih/Saat"
+
+msgid "Taslak"
+msgstr "Taslak"
+
+msgid "Tedarikçi Adı"
+msgstr "Tedarikçi Adı"
+
+msgid "Tedarikçi Ekle"
+msgstr "Tedarikçi Ekle"
+
+msgid "Tedarikçi ID"
+msgstr "Tedarikçi ID"
+
+msgid "Tedarikçi eklendi."
+msgstr "Tedarikçi eklendi."
+
+msgid "Tedarikçiler"
+msgstr "Tedarikçiler"
+
+msgid "Temiz"
+msgstr "Temiz"
+
+msgid "Toplu Senkronizasyon"
+msgstr "Toplu Senkronizasyon"
+
+msgid "Trendyol'dan gelen müşteri sorularını görüntüleyin ve yanıtlayın."
+msgstr "Trendyol'dan gelen müşteri sorularını görüntüleyin ve yanıtlayın."
+
+msgid "Trendyol, HB, N11 API bilgileri. WooCommerce gerekir."
+msgstr "Trendyol, HB, N11 API bilgileri. WooCommerce gerekir."
+
+msgid "Tüm Aktiviteleri Gör"
+msgstr "Tüm Aktiviteleri Gör"
+
+msgid "Tüm WooCommerce ürünlerini seçili pazar yerine senkronize edin."
+msgstr "Tüm WooCommerce ürünlerini seçili pazar yerine senkronize edin."
+
+msgid "Tüm değişiklikler Senkronizasyon Günlüğü'nde kaydedilir"
+msgstr "Tüm değişiklikler Senkronizasyon Günlüğü'nde kaydedilir"
+
+msgid "Tüm pazar yeri verileriniz tek panelde birleşir"
+msgstr "Tüm pazar yeri verileriniz tek panelde birleşir"
+
+msgid "Tüm yayında WooCommerce ürünlerini CSV olarak indirin. Excel uyumlu (UTF-8 BOM)."
+msgstr "Tüm yayında WooCommerce ürünlerini CSV olarak indirin. Excel uyumlu (UTF-8 BOM)."
+
+msgid "Tüm Ürünleri Yükle"
+msgstr "Tüm Ürünleri Yükle"
+
+msgid "Tüm ürünleri aktarmak istediğinize emin misiniz?"
+msgstr "Tüm ürünleri aktarmak istediğinize emin misiniz?"
+
+msgid "Tümü"
+msgstr "Tümü"
+
+msgid "Tümünü Senkronize Et"
+msgstr "Tümünü Senkronize Et"
+
+msgid "Tür"
+msgstr "Tür"
+
+msgid "Türkiye'nin en büyük e-ticaret platformu"
+msgstr "Türkiye'nin en büyük e-ticaret platformu"
+
+msgid "Türkiye'nin öncü online alışveriş sitesi"
+msgstr "Türkiye'nin öncü online alışveriş sitesi"
+
+msgid "Uyarı e-postası"
+msgstr "Uyarı e-postası"
+
+msgid "Varyasyonlu ürün desteği (beden, renk)"
+msgstr "Varyasyonlu ürün desteği (beden, renk)"
+
+msgid "Veya tek ürün seç:"
+msgstr "Veya tek ürün seç:"
+
+msgid "Webhook Ayarları"
+msgstr "Webhook Ayarları"
+
+msgid "Webhook Güvenlik"
+msgstr "Webhook Güvenlik"
+
+msgid "Webhook Kurun"
+msgstr "Webhook Kurun"
+
+msgid "Webhook URL'leri"
+msgstr "Webhook URL'leri"
+
+msgid "Webhooks"
+msgstr "Webhooks"
+
+msgid "WooCommerce Kategorisi"
+msgstr "WooCommerce Kategorisi"
+
+msgid "WooCommerce Kur"
+msgstr "WooCommerce Kur"
+
+msgid "WooCommerce attribute'larını pazar yeri attribute'larıyla eşleştirin. Ürün yükleme ve varyasyon sync için kullanılır."
+msgstr "WooCommerce attribute'larını pazar yeri attribute'larıyla eşleştirin. Ürün yükleme ve varyasyon sync için kullanılır."
+
+msgid "WooCommerce gerektirir"
+msgstr "WooCommerce gerektirir"
+
+msgid "WooCommerce kuruluysa ek olarak:"
+msgstr "WooCommerce kuruluysa ek olarak:"
+
+msgid "WooCommerce olmadan da kullanılabilir:"
+msgstr "WooCommerce olmadan da kullanılabilir:"
+
+msgid "WooCommerce verilerinizi isarud.com hesabınıza senkronize edin. Ürünlerinizi ve siparişlerinizi web, mobil ve masaüstü uygulamalarında görün."
+msgstr "WooCommerce verilerinizi isarud.com hesabınıza senkronize edin. Ürünlerinizi ve siparişlerinizi web, mobil ve masaüstü uygulamalarında görün."
+
+msgid "WooCommerce ürün attribute'larını (renk, beden, marka vb.) pazar yeri attribute'larıyla eşleştirin. Ürün yüklemede kullanılır."
+msgstr "WooCommerce ürün attribute'larını (renk, beden, marka vb.) pazar yeri attribute'larıyla eşleştirin. Ürün yüklemede kullanılır."
+
+msgid "WooCommerce ürünleriniz ve siparişleriniz isarud.com'da görünür"
+msgstr "WooCommerce ürünleriniz ve siparişleriniz isarud.com'da görünür"
+
+msgid "WooCommerce ürünlerinizi pazar yerlerine yükleyin. Yeni ürün oluşturur (stok/fiyat güncelleme değil)."
+msgstr "WooCommerce ürünlerinizi pazar yerlerine yükleyin. Yeni ürün oluşturur (stok/fiyat güncelleme değil)."
+
+msgid "Yanıt Bekliyor"
+msgstr "Yanıt Bekliyor"
+
+msgid "Yanıtla"
+msgstr "Yanıtla"
+
+msgid "Yanıtlandı"
+msgstr "Yanıtlandı"
+
+msgid "Yanıtınız..."
+msgstr "Yanıtınız..."
+
+msgid "Yaptırım Taraması"
+msgstr "Yaptırım Taraması"
+
+msgid "Yaptırım taraması (8 liste, 32K+ kayıt)"
+msgstr "Yaptırım taraması (8 liste, 32K+ kayıt)"
+
+msgid "Yaptırım taraması, pazar yeri entegrasyonu ve ticaret uyum araçlarını ücretsiz kullanmaya başlayın."
+msgstr "Yaptırım taraması, pazar yeri entegrasyonu ve ticaret uyum araçlarını ücretsiz kullanmaya başlayın."
+
+msgid "Yapılandırılmadı"
+msgstr "Yapılandırılmadı"
+
+msgid "Yapılandırılmış pazar yeri yok."
+msgstr "Yapılandırılmış pazar yeri yok."
+
+msgid "Yayında"
+msgstr "Yayında"
+
+msgid "Yeni Affiliate Ekle"
+msgstr "Yeni Affiliate Ekle"
+
+msgid "Yeni Tedarikçi Ekle"
+msgstr "Yeni Tedarikçi Ekle"
+
+msgid "Yükle"
+msgstr "Yükle"
+
+msgid "Zaman"
+msgstr "Zaman"
+
+msgid "boş bırakılırsa otomatik"
+msgstr "boş bırakılırsa otomatik"
+
+msgid "iOS, Android, Windows, macOS uygulamalarından erişim"
+msgstr "iOS, Android, Windows, macOS uygulamalarından erişim"
+
+msgid "isarud.com Bağlantısı"
+msgstr "isarud.com Bağlantısı"
+
+msgid "isarud.com Hesabı Açın"
+msgstr "isarud.com Hesabı Açın"
+
+msgid "isarud.com hesabınızla bu WordPress sitesini bağlayın."
+msgstr "isarud.com hesabınızla bu WordPress sitesini bağlayın."
+
+msgid "isarud.com'a Bağlan"
+msgstr "isarud.com'a Bağlan"
+
+msgid "isarud.com'da Tüm Özellikler"
+msgstr "isarud.com'da Tüm Özellikler"
+
+msgid "isarud.com'dan API anahtarı alın"
+msgstr "isarud.com'dan API anahtarı alın"
+
+msgid "kaydedildi."
+msgstr "kaydedildi."
+
+msgid "kayıt gösteriliyor (maks. 100)"
+msgstr "kayıt gösteriliyor (maks. 100)"
+
+msgid "opsiyonel"
+msgstr "opsiyonel"
+
+msgid "platform bağlı"
+msgstr "platform bağlı"
+
+msgid "veya Cloud Sync ile bağlan"
+msgstr "veya Cloud Sync ile bağlan"
+
+msgid "Çift Kullanımlı Ürün Kontrolü"
+msgstr "Çift Kullanımlı Ürün Kontrolü"
+
+msgid "Çift yönlü senkronizasyon — stok her zaman güncel"
+msgstr "Çift yönlü senkronizasyon — stok her zaman güncel"
+
+msgid "Çift yönlü stok sync + Webhook"
+msgstr "Çift yönlü stok sync + Webhook"
+
+msgid "Çift yönlü stok sync için."
+msgstr "Çift yönlü stok sync için."
+
+msgid "Önizle"
+msgstr "Önizle"
+
+msgid "Özel"
+msgstr "Özel"
+
+msgid "Özel entegrasyonlar için. Header: X-Isarud-Webhook-Key gerekir"
+msgstr "Özel entegrasyonlar için. Header: X-Isarud-Webhook-Key gerekir"
+
+msgid "Ücretsiz hesap — aylık 10 tarama."
+msgstr "Ücretsiz hesap — aylık 10 tarama."
+
+msgid "Ürün"
+msgstr "Ürün"
+
+msgid "Ürün Aktarımı"
+msgstr "Ürün Aktarımı"
+
+msgid "Ürün Yükleme (WooCommerce → Pazar Yeri)"
+msgstr "Ürün Yükleme (WooCommerce → Pazar Yeri)"
+
+msgid "Ürün durumu"
+msgstr "Ürün durumu"
+
+msgid "Ürün yükleme + çekme + sipariş aktarma"
+msgstr "Ürün yükleme + çekme + sipariş aktarma"
+
+msgid "Ürünleri Aktar"
+msgstr "Ürünleri Aktar"
+
+msgid "Ürünleri CSV'ye Aktar"
+msgstr "Ürünleri CSV'ye Aktar"
+
+msgid "önce"
+msgstr "önce"
+
+msgid "İade Yönetimi"
+msgstr "İade Yönetimi"
+
+msgid "İade bulunamadı."
+msgstr "İade bulunamadı."
+
+msgid "İadeleri Getir"
+msgstr "İadeleri Getir"
+
+msgid "İstatistikler"
+msgstr "İstatistikler"
+
+msgid "İstatistikler & Aktivite"
+msgstr "İstatistikler & Aktivite"
+
+msgid "İşlem"
+msgstr "İşlem"
+
+msgid "Şimdi Bağlan"
+msgstr "Şimdi Bağlan"
+
+msgid "Şimdi Senkronize Et"
+msgstr "Şimdi Senkronize Et"
+
+msgid "Şimdi Tara"
+msgstr "Şimdi Tara"
+
+msgid "📋 Adım Adım Başlangıç"
+msgstr "📋 Adım Adım Başlangıç"
+
+msgid "🛒 WooCommerce ile Ücretsiz"
+msgstr "🛒 WooCommerce ile Ücretsiz"
+
+msgid "🛡️ Her Zaman Ücretsiz"
+msgstr "🛡️ Her Zaman Ücretsiz"
+
+msgid "Sanctions screening + 6 marketplace integrations + order management + returns + invoices + customer questions + brand lookup. 100% free."
+msgstr "Yaptırım tarama + 6 pazar yeri entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz."
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Tarama (24s)"
+msgstr "Tarama (24s)"
+
+msgid "Sync (24s)"
+msgstr "Sync (24s)"
+
+msgid "Hata (24s)"
+msgstr "Hata (24s)"
+
+msgid "Toplam tarama"
+msgstr "Toplam tarama"
+
+msgid "Eşleşme (24s)"
+msgstr "Eşleşme (24s)"
+
+msgid "Aktif pazar yeri"
+msgstr "Aktif pazar yeri"
+
+msgid "Son Aktivite"
+msgstr "Son Aktivite"
+
+msgid "Başarılı"
+msgstr "Başarılı"
+
+msgid "Her Zaman Ücretsiz"
+msgstr "Her Zaman Ücretsiz"
+
+msgid "WooCommerce ile Ücretsiz"
+msgstr "WooCommerce ile Ücretsiz"
+
+msgid "WooCommerce olmadan da kullanılabilir"
+msgstr "WooCommerce olmadan da kullanılabilir"
+
+msgid "WooCommerce kuruluysa ek olarak"
+msgstr "WooCommerce kuruluysa ek olarak"
+
+msgid "isarud.com Hesabı Bağla"
+msgstr "isarud.com Hesabı Bağla"
+
+msgid "WooCommerce Kur (Opsiyonel)"
+msgstr "WooCommerce Kur (Opsiyonel)"
+
+msgid "Aktif"
+msgstr "Aktif"
+
+msgid "Pasif"
+msgstr "Pasif"
+
+msgid "API Isarud Trade Compliance"
+msgstr "API Isarud Tüm Pazar Yerleri Ticaret Entegrasyonu"

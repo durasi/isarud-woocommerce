@@ -20,17 +20,6 @@
 - Alert email notifications
 - Screening log with full audit trail
 
-### 🏪 Marketplace Integration (6 Platforms)
-
-| Platform | Stock Sync | Price Sync | Upload | Import | Orders | Webhook | Returns | Invoice | Questions | Brands |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **Trendyol** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Pazarama** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ |
-| **Hepsiburada** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
-| **N11** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — | — |
-| **Etsy** | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | — | — | — |
-| **Amazon SP-API** | ✅ | ✅ | — | — | — | — | — | — | — | — |
-
 ### 📦 Order Management
 - Auto-sync order status: WooCommerce → marketplace (Picking / Shipped / Cancelled / Delivered)
 - Cargo assignment via Trendyol API (Aras, Yurtiçi, MNG, Sürat, etc.)

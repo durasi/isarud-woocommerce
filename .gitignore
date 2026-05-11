@@ -1,0 +1,4 @@
+*.bak.*
+*.bak
+.DS_Store
+.svn/

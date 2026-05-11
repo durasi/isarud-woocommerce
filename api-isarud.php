@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.6.7
+ * Version: 6.6.8
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -49,6 +49,7 @@ require_once ISARUD_DIR . 'includes/class-isarud-etsy.php';
 require_once ISARUD_DIR . 'includes/class-isarud-trendyol.php';
 require_once ISARUD_DIR . 'includes/class-isarud-n11.php';
 require_once ISARUD_DIR . 'includes/class-isarud-hepsiburada.php';
+require_once ISARUD_DIR . 'includes/class-isarud-pazarama.php';
 require_once ISARUD_DIR . 'includes/class-isarud-amazon.php';
 
 
@@ -201,6 +202,7 @@ add_action('plugins_loaded', function() {
     Isarud_Trendyol::instance();
     Isarud_N11::instance();
     Isarud_Hepsiburada::instance();
+    Isarud_Pazarama::instance();
     Isarud_Amazon::instance();
     Isarud_Webhook::instance();
     Isarud_Order_Import::instance();
@@ -338,6 +340,7 @@ class Isarud_Plugin {
         add_submenu_page('isarud', 'Trendyol', __('Trendyol', 'api-isarud'), 'manage_options', 'isarud-trendyol', [$this, 'page_trendyol']);
         add_submenu_page('isarud', 'N11', __('N11', 'api-isarud'), 'manage_options', 'isarud-n11', [$this, 'page_n11']);
         add_submenu_page('isarud', 'Hepsiburada', __('Hepsiburada', 'api-isarud'), 'manage_options', 'isarud-hepsiburada', [$this, 'page_hepsiburada']);
+        add_submenu_page('isarud', 'Pazarama', __('Pazarama', 'api-isarud'), 'manage_options', 'isarud-pazarama', [$this, 'page_pazarama']);
         add_submenu_page('isarud', 'Amazon', __('Amazon SP-API', 'api-isarud'), 'manage_options', 'isarud-amazon', [$this, 'page_amazon']);
         add_submenu_page('isarud', 'Bulk Sync', __('Toplu Senkronizasyon', 'api-isarud'), 'manage_options', 'isarud-bulk', [$this, 'page_bulk_sync']);
         add_submenu_page('isarud', 'Dropshipping', __('Dropshipping', 'api-isarud'), 'manage_options', 'isarud-dropship', [$this, 'page_dropshipping']);
@@ -535,6 +538,11 @@ class Isarud_Plugin {
         require ISARUD_DIR . 'includes/n11-html.php';
     }
 
+    
+
+    public function page_pazarama() {
+        require_once ISARUD_DIR . 'includes/pazarama-html.php';
+    }
     public function page_hepsiburada() {
         if (!current_user_can('manage_options')) wp_die('Yetki yok');
         require ISARUD_DIR . 'includes/hb-html.php';
@@ -810,7 +818,7 @@ class Isarud_Plugin {
             'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->get_status() : ['error' => 'Hepsiburada modülü yüklü değil'],
             'n11' => $this->test_n11(),
             'amazon' => class_exists('Isarud_Amazon') ? Isarud_Amazon::instance()->get_status() : $this->marketplace_request('amazon', 'sellers/v1/marketplaceParticipations'),
-            'pazarama' => $this->marketplace_request('pazarama', 'product/products?page=0&size=1'),
+            'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->get_status() : $this->marketplace_request('pazarama', 'product/products?page=0&size=1'),
             'etsy' => $this->marketplace_request('etsy', 'application/shops/' . $this->get_cred($mp, 'shop_id')),
             default => ['error' => 'Unknown'],
         };
@@ -857,7 +865,7 @@ class Isarud_Plugin {
 
         $result = match($mp) {
             'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->sync_stock_single($barcode, $stock, $price) : ['error' => 'Hepsiburada modülü yüklü değil'],
-            'pazarama' => $this->marketplace_request('pazarama', 'product/products/price-and-inventory', 'PUT', ['items' => [['barcode' => $barcode, 'quantity' => $stock, 'salePrice' => $price]]]),
+            'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->sync_stock_single($barcode, $stock, $price) : $this->marketplace_request('pazarama', 'product/products/price-and-inventory', 'PUT', ['items' => [['barcode' => $barcode, 'quantity' => $stock, 'salePrice' => $price]]]),
             default => ['error' => 'Not implemented for ' . $mp],
         };
 

@@ -6,7 +6,6 @@ $mp_meta = [
     'trendyol' => ['color'=>'#f27a1a','grad'=>'linear-gradient(135deg,#f27a1a 0%,#ff9f43 100%)','desc'=>__('Türkiye\'nin en büyük e-ticaret platformu','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice','questions','brands']],
     'hepsiburada' => ['color'=>'#ff6000','grad'=>'linear-gradient(135deg,#ff6000 0%,#ff8533 100%)','desc'=>__('Türkiye\'nin öncü online alışveriş sitesi','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice']],
     'amazon' => ['color'=>'#ff9900','grad'=>'linear-gradient(135deg,#232f3e 0%,#37475a 100%)','desc'=>__('Amazon SP-API ile envanter senkronizasyonu','api-isarud'),'feat'=>['stock','price']],
-    'pazarama' => ['color'=>'#00b900','grad'=>'linear-gradient(135deg,#00b900 0%,#34d399 100%)','desc'=>__('Pazarama REST API entegrasyonu','api-isarud'),'feat'=>['stock','price']],
 ];
 $feat_labels = ['stock'=>'Stok','price'=>'Fiyat','upload'=>'Ürün Yükleme','import'=>'Ürün Çekme','orders'=>'Siparişler','webhook'=>'Webhook','returns'=>'İadeler','invoice'=>'Fatura','questions'=>'Müşteri Soruları','brands'=>'Marka Arama'];
 $all_feat = array_keys($feat_labels);
@@ -137,8 +136,66 @@ $etsy_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
     });
 })(jQuery);
 </script>
-<?php endif; ?>
 
+<?php
+$pazarama_url = admin_url('admin.php?page=isarud-pazarama');
+$pazarama_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
+?>
+<div id="isarud-pazarama-modern-card" style="border-radius:14px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;max-width:920px">
+    <div style="background:linear-gradient(135deg,#6B3FA0 0%,#8B5CF6 100%);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+        <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:42px;height:42px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(0,0,0,0.1)">
+                <span style="font-weight:800;font-size:14px;color:#6B3FA0;letter-spacing:-0.5px">pazarama</span>
+            </div>
+            <div>
+                <div style="font-size:18px;font-weight:700;color:#fff">Pazarama</div>
+                <div style="font-size:12px;color:#fff;opacity:0.85;margin-top:2px"><?php esc_html_e("İş Bankası iştiraki — Modern REST API","api-isarud"); ?></div>
+            </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+            <div id="isarud-pazarama-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Yükleniyor...","api-isarud"); ?></div>
+        </div>
+    </div>
+    <div style="padding:16px 24px;background:#fafafa;border-top:1px solid rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px">
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📦 <?php esc_html_e("Stok","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💰 <?php esc_html_e("Fiyat","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📤 <?php esc_html_e("Yükleme","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📥 <?php esc_html_e("İçe Aktar","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📋 <?php esc_html_e("Sipariş","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🔄 <?php esc_html_e("İade","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💬 <?php esc_html_e("Soru","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🏷️ <?php esc_html_e("Marka","api-isarud"); ?></span>
+        </div>
+        <div id="isarud-pazarama-modern-action">
+            <a href="<?php echo admin_url('admin.php?page=isarud-pazarama'); ?>" id="isarud-pazarama-modern-btn" class="button button-primary button-hero" style="background:#6B3FA0;border-color:#6B3FA0;text-shadow:none;box-shadow:0 2px 6px rgba(107,63,160,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
+                🔗 <?php esc_html_e("Pazarama Sayfasına Git","api-isarud"); ?>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+jQuery(function($){
+    $.post(ajaxurl, {
+        action: "isarud_pazarama_status",
+        nonce: "<?php echo wp_create_nonce('isarud_pazarama_nonce'); ?>"
+    }).done(function(r){
+        if(r && r.success && r.data && r.data.success){
+            $("#isarud-pazarama-modern-status").html("✅ <?php echo esc_js(__('Bağlı','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
+            $("#isarud-pazarama-modern-action").html(
+                '<a href="<?php echo admin_url('admin.php?page=isarud-pazarama'); ?>" class="button button-primary" style="background:#6B3FA0;border-color:#6B3FA0;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Yönet','api-isarud')); ?></a>'
+            );
+        } else {
+            $("#isarud-pazarama-modern-status").html("⚪ <?php echo esc_js(__('Bağlı değil','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+        }
+    }).fail(function(){
+        $("#isarud-pazarama-modern-status").html("⚠️").css({background:"#fef2f2",color:"#dc2626"});
+    });
+});
+</script>
+
+<?php endif; ?>
 
 <?php
 // Trendyol modern kart (özel render — generic loop'tan ÖNCE)
@@ -411,12 +468,17 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
     });
 })(jQuery);
 </script>
+
 <?php endif; ?>
 
 <?php
 // Diğer marketplace'ler (Trendyol, HB, N11, Amazon, Pazarama) - generic render
 foreach ($marketplaces as $key => $mp):
     if ($key === "etsy") continue; // Etsy yukarıda özel
+    if ($key === "amazon") continue; // Amazon yukarıda özel (modern card)
+    if ($key === "hepsiburada") continue; // Hepsiburada yukarıda özel (modern card)
+    if ($key === "etsy") continue; // Etsy yukarıda özel (modern card)
+    if ($key === "pazarama") continue; // Pazarama yukarıda özel (modern card)
     if ($key === "amazon") continue; // Amazon yukarıda özel (modern card)
     if ($key === "hepsiburada") continue; // Hepsiburada yukarıda özel (modern card)
     if ($key === "n11") continue; // N11 yukarıda özel (modern card)

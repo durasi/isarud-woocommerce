@@ -39,6 +39,7 @@ class Isarud_Order_Management {
         return match($mp) {
             'trendyol' => $this->update_trendyol_status($ext_id, $status, $order),
             'hepsiburada' => $this->update_hepsiburada_status($ext_id, $status, $order),
+                'pazarama' => $this->update_pazarama_status($ext_id, $status, $order),
             'n11' => $this->update_n11_status($ext_id, $status),
             default => ['error' => 'Unsupported marketplace'],
         };
@@ -74,6 +75,28 @@ class Isarud_Order_Management {
             'message' => 'Amazon sipariş güncelleme yakında - Feeds API entegrasyonu sonrası aktif olacak.',
             'order_id' => $order_id,
         ];
+    }
+
+    private function update_pazarama_status(string $order_id, string $status, $order): array {
+        if (!class_exists('Isarud_Pazarama')) {
+            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil'];
+        }
+
+        $svc = \Isarud_Pazarama::instance();
+        if (!method_exists($svc, 'update_package_status')) {
+            return ['success' => false, 'message' => 'update_package_status metodu yok'];
+        }
+
+        // Pazarama statüleri: Shipped, Delivered, Cancelled
+        $paz_status = match($status) {
+            'processing' => 'Approved',
+            'shipped' => 'Shipped',
+            'completed' => 'Delivered',
+            'cancelled' => 'Cancelled',
+            default => 'Approved',
+        };
+
+        return $svc->update_package_status($order_id, $paz_status);
     }
 
     private function update_hepsiburada_status(string $package_id, string $status, $order): array {

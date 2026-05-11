@@ -146,6 +146,27 @@ class Isarud_Order_Import {
         return ['success' => true, 'imported' => $imported, 'skipped' => $skipped, 'total' => count($orders)];
     }
 
+    public function import_pazarama_orders(int $days = 7): array {
+        if (!class_exists('Isarud_Pazarama')) {
+            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil', 'imported' => 0];
+        }
+
+        $svc = \Isarud_Pazarama::instance();
+        if (!method_exists($svc, 'pull_orders')) {
+            return ['success' => false, 'message' => 'pull_orders metodu yok', 'imported' => 0];
+        }
+
+        return $svc->pull_orders($days);
+    }
+
+    public function import_pazarama_order(array $item): void {
+        if (!class_exists('Isarud_Pazarama')) return;
+
+        // Bridge: webhook'tan gelen order'ı işle
+        // Pazarama'da webhook desteği gelirse aktif olur
+        do_action('isarud_pazarama_order_imported', $item);
+    }
+
     public function import_hepsiburada_orders(int $days = 7): array {
         $merchant_id = $this->get_cred('hepsiburada', 'merchant_id');
         if (empty($merchant_id)) return ['error' => 'Hepsiburada credentials not configured'];
@@ -468,6 +489,7 @@ class Isarud_Order_Import {
             match($mp) {
                 'trendyol' => $this->import_trendyol_orders(1),
                 'hepsiburada' => $this->import_hepsiburada_orders(1),
+                'pazarama' => $this->import_pazarama_orders(1),
                 'n11' => $this->import_n11_orders(1),
                 default => null,
             };
@@ -487,6 +509,7 @@ class Isarud_Order_Import {
         $result = match($mp) {
             'trendyol' => $this->import_trendyol_orders($days),
             'hepsiburada' => $this->import_hepsiburada_orders($days),
+                'pazarama' => $this->import_pazarama_orders($days),
             'n11' => $this->import_n11_orders($days),
             'all' => $this->import_all($days),
             default => ['error' => 'Unknown marketplace'],
@@ -504,6 +527,7 @@ class Isarud_Order_Import {
             $results[$mp] = match($mp) {
                 'trendyol' => $this->import_trendyol_orders($days),
                 'hepsiburada' => $this->import_hepsiburada_orders($days),
+                'pazarama' => $this->import_pazarama_orders($days),
                 'n11' => $this->import_n11_orders($days),
                 default => ['skipped' => true],
             };

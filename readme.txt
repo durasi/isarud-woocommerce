@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11, woocommerce
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.6.7
+Stable tag: 6.6.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,16 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.6.8 =
+* Pazarama Marketplace full integration (9 features: stock, price, upload, import, orders, returns, brands, questions, webhook)
+* Pazarama OAuth 2.0 client_credentials authentication
+* Pazarama 6-tab admin UI with #6B3FA0 purple theme
+* Modern card on marketplaces page (purple gradient)
+* 16 language localization (Turkish + English + 14 Haiku-translated)
+* Bridge pattern: export_to_pazarama, import_pazarama_orders, update_pazarama_status
+* WooCommerce → Pazarama: product export, order import, status sync
+* Old marketplace config form removed for modern card marketplaces
 
 
 

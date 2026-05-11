@@ -134,6 +134,56 @@ class Isarud_Product_Export {
     /**
      * Export WooCommerce product to Hepsiburada
      */
+    public function export_to_pazarama(\WC_Product $product): array {
+        if (!class_exists('Isarud_Pazarama')) {
+            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil'];
+        }
+
+        $svc = \Isarud_Pazarama::instance();
+
+        $barcode = $product->get_sku() ?: 'WC-' . $product->get_id();
+        $name = $product->get_name();
+        $desc = wp_strip_all_tags($product->get_description() ?: $product->get_short_description() ?: $name);
+        $price = (float) $product->get_price();
+        $listPrice = (float) ($product->get_regular_price() ?: $price);
+        $stock = $product->managing_stock() ? (int) $product->get_stock_quantity() : 100;
+
+        $images = [];
+        if ($product->get_image_id()) {
+            $mainImg = wp_get_attachment_url($product->get_image_id());
+            if ($mainImg) $images[] = ['imageurl' => $mainImg];
+        }
+        foreach ($product->get_gallery_image_ids() as $gid) {
+            $url = wp_get_attachment_url($gid);
+            if ($url) $images[] = ['imageurl' => $url];
+        }
+
+        $item = [
+            'Name' => $name,
+            'DisplayName' => $name,
+            'Description' => $desc,
+            'BrandId' => $product->get_attribute('pazarama_brand_id') ?: '',
+            'Desi' => 1,
+            'Code' => $barcode,
+            'GroupCode' => $barcode,
+            'StockCount' => $stock,
+            'VatRate' => 18,
+            'ListPrice' => $listPrice,
+            'SalePrice' => $price,
+            'CategoryId' => $product->get_attribute('pazarama_category_id') ?: '',
+            'images' => $images,
+            'attributes' => [],
+        ];
+
+        // Bridge: Isarud_Pazarama public metodu yoksa AJAX ile çağır
+        // Şimdilik direct submit pattern (sync_stock_single pattern paritesi)
+        if (method_exists($svc, 'submit_product_batch')) {
+            return $svc->submit_product_batch([$item]);
+        }
+
+        return ['success' => false, 'message' => 'submit_product_batch metodu yok'];
+    }
+
     public function export_to_hepsiburada(\WC_Product $product): array {
         $merchant_id = $this->get_cred('hepsiburada', 'merchant_id');
         if (empty($merchant_id)) return ['error' => 'Hepsiburada credentials not configured'];
@@ -278,6 +328,7 @@ class Isarud_Product_Export {
             $result = match($marketplace) {
                 'trendyol' => $this->export_to_trendyol($product),
                 'hepsiburada' => $this->export_to_hepsiburada($product),
+                'pazarama' => $this->export_to_pazarama($product),
                 'n11' => $this->export_to_n11($product),
                 default => ['error' => 'Unsupported marketplace'],
             };
@@ -332,6 +383,7 @@ class Isarud_Product_Export {
         $result = match($mp) {
             'trendyol' => $this->export_to_trendyol($product),
             'hepsiburada' => $this->export_to_hepsiburada($product),
+                'pazarama' => $this->export_to_pazarama($product),
             'n11' => $this->export_to_n11($product),
             default => ['error' => 'Unsupported marketplace'],
         };

@@ -536,6 +536,18 @@ foreach ($marketplaces as $key => $mp):
                                     <option value="fixed" <?php selected($row->price_margin_type ?? '', 'fixed'); ?>>₺ / $</option>
                                 </select>
                             </div>
+                            <?php /* @@shipping_addition_v1@@ */ ?>
+                            <label><?php _e('Kargo Ek Ücreti', 'api-isarud'); ?></label>
+                            <div class="imsr">
+                                <input type="number" step="0.01" min="0" name="shipping_addition" value="<?php echo esc_attr($row->shipping_addition ?? 0); ?>" style="width:80px" placeholder="0">
+                                <select name="shipping_addition_currency" style="width:70px">
+                                    <option value="TRY" <?php selected($row->shipping_addition_currency ?? 'TRY', 'TRY'); ?>>₺</option>
+                                    <option value="USD" <?php selected($row->shipping_addition_currency ?? 'TRY', 'USD'); ?>>$</option>
+                                    <option value="EUR" <?php selected($row->shipping_addition_currency ?? 'TRY', 'EUR'); ?>>€</option>
+                                    <option value="GBP" <?php selected($row->shipping_addition_currency ?? 'TRY', 'GBP'); ?>>£</option>
+                                </select>
+                                <span style="font-size:11px;color:#94a3b8;margin-left:8px"><?php _e('Pazaryeri fiyatına eklenecek tutar', 'api-isarud'); ?></span>
+                            </div>
                             <label><?php _e('Oto-Sync', 'api-isarud'); ?></label>
                             <div class="imsr">
                                 <select name="auto_sync" style="width:85px">

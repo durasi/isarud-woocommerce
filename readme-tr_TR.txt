@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11, woocommerce
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.6.8
+Stable tag: 6.6.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,13 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.6.9 =
+* Yeni: Pazaryerleri için kargo ek ücreti ayarı (TL/USD/EUR/GBP)
+* Yeni: Otomatik komisyon + kargo birleşik fiyat hesaplama
+* İyileştirme: Sunucu reverse-sync ile kargo ayarı senkronizasyonu
+* Tarih: 2026-05-16
+
 
 = 6.6.8 =
 * Pazarama Marketplace tam entegrasyon (9 özellik: stok, fiyat, yükleme, içe aktarma, sipariş, iade, marka, soru, webhook)

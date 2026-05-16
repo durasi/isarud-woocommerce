@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.6.8
+ * Version: 6.6.9
  * Requires at least: 6.0
  * Tested up to: 6.9
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define("ISARUD_VERSION", "6.6.7");
+define("ISARUD_VERSION", "6.6.9");
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -79,6 +79,8 @@ register_activation_hook(__FILE__, function() {
         is_active tinyint(1) DEFAULT 1,
         price_margin decimal(5,2) DEFAULT 0,
         price_margin_type enum('percent','fixed') DEFAULT 'percent',
+        shipping_addition decimal(8,2) DEFAULT 0,
+        shipping_addition_currency varchar(10) DEFAULT 'TRY',
         auto_sync tinyint(1) DEFAULT 0,
         sync_interval varchar(20) DEFAULT 'daily',
         last_test datetime DEFAULT NULL,
@@ -88,6 +90,13 @@ register_activation_hook(__FILE__, function() {
         PRIMARY KEY (id),
         UNIQUE KEY marketplace (marketplace)
     ) {$charset};");
+
+    // @@shipping_addition_v1@@ ALTER TABLE for upgrades — shipping_addition + currency
+    $cols = $wpdb->get_col("SHOW COLUMNS FROM {$wpdb->prefix}isarud_credentials");
+    if (!in_array('shipping_addition', $cols)) {
+        $wpdb->query("ALTER TABLE {$wpdb->prefix}isarud_credentials ADD COLUMN shipping_addition decimal(8,2) DEFAULT 0 AFTER price_margin_type");
+        $wpdb->query("ALTER TABLE {$wpdb->prefix}isarud_credentials ADD COLUMN shipping_addition_currency varchar(10) DEFAULT 'TRY' AFTER shipping_addition");
+    }
 
     dbDelta("CREATE TABLE {$wpdb->prefix}isarud_sync_log (
         id int(11) NOT NULL AUTO_INCREMENT,
@@ -500,16 +509,19 @@ class Isarud_Plugin {
         $table = $wpdb->prefix . 'isarud_credentials';
 
         if (isset($_POST['isarud_save_marketplace']) && wp_verify_nonce($_POST['_wpnonce'], 'isarud_mp')) {
+            // @@shipping_addition_v1@@
             $mp = sanitize_text_field($_POST['marketplace']);
             $creds = [];
             foreach ($_POST['cred'] ?? [] as $k => $v) $creds[sanitize_text_field($k)] = sanitize_text_field($v);
             $margin = floatval($_POST['price_margin'] ?? 0);
             $margin_type = in_array($_POST['price_margin_type'] ?? '', ['percent','fixed']) ? $_POST['price_margin_type'] : 'percent';
+            $shipping_addition = floatval($_POST['shipping_addition'] ?? 0);
+            $shipping_currency = in_array($_POST['shipping_addition_currency'] ?? '', ['TRY','USD','EUR','GBP']) ? $_POST['shipping_addition_currency'] : 'TRY';
             $auto_sync = intval($_POST['auto_sync'] ?? 0);
             $sync_interval = sanitize_text_field($_POST['sync_interval'] ?? 'daily');
 
             $exists = $wpdb->get_var($wpdb->prepare("SELECT id FROM {$table} WHERE marketplace=%s", $mp));
-            $data = ['credentials' => wp_json_encode($creds), 'is_active' => 1, 'price_margin' => $margin, 'price_margin_type' => $margin_type, 'auto_sync' => $auto_sync, 'sync_interval' => $sync_interval];
+            $data = ['credentials' => wp_json_encode($creds), 'is_active' => 1, 'price_margin' => $margin, 'price_margin_type' => $margin_type, 'shipping_addition' => $shipping_addition, 'shipping_addition_currency' => $shipping_currency, 'auto_sync' => $auto_sync, 'sync_interval' => $sync_interval];
             if ($exists) { $wpdb->update($table, $data, ['marketplace' => $mp]); }
             else { $data['marketplace'] = $mp; $wpdb->insert($table, $data); }
             echo '<div class="notice notice-success"><p>' . esc_html(ucfirst($mp)) . ' ' . __('kaydedildi.', 'api-isarud') . '</p></div>';

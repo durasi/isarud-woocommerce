@@ -189,7 +189,7 @@ class Isarud_Cloud_Sync {
         global $wpdb; $rows = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}isarud_credentials ORDER BY id ASC");
         if (empty($rows)) return ['success' => true, 'synced' => 0];
         $data = [];
-        foreach ($rows as $r) $data[] = ['marketplace' => $r->marketplace, 'is_active' => (bool)$r->is_active, 'price_margin' => (float)$r->price_margin, 'price_margin_type' => $r->price_margin_type ?? 'percent', 'auto_sync' => (bool)$r->auto_sync, 'sync_interval' => $r->sync_interval ?? 'daily', 'last_test' => $r->last_test, 'test_status' => $r->test_status, 'last_sync' => $r->last_sync];
+        foreach ($rows as $r) $data[] = ['marketplace' => $r->marketplace, 'is_active' => (bool)$r->is_active, 'price_margin' => (float)$r->price_margin, 'price_margin_type' => $r->price_margin_type ?? 'percent', 'shipping_addition' => (float)($r->shipping_addition ?? 0), 'shipping_addition_currency' => $r->shipping_addition_currency ?? 'TRY', 'auto_sync' => (bool)$r->auto_sync, 'sync_interval' => $r->sync_interval ?? 'daily', 'last_test' => $r->last_test, 'test_status' => $r->test_status, 'last_sync' => $r->last_sync];
         return $this->api_request('credentials/sync', ['credentials' => $data]);
     }
 
@@ -368,6 +368,8 @@ class Isarud_Cloud_Sync {
                     if (isset($cred['auto_sync'])) $update_data['auto_sync'] = $cred['auto_sync'] ? 1 : 0;
                     if (isset($cred['price_margin'])) $update_data['price_margin'] = $cred['price_margin'];
                     if (isset($cred['price_margin_type'])) $update_data['price_margin_type'] = $cred['price_margin_type'];
+                    if (isset($cred['shipping_addition'])) $update_data['shipping_addition'] = $cred['shipping_addition'];
+                    if (isset($cred['shipping_addition_currency'])) $update_data['shipping_addition_currency'] = $cred['shipping_addition_currency'];
                     if (isset($cred['sync_interval'])) $update_data['sync_interval'] = $cred['sync_interval'];
                     if (!empty($update_data)) {
                         $wpdb->update($table, $update_data, ['marketplace' => $marketplace]);
@@ -452,10 +454,29 @@ class Isarud_Cloud_Sync {
     }
 
     private function apply_margin(float $price, string $mp): float {
+        // @@shipping_addition_v1@@
         global $wpdb;
-        $row = $wpdb->get_row($wpdb->prepare("SELECT price_margin, price_margin_type FROM {$wpdb->prefix}isarud_credentials WHERE marketplace=%s", $mp));
-        if ($row && floatval($row->price_margin) != 0) return $row->price_margin_type === 'percent' ? round($price * (1 + floatval($row->price_margin) / 100), 2) : round($price + floatval($row->price_margin), 2);
-        return $price;
+        $row = $wpdb->get_row($wpdb->prepare(
+            "SELECT price_margin, price_margin_type, shipping_addition FROM {$wpdb->prefix}isarud_credentials WHERE marketplace=%s",
+            $mp
+        ));
+        if (!$row) return $price;
+
+        $final = $price;
+
+        // Adim 1: Komisyon (% veya sabit) uygula
+        if (floatval($row->price_margin) != 0) {
+            $final = $row->price_margin_type === 'percent'
+                ? $final * (1 + floatval($row->price_margin) / 100)
+                : $final + floatval($row->price_margin);
+        }
+
+        // Adim 2: Kargo ek ucreti uygula (her zaman para birimi cinsinden eklenir)
+        if (isset($row->shipping_addition) && floatval($row->shipping_addition) > 0) {
+            $final = $final + floatval($row->shipping_addition);
+        }
+
+        return round($final, 2);
     }
 
     public function get_status(): array {

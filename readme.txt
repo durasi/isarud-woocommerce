@@ -2,9 +2,9 @@
 Contributors: durasi
 Tags: marketplace, trendyol, etsy, hepsiburada, n11, woocommerce
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.6.9
+Stable tag: 6.6.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.6.10 =
+* WordPress 7.0 compatibility verified
+* No functional changes
 
 = 6.6.9 =
 * New: Shipping fee addition per marketplace (TL/USD/EUR/GBP)

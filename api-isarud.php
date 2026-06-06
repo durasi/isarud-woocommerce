@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.6.10
+ * Version: 6.6.11
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -270,7 +270,7 @@ class Isarud_Plugin {
                 </div>
                 <?php
                 $recent = $wpdb->get_results($wpdb->prepare(
-                    "(SELECT 'screening' as type, entity_name as detail, has_match as status_val, created_at FROM {$t}screening_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 5)
+                    "(SELECT 'screening' as type, names_screened as detail, has_match as status_val, created_at FROM {$t}screening_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 5)
                      UNION ALL
                      (SELECT 'sync' as type, CONCAT(marketplace, ': ', COALESCE(message,'')) as detail, IF(status='success',1,0) as status_val, created_at FROM {$t}sync_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 5)
                      ORDER BY created_at DESC LIMIT 5", $since, $since
@@ -1203,7 +1203,7 @@ class Isarud_Plugin {
 
         // Birleşik aktivite listesi
         $all_activities = $wpdb->get_results($wpdb->prepare(
-            "(SELECT 'screening' as type, entity_name as detail, IF(has_match=1,'match','clean') as status, created_at FROM {$t}screening_log WHERE created_at >= %s)
+            "(SELECT 'screening' as type, names_screened as detail, IF(has_match=1,'match','clean') as status, created_at FROM {$t}screening_log WHERE created_at >= %s)
              UNION ALL
              (SELECT 'sync' as type, CONCAT(marketplace, ': ', COALESCE(message,'')) as detail, status, created_at FROM {$t}sync_log WHERE created_at >= %s)
              ORDER BY created_at DESC LIMIT 100", $since, $since

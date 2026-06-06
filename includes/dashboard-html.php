@@ -138,7 +138,7 @@
 
     <?php
     $since_24h = date("Y-m-d H:i:s", strtotime("-24 hours"));
-    $recent_screenings = $wpdb->get_results($wpdb->prepare("SELECT entity_name, has_match, created_at FROM {$wpdb->prefix}isarud_screening_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 10", $since_24h));
+    $recent_screenings = $wpdb->get_results($wpdb->prepare("SELECT names_screened, has_match, created_at FROM {$wpdb->prefix}isarud_screening_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 10", $since_24h));
     $recent_syncs = $wpdb->get_results($wpdb->prepare("SELECT marketplace, status, message, created_at FROM {$wpdb->prefix}isarud_sync_log WHERE created_at >= %s ORDER BY created_at DESC LIMIT 10", $since_24h));
     $screen_24h = (int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->prefix}isarud_screening_log WHERE created_at >= %s", $since_24h));
     $sync_24h = (int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->prefix}isarud_sync_log WHERE created_at >= %s AND status='success'", $since_24h));

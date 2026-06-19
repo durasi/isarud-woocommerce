@@ -127,7 +127,7 @@ class Isarud_B2B {
         if ($min_qty > 0 && $quantity < $min_qty) {
             $product = wc_get_product($product_id);
             wc_add_notice(
-                sprintf(__('"%s" icin minimum siparis adedi %d adet.', 'api-isarud'), $product->get_name(), $min_qty),
+                sprintf(__('Minimum order quantity for "%s" is %d units.', 'api-isarud'), $product->get_name(), $min_qty),
                 'error'
             );
             return false;

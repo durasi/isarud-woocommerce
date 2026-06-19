@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.7
+ * Version: 6.7.1
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -61,10 +61,29 @@ add_action('before_woocommerce_init', function() {
     }
 });
 
-// Load translations
-add_action('init', function() {
+// Load translations.
+// Bundled .mo files ship for 16 locales. Force-load the bundled .mo for the
+// current site locale so the correct language shows even before any GlotPress
+// language pack is downloaded. If the site locale is not one of the 16 bundled
+// languages, no .mo exists and the plugin falls back to English automatically.
+add_action('plugins_loaded', function() {
+    $supported = array(
+        'ar', 'de_DE', 'en_US', 'es_ES', 'fr_FR', 'hi_IN', 'id_ID', 'it_IT',
+        'ja', 'ko_KR', 'nl_NL', 'pl_PL', 'pt_BR', 'ru_RU', 'tr_TR', 'zh_CN',
+    );
+    $locale = determine_locale();
+    $locale = apply_filters('plugin_locale', $locale, 'api-isarud');
+
+    if (in_array($locale, $supported, true)) {
+        $mofile = __DIR__ . '/languages/api-isarud-' . $locale . '.mo';
+        if (is_readable($mofile)) {
+            load_textdomain('api-isarud', $mofile);
+        }
+    }
+
+    // Standard loader: also picks up any official GlotPress language pack.
     load_plugin_textdomain('api-isarud', false, dirname(plugin_basename(__FILE__)) . '/languages');
-});
+}, 1);
 
 // ─── ACTIVATION ─────────────────────────────────
 register_activation_hook(__FILE__, function() {

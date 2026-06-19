@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.7
+Stable tag: 6.7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.7.1 =
+* Fixed: The plugin now displays in the correct language when the site language is one of the 16 supported languages, even before official translation packs are available.
+* Fixed: A wholesale minimum order quantity message now uses the correct source text.
 
 = 6.7 =
 * New: eBay marketplace integration — product, order, finance and analytics management

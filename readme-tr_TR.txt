@@ -153,6 +153,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 
 == Changelog ==
 
+= 6.7.1 =
+* Duzeltildi: Site dili desteklenen 16 dilden biri oldugunda eklenti artik dogru dilde gorunuyor.
+* Duzeltildi: Toptan satis minimum siparis adedi mesajinin kaynak metni duzeltildi.
+
 = 6.7 =
 * Yeni: eBay pazaryeri entegrasyonu — ürün, sipariş, finans ve analitik yönetimi
 * eBay OAuth (19 kapsam) isarud.com bulut köprüsü üzerinden yönetilir

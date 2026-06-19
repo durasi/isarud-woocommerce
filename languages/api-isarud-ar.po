@@ -1,0 +1,5033 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Isarud\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Isarud Haiku Translator\n"
+
+#, fuzzy
+#: api-isarud.php:257
+msgid "Scan (24s)"
+msgstr "مسح (24 ثانية)"
+
+#: api-isarud.php:261
+msgid "Sync (24s)"
+msgstr "مزامنة (24 ثانية)"
+
+#: api-isarud.php:265
+msgid "Error (24s)"
+msgstr "خطأ (24 ثانية)"
+
+#: api-isarud.php:269
+msgid "Total Scans"
+msgstr "إجمالي المسح"
+
+#: api-isarud.php:270
+msgid "Matches (24s)"
+msgstr "المطابقات (24 ثانية)"
+
+#: api-isarud.php:271
+msgid "Active Marketplace"
+msgstr "السوق النشط"
+
+#: api-isarud.php:282
+msgid "Last Activity"
+msgstr "آخر نشاط"
+
+#: api-isarud.php:286 api-isarud.php:419 api-isarud.php:1278
+#: includes/dashboard-html.php:198 includes/marketplaces-html.php:566
+msgid "first"
+msgstr "الأول"
+
+#: api-isarud.php:292 includes/welcome-html.php:164
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: api-isarud.php:293 api-isarud.php:362 includes/etsy-html.php:45
+#: includes/etsy-html.php:138 includes/marketplaces-html.php:93
+msgid "Statistics"
+msgstr "الإحصائيات"
+
+#: api-isarud.php:346 api-isarud.php:490
+msgid "Sanctions Screening"
+msgstr "الفحص الاقتصادي"
+
+#: api-isarud.php:349 includes/dashboard-html.php:44
+#: includes/ecosystem-html.php:137
+msgid "Marketplace API"
+msgstr "API السوق"
+
+#: api-isarud.php:350
+msgid "Etsy"
+msgstr "Etsy"
+
+#: api-isarud.php:351
+msgid "Trendyol"
+msgstr "Trendyol"
+
+#: api-isarud.php:352
+msgid "N11"
+msgstr "N11"
+
+#: api-isarud.php:353
+msgid "Hepsiburada"
+msgstr "Hepsiburada"
+
+#: api-isarud.php:354
+msgid "Pazarama"
+msgstr "Pazarama"
+
+#: api-isarud.php:355
+msgid "Amazon SP-API"
+msgstr "Amazon SP-API"
+
+#: api-isarud.php:356
+msgid "eBay"
+msgstr "eBay"
+
+#: api-isarud.php:357 api-isarud.php:582
+msgid "Bulk Sync"
+msgstr "المزامنة الجماعية"
+
+#: api-isarud.php:358
+msgid "Dropshipping"
+msgstr "Dropshipping"
+
+#: api-isarud.php:359
+msgid "Affiliate"
+msgstr "الشراكة بالعمولة"
+
+#: api-isarud.php:361 api-isarud.php:432 includes/dashboard-html.php:51
+#: includes/dashboard-html.php:123 includes/marketplaces-html.php:100
+#: includes/marketplaces-html.php:423
+msgid "Cloud Sync"
+msgstr "Cloud Sync"
+
+#: api-isarud.php:363 includes/dashboard-html.php:135
+msgid "Webhooks"
+msgstr "Webhooks"
+
+#: api-isarud.php:364 includes/currency-html.php:147
+#: includes/marketplaces-html.php:561
+msgid "Daily"
+msgstr "يومي"
+
+#: api-isarud.php:365 includes/ecosystem-html.php:19
+#: includes/welcome-html.php:112
+msgid "E-commerce Guide"
+msgstr "دليل التجارة الإلكترونية"
+
+#: api-isarud.php:366 includes/currency-html.php:47
+msgid "CBRT Exchange Rate"
+msgstr "سعر صرف البنك المركزي"
+
+#: api-isarud.php:367 includes/b2b-html.php:31
+msgid "B2B Wholesale"
+msgstr "البيع بالجملة B2B"
+
+#: api-isarud.php:368 includes/segments-html.php:29
+msgid "Customer Segmentation"
+msgstr "تقسيم العملاء"
+
+#: api-isarud.php:369 includes/cart-recovery-html.php:36
+#: includes/dashboard-html.php:246 includes/ecosystem-html.php:194
+msgid "Cart Reminder"
+msgstr "تذكير سلة التسوق"
+
+#: api-isarud.php:370 includes/popup-html.php:22
+msgid "Popup Campaigns"
+msgstr "حملات النوافذ المنبثقة"
+
+#: api-isarud.php:371 includes/ecosystem-html.php:203
+#: includes/email-marketing-html.php:39
+msgid "Email Marketing"
+msgstr "التسويق عبر البريد الإلكتروني"
+
+#: api-isarud.php:372 includes/welcome-html.php:98
+msgid "E-Invoice"
+msgstr "الفاتورة الإلكترونية"
+
+#: api-isarud.php:373 includes/upsell-html.php:32
+msgid "Cross-sell & Upsell"
+msgstr "البيع الإضافي والترقية"
+
+#: api-isarud.php:374 includes/email-marketing-html.php:33
+#: includes/email-marketing-html.php:46
+msgid "Welcome"
+msgstr "مرحبا"
+
+#: api-isarud.php:411
+msgid "Connected Marketplaces"
+msgstr "الأسواق المتصلة"
+
+#: api-isarud.php:412 api-isarud.php:697 api-isarud.php:1033
+#: api-isarud.php:1395 api-isarud.php:1469
+msgid "Marketplace"
+msgstr "السوق"
+
+#: api-isarud.php:412 api-isarud.php:697 api-isarud.php:1266
+#: api-isarud.php:1315 includes/amazon-html.php:271
+#: includes/amazon-html.php:393 includes/amazon-html.php:483
+#: includes/einvoice-html.php:112 includes/einvoice-html.php:171
+#: includes/etsy-html.php:302 includes/hb-html.php:271 includes/hb-html.php:393
+#: includes/hb-html.php:483 includes/n11-html.php:332 includes/n11-html.php:431
+#: includes/n11-html.php:461 includes/n11-html.php:465
+#: includes/pazarama-html.php:271 includes/pazarama-html.php:393
+#: includes/pazarama-html.php:483 includes/popup-html.php:59
+#: includes/trendyol-html.php:409 includes/trendyol-html.php:550
+msgid "Status"
+msgstr "الحالة"
+
+#: api-isarud.php:412 includes/marketplaces-html.php:551
+msgid "Auto-Sync"
+msgstr "المزامنة التلقائية"
+
+#: api-isarud.php:412 includes/currency-html.php:116
+#: includes/marketplaces-html.php:531
+msgid "Price Margin"
+msgstr "هامش السعر"
+
+#: api-isarud.php:412 api-isarud.php:1632 includes/marketplaces-html.php:565
+msgid "Last Sync"
+msgstr "آخر مزامنة"
+
+#: api-isarud.php:416 includes/b2b-html.php:72 includes/b2b-html.php:120
+#: includes/cart-recovery-html.php:54 includes/cart-recovery-html.php:62
+#: includes/cart-recovery-html.php:66 includes/currency-html.php:79
+#: includes/dashboard-html.php:39 includes/dashboard-html.php:53
+#: includes/email-marketing-html.php:57 includes/etsy-html.php:190
+#: includes/n11-html.php:157 includes/n11-html.php:409
+#: includes/popup-html.php:46 includes/popup-html.php:68
+#: includes/upsell-html.php:43
+msgid "Active"
+msgstr "نشط"
+
+#: api-isarud.php:416 includes/b2b-html.php:120 includes/etsy-html.php:191
+#: includes/popup-html.php:68
+msgid "Inactive"
+msgstr "غير نشط"
+
+#: api-isarud.php:423
+msgid "No marketplace configured."
+msgstr "لم يتم تكوين أي سوق."
+
+#: api-isarud.php:423 api-isarud.php:585 api-isarud.php:1391
+#: includes/class-isarud-attribute-map.php:160
+#: includes/class-isarud-category-map.php:118
+#: includes/class-isarud-upsell.php:253
+msgid "Add"
+msgstr "إضافة"
+
+#: api-isarud.php:434 api-isarud.php:1629 includes/amazon-html.php:356
+#: includes/dashboard-html.php:32 includes/hb-html.php:356
+#: includes/marketplaces-html.php:124 includes/marketplaces-html.php:127
+#: includes/marketplaces-html.php:185 includes/marketplaces-html.php:245
+#: includes/marketplaces-html.php:248 includes/marketplaces-html.php:309
+#: includes/marketplaces-html.php:312 includes/marketplaces-html.php:373
+#: includes/marketplaces-html.php:376 includes/marketplaces-html.php:447
+#: includes/marketplaces-html.php:450 includes/marketplaces-html.php:503
+#: includes/n11-html.php:227 includes/pazarama-html.php:356
+#: includes/trendyol-html.php:372
+msgid "Connected"
+msgstr "متصل"
+
+#: api-isarud.php:435
+msgid "Last sync:"
+msgstr "آخر مزامنة:"
+
+#: api-isarud.php:436 api-isarud.php:495 includes/welcome-html.php:150
+msgid "Cloud Sync Settings"
+msgstr "إعدادات Cloud Sync"
+
+#: api-isarud.php:438
+msgid "Cloud sync is not active."
+msgstr "Cloud Sync غير نشط."
+
+#: api-isarud.php:439
+msgid "Connect Now"
+msgstr "اتصل الآن"
+
+#: api-isarud.php:444
+msgid "Multi-Platform"
+msgstr "متعدد المنصات"
+
+#: api-isarud.php:445
+msgid "Track your data from all your devices. With Cloud Sync, your WooCommerce data stays up-to-date across all platforms."
+msgstr "تتبع بيانانتك من جميع أجهزتك. مع Cloud Sync، تبقى بيانات WooCommerce الخاصة بك محدثة عبر جميع المنصات."
+
+#: api-isarud.php:465 includes/welcome-html.php:129
+msgid "Coming Soon"
+msgstr "قريباً"
+
+#: api-isarud.php:486 includes/b2b-html.php:19
+#: includes/cart-recovery-html.php:26 includes/currency-html.php:31
+#: includes/einvoice-html.php:32 includes/email-marketing-html.php:28
+#: includes/popup-html.php:15 includes/segments-html.php:17
+#: includes/upsell-html.php:25
+msgid "Settings saved."
+msgstr "تم حفظ الإعدادات."
+
+#: api-isarud.php:495
+msgid "Connected via Cloud Sync"
+msgstr "متصل عبر Cloud Sync"
+
+#: api-isarud.php:497
+msgid "Get API key from isarud.com"
+msgstr "احصل على مفتاح API من isarud.com"
+
+#: api-isarud.php:497
+msgid "or connect with Cloud Sync"
+msgstr "أو اتصل عبر Cloud Sync"
+
+#: api-isarud.php:499
+msgid "Automatic scanning"
+msgstr "المسح التلقائي"
+
+#: api-isarud.php:499
+msgid "Yes"
+msgstr "نعم"
+
+#: api-isarud.php:499
+msgid "No"
+msgstr "لا"
+
+#: api-isarud.php:500
+msgid "Hold on match"
+msgstr "ضع قيد الانتظار عند التطابق"
+
+#: api-isarud.php:500
+msgid "No — mark only"
+msgstr "لا — وضع علامة فقط"
+
+#: api-isarud.php:500
+msgid "Yes — put on hold"
+msgstr "نعم — ضع قيد الانتظار"
+
+#: api-isarud.php:501
+msgid "Warning Email"
+msgstr "بريد تحذيري"
+
+#: api-isarud.php:503 api-isarud.php:1588 includes/cart-recovery-html.php:77
+#: includes/etsy-html.php:204 includes/marketplaces-html.php:577
+#: includes/popup-html.php:91
+msgid "Save"
+msgstr "حفظ"
+
+#: api-isarud.php:530
+msgid "saved."
+msgstr "تم الحفظ."
+
+#: api-isarud.php:583
+msgid "Sync all WooCommerce products to the selected marketplace."
+msgstr "مزامنة جميع منتجات WooCommerce مع السوق المختار."
+
+#: api-isarud.php:585 api-isarud.php:1029 api-isarud.php:1391
+#: api-isarud.php:1465
+msgid "No active marketplaces."
+msgstr "لا توجد أسواق نشطة."
+
+#: api-isarud.php:592
+msgid "Sync All"
+msgstr "مزامنة الكل"
+
+#: api-isarud.php:615
+msgid "Supplier added."
+msgstr "تمت إضافة المورد."
+
+#: api-isarud.php:620
+msgid "Dropshipping Suppliers"
+msgstr "موردو دروبشيبينج"
+
+#: api-isarud.php:623
+msgid "Suppliers"
+msgstr "الموردون"
+
+#: api-isarud.php:624 api-isarud.php:668
+msgid "Name"
+msgstr "الاسم"
+
+#: api-isarud.php:624
+msgid "Auto-Forward"
+msgstr "إعادة توجيه تلقائية"
+
+#: api-isarud.php:624 api-isarud.php:668
+msgid "Commission"
+msgstr "العمولة"
+
+#: api-isarud.php:628
+msgid "No suppliers yet."
+msgstr "لا توجد موردون حتى الآن."
+
+#: api-isarud.php:632
+msgid "Add New Supplier"
+msgstr "إضافة مورد جديد"
+
+#: api-isarud.php:634
+msgid "Supplier Name"
+msgstr "اسم المورد"
+
+#: api-isarud.php:636 api-isarud.php:637
+msgid "optional"
+msgstr "اختياري"
+
+#: api-isarud.php:638 api-isarud.php:681
+msgid "Commission Rate"
+msgstr "معدل العمولة"
+
+#: api-isarud.php:639
+msgid "Auto-forward orders"
+msgstr "إعادة توجيه الطلبات تلقائياً"
+
+#: api-isarud.php:640
+msgid "Add Supplier"
+msgstr "إضافة مورد"
+
+#: api-isarud.php:659
+msgid "Affiliate added. Code:"
+msgstr "تمت إضافة الشريك. الرمز:"
+
+#: api-isarud.php:664
+msgid "Affiliate Management"
+msgstr "إدارة الشركاء"
+
+#: api-isarud.php:667
+msgid "Affiliates"
+msgstr "الشركاء"
+
+#: api-isarud.php:668
+msgid "Sales"
+msgstr "المبيعات"
+
+#: api-isarud.php:668
+msgid "Earnings"
+msgstr "الأرباح"
+
+#: api-isarud.php:672
+msgid "No affiliates yet."
+msgstr "لا توجد شركاء حتى الآن."
+
+#: api-isarud.php:676
+msgid "Add New Affiliate"
+msgstr "إضافة شريك جديد"
+
+#: api-isarud.php:678
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#: api-isarud.php:680
+msgid "Reference Code"
+msgstr "رمز المرجع"
+
+#: api-isarud.php:680
+msgid "automatic if left empty"
+msgstr "تلقائي إذا تُرك فارغاً"
+
+#: api-isarud.php:682
+msgid "Add Affiliate"
+msgstr "إضافة شريك"
+
+#: api-isarud.php:696
+msgid "Synchronization Log"
+msgstr "سجل المزامنة"
+
+#: api-isarud.php:697 api-isarud.php:1315 includes/einvoice-html.php:113
+#: includes/einvoice-html.php:172
+msgid "Date"
+msgstr "التاريخ"
+
+#: api-isarud.php:697 api-isarud.php:1046 api-isarud.php:1507
+#: includes/amazon-html.php:393 includes/hb-html.php:393
+#: includes/pazarama-html.php:393 includes/trendyol-html.php:409
+msgid "Product"
+msgstr "المنتج"
+
+#: api-isarud.php:697
+msgid "Transaction"
+msgstr "المعاملة"
+
+#: api-isarud.php:697 includes/n11-html.php:465 includes/popup-html.php:34
+msgid "Message"
+msgstr "الرسالة"
+
+#: api-isarud.php:701
+msgid "No events yet."
+msgstr "لا توجد أحداث حتى الآن."
+
+#: api-isarud.php:713
+msgid "API Username"
+msgstr "اسم مستخدم API"
+
+#: api-isarud.php:713
+msgid "API Password"
+msgstr "كلمة مرور API"
+
+#: api-isarud.php:730
+#, php-format
+msgid "%s has no saved API credentials. Please save your API Key/Secret first."
+msgstr "%s لم يتم حفظ بيانات اعتماد API الخاصة به. يرجى حفظ API Key/Secret الخاص بك أولاً."
+
+#: api-isarud.php:735
+msgid "Credentials could not be read (JSON parse error). Please re-enter and save your API details."
+msgstr "تعذر قراءة بيانات الاعتماد (خطأ في تحليل JSON). يرجى إعادة إدخال وحفظ تفاصيل API الخاصة بك."
+
+#: api-isarud.php:760
+msgid "Connection failed: "
+msgstr "فشل الاتصال: "
+
+#: api-isarud.php:784
+#, php-format
+msgid "%s API error (HTTP %d): %s"
+msgstr "خطأ API %s (HTTP %d): %s"
+
+#: api-isarud.php:838 api-isarud.php:887
+#: includes/class-isarud-order-import.php:176
+#: includes/class-isarud-order-management.php:105
+#: includes/class-isarud-product-export.php:227
+msgid "Hepsiburada module not loaded"
+msgstr "لم يتم تحميل وحدة Hepsiburada"
+
+#: api-isarud.php:849
+#, php-format
+msgid "%s connection successful!"
+msgstr "اتصال %s ناجح!"
+
+#: api-isarud.php:935
+msgid "Isarud: SANCTION MATCH: "
+msgstr "Isarud: مطابقة عقوبات: "
+
+#: api-isarud.php:935
+msgid "Isarud: Clean — no match"
+msgstr "Isarud: نظيف — بدون مطابقة"
+
+#: api-isarud.php:937
+#, php-format
+msgid "[Isarud] Match — Order #%s"
+msgstr "[Isarud] مطابقة — الطلب #%s"
+
+#: api-isarud.php:937
+msgid "Match: "
+msgstr "مطابقة: "
+
+#: api-isarud.php:938
+msgid "Held by Isarud"
+msgstr "محتفظ به بواسطة Isarud"
+
+#: api-isarud.php:946
+msgid "Scanned"
+msgstr "تم المسح"
+
+#: api-isarud.php:959
+#, php-format
+msgid "New Order #%s"
+msgstr "طلب جديد #%s"
+
+#: api-isarud.php:959
+msgid "Order details: "
+msgstr "تفاصيل الطلب: "
+
+#: api-isarud.php:961
+msgid "Isarud: Forwarded to supplier → "
+msgstr "Isarud: تم التحويل إلى المورد → "
+
+#: api-isarud.php:996
+msgid "Not Scanned"
+msgstr "لم يتم المسح"
+
+#: api-isarud.php:996
+msgid "Scan Now"
+msgstr "امسح الآن"
+
+#: api-isarud.php:997
+msgid "Match Found"
+msgstr "تم العثور على مطابقة"
+
+#: api-isarud.php:997 api-isarud.php:1273 includes/dashboard-html.php:184
+msgid "Clear"
+msgstr "مسح"
+
+#: api-isarud.php:1004
+msgid "N11 Product ID"
+msgstr "معرف منتج N11"
+
+#: api-isarud.php:1006
+msgid "Supplier ID"
+msgstr "معرف المورد"
+
+#: api-isarud.php:1025
+msgid "Product Upload (WooCommerce → Marketplace)"
+msgstr "رفع المنتجات (WooCommerce → Marketplace)"
+
+#: api-isarud.php:1026
+msgid "Upload your WooCommerce products to marketplaces. Creates new products (not stock/price updates)."
+msgstr "رفع منتجات WooCommerce الخاصة بك إلى الأسواق. ينشئ منتجات جديدة (وليس تحديثات المخزون/السعر)."
+
+#: api-isarud.php:1040 api-isarud.php:1073
+msgid "Upload All Products"
+msgstr "تحميل جميع المنتجات"
+
+#: api-isarud.php:1044
+msgid "Or select a single product:"
+msgstr "أو حدد منتجاً واحداً:"
+
+#: api-isarud.php:1046 api-isarud.php:1507 includes/amazon-html.php:393
+#: includes/etsy-html.php:304 includes/hb-html.php:393
+#: includes/marketplaces-html.php:10 includes/marketplaces-html.php:162
+#: includes/n11-html.php:332 includes/pazarama-html.php:393
+#: includes/trendyol-html.php:409
+msgid "Price"
+msgstr "السعر"
+
+#: api-isarud.php:1046 includes/amazon-html.php:138 includes/etsy-html.php:139
+#: includes/etsy-html.php:303 includes/hb-html.php:138
+#: includes/marketplaces-html.php:161 includes/n11-html.php:332
+#: includes/pazarama-html.php:138 includes/trendyol-html.php:142
+msgid "Inventory"
+msgstr "المخزون"
+
+#: api-isarud.php:1055 api-isarud.php:1097 includes/amazon-html.php:117
+#: includes/etsy-html.php:85 includes/etsy-html.php:144
+#: includes/hb-html.php:117 includes/marketplaces-html.php:163
+#: includes/pazarama-html.php:117
+msgid "Upload"
+msgstr "تحميل"
+
+#: api-isarud.php:1066
+msgid "Are you sure you want to upload all published products?"
+msgstr "هل أنت متأكد من رغبتك في تحميل جميع المنتجات المنشورة؟"
+
+#: api-isarud.php:1067 api-isarud.php:1311 api-isarud.php:1347
+#: api-isarud.php:1498 includes/amazon-html.php:54 includes/amazon-html.php:375
+#: includes/amazon-html.php:473 includes/amazon-html.php:523
+#: includes/etsy-html.php:66 includes/etsy-html.php:186 includes/hb-html.php:54
+#: includes/hb-html.php:375 includes/hb-html.php:473 includes/hb-html.php:523
+#: includes/marketplaces-html.php:85 includes/marketplaces-html.php:156
+#: includes/marketplaces-html.php:215 includes/marketplaces-html.php:279
+#: includes/marketplaces-html.php:343 includes/marketplaces-html.php:407
+#: includes/n11-html.php:225 includes/pazarama-html.php:54
+#: includes/pazarama-html.php:375 includes/pazarama-html.php:473
+#: includes/pazarama-html.php:523 includes/trendyol-html.php:54
+#: includes/trendyol-html.php:298 includes/trendyol-html.php:391
+#: includes/trendyol-html.php:493 includes/trendyol-html.php:540
+#: includes/trendyol-html.php:590 includes/trendyol-html.php:632
+#: includes/trendyol-html.php:700
+msgid "Loading..."
+msgstr "جاري التحميل..."
+
+#: api-isarud.php:1076
+msgid "uploaded"
+msgstr "تم التحميل"
+
+#: api-isarud.php:1076 api-isarud.php:1705 api-isarud.php:1706
+msgid "errors"
+msgstr "أخطاء"
+
+#: api-isarud.php:1109 includes/class-isarud-attribute-map.php:112
+msgid "Attribute Mapping"
+msgstr "تعيين السمات"
+
+#: api-isarud.php:1110
+msgid "Map WooCommerce attributes to marketplace attributes. Used for product uploads and variation sync."
+msgstr "ربط سمات WooCommerce بسمات المتجر الإلكتروني. يُستخدم لتحميل المنتجات ومزامنة المتغيرات."
+
+#: api-isarud.php:1120
+msgid "CSV Operations"
+msgstr "عمليات CSV"
+
+#: api-isarud.php:1125
+msgid "Import Products from CSV"
+msgstr "استيراد المنتجات من ملف CSV"
+
+#: api-isarud.php:1126
+msgid "Supported columns: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri"
+msgstr "الأعمدة المدعومة: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri"
+
+#: api-isarud.php:1131 api-isarud.php:1476
+#: includes/class-isarud-einvoice.php:755 includes/einvoice-html.php:82
+#: includes/einvoice-html.php:125 includes/einvoice-html.php:150
+#: includes/einvoice-html.php:187 includes/etsy-html.php:192
+msgid "Draft"
+msgstr "مسودة"
+
+#: api-isarud.php:1132 api-isarud.php:1477
+msgid "Published"
+msgstr "منشور"
+
+#: api-isarud.php:1135 api-isarud.php:1482
+msgid "Update existing products"
+msgstr "تحديث المنتجات الموجودة"
+
+#: api-isarud.php:1136 api-isarud.php:1162
+msgid "Export"
+msgstr "تصدير"
+
+#: api-isarud.php:1143
+msgid "Export Products to CSV"
+msgstr "تصدير المنتجات إلى CSV"
+
+#: api-isarud.php:1144
+msgid "Download all published WooCommerce products as CSV. Excel compatible (UTF-8 BOM)."
+msgstr "تنزيل جميع منتجات WooCommerce المنشورة كـ CSV. متوافق مع Excel (UTF-8 BOM)."
+
+#: api-isarud.php:1145 api-isarud.php:1179 api-isarud.php:1181
+msgid "Download CSV"
+msgstr "تنزيل CSV"
+
+#: api-isarud.php:1157 api-isarud.php:1424 api-isarud.php:1522
+msgid "Importing..."
+msgstr "جاري الاستيراد..."
+
+#: api-isarud.php:1165 api-isarud.php:1437 api-isarud.php:1440
+#: api-isarud.php:1534
+msgid "imported"
+msgstr "تم الاستيراد"
+
+#: api-isarud.php:1165 api-isarud.php:1534
+msgid "updated"
+msgstr "تم التحديث"
+
+#: api-isarud.php:1165 api-isarud.php:1437 api-isarud.php:1440
+#: api-isarud.php:1534
+msgid "skipped"
+msgstr "تم التخطي"
+
+#: api-isarud.php:1165
+msgid "rows"
+msgstr "صفوف"
+
+#: api-isarud.php:1177
+msgid "Creating..."
+msgstr "جاري الإنشاء..."
+
+#: api-isarud.php:1224
+msgid "Statistics & Activity"
+msgstr "الإحصائيات والنشاط"
+
+#: api-isarud.php:1228
+msgid "1 Hour"
+msgstr "ساعة واحدة"
+
+#: api-isarud.php:1228
+msgid "24 Hours"
+msgstr "24 ساعة"
+
+#: api-isarud.php:1228
+msgid "7 Days"
+msgstr "7 أيام"
+
+#: api-isarud.php:1228
+msgid "30 Days"
+msgstr "30 يوم"
+
+#: api-isarud.php:1228 api-isarud.php:1302 api-isarud.php:1338
+#: api-isarud.php:1397 includes/amazon-html.php:99 includes/hb-html.php:99
+#: includes/pazarama-html.php:99 includes/trendyol-html.php:99
+msgid "All"
+msgstr "الكل"
+
+#: api-isarud.php:1236 api-isarud.php:1271 includes/dashboard-html.php:153
+msgid "Scan"
+msgstr "مسح"
+
+#: api-isarud.php:1240 api-isarud.php:1273 includes/dashboard-html.php:184
+msgid "Match"
+msgstr "مطابقة"
+
+#: api-isarud.php:1244 includes/dashboard-html.php:69
+#: includes/dashboard-html.php:157
+msgid "Successful Sync"
+msgstr "مزامنة ناجحة"
+
+#: api-isarud.php:1248 includes/dashboard-html.php:73
+msgid "Sync Errors"
+msgstr "أخطاء المزامنة"
+
+#: api-isarud.php:1252
+msgid "Active Platform"
+msgstr "المنصة النشطة"
+
+#: api-isarud.php:1257
+msgid "Activity Log"
+msgstr "سجل النشاط"
+
+#: api-isarud.php:1259
+msgid "No activity found for this period."
+msgstr "لم يتم العثور على نشاط في هذه الفترة."
+
+#: api-isarud.php:1263
+msgid "Date/Time"
+msgstr "التاريخ/الوقت"
+
+#: api-isarud.php:1264 includes/email-marketing-html.php:101
+msgid "Type"
+msgstr "النوع"
+
+#: api-isarud.php:1265
+msgid "Details"
+msgstr "التفاصيل"
+
+#: api-isarud.php:1271
+msgid "Sync"
+msgstr "مزامنة"
+
+#: api-isarud.php:1273 includes/dashboard-html.php:184
+#: includes/etsy-html.php:188
+msgid "Successful"
+msgstr "ناجح"
+
+#: api-isarud.php:1273 includes/amazon-html.php:366
+#: includes/dashboard-html.php:161 includes/dashboard-html.php:184
+#: includes/etsy-html.php:187 includes/hb-html.php:366
+#: includes/marketplaces-html.php:503 includes/n11-html.php:226
+#: includes/pazarama-html.php:366 includes/trendyol-html.php:382
+msgid "Error"
+msgstr "خطأ"
+
+#: api-isarud.php:1287
+msgid "showing records (max. 100)"
+msgstr "عرض السجلات (الحد الأقصى 100)"
+
+#: api-isarud.php:1298
+msgid "Returns Management"
+msgstr "إدارة المرتجعات"
+
+#: api-isarud.php:1299
+msgid "View and manage return requests from marketplaces"
+msgstr "عرض وإدارة طلبات المرتجعات من المتاجر الإلكترونية"
+
+#: api-isarud.php:1303 api-isarud.php:1313
+msgid "Import Returns"
+msgstr "استيراد المرتجعات"
+
+#: api-isarud.php:1315
+msgid "Platform"
+msgstr "المنصة"
+
+#: api-isarud.php:1315 includes/einvoice-html.php:109
+#: includes/einvoice-html.php:165 includes/etsy-html.php:84
+#: includes/marketplaces-html.php:165 includes/marketplaces-html.php:286
+#: includes/marketplaces-html.php:350 includes/marketplaces-html.php:414
+#: includes/segments-html.php:81
+msgid "Order"
+msgstr "الطلب"
+
+#: api-isarud.php:1315 includes/amazon-html.php:483 includes/hb-html.php:483
+#: includes/n11-html.php:431 includes/pazarama-html.php:483
+#: includes/trendyol-html.php:550
+msgid "Customer"
+msgstr "العميل"
+
+#: api-isarud.php:1315
+msgid "Reason"
+msgstr "السبب"
+
+#: api-isarud.php:1316 includes/amazon-html.php:529 includes/hb-html.php:529
+#: includes/pazarama-html.php:529 includes/trendyol-html.php:596
+msgid "No returns found."
+msgstr "لم يتم العثور على مرتجعات."
+
+#: api-isarud.php:1334 includes/marketplaces-html.php:10
+#: includes/trendyol-html.php:228
+msgid "Customer Questions"
+msgstr "أسئلة العملاء"
+
+#: api-isarud.php:1335
+msgid "View and respond to customer inquiries from Trendyol."
+msgstr "عرض والرد على استفسارات العملاء من Trendyol."
+
+#: api-isarud.php:1338 includes/trendyol-html.php:231
+msgid "Awaiting Response"
+msgstr "في انتظار الرد"
+
+#: api-isarud.php:1338
+msgid "Replied"
+msgstr "تم الرد"
+
+#: api-isarud.php:1339 api-isarud.php:1349
+msgid "Fetch Questions"
+msgstr "جلب الأسئلة"
+
+#: api-isarud.php:1352
+msgid "No question found"
+msgstr "لم يتم العثور على أي سؤال"
+
+#: api-isarud.php:1359
+msgid "Your reply..."
+msgstr "ردك..."
+
+#: api-isarud.php:1359
+msgid "Reply"
+msgstr "رد"
+
+#: api-isarud.php:1387
+msgid "Order Import"
+msgstr "استيراد الطلبات"
+
+#: api-isarud.php:1388
+msgid "Import orders from marketplaces to WooCommerce."
+msgstr "استيراد الطلبات من الأسواق إلى WooCommerce."
+
+#: api-isarud.php:1401
+msgid "How many days back?"
+msgstr "كم يوماً للخلف؟"
+
+#: api-isarud.php:1403
+#, php-format
+msgid "%d day"
+msgstr "%d يوم"
+
+#: api-isarud.php:1404 api-isarud.php:1405 api-isarud.php:1406
+#: api-isarud.php:1407
+#, php-format
+msgid "%d days"
+msgstr "%d أيام"
+
+#: api-isarud.php:1410
+msgid "Automatic transfer"
+msgstr "النقل التلقائي"
+
+#: api-isarud.php:1411
+msgid "Automatic hourly order pull"
+msgstr "سحب الطلبات التلقائي كل ساعة"
+
+#: api-isarud.php:1415 api-isarud.php:1431
+msgid "Import Orders"
+msgstr "استيراد الطلبات"
+
+#: api-isarud.php:1461 includes/marketplaces-html.php:10
+msgid "Product Import"
+msgstr "استيراد المنتجات"
+
+#: api-isarud.php:1462
+msgid "Import products from marketplaces to WooCommerce."
+msgstr "استيراد المنتجات من الأسواق إلى WooCommerce."
+
+#: api-isarud.php:1474
+msgid "Product Status"
+msgstr "حالة المنتج"
+
+#: api-isarud.php:1478
+msgid "Custom"
+msgstr "مخصص"
+
+#: api-isarud.php:1481
+msgid "Options"
+msgstr "الخيارات"
+
+#: api-isarud.php:1483
+msgid "Update Stock"
+msgstr "تحديث المخزون"
+
+#: api-isarud.php:1484
+msgid "Update Price"
+msgstr "تحديث السعر"
+
+#: api-isarud.php:1488 api-isarud.php:1505
+msgid "Preview"
+msgstr "معاينة"
+
+#: api-isarud.php:1489 api-isarud.php:1532
+msgid "Import Products"
+msgstr "استيراد المنتجات"
+
+#: api-isarud.php:1507 includes/amazon-html.php:393 includes/hb-html.php:393
+#: includes/marketplaces-html.php:10 includes/pazarama-html.php:393
+#: includes/trendyol-html.php:409
+msgid "Stock"
+msgstr "المخزون"
+
+#: api-isarud.php:1512
+msgid "products, showing first 20"
+msgstr "منتجات، عرض أول 20"
+
+#: api-isarud.php:1521
+msgid "Are you sure you want to import all products?"
+msgstr "هل أنت متأكد من رغبتك في استيراد جميع المنتجات؟"
+
+#: api-isarud.php:1549 includes/class-isarud-category-map.php:75
+msgid "Category Matching"
+msgstr "مطابقة الفئات"
+
+#: api-isarud.php:1561
+msgid "Saved."
+msgstr "تم الحفظ."
+
+#: api-isarud.php:1567
+msgid "Webhook Settings"
+msgstr "إعدادات Webhook"
+
+#: api-isarud.php:1568
+msgid "Add the following URLs to the relevant marketplace panels to receive stock and order notifications from marketplaces."
+msgstr "أضف عناوين URL التالية إلى لوحات المتاجر الإلكترونية ذات الصلة لاستقبال إشعارات المخزون والطلبات من المتاجر الإلكترونية."
+
+#: api-isarud.php:1571
+msgid "Webhook URLs"
+msgstr "عناوين URL للـ Webhook"
+
+#: api-isarud.php:1574
+msgid "API Settings"
+msgstr "إعدادات API"
+
+#: api-isarud.php:1575
+msgid "For custom integrations. Header: X-Isarud-Webhook-Key required"
+msgstr "للتكاملات المخصصة. Header مطلوب: X-Isarud-Webhook-Key"
+
+#: api-isarud.php:1580
+msgid "Webhook Security"
+msgstr "أمان Webhook"
+
+#: api-isarud.php:1584
+msgid "Auto-generated"
+msgstr "تم إنشاؤها تلقائياً"
+
+#: api-isarud.php:1585
+msgid "Required for generic webhook endpoint. Not required for marketplace webhooks."
+msgstr "مطلوب لنقطة نهاية webhook عامة. غير مطلوب لـ webhooks أسواق البيع."
+
+#: api-isarud.php:1593
+msgid "How It Works?"
+msgstr "كيف يعمل؟"
+
+#: api-isarud.php:1595
+msgid "WooCommerce stock is automatically reduced when orders arrive from marketplaces"
+msgstr "يتم تقليل مخزون WooCommerce تلقائياً عند وصول الطلبات من الأسواق"
+
+#: api-isarud.php:1596
+msgid "WooCommerce inventory is updated when marketplace stock changes"
+msgstr "يتم تحديث مخزون WooCommerce عند تغيير مخزون السوق"
+
+#: api-isarud.php:1597
+msgid "Bi-directional synchronization — inventory always up to date"
+msgstr "المزامنة ثنائية الاتجاه — المخزون محدث دائماً"
+
+#: api-isarud.php:1598
+msgid "All changes are recorded in the Synchronization Log"
+msgstr "يتم تسجيل جميع التغييرات في سجل المزامنة"
+
+#: api-isarud.php:1616
+msgid "Cloud sync has been disabled."
+msgstr "تم تعطيل المزامنة السحابية."
+
+#: api-isarud.php:1623
+msgid "Isarud Cloud Sync"
+msgstr "Isarud Cloud Sync"
+
+#: api-isarud.php:1624
+msgid "Sync your WooCommerce data to your isarud.com account. View your products and orders in web, mobile, and desktop applications."
+msgstr "زامن بيانات WooCommerce الخاصة بك مع حسابك على isarud.com. عرض منتجاتك وطلباتك في تطبيقات الويب والهاتف المحمول وسطح المكتب."
+
+#: api-isarud.php:1633
+msgid "Last Product Sync"
+msgstr "آخر مزامنة للمنتجات"
+
+#: api-isarud.php:1634
+msgid "Last Order Sync"
+msgstr "آخر مزامنة للطلبات"
+
+#: api-isarud.php:1637 api-isarud.php:1701
+msgid "Sync Now"
+msgstr "مزامنة الآن"
+
+#: api-isarud.php:1638
+msgid "Disconnect"
+msgstr "قطع الاتصال"
+
+#: api-isarud.php:1645
+msgid "Connect to isarud.com"
+msgstr "الاتصال بـ isarud.com"
+
+#: api-isarud.php:1646
+msgid "Connect this WordPress site with your isarud.com account."
+msgstr "ربط موقع WordPress هذا بحسابك على isarud.com."
+
+#: api-isarud.php:1648
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com'a giriş yapın</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">تسجيل الدخول إلى isarud.com</a>"
+
+#: api-isarud.php:1649
+msgid "Copy Bearer Token from Account → API Keys page"
+msgstr "انسخ Bearer Token من صفحة Account → API Keys"
+
+#: api-isarud.php:1650
+msgid "Paste below and click the \"Connect\" button"
+msgstr "الصق أدناه وانقر على زر \"الاتصال\""
+
+#: api-isarud.php:1654 api-isarud.php:1684
+msgid "Connect"
+msgstr "الاتصال"
+
+#: api-isarud.php:1661
+msgid "What is Cloud Sync?"
+msgstr "ما هي Cloud Sync؟"
+
+#: api-isarud.php:1663
+msgid "Your WooCommerce products and orders are visible on isarud.com"
+msgstr "منتجاتك وطلباتك على WooCommerce مرئية على isarud.com"
+
+#: api-isarud.php:1664
+msgid "All your marketplace data is consolidated in one panel"
+msgstr "يتم دمج جميع بيانات السوق الخاصة بك في لوحة واحدة"
+
+#: api-isarud.php:1665
+msgid "Access from iOS, Android, Windows, macOS apps"
+msgstr "الوصول من تطبيقات iOS و Android و Windows و macOS"
+
+#: api-isarud.php:1666
+msgid "Automatic hourly synchronization"
+msgstr "المزامنة التلقائية بالساعة"
+
+#: api-isarud.php:1667
+msgid "Order customers automatically pass through sanctions screening"
+msgstr "يمر عملاء الطلبات تلقائياً عبر فحص العقوبات"
+
+#: api-isarud.php:1678
+msgid "Connecting..."
+msgstr "جاري الاتصال..."
+
+#: api-isarud.php:1705 includes/amazon-html.php:81 includes/ebay-html.php:61
+#: includes/etsy-html.php:39 includes/hb-html.php:81 includes/n11-html.php:108
+#: includes/pazarama-html.php:81 includes/trendyol-html.php:81
+msgid "Products"
+msgstr "المنتجات"
+
+#: api-isarud.php:1706 includes/amazon-html.php:84 includes/ebay-html.php:62
+#: includes/hb-html.php:84 includes/marketplaces-html.php:10
+#: includes/n11-html.php:111 includes/pazarama-html.php:84
+#: includes/trendyol-html.php:84
+msgid "Orders"
+msgstr "الطلبات"
+
+#: api-isarud.php:1716
+msgid "Are you sure you want to disconnect?"
+msgstr "هل أنت متأكد من أنك تريد قطع الاتصال؟"
+
+#: api-isarud.php:1741
+msgid "Connected to isarud.com! Refreshing page..."
+msgstr "متصل بـ isarud.com! جاري تحديث الصفحة..."
+
+#: api-isarud.php:1743
+msgid "Connection failed"
+msgstr "فشل الاتصال"
+
+#: api-isarud.php:1752
+msgid "Cloud sync not active"
+msgstr "Cloud Sync غير نشط"
+
+#: includes/amazon-html.php:22 includes/hb-html.php:22 includes/n11-html.php:61
+#: includes/pazarama-html.php:22 includes/trendyol-html.php:22
+msgid "Cloud Sync is not configured."
+msgstr "لم يتم تكوين Cloud Sync."
+
+#: includes/amazon-html.php:23 includes/ebay-html.php:26
+#: includes/hb-html.php:23 includes/n11-html.php:62
+#: includes/pazarama-html.php:23 includes/trendyol-html.php:23
+msgid "First"
+msgstr "أولاً"
+
+#: includes/amazon-html.php:24 includes/ebay-html.php:27
+#: includes/hb-html.php:24 includes/n11-html.php:63
+#: includes/pazarama-html.php:24 includes/trendyol-html.php:24
+msgid "Go to Cloud Sync page"
+msgstr "انتقل إلى صفحة Cloud Sync"
+
+#: includes/amazon-html.php:25 includes/ebay-html.php:28
+#: includes/hb-html.php:25 includes/n11-html.php:64
+#: includes/pazarama-html.php:25 includes/trendyol-html.php:25
+msgid "and connect to your isarud.com account."
+msgstr "وقم بالاتصال بحسابك على isarud.com."
+
+#: includes/amazon-html.php:32
+msgid "Checking Amazon connection..."
+msgstr "جاري التحقق من اتصال Amazon..."
+
+#: includes/amazon-html.php:38
+msgid "Connect to Amazon"
+msgstr "الاتصال بـ Amazon"
+
+#: includes/amazon-html.php:40
+msgid "Connect with Amazon"
+msgstr "الاتصال مع Amazon"
+
+#: includes/amazon-html.php:43
+msgid "You can integrate your store using the API Key, API Secret, and Merchant (Account) Number that you will obtain from the Amazon Seller Panel."
+msgstr "يمكنك دمج متجرك باستخدام مفتاح API وسر API ورقم التاجر (الحساب) الذي ستحصل عليه من لوحة بيع Amazon."
+
+#: includes/amazon-html.php:51 includes/hb-html.php:51
+#: includes/pazarama-html.php:51 includes/trendyol-html.php:51
+msgid "Select Store"
+msgstr "اختر المتجر"
+
+#: includes/amazon-html.php:52
+msgid "Select your Isarud store to connect to Amazon:"
+msgstr "اختر متجر Isarud الخاص بك للاتصال بـ Amazon:"
+
+#: includes/amazon-html.php:57 includes/class-isarud-einvoice.php:757
+#: includes/class-isarud-einvoice.php:784 includes/einvoice-html.php:90
+#: includes/einvoice-html.php:152 includes/etsy-html.php:174
+#: includes/hb-html.php:57 includes/n11-html.php:77
+#: includes/pazarama-html.php:57 includes/trendyol-html.php:57
+#: includes/trendyol-html.php:294
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: includes/amazon-html.php:68 includes/class-isarud-etsy.php:289
+#: includes/ebay-html.php:54 includes/etsy-html.php:260 includes/hb-html.php:68
+#: includes/marketplaces-html.php:127 includes/marketplaces-html.php:450
+#: includes/pazarama-html.php:68 includes/trendyol-html.php:68
+msgid "Store:"
+msgstr "المتجر:"
+
+#: includes/amazon-html.php:69 includes/hb-html.php:69
+#: includes/pazarama-html.php:69
+msgid "Merchant ID:"
+msgstr "Merchant ID:"
+
+#: includes/amazon-html.php:70 includes/hb-html.php:70
+#: includes/pazarama-html.php:70 includes/trendyol-html.php:70
+msgid "STAGE"
+msgstr "STAGE"
+
+#: includes/amazon-html.php:74 includes/amazon-html.php:104
+#: includes/amazon-html.php:202 includes/amazon-html.php:214
+#: includes/ebay-html.php:57 includes/etsy-html.php:34
+#: includes/etsy-html.php:63 includes/hb-html.php:74 includes/hb-html.php:104
+#: includes/hb-html.php:202 includes/hb-html.php:214 includes/n11-html.php:90
+#: includes/pazarama-html.php:74 includes/pazarama-html.php:104
+#: includes/pazarama-html.php:202 includes/pazarama-html.php:214
+#: includes/trendyol-html.php:74 includes/trendyol-html.php:104
+#: includes/trendyol-html.php:206 includes/trendyol-html.php:218
+#: includes/trendyol-html.php:236
+msgid "Refresh"
+msgstr "تحديث"
+
+#: includes/amazon-html.php:82 includes/hb-html.php:82
+#: includes/pazarama-html.php:82 includes/trendyol-html.php:82
+msgid "Brand & Category"
+msgstr "العلامة التجارية والفئة"
+
+#: includes/amazon-html.php:83 includes/hb-html.php:83
+#: includes/marketplaces-html.php:413 includes/n11-html.php:110
+#: includes/pazarama-html.php:83 includes/trendyol-html.php:83
+msgid "Stock & Price"
+msgstr "المخزون والسعر"
+
+#: includes/amazon-html.php:85 includes/hb-html.php:85
+#: includes/marketplaces-html.php:10 includes/marketplaces-html.php:224
+#: includes/marketplaces-html.php:288 includes/pazarama-html.php:85
+#: includes/trendyol-html.php:85
+msgid "Returns"
+msgstr "المرتجعات"
+
+#: includes/amazon-html.php:86 includes/hb-html.php:86
+#: includes/pazarama-html.php:86 includes/trendyol-html.php:86
+msgid "Questions"
+msgstr "الأسئلة"
+
+#: includes/amazon-html.php:87 includes/hb-html.php:87
+#: includes/marketplaces-html.php:10 includes/marketplaces-html.php:417
+#: includes/pazarama-html.php:87 includes/trendyol-html.php:87
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#: includes/amazon-html.php:88 includes/hb-html.php:88
+#: includes/marketplaces-html.php:10 includes/marketplaces-html.php:418
+#: includes/pazarama-html.php:88 includes/trendyol-html.php:88
+msgid "Webhook"
+msgstr "Webhook"
+
+#: includes/amazon-html.php:96
+msgid "Amazon Products"
+msgstr "منتجات Amazon"
+
+#: includes/amazon-html.php:100 includes/class-isarud-b2b.php:204
+#: includes/hb-html.php:100 includes/pazarama-html.php:100
+#: includes/trendyol-html.php:100
+msgid "Approved"
+msgstr "موافق عليه"
+
+#: includes/amazon-html.php:101 includes/b2b-html.php:116
+#: includes/hb-html.php:101 includes/pazarama-html.php:101
+#: includes/trendyol-html.php:101
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#: includes/amazon-html.php:102 includes/class-isarud-b2b.php:205
+#: includes/hb-html.php:102 includes/pazarama-html.php:102
+#: includes/trendyol-html.php:102 includes/trendyol-html.php:234
+msgid "Rejected"
+msgstr "مرفوض"
+
+#: includes/amazon-html.php:108 includes/amazon-html.php:206
+#: includes/amazon-html.php:217 includes/hb-html.php:108
+#: includes/hb-html.php:206 includes/hb-html.php:217
+#: includes/pazarama-html.php:108 includes/pazarama-html.php:206
+#: includes/pazarama-html.php:217 includes/trendyol-html.php:108
+#: includes/trendyol-html.php:210 includes/trendyol-html.php:221
+#: includes/trendyol-html.php:240
+msgid "Click the Refresh button."
+msgstr "انقر على زر التحديث."
+
+#: includes/amazon-html.php:116
+msgid "Amazon Categories"
+msgstr "فئات Amazon"
+
+#: includes/amazon-html.php:119
+msgid "View the Amazon category tree and examine its properties."
+msgstr "اعرض شجرة فئات Amazon وافحص خصائصها."
+
+#: includes/amazon-html.php:121 includes/hb-html.php:121
+#: includes/pazarama-html.php:121
+msgid "Click the Upload button."
+msgstr "انقر على زر التحميل."
+
+#: includes/amazon-html.php:127 includes/hb-html.php:127
+#: includes/pazarama-html.php:127 includes/trendyol-html.php:131
+msgid "Stock & Price Synchronization"
+msgstr "مزامنة المخزون والسعر"
+
+#: includes/amazon-html.php:130 includes/hb-html.php:130
+#: includes/pazarama-html.php:130 includes/trendyol-html.php:134
+msgid "Synchronize Single Product"
+msgstr "مزامنة منتج واحد"
+
+#: includes/amazon-html.php:131
+msgid "Send a product's barcode, stock, and price information to Amazon."
+msgstr "أرسل رمز المنتج والمخزون ومعلومات السعر إلى Amazon."
+
+#: includes/amazon-html.php:134 includes/amazon-html.php:393
+#: includes/hb-html.php:134 includes/hb-html.php:393
+#: includes/pazarama-html.php:134 includes/pazarama-html.php:393
+#: includes/trendyol-html.php:138 includes/trendyol-html.php:409
+msgid "Barcode"
+msgstr "الرمز الشريطي"
+
+#: includes/amazon-html.php:142 includes/hb-html.php:142
+#: includes/pazarama-html.php:142 includes/trendyol-html.php:146
+msgid "Sales Price (TRY)"
+msgstr "سعر البيع (TRY)"
+
+#: includes/amazon-html.php:146 includes/hb-html.php:146
+#: includes/pazarama-html.php:146 includes/trendyol-html.php:150
+msgid "List Price (optional)"
+msgstr "السعر المدرج (اختياري)"
+
+#: includes/amazon-html.php:150 includes/hb-html.php:150
+#: includes/pazarama-html.php:150 includes/trendyol-html.php:154
+msgid "Synchronize"
+msgstr "مزامنة"
+
+#: includes/amazon-html.php:155 includes/hb-html.php:155
+#: includes/pazarama-html.php:155 includes/trendyol-html.php:159
+msgid "Automatic Export (Auto-Export)"
+msgstr "التصدير التلقائي (التصدير الآلي)"
+
+#: includes/amazon-html.php:156
+msgid "When this feature is enabled, whenever you add a new product in WooCommerce or update an existing product, the product is automatically sent to all active marketplaces (including Amazon)."
+msgstr "عندما يتم تفعيل هذه الميزة، في كل مرة تضيف منتجاً جديداً في WooCommerce أو تحدّث منتجاً موجوداً، يتم إرسال المنتج تلقائياً إلى جميع الأسواق النشطة (بما فيها Amazon)."
+
+#: includes/amazon-html.php:161 includes/hb-html.php:161
+#: includes/pazarama-html.php:161 includes/trendyol-html.php:165
+msgid "Automatic export is ACTIVE"
+msgstr "التصدير التلقائي نشط"
+
+#: includes/amazon-html.php:163 includes/hb-html.php:163
+#: includes/pazarama-html.php:163 includes/trendyol-html.php:167
+msgid "On"
+msgstr "تشغيل"
+
+#: includes/amazon-html.php:163 includes/hb-html.php:163
+#: includes/pazarama-html.php:163 includes/trendyol-html.php:167
+msgid "Off"
+msgstr "إيقاف"
+
+#: includes/amazon-html.php:167 includes/hb-html.php:167
+#: includes/pazarama-html.php:167 includes/trendyol-html.php:171
+msgid "For automatic export, your products must have"
+msgstr "لكي يتم التصدير التلقائي، يجب أن تملك منتجاتك"
+
+#: includes/amazon-html.php:168
+msgid "Amazon category and brand mappings"
+msgstr "تعيينات فئة وعلامة تجارية بـ Amazon"
+
+#: includes/amazon-html.php:169 includes/hb-html.php:169
+#: includes/pazarama-html.php:169 includes/trendyol-html.php:173
+msgid "completed. Otherwise, the export will fail."
+msgstr "مكتملة. وإلا فسيفشل التصدير."
+
+#: includes/amazon-html.php:174
+msgid "Manual Bulk Export (WooCommerce → Amazon)"
+msgstr "تصدير مجموعي يدوي (WooCommerce → Amazon)"
+
+#: includes/amazon-html.php:175
+msgid "Use this button to send all your WooCommerce products to Amazon at once. Only products with completed category and brand mapping will be transferred."
+msgstr "استخدم هذا الزر لإرسال جميع منتجات WooCommerce الخاصة بك إلى Amazon في المرة الواحدة. سيتم نقل المنتجات التي تم إكمال تعيين الفئة والعلامة التجارية لها فقط."
+
+#: includes/amazon-html.php:177 includes/amazon-html.php:653
+#: includes/amazon-html.php:660
+msgid "Send All Products to Amazon"
+msgstr "إرسال جميع المنتجات إلى Amazon"
+
+#: includes/amazon-html.php:186 includes/hb-html.php:186
+#: includes/pazarama-html.php:186 includes/trendyol-html.php:190
+msgid "Order Packages"
+msgstr "حزم الطلبات"
+
+#: includes/amazon-html.php:189 includes/einvoice-html.php:149
+#: includes/hb-html.php:189 includes/pazarama-html.php:189
+#: includes/trendyol-html.php:193
+msgid "All Statuses"
+msgstr "جميع الحالات"
+
+#: includes/amazon-html.php:198 includes/hb-html.php:198
+#: includes/pazarama-html.php:198 includes/trendyol-html.php:202
+msgid "Last 7 Days"
+msgstr "آخر 7 أيام"
+
+#: includes/amazon-html.php:199 includes/hb-html.php:199
+#: includes/pazarama-html.php:199 includes/trendyol-html.php:203
+msgid "Last 14 Days"
+msgstr "آخر 14 يومًا"
+
+#: includes/amazon-html.php:200 includes/hb-html.php:200
+#: includes/pazarama-html.php:200 includes/trendyol-html.php:204
+msgid "Last 30 Days"
+msgstr "آخر 30 يومًا"
+
+#: includes/amazon-html.php:213 includes/hb-html.php:213
+#: includes/pazarama-html.php:213 includes/trendyol-html.php:217
+msgid "Return Requests"
+msgstr "طلبات الاسترجاع"
+
+#: includes/amazon-html.php:222 includes/hb-html.php:222
+#: includes/pazarama-html.php:222
+msgid "Shipping Information Management"
+msgstr "إدارة معلومات الشحن"
+
+#: includes/amazon-html.php:223
+msgid "Add shipping tracking number to Amazon orders."
+msgstr "أضف رقم تتبع الشحنة إلى طلبات Amazon."
+
+#: includes/amazon-html.php:225 includes/hb-html.php:225
+#: includes/pazarama-html.php:225
+msgid "Assign Shipping"
+msgstr "تعيين الشحن"
+
+#: includes/amazon-html.php:228 includes/hb-html.php:228
+#: includes/pazarama-html.php:228
+msgid "Package Number"
+msgstr "رقم الحزمة"
+
+#: includes/amazon-html.php:232 includes/hb-html.php:232
+#: includes/pazarama-html.php:232
+msgid "Tracking Number"
+msgstr "رقم التتبع"
+
+#: includes/amazon-html.php:236 includes/hb-html.php:236
+#: includes/pazarama-html.php:236
+msgid "Shipping Company"
+msgstr "شركة الشحن"
+
+#: includes/amazon-html.php:241 includes/hb-html.php:241
+#: includes/pazarama-html.php:241
+msgid "Domestic Shipping"
+msgstr "الشحن المحلي"
+
+#: includes/amazon-html.php:243 includes/hb-html.php:243
+#: includes/pazarama-html.php:243
+msgid "Express Shipping"
+msgstr "الشحن السريع"
+
+#: includes/amazon-html.php:250 includes/hb-html.php:250
+#: includes/pazarama-html.php:250
+msgid "Send Shipping Information"
+msgstr "إرسال معلومات الشحن"
+
+#: includes/amazon-html.php:257 includes/hb-html.php:257
+#: includes/n11-html.php:205 includes/pazarama-html.php:257
+msgid "Connection Settings"
+msgstr "إعدادات الاتصال"
+
+#: includes/amazon-html.php:259
+msgid "Amazon Connection Information"
+msgstr "معلومات اتصال Amazon"
+
+#: includes/amazon-html.php:260
+msgid "Amazon SP-API connection status and information."
+msgstr "حالة معلومات اتصال SP-API بـ Amazon ومعلوماته."
+
+#: includes/amazon-html.php:263 includes/amazon-html.php:578
+#: includes/etsy-html.php:44 includes/hb-html.php:263 includes/hb-html.php:578
+#: includes/marketplaces-html.php:248 includes/marketplaces-html.php:312
+#: includes/marketplaces-html.php:376 includes/pazarama-html.php:263
+#: includes/pazarama-html.php:578 includes/trendyol-html.php:795
+msgid "Store"
+msgstr "متجر"
+
+#: includes/amazon-html.php:267 includes/hb-html.php:267
+#: includes/pazarama-html.php:267
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#: includes/amazon-html.php:276 includes/hb-html.php:276
+#: includes/pazarama-html.php:276
+msgid "Go to Marketplace API Settings"
+msgstr "انتقل إلى إعدادات Marketplace API"
+
+#: includes/amazon-html.php:362 includes/etsy-html.php:263
+#: includes/hb-html.php:362 includes/marketplaces-html.php:131
+#: includes/marketplaces-html.php:190 includes/marketplaces-html.php:456
+#: includes/n11-html.php:228 includes/pazarama-html.php:362
+#: includes/trendyol-html.php:378
+msgid "Not Connected"
+msgstr "غير متصل"
+
+#: includes/amazon-html.php:389 includes/hb-html.php:389
+#: includes/pazarama-html.php:389 includes/trendyol-html.php:405
+msgid "No products found."
+msgstr "لم يتم العثور على منتجات."
+
+#: includes/amazon-html.php:406 includes/etsy-html.php:200
+#: includes/hb-html.php:406 includes/pazarama-html.php:406
+#: includes/trendyol-html.php:422 includes/trendyol-html.php:716
+msgid "Deactivate"
+msgstr "إلغاء التفعيل"
+
+#: includes/amazon-html.php:408 includes/etsy-html.php:199
+#: includes/hb-html.php:408 includes/pazarama-html.php:408
+#: includes/trendyol-html.php:424 includes/trendyol-html.php:716
+msgid "Activate"
+msgstr "تفعيل"
+
+#: includes/amazon-html.php:415 includes/hb-html.php:415
+#: includes/pazarama-html.php:415 includes/segments-html.php:82
+#: includes/trendyol-html.php:431
+msgid "Total"
+msgstr "الإجمالي"
+
+#: includes/amazon-html.php:415 includes/hb-html.php:415
+#: includes/pazarama-html.php:415 includes/trendyol-html.php:431
+msgid "products"
+msgstr "منتجات"
+
+#: includes/amazon-html.php:415 includes/hb-html.php:415
+#: includes/pazarama-html.php:415 includes/trendyol-html.php:431
+msgid "Page"
+msgstr "صفحة"
+
+#: includes/amazon-html.php:425 includes/hb-html.php:425
+#: includes/pazarama-html.php:425 includes/trendyol-html.php:441
+msgid "Change product status?"
+msgstr "تغيير حالة المنتج؟"
+
+#: includes/amazon-html.php:438
+msgid "Delete this product from Amazon? This cannot be undone."
+msgstr "حذف هذا المنتج من Amazon؟ لا يمكن التراجع عن هذا."
+
+#: includes/amazon-html.php:464 includes/amazon-html.php:645
+#: includes/hb-html.php:464 includes/hb-html.php:645
+#: includes/pazarama-html.php:464 includes/pazarama-html.php:645
+#: includes/trendyol-html.php:531 includes/trendyol-html.php:690
+#: includes/trendyol-html.php:862
+msgid "Sending..."
+msgstr "جاري الإرسال..."
+
+#: includes/amazon-html.php:481 includes/hb-html.php:481
+#: includes/pazarama-html.php:481 includes/trendyol-html.php:548
+msgid "No orders found."
+msgstr "لم يتم العثور على طلبات."
+
+#: includes/amazon-html.php:483 includes/cart-recovery-html.php:96
+#: includes/einvoice-html.php:111 includes/einvoice-html.php:169
+#: includes/hb-html.php:483 includes/n11-html.php:431
+#: includes/pazarama-html.php:483 includes/trendyol-html.php:550
+msgid "Amount"
+msgstr "المبلغ"
+
+#: includes/amazon-html.php:483 includes/class-isarud-einvoice.php:343
+#: includes/ecosystem-html.php:6 includes/hb-html.php:483
+#: includes/marketplaces-html.php:92 includes/n11-html.php:431
+#: includes/pazarama-html.php:483 includes/trendyol-html.php:550
+#: includes/welcome-html.php:95
+msgid "Shipping"
+msgstr "الشحن"
+
+#: includes/amazon-html.php:508 includes/hb-html.php:508
+#: includes/pazarama-html.php:508 includes/trendyol-html.php:575
+msgid "Update package status?"
+msgstr "تحديث حالة الحزمة؟"
+
+#: includes/amazon-html.php:550 includes/hb-html.php:550
+#: includes/pazarama-html.php:550 includes/trendyol-html.php:617
+msgid "Approve this return?"
+msgstr "الموافقة على هذا الإرجاع؟"
+
+#: includes/amazon-html.php:565 includes/hb-html.php:565
+#: includes/n11-html.php:74 includes/pazarama-html.php:565
+#: includes/trendyol-html.php:782
+msgid "Loading your stores..."
+msgstr "جاري تحميل متاجرك..."
+
+#: includes/amazon-html.php:572 includes/hb-html.php:572
+#: includes/n11-html.php:288 includes/pazarama-html.php:572
+#: includes/trendyol-html.php:789
+msgid "Store not found or could not be loaded."
+msgstr "لم يتم العثور على المتجر أو تعذر تحميله."
+
+#: includes/amazon-html.php:584 includes/amazon-html.php:611
+#: includes/amazon-html.php:661 includes/hb-html.php:584
+#: includes/hb-html.php:611 includes/hb-html.php:661 includes/n11-html.php:300
+#: includes/pazarama-html.php:584 includes/pazarama-html.php:611
+#: includes/pazarama-html.php:661 includes/trendyol-html.php:801
+#: includes/trendyol-html.php:828 includes/trendyol-html.php:878
+msgid "Request failed."
+msgstr "فشل الطلب."
+
+#: includes/amazon-html.php:608 includes/hb-html.php:608
+#: includes/pazarama-html.php:608 includes/trendyol-html.php:825
+msgid "Connection URL could not be retrieved."
+msgstr "تعذر استرجاع URL الاتصال."
+
+#: includes/amazon-html.php:641
+msgid "All WooCommerce products will be sent to Amazon. Continue?"
+msgstr "سيتم إرسال جميع منتجات WooCommerce إلى Amazon. هل تريد المتابعة؟"
+
+#: includes/amazon-html.php:646 includes/hb-html.php:646
+#: includes/pazarama-html.php:646 includes/trendyol-html.php:863
+msgid "Products are being transferred, please wait..."
+msgstr "جاري نقل المنتجات، يرجى الانتظار..."
+
+#: includes/amazon-html.php:655 includes/hb-html.php:655
+#: includes/pazarama-html.php:655 includes/trendyol-html.php:872
+msgid "Transfer complete!"
+msgstr "تم إكمال النقل!"
+
+#: includes/b2b-html.php:32
+msgid "Corporate customer management and wholesale pricing"
+msgstr "إدارة العملاء الشركات وتسعير الجملة"
+
+#: includes/b2b-html.php:38
+msgid "Pending B2B Applications"
+msgstr "طلبات B2B قيد الانتظار"
+
+#: includes/b2b-html.php:41 includes/b2b-html.php:130
+msgid "User"
+msgstr "المستخدم"
+
+#: includes/b2b-html.php:42 includes/cart-recovery-html.php:96
+#: includes/einvoice-html.php:337 includes/email-marketing-html.php:101
+#: includes/segments-html.php:80
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: includes/b2b-html.php:43 includes/b2b-html.php:131
+msgid "Company"
+msgstr "الشركة"
+
+#: includes/b2b-html.php:44 includes/b2b-html.php:132
+#: includes/class-isarud-b2b.php:218
+msgid "Tax ID"
+msgstr "Tax ID"
+
+#: includes/b2b-html.php:45 includes/popup-html.php:59
+msgid "Action"
+msgstr "الإجراء"
+
+#: includes/b2b-html.php:55
+msgid "Approve"
+msgstr "الموافقة"
+
+#: includes/b2b-html.php:56
+msgid "Reject"
+msgstr "الرفض"
+
+#: includes/b2b-html.php:67
+msgid "B2B Settings"
+msgstr "إعدادات B2B"
+
+#: includes/b2b-html.php:73
+msgid "Enable B2B wholesale module"
+msgstr "تفعيل وحدة البيع بالجملة B2B"
+
+#: includes/b2b-html.php:76
+msgid "Minimum Order Amount"
+msgstr "الحد الأدنى لمبلغ الطلب"
+
+#: includes/b2b-html.php:80
+msgid "Minimum order amount for B2B customers (0 = no limit)"
+msgstr "الحد الأدنى لمبلغ الطلب لعملاء B2B (0 = بدون حد)"
+
+#: includes/b2b-html.php:84
+msgid "Company Field"
+msgstr "حقل الشركة"
+
+#: includes/b2b-html.php:85
+msgid "Show company name field on checkout page"
+msgstr "عرض حقل اسم الشركة على صفحة الدفع"
+
+#: includes/b2b-html.php:88
+msgid "Tax Fields"
+msgstr "حقول الضريبة"
+
+#: includes/b2b-html.php:89
+msgid "Show tax office and tax ID fields on checkout page"
+msgstr "عرض حقول مكتب الضريبة و Tax ID على صفحة الدفع"
+
+#: includes/b2b-html.php:92
+msgid "Require Approval"
+msgstr "يتطلب الموافقة"
+
+#: includes/b2b-html.php:93
+msgid "B2B applications require admin approval"
+msgstr "طلبات B2B تتطلب موافقة المسؤول"
+
+#: includes/b2b-html.php:96
+msgid "Hide Pricing"
+msgstr "إخفاء الأسعار"
+
+#: includes/b2b-html.php:97
+msgid "Hide B2B prices from non-logged-in visitors"
+msgstr "إخفاء أسعار B2B عن الزوار غير المسجلين"
+
+#: includes/b2b-html.php:101 includes/currency-html.php:154
+#: includes/einvoice-html.php:374 includes/email-marketing-html.php:91
+#: includes/upsell-html.php:74
+msgid "Save Settings"
+msgstr "حفظ الإعدادات"
+
+#: includes/b2b-html.php:108
+msgid "B2B Statistics"
+msgstr "إحصائيات B2B"
+
+#: includes/b2b-html.php:112
+msgid "B2B Customer"
+msgstr "عميل B2B"
+
+#: includes/b2b-html.php:127
+msgid "Approved B2B Customers"
+msgstr "عملاء B2B المعتمدون"
+
+#: includes/b2b-html.php:147
+msgid "No approved B2B customers yet."
+msgstr "لا توجد عملاء B2B موافق عليهم حتى الآن."
+
+#: includes/b2b-html.php:154
+msgid "Nasil calisir: Urun duzenle sayfasinda \"B2B Toptan Fiyat\" ve \"B2B Min. Siparis Adedi\" alanlarindan toptan fiyat belirleyin. Kullanici profilinden B2B durumunu \"Onaylandi\" yaparak musteriye ozel fiyatlari aktif edin."
+msgstr "كيفية العمل: حدد السعر بالجملة من حقول \"سعر B2B بالجملة\" و \"الحد الأدنى لطلب B2B\" في صفحة تعديل المنتج. فعّل الأسعار المخصصة للعميل بجعل حالة B2B \"موافق عليه\" من ملف تعريف المستخدم."
+
+#: includes/b2b-html.php:164
+msgid "approved"
+msgstr "موافق عليه"
+
+#: includes/b2b-html.php:164
+msgid "rejected"
+msgstr "مرفوض"
+
+#: includes/b2b-html.php:165
+msgid "This application"
+msgstr "هذا التطبيق"
+
+#: includes/cart-recovery-html.php:37
+msgid "Abandoned cart recovery automation"
+msgstr "أتمتة استرجاع سلات التسوق المتروكة"
+
+#: includes/cart-recovery-html.php:42
+msgid "Abandoned"
+msgstr "متروك"
+
+#: includes/cart-recovery-html.php:43
+msgid "Recovered"
+msgstr "تم استرجاعه"
+
+#: includes/cart-recovery-html.php:44
+msgid "Recovered Revenue"
+msgstr "الإيرادات المستردة"
+
+#: includes/cart-recovery-html.php:45
+msgid "Recovery Rate"
+msgstr "معدل الاسترجاع"
+
+#: includes/cart-recovery-html.php:50
+msgid "Email Settings"
+msgstr "إعدادات البريد الإلكتروني"
+
+#: includes/cart-recovery-html.php:55
+msgid "Enable cart reminder module"
+msgstr "تفعيل وحدة تذكير السلة"
+
+#: includes/cart-recovery-html.php:56
+msgid "Wait Time"
+msgstr "وقت الانتظار"
+
+#: includes/cart-recovery-html.php:57
+msgid "minutes (cart abandonment threshold)"
+msgstr "دقائق (حد التخلي عن السلة)"
+
+#: includes/cart-recovery-html.php:58
+msgid "1st Email"
+msgstr "البريد الإلكتروني الأول"
+
+#: includes/cart-recovery-html.php:59 includes/cart-recovery-html.php:63
+#: includes/cart-recovery-html.php:67
+msgid "hours later"
+msgstr "ساعات لاحقة"
+
+#: includes/cart-recovery-html.php:60 includes/email-marketing-html.php:66
+msgid "Subject"
+msgstr "الموضوع"
+
+#: includes/cart-recovery-html.php:61
+msgid "2nd Email"
+msgstr "البريد الإلكتروني الثاني"
+
+#: includes/cart-recovery-html.php:65
+msgid "3rd Email"
+msgstr "البريد الإلكتروني الثالث"
+
+#: includes/cart-recovery-html.php:69 includes/popup-html.php:33
+msgid "Coupon Code"
+msgstr "رمز القسيمة"
+
+#: includes/cart-recovery-html.php:71
+msgid "Displayed in 2nd and 3rd emails (will not be shown if left blank)"
+msgstr "يتم عرضه في البريد الإلكتروني الثاني والثالث (لن يتم عرضه إذا تُرك فارغًا)"
+
+#: includes/cart-recovery-html.php:72
+msgid "Guest Carts"
+msgstr "سلات الضيوف"
+
+#: includes/cart-recovery-html.php:73
+msgid "Capture shopping carts from logged-out visitors"
+msgstr "التقط سلات التسوق من الزوار غير المسجلين"
+
+#: includes/cart-recovery-html.php:74 includes/email-marketing-html.php:59
+msgid "Sender"
+msgstr "المرسل"
+
+#: includes/cart-recovery-html.php:83
+msgid "Test Email"
+msgstr "بريد إلكتروني اختباري"
+
+#: includes/cart-recovery-html.php:86
+msgid "Send"
+msgstr "إرسال"
+
+#: includes/cart-recovery-html.php:93
+msgid "Abandoned Carts"
+msgstr "سلات التسوق المتروكة"
+
+#: includes/cart-recovery-html.php:96 includes/email-marketing-html.php:101
+msgid "Time"
+msgstr "الوقت"
+
+#: includes/cart-recovery-html.php:111
+msgid "No abandoned carts yet."
+msgstr "لا توجد عربات مهجورة حتى الآن."
+
+#: includes/cart-recovery-html.php:117
+msgid "Nasil calisir: Ziyaretci sepete urun ekledikten sonra belirtilen sure icinde odeme yapmazsa sepet \"terk edilmis\" olarak isaretlenir. Otomatik e-postalar WP Cron ile saatlik kontrol edilerek gonderilir. Musteri odeme yaparsa sepet \"kurtarildi\" olarak guncellenir."
+msgstr "كيفية العمل: بعد إضافة الزائر منتج إلى السلة، إذا لم يتم الدفع خلال المدة المحددة، يتم وضع علامة على السلة كـ \"مهجورة\". يتم فحص رسائل البريد الإلكتروني التلقائية بشكل ساعي عبر WP Cron وإرسالها. إذا قام العميل بالدفع، يتم تحديث السلة كـ \"تم استرجاعها\"."
+
+#: includes/class-isarud-amazon.php:75 includes/class-isarud-hepsiburada.php:75
+#: includes/class-isarud-n11.php:276 includes/class-isarud-pazarama.php:75
+msgid "No Cloud Sync API key. Please connect from the Cloud Sync page first."
+msgstr "لا يوجد مفتاح Cloud Sync API. يرجى الاتصال من صفحة Cloud Sync أولاً."
+
+#: includes/class-isarud-amazon.php:451
+msgid "Amazon connected!"
+msgstr "تم الاتصال بـ Amazon!"
+
+#: includes/class-isarud-amazon.php:453
+#: includes/class-isarud-hepsiburada.php:453
+#: includes/class-isarud-pazarama.php:453
+#, php-format
+msgid "Merchant ID: %s"
+msgstr "Merchant ID: %s"
+
+#: includes/class-isarud-attribute-map.php:113
+msgid "Match WooCommerce product attributes (color, size, brand, etc.) with marketplace attributes. Used in product uploads."
+msgstr "طابق خصائص منتجات WooCommerce (اللون والحجم والعلامة التجارية وما إلى ذلك) مع خصائص السوق. تُستخدم في تحميلات المنتجات."
+
+#: includes/class-isarud-attribute-map.php:125
+msgid "WC Value"
+msgstr "قيمة WC"
+
+#: includes/class-isarud-attribute-map.php:128
+#: includes/class-isarud-attribute-map.php:159
+msgid "MP Value"
+msgstr "قيمة MP"
+
+#: includes/class-isarud-attribute-map.php:155
+msgid "WC Value (* = all)"
+msgstr "قيمة WC (* = الكل)"
+
+#: includes/class-isarud-attribute-map.php:156
+msgid "MP Attribute Name"
+msgstr "اسم سمة MP"
+
+#: includes/class-isarud-attribute-map.php:187 includes/etsy-html.php:189
+msgid "Are you sure you want to delete?"
+msgstr "هل أنت متأكد من رغبتك في الحذف؟"
+
+#: includes/class-isarud-b2b.php:59
+msgid "B2B Wholesale Customer"
+msgstr "عميل B2B بالجملة"
+
+#: includes/class-isarud-b2b.php:66 includes/class-isarud-b2b.php:95
+msgid "B2B Wholesale Price"
+msgstr "سعر B2B بالجملة"
+
+#: includes/class-isarud-b2b.php:68
+msgid "Price to display for customers with B2B role"
+msgstr "السعر المراد عرضه للعملاء الذين لديهم دور B2B"
+
+#: includes/class-isarud-b2b.php:74
+msgid "B2B Minimum Order Quantity"
+msgstr "الحد الأدنى لكمية الطلب B2B"
+
+#: includes/class-isarud-b2b.php:76
+msgid "Minimum order quantity for wholesale customers"
+msgstr "الحد الأدنى لكمية الطلب للعملاء بالجملة"
+
+#: includes/class-isarud-b2b.php:130
+#, php-format
+msgid "\"%s\" icin minimum siparis adedi %d adet."
+msgstr "الحد الأدنى لكمية الطلب لـ \"%s\" هو %d وحدة."
+
+#: includes/class-isarud-b2b.php:144 includes/class-isarud-b2b.php:210
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#: includes/class-isarud-b2b.php:145
+msgid "Enter your company name"
+msgstr "أدخل اسم شركتك"
+
+#: includes/class-isarud-b2b.php:154 includes/class-isarud-b2b.php:214
+#: includes/einvoice-html.php:317
+msgid "Tax Authority"
+msgstr "السلطة الضريبية"
+
+#: includes/class-isarud-b2b.php:155
+msgid "Enter your tax authority"
+msgstr "أدخل السلطة الضريبية الخاصة بك"
+
+#: includes/class-isarud-b2b.php:162
+msgid "Tax ID / National ID"
+msgstr "معرّف الضريبة / معرّف وطني"
+
+#: includes/class-isarud-b2b.php:163
+msgid "Your tax ID or national ID number"
+msgstr "معرّف الضريبة أو رقم معرّفك الوطني"
+
+#: includes/class-isarud-b2b.php:186
+msgid "B2B Information"
+msgstr "معلومات B2B"
+
+#: includes/class-isarud-b2b.php:187
+msgid "Company:"
+msgstr "الشركة:"
+
+#: includes/class-isarud-b2b.php:188
+msgid "Tax Authority:"
+msgstr "السلطة الضريبية:"
+
+#: includes/class-isarud-b2b.php:189
+msgid "Tax ID:"
+msgstr "معرّف الضريبة:"
+
+#: includes/class-isarud-b2b.php:196
+msgid "B2B Wholesale Sales Information"
+msgstr "معلومات مبيعات B2B بالجملة"
+
+#: includes/class-isarud-b2b.php:199
+msgid "B2B Status"
+msgstr "حالة B2B"
+
+#: includes/class-isarud-b2b.php:202
+msgid "Regular Customer"
+msgstr "عميل عادي"
+
+#: includes/class-isarud-b2b.php:203
+msgid "Pending Application"
+msgstr "طلب قيد الانتظار"
+
+#: includes/class-isarud-b2b.php:251
+msgid "Invalid request"
+msgstr "طلب غير صحيح"
+
+#: includes/class-isarud-b2b.php:259
+msgid "User approved as B2B"
+msgstr "تم الموافقة على المستخدم كـ B2B"
+
+#: includes/class-isarud-b2b.php:263
+msgid "Application rejected"
+msgstr "تم رفض الطلب"
+
+#: includes/class-isarud-cart-recovery.php:43
+msgid "You have items in your cart!"
+msgstr "لديك عناصر في سلة التسوق!"
+
+#: includes/class-isarud-cart-recovery.php:44
+msgid "Don't forget your cart!"
+msgstr "لا تنسَ سلة التسوق!"
+
+#: includes/class-isarud-cart-recovery.php:45
+msgid "Last chance! Your cart is waiting for you"
+msgstr "آخر فرصة! سلة التسوق تنتظرك"
+
+#: includes/class-isarud-cart-recovery.php:206
+msgid "Hello,"
+msgstr "مرحبا،"
+
+#: includes/class-isarud-cart-recovery.php:207
+msgid "The following items are waiting in your cart:"
+msgstr "العناصر التالية تنتظر في سلة التسوق:"
+
+#: includes/class-isarud-cart-recovery.php:215
+msgid "Quantity:"
+msgstr "الكمية:"
+
+#: includes/class-isarud-cart-recovery.php:221 includes/etsy-html.php:339
+msgid "Total:"
+msgstr "الإجمالي:"
+
+#: includes/class-isarud-cart-recovery.php:225
+msgid "Your special discount code:"
+msgstr "رمز الخصم الخاص بك:"
+
+#: includes/class-isarud-cart-recovery.php:231
+msgid "Return to Cart"
+msgstr "العودة إلى السلة"
+
+#: includes/class-isarud-cart-recovery.php:284
+msgid "Enter a valid email"
+msgstr "أدخل بريدا إلكترونيا صحيحا"
+
+#: includes/class-isarud-cart-recovery.php:292
+msgid "Test email sent"
+msgstr "تم إرسال البريد الإلكتروني التجريبي"
+
+#: includes/class-isarud-cart-recovery.php:292
+msgid "Email could not be sent"
+msgstr "لم يتمكن من إرسال البريد الإلكتروني"
+
+#: includes/class-isarud-category-map.php:76
+msgid "Match marketplace categories with WooCommerce categories. Used in product transfer."
+msgstr "مطابقة فئات السوق مع فئات WooCommerce. يُستخدم في نقل المنتجات."
+
+#: includes/class-isarud-category-map.php:80
+msgid "No matches yet. Matches are created automatically during product import or add manually below."
+msgstr "لا توجد تطابقات حتى الآن. يتم إنشاء التطابقات تلقائياً أثناء استيراد المنتجات أو يمكنك إضافتها يدوياً أدناه."
+
+#: includes/class-isarud-category-map.php:84
+msgid "Marketplace Category"
+msgstr "فئة السوق"
+
+#: includes/class-isarud-category-map.php:85
+msgid "WooCommerce Category"
+msgstr "فئة WooCommerce"
+
+#: includes/class-isarud-category-map.php:97
+msgid "Deleted"
+msgstr "محذوف"
+
+#: includes/class-isarud-category-map.php:112
+msgid "Marketplace category name"
+msgstr "اسم فئة السوق"
+
+#: includes/class-isarud-category-map.php:150
+msgid "Please fill in all fields"
+msgstr "يرجى ملء جميع الحقول"
+
+#: includes/class-isarud-currency.php:51
+msgid "TCMB did not respond"
+msgstr "TCMB لم يرد"
+
+#: includes/class-isarud-currency.php:54
+msgid "XML parsing error"
+msgstr "خطأ في تحليل XML"
+
+#: includes/class-isarud-currency.php:105 includes/dashboard-html.php:46
+msgid "WooCommerce required"
+msgstr "WooCommerce مطلوب"
+
+#: includes/class-isarud-currency.php:109
+msgid "Exchange rate could not be calculated"
+msgstr "لم يتمكن من حساب سعر الصرف"
+
+#: includes/class-isarud-ebay.php:43
+msgid "Cloud Sync API key missing. Please connect from the Cloud Sync page first."
+msgstr "مفتاح Cloud Sync API مفقود. يرجى الاتصال من صفحة Cloud Sync أولاً."
+
+#: includes/class-isarud-einvoice.php:168
+msgid "GIB user information is missing."
+msgstr "معلومات مستخدم GIB مفقودة."
+
+#: includes/class-isarud-einvoice.php:196
+msgid "GIB login failed. Please check your user credentials."
+msgstr "فشل تسجيل الدخول إلى GIB. يرجى التحقق من بيانات اعتماد المستخدم."
+
+#: includes/class-isarud-einvoice.php:275
+#: includes/class-isarud-einvoice.php:619
+msgid "Order not found."
+msgstr "لم يتم العثور على الطلب."
+
+#: includes/class-isarud-einvoice.php:389
+#, php-format
+msgid "Order No: #%s"
+msgstr "رقم الطلب: #%s"
+
+#: includes/class-isarud-einvoice.php:479
+#, php-format
+msgid "E-Archive invoice draft created. UUID: %s"
+msgstr "تم إنشاء مسودة فاتورة E-Archive. UUID: %s"
+
+#: includes/class-isarud-einvoice.php:486
+msgid "Invoice draft created in GIB portal."
+msgstr "تم إنشاء مسودة الفاتورة في بوابة GIB."
+
+#: includes/class-isarud-einvoice.php:520
+#, php-format
+msgid "E-Archive invoice signed. UUID: %s"
+msgstr "تم توقيع فاتورة E-Archive. UUID: %s"
+
+#: includes/class-isarud-einvoice.php:527
+msgid "Invoice signed successfully."
+msgstr "تم توقيع الفاتورة بنجاح."
+
+#: includes/class-isarud-einvoice.php:577
+msgid "Invoice cancelled."
+msgstr "تم إلغاء الفاتورة."
+
+#: includes/class-isarud-einvoice.php:605
+#, php-format
+msgid "E-Archive invoice cancelled. UUID: %s"
+msgstr "تم إلغاء فاتورة E-Archive. UUID: %s"
+
+#: includes/class-isarud-einvoice.php:610
+msgid "Invoice cancellation request created."
+msgstr "تم إنشاء طلب إلغاء الفاتورة."
+
+#: includes/class-isarud-einvoice.php:627
+msgid "No invoice found for this order."
+msgstr "لم يتم العثور على فاتورة لهذا الطلب."
+
+#: includes/class-isarud-einvoice.php:636
+#, php-format
+msgid "E-Archive Invoice — Order #%s"
+msgstr "فاتورة الأرشيف الإلكتروني — الطلب #%s"
+
+#: includes/class-isarud-einvoice.php:642
+#, php-format
+msgid "Dear %s,\\n\\nThe e-Archive invoice for your purchase with order number #%s has been prepared.\\n\\nInvoice UUID: %s\\n\\nYou can view your invoice through the GIB e-Archive Portal.\\n\\nBest regards,\\n%s"
+msgstr "السيد/السيدة %s،\\\n\\\nتم إعداد فاتورة الأرشيف الإلكتروني لشرائك برقم الطلب #%s.\\\n\\\nمعرّف الفاتورة: %s\\\n\\\nيمكنك عرض فاتورتك من خلال بوابة GIB للأرشيف الإلكتروني.\\\n\\\nتحياتنا الطيبة،\\\n%s"
+
+#: includes/class-isarud-einvoice.php:653
+#, php-format
+msgid "E-Archive invoice email sent: %s"
+msgstr "تم إرسال بريد الفاتورة E-Archive: %s"
+
+#: includes/class-isarud-einvoice.php:659
+msgid "Invoice email sent."
+msgstr "تم إرسال بريد الفاتورة."
+
+#: includes/class-isarud-einvoice.php:660
+msgid "Email could not be sent."
+msgstr "لم يتمكن من إرسال البريد."
+
+#: includes/class-isarud-einvoice.php:717 includes/einvoice-html.php:52
+msgid "E-Archive Invoice"
+msgstr "فاتورة الأرشيف الإلكتروني"
+
+#: includes/class-isarud-einvoice.php:738
+msgid "E-Invoice module is disabled. Activate it from Isarud → E-Invoice settings."
+msgstr "وحدة الفاتورة الإلكترونية معطّلة. قم بتفعيلها من Isarud → إعدادات الفاتورة الإلكترونية."
+
+#: includes/class-isarud-einvoice.php:748
+msgid "No e-invoice has been created for this order yet."
+msgstr "لم يتم إنشاء فاتورة إلكترونية لهذا الطلب حتى الآن."
+
+#: includes/class-isarud-einvoice.php:750
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+#: includes/class-isarud-einvoice.php:756 includes/einvoice-html.php:86
+#: includes/einvoice-html.php:126 includes/einvoice-html.php:151
+#: includes/einvoice-html.php:188
+msgid "Signed"
+msgstr "موقع"
+
+#: includes/class-isarud-einvoice.php:762
+msgid "Status:"
+msgstr "الحالة:"
+
+#: includes/class-isarud-einvoice.php:768
+msgid "Sign"
+msgstr "توقيع"
+
+#: includes/class-isarud-einvoice.php:774
+msgid "Download PDF"
+msgstr "تحميل PDF"
+
+#: includes/class-isarud-einvoice.php:779
+msgid "Send Email"
+msgstr "إرسال بريد إلكتروني"
+
+#: includes/class-isarud-einvoice.php:790
+msgid "Test mode active"
+msgstr "وضع الاختبار نشط"
+
+#: includes/class-isarud-einvoice.php:805
+msgid "Are you sure you want to cancel this invoice?"
+msgstr "هل أنت متأكد من أنك تريد إلغاء هذه الفاتورة؟"
+
+#: includes/class-isarud-einvoice.php:809
+msgid "Processing..."
+msgstr "جاري المعالجة..."
+
+#: includes/class-isarud-einvoice.php:818
+msgid "Operation completed successfully."
+msgstr "تمت العملية بنجاح."
+
+#: includes/class-isarud-einvoice.php:821
+msgid "An error occurred."
+msgstr "حدث خطأ."
+
+#: includes/class-isarud-einvoice.php:825
+msgid "Connection error."
+msgstr "خطأ في الاتصال."
+
+#: includes/class-isarud-einvoice.php:911
+#: includes/class-isarud-einvoice.php:925
+#: includes/class-isarud-einvoice.php:939
+#: includes/class-isarud-einvoice.php:953
+#: includes/class-isarud-einvoice.php:968
+#: includes/class-isarud-einvoice.php:981
+msgid "Unauthorized."
+msgstr "غير مصرح."
+
+#: includes/class-isarud-einvoice.php:948
+msgid "PDF download link is ready."
+msgstr "رابط تحميل PDF جاهز."
+
+#: includes/class-isarud-einvoice.php:976
+msgid "GIB connection successful!"
+msgstr "اتصال GIB ناجح!"
+
+#: includes/class-isarud-email-marketing.php:42
+msgid "Welcome! Special discount on your first order"
+msgstr "أهلا وسهلا! خصم خاص على طلبك الأول"
+
+#: includes/class-isarud-email-marketing.php:46
+msgid "Did you love your order? Special recommendations for you"
+msgstr "هل أحببت طلبك؟ توصيات خاصة لك"
+
+#: includes/class-isarud-email-marketing.php:49
+msgid "Would you rate our product?"
+msgstr "هل تود تقييم منتجنا؟"
+
+#: includes/class-isarud-email-marketing.php:52
+msgid "We missed you! Come back"
+msgstr "اشتقنا إليك! عد إلينا"
+
+#: includes/class-isarud-email-marketing.php:105
+#, php-format
+msgid "Welcome %s!"
+msgstr "أهلا وسهلا %s!"
+
+#: includes/class-isarud-email-marketing.php:106
+#, php-format
+msgid "Thank you for joining the %s family. We've prepared the best products for you."
+msgstr "شكراً لانضمامك إلى عائلة %s. لقد أعددنا أفضل المنتجات لك."
+
+#: includes/class-isarud-email-marketing.php:109
+msgid "Exclusive discount code for your first order:"
+msgstr "كود خصم حصري لطلبك الأول:"
+
+#: includes/class-isarud-email-marketing.php:112 includes/popup-html.php:35
+msgid "Start Shopping"
+msgstr "ابدأ التسوق"
+
+#: includes/class-isarud-email-marketing.php:135
+#: includes/class-isarud-email-marketing.php:178
+#, php-format
+msgid "Hello %s!"
+msgstr "مرحبا %s!"
+
+#: includes/class-isarud-email-marketing.php:136
+msgid "We hope you enjoyed your last order! We recommend checking out our specially selected products for you."
+msgstr "نأمل أن تكون قد استمتعت بطلبك السابق! ننصحك بمراجعة منتجاتنا المختارة خصيصاً لك."
+
+#: includes/class-isarud-email-marketing.php:151
+msgid "View More Products"
+msgstr "عرض المزيد من المنتجات"
+
+#: includes/class-isarud-email-marketing.php:179
+msgid "How did you find our products from your last order? Your valuable feedback will help our other customers."
+msgstr "كيف وجدت منتجاتنا من طلبك السابق؟ ستساعد تعليقاتك القيمة العملاء الآخرين."
+
+#: includes/class-isarud-email-marketing.php:182
+msgid "Write a Review"
+msgstr "اكتب تقييماً"
+
+#: includes/class-isarud-email-marketing.php:210
+#, php-format
+msgid "We missed you %s!"
+msgstr "اشتقنا إليك %s!"
+
+#: includes/class-isarud-email-marketing.php:211
+#, php-format
+msgid "You haven't visited %s in a while. We've added new products for you!"
+msgstr "لم تزر %s منذ فترة. لقد أضفنا منتجات جديدة لك!"
+
+#: includes/class-isarud-email-marketing.php:214
+msgid "Special comeback discount for you:"
+msgstr "خصم عودة خاص لك:"
+
+#: includes/class-isarud-email-marketing.php:217
+msgid "Visit Store"
+msgstr "زيارة المتجر"
+
+#: includes/class-isarud-etsy.php:99
+msgid "Cloud API key is not configured. First, establish a connection from the Cloud Sync page."
+msgstr "مفتاح Cloud API غير مكوّن. أنشئ اتصالاً أولاً من صفحة Cloud Sync."
+
+#: includes/class-isarud-etsy.php:191
+msgid "Unauthorized access"
+msgstr "وصول غير مصرح به"
+
+#: includes/class-isarud-etsy.php:264
+msgid "Your site must use HTTPS for OAuth connection."
+msgstr "يجب أن يستخدم موقعك HTTPS لاتصال OAuth."
+
+#: includes/class-isarud-etsy.php:287
+msgid "Etsy connected successfully!"
+msgstr "تم الاتصال بـ Etsy بنجاح!"
+
+#: includes/class-isarud-excel-import.php:53
+#, php-format
+msgid "Row %d: Column count mismatch"
+msgstr "الصف %d: عدم تطابق في عدد الأعمدة"
+
+#: includes/class-isarud-excel-import.php:133
+#, php-format
+msgid "Row %d: "
+msgstr "الصف %d: "
+
+#: includes/class-isarud-excel-import.php:195
+msgid "No file uploaded"
+msgstr "لم يتم تحميل أي ملف"
+
+#: includes/class-isarud-excel-import.php:198
+msgid "Upload error: "
+msgstr "خطأ في التحميل: "
+
+#: includes/class-isarud-excel-import.php:201
+msgid "Only CSV/TSV files are supported"
+msgstr "يتم دعم ملفات CSV/TSV فقط"
+
+#: includes/class-isarud-hepsiburada.php:451
+msgid "Hepsiburada connected!"
+msgstr "تم الاتصال بـ Hepsiburada!"
+
+#: includes/class-isarud-n11.php:75
+msgid "No Cloud Sync connection. Please connect your isarud.com account first."
+msgstr "لا توجد اتصال Cloud Sync. يرجى ربط حسابك على isarud.com أولاً."
+
+#: includes/class-isarud-n11.php:98
+msgid "Connection error: "
+msgstr "خطأ في الاتصال: "
+
+#: includes/class-isarud-n11.php:106
+#, php-format
+msgid "Invalid response (HTTP %d)"
+msgstr "استجابة غير صحيحة (HTTP %d)"
+
+#: includes/class-isarud-n11.php:175
+msgid "Invalid nonce"
+msgstr "رمز غير صحيح"
+
+#: includes/class-isarud-n11.php:201 includes/class-isarud-n11.php:209
+msgid "items must be JSON"
+msgstr "يجب أن تكون العناصر بصيغة JSON"
+
+#: includes/class-isarud-n11.php:249
+msgid "updates must be JSON"
+msgstr "يجب أن تكون التحديثات بصيغة JSON"
+
+#: includes/class-isarud-order-import.php:101
+#: includes/class-isarud-order-management.php:67
+#: includes/class-isarud-product-export.php:124
+msgid "Amazon module not loaded"
+msgstr "لم يتم تحميل وحدة Amazon"
+
+#: includes/class-isarud-order-import.php:104
+#: includes/class-isarud-order-import.php:179
+#: includes/class-isarud-order-import.php:238
+#: includes/class-isarud-order-management.php:70
+#: includes/class-isarud-order-management.php:108
+#: includes/class-isarud-order-management.php:125
+#: includes/class-isarud-product-export.php:128
+#: includes/class-isarud-product-export.php:231
+msgid "No Cloud Sync connection"
+msgstr "لا توجد اتصال Cloud Sync"
+
+#: includes/class-isarud-order-import.php:151
+#: includes/class-isarud-order-management.php:82
+#: includes/class-isarud-product-export.php:139
+msgid "Pazarama module not loaded"
+msgstr "لم يتم تحميل وحدة Pazarama"
+
+#: includes/class-isarud-order-import.php:241
+#: includes/class-isarud-order-management.php:121
+#: includes/class-isarud-product-export.php:307
+msgid "N11 module not loaded"
+msgstr "لم يتم تحميل وحدة N11"
+
+#: includes/class-isarud-order-import.php:248
+msgid "N11 order fetch failed"
+msgstr "فشل جلب طلب N11"
+
+#: includes/class-isarud-order-import.php:415
+#, php-format
+msgid "Isarud: order %s imported (ID: %s)"
+msgstr "Isarud: تم استيراد الطلب %s (معرّف: %s)"
+
+#: includes/class-isarud-order-management.php:29
+#, php-format
+msgid "Isarud: order %s status updated → %s %s"
+msgstr "Isarud: تم تحديث حالة الطلب %s → %s %s"
+
+#: includes/class-isarud-order-management.php:75
+msgid "Amazon order update coming soon - will be active after Feeds API integration."
+msgstr "تحديث طلب Amazon قريباً - سيكون نشطاً بعد دمج Feeds API."
+
+#: includes/class-isarud-pazarama.php:451
+msgid "Pazarama connected!"
+msgstr "تم الاتصال بـ Pazarama!"
+
+#: includes/class-isarud-popup.php:68
+msgid "Your Discount Code"
+msgstr "كود الخصم الخاص بك"
+
+#: includes/class-isarud-product-export.php:32
+#: includes/class-isarud-product-export.php:249
+msgid "No Cloud Sync connection. Please connect from the Cloud Sync page first."
+msgstr "لا توجد اتصالات Cloud Sync. يرجى الاتصال من صفحة Cloud Sync أولاً."
+
+#: includes/class-isarud-product-export.php:36
+msgid "Product has no barcode or SKU"
+msgstr "المنتج لا يحتوي على رمز شريطي أو SKU"
+
+#: includes/class-isarud-product-export.php:44
+msgid "Trendyol category and brand mapping required (Trendyol > Brand & Category tab)"
+msgstr "تعيين فئة وعلامة تجارية Trendyol مطلوب (Trendyol > علامة تجارية وفئة)"
+
+#: includes/class-isarud-product-export.php:110
+msgid "Invalid JSON response"
+msgstr "استجابة JSON غير صحيحة"
+
+#: includes/class-isarud-product-export.php:131
+msgid "Amazon listing creation not active yet (test store pending)"
+msgstr "Amazon إنشاء القوائم غير نشط حتى الآن (متجر الاختبار قيد الانتظار)"
+
+#: includes/class-isarud-product-export.php:192
+#: includes/class-isarud-product-export.php:253
+msgid "Product has no SKU"
+msgstr "المنتج لا يحتوي على SKU"
+
+#: includes/class-isarud-product-export.php:260
+msgid "N11 category mapping required (N11 > Categories tab)"
+msgstr "N11 تعيين الفئة مطلوب (N11 > علامة تبويب الفئات)"
+
+#: includes/class-isarud-product-export.php:436
+msgid "Auto-send ON"
+msgstr "الإرسال التلقائي مفعّل"
+
+#: includes/class-isarud-product-export.php:436
+msgid "Auto-send OFF"
+msgstr "الإرسال التلقائي معطّل"
+
+#: includes/class-isarud-segments.php:72
+msgid "VIP Customers"
+msgstr "عملاء VIP"
+
+#: includes/class-isarud-segments.php:73
+msgid "Loyal Customers"
+msgstr "العملاء المخلصون"
+
+#: includes/class-isarud-segments.php:74
+msgid "New Customers"
+msgstr "عملاء جدد"
+
+#: includes/class-isarud-segments.php:75 includes/segments-html.php:49
+msgid "At Risk"
+msgstr "في خطر"
+
+#: includes/class-isarud-segments.php:76
+msgid "Lost"
+msgstr "مفقودون"
+
+#: includes/class-isarud-segments.php:77
+msgid "One-Time"
+msgstr "لمرة واحدة"
+
+#: includes/class-isarud-trendyol.php:576
+msgid "Trendyol connected!"
+msgstr "Trendyol متصل!"
+
+#: includes/class-isarud-trendyol.php:578
+#, php-format
+msgid "Seller ID: %s"
+msgstr "معرّف البائع: %s"
+
+#: includes/class-isarud-upsell.php:45
+msgid "Frequently Bought Together"
+msgstr "يتم شراؤها معاً بشكل متكرر"
+
+#: includes/class-isarud-upsell.php:50
+msgid "Add this too!"
+msgstr "أضف هذا أيضاً!"
+
+#: includes/class-isarud-upsell.php:52
+msgid "You might also like"
+msgstr "قد تعجبك أيضاً"
+
+#: includes/class-isarud-upsell.php:54
+msgid "Order completed! These might interest you"
+msgstr "تم إكمال الطلب! قد تثير هذه اهتمامك"
+
+#: includes/class-isarud-upsell.php:70
+msgid "Frequently Bought Together Products"
+msgstr "المنتجات التي يتم شراؤها معاً بشكل متكرر"
+
+#: includes/class-isarud-upsell.php:71
+msgid "Search products..."
+msgstr "البحث عن المنتجات..."
+
+#: includes/class-isarud-upsell.php:74
+msgid "Select products recommended with this item"
+msgstr "اختر المنتجات الموصى بها مع هذا العنصر"
+
+#: includes/class-isarud-upsell.php:144
+msgid "Add to Cart"
+msgstr "أضف إلى السلة"
+
+#: includes/class-isarud-upsell.php:282
+msgid "Use in your next order:"
+msgstr "استخدم في طلبك التالي:"
+
+#: includes/class-isarud-upsell.php:291
+msgid "Review"
+msgstr "تقييم"
+
+#: includes/currency-html.php:48
+msgid "Dynamic pricing — Central Bank exchange rates"
+msgstr "التسعير الديناميكي — أسعار صرف البنك المركزي"
+
+#: includes/currency-html.php:67
+msgid "CBRT Date"
+msgstr "تاريخ CBRT"
+
+#: includes/currency-html.php:74
+msgid "Exchange Rate Settings"
+msgstr "إعدادات سعر الصرف"
+
+#: includes/currency-html.php:80
+msgid "Enable exchange rate-based pricing"
+msgstr "تفعيل التسعير بناءً على سعر الصرف"
+
+#: includes/currency-html.php:83
+msgid "Base Currency"
+msgstr "العملة الأساسية"
+
+#: includes/currency-html.php:90
+msgid "Base price currency of your products"
+msgstr "عملة السعر الأساسي لمنتجاتك"
+
+#: includes/currency-html.php:94
+msgid "Target Currency"
+msgstr "العملة المستهدفة"
+
+#: includes/currency-html.php:101
+msgid "Store sales currency"
+msgstr "عملة مبيعات المتجر"
+
+#: includes/currency-html.php:105
+msgid "Exchange Rate Type"
+msgstr "نوع سعر الصرف"
+
+#: includes/currency-html.php:108
+msgid "Currency Buy"
+msgstr "شراء العملة"
+
+#: includes/currency-html.php:109
+msgid "Currency Sell"
+msgstr "بيع العملة"
+
+#: includes/currency-html.php:110
+msgid "Effective Buy"
+msgstr "الشراء الفعلي"
+
+#: includes/currency-html.php:111
+msgid "Effective Sell"
+msgstr "البيع الفعلي"
+
+#: includes/currency-html.php:121
+msgid "Fixed"
+msgstr "ثابت"
+
+#: includes/currency-html.php:125
+msgid "Profit margin to be added to exchange rate"
+msgstr "هامش الربح المراد إضافته إلى سعر الصرف"
+
+#: includes/currency-html.php:129
+msgid "Rounding"
+msgstr "التقريب"
+
+#: includes/currency-html.php:140
+msgid "Automatic Update"
+msgstr "التحديث التلقائي"
+
+#: includes/currency-html.php:142
+msgid "Auto-update prices with WP Cron"
+msgstr "تحديث الأسعار تلقائياً باستخدام WP Cron"
+
+#: includes/currency-html.php:145
+msgid "Hourly"
+msgstr "كل ساعة"
+
+#: includes/currency-html.php:146
+msgid "Twice Daily"
+msgstr "مرتين يومياً"
+
+#: includes/currency-html.php:161
+msgid "Operations"
+msgstr "العمليات"
+
+#: includes/currency-html.php:164
+msgid "Last Update:"
+msgstr "آخر تحديث:"
+
+#: includes/currency-html.php:165
+msgid "Applied Exchange Rate:"
+msgstr "سعر الصرف المطبق:"
+
+#: includes/currency-html.php:169 includes/currency-html.php:213
+msgid "Pull TCMB Exchange Rates"
+msgstr "سحب أسعار صرف TCMB"
+
+#: includes/currency-html.php:170 includes/currency-html.php:227
+msgid "Update Prices Now"
+msgstr "تحديث الأسعار الآن"
+
+#: includes/currency-html.php:177
+msgid "Current TCMB Exchange Rates"
+msgstr "أسعار الصرف الحالية للبنك المركزي التركي"
+
+#: includes/currency-html.php:180
+msgid "Code"
+msgstr "الرمز"
+
+#: includes/currency-html.php:180
+msgid "Currency"
+msgstr "العملة"
+
+#: includes/currency-html.php:180
+msgid "Buy"
+msgstr "شراء"
+
+#: includes/currency-html.php:180
+msgid "Sell"
+msgstr "بيع"
+
+#: includes/currency-html.php:196
+msgid "Source: tcmb.gov.tr"
+msgstr "المصدر: tcmb.gov.tr"
+
+#: includes/currency-html.php:196
+msgid "Update:"
+msgstr "تحديث:"
+
+#: includes/currency-html.php:203
+msgid "How it works: Enter your products' base prices (for example in USD). Isarud pulls the daily TCMB exchange rate and automatically updates WooCommerce prices. On first application, existing prices are saved as base prices."
+msgstr "كيفية عمله: أدخل الأسعار الأساسية لمنتجاتك (على سبيل المثال بالدولار الأمريكي). يسحب Isarud سعر صرف TCMB اليومي ويحدث أسعار WooCommerce تلقائياً. عند التطبيق الأول، يتم حفظ الأسعار الموجودة كأسعار أساسية."
+
+#: includes/currency-html.php:211
+msgid "Pulling..."
+msgstr "جاري السحب..."
+
+#: includes/currency-html.php:215
+msgid "Exchange rates successfully pulled. Date:"
+msgstr "تم سحب أسعار الصرف بنجاح. التاريخ:"
+
+#: includes/currency-html.php:218 includes/currency-html.php:231
+msgid "Error:"
+msgstr "خطأ:"
+
+#: includes/currency-html.php:224
+msgid "All product prices will be updated according to the current TCMB exchange rate. Continue?"
+msgstr "ستتم مراجعة أسعار جميع المنتجات وفقاً لسعر صرف TCMB الحالي. هل تريد المتابعة؟"
+
+#: includes/currency-html.php:225
+msgid "Updating..."
+msgstr "جاري التحديث..."
+
+#: includes/currency-html.php:229
+msgid "product updated. Exchange Rate:"
+msgstr "تم تحديث المنتج. سعر الصرف:"
+
+#: includes/dashboard-html.php:15 includes/welcome-html.php:16
+msgid "Welcome to Isarud!"
+msgstr "أهلا وسهلا بك في Isarud!"
+
+#: includes/dashboard-html.php:16
+msgid "Start using sanctions screening, marketplace integration, and trade compliance tools for free."
+msgstr "ابدأ باستخدام أدوات فحص العقوبات والتكامل مع أسواق التجارة الإلكترونية والامتثال التجاري مجانًا."
+
+#: includes/dashboard-html.php:18
+msgid "Connect isarud.com Account"
+msgstr "ربط حساب isarud.com"
+
+#: includes/dashboard-html.php:20
+msgid "Install WooCommerce (Optional)"
+msgstr "تثبيت WooCommerce (اختياري)"
+
+#: includes/dashboard-html.php:30
+msgid "isarud.com"
+msgstr "isarud.com"
+
+#: includes/dashboard-html.php:32
+msgid "Not connected yet"
+msgstr "لم يتم الربط بعد"
+
+#: includes/dashboard-html.php:39 includes/dashboard-html.php:53
+msgid "Optional"
+msgstr "اختياري"
+
+#: includes/dashboard-html.php:46
+msgid "platform dependent"
+msgstr "يعتمد على المنصة"
+
+#: includes/dashboard-html.php:61
+msgid "Scanned Orders"
+msgstr "الطلبات الممسوحة"
+
+#: includes/dashboard-html.php:65
+msgid "Matches"
+msgstr "التطابقات"
+
+#: includes/dashboard-html.php:80
+msgid "Always Free"
+msgstr "مجاني دائماً"
+
+#: includes/dashboard-html.php:81
+msgid "Can be used without WooCommerce"
+msgstr "يمكن استخدامه بدون WooCommerce"
+
+#: includes/dashboard-html.php:83
+msgid "Sanctions Screening (8 lists, 32K+ records)"
+msgstr "فحص العقوبات (8 قوائم، أكثر من 32K سجل)"
+
+#: includes/dashboard-html.php:84
+msgid "AI Risk Brief (OSINT Intelligence)"
+msgstr "ملخص المخاطر بالذكاء الاصطناعي (استخبارات OSINT)"
+
+#: includes/dashboard-html.php:85
+msgid "HS Code Search (6,938 codes)"
+msgstr "البحث عن رموز HS (6,938 رمز)"
+
+#: includes/dashboard-html.php:86
+msgid "US Export Control List"
+msgstr "قائمة التحكم في الصادرات الأمريكية"
+
+#: includes/dashboard-html.php:87
+msgid "Duplicate Product Check"
+msgstr "فحص المنتجات المكررة"
+
+#: includes/dashboard-html.php:88
+msgid "Cloud Sync — access from all devices"
+msgstr "Cloud Sync — الوصول من جميع الأجهزة"
+
+#: includes/dashboard-html.php:89
+msgid "PDF report, portfolio, alerts"
+msgstr "تقرير PDF، محفظة، تنبيهات"
+
+#: includes/dashboard-html.php:91
+msgid "All Features on isarud.com"
+msgstr "جميع الميزات على isarud.com"
+
+#: includes/dashboard-html.php:94
+msgid "Free with WooCommerce"
+msgstr "مجاني مع WooCommerce"
+
+#: includes/dashboard-html.php:95
+msgid "Additional if WooCommerce is installed"
+msgstr "إضافي إذا تم تثبيت WooCommerce"
+
+#: includes/dashboard-html.php:97
+msgid "6 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy)"
+msgstr "6 أسواق (Trendyol، Hepsiburada، N11، Amazon، Pazarama، Etsy)"
+
+#: includes/dashboard-html.php:98
+msgid "Bi-directional inventory sync + Webhook"
+msgstr "مزامنة المخزون ثنائية الاتجاه + Webhook"
+
+#: includes/dashboard-html.php:99
+msgid "Product upload + pull + order transfer"
+msgstr "تحميل المنتجات + السحب + نقل الطلبات"
+
+#: includes/dashboard-html.php:100
+msgid "Variable Product Support (Size, Color)"
+msgstr "دعم المنتجات المتغيرة (الحجم، اللون)"
+
+#: includes/dashboard-html.php:101
+msgid "Category and attribute matching"
+msgstr "مطابقة الفئة والسمات"
+
+#: includes/dashboard-html.php:102
+msgid "CSV import/export"
+msgstr "استيراد/تصدير CSV"
+
+#: includes/dashboard-html.php:103
+msgid "Price margin + bulk sync + dropshipping"
+msgstr "هامش السعر + المزامنة الجماعية + دروبشيبينج"
+
+#: includes/dashboard-html.php:104
+msgid "Automatic sanctions screening"
+msgstr "الفحص التلقائي للعقوبات"
+
+#: includes/dashboard-html.php:107
+msgid "Set Up WooCommerce"
+msgstr "إعداد WooCommerce"
+
+#: includes/dashboard-html.php:115
+msgid "Create isarud.com Account"
+msgstr "إنشاء حساب isarud.com"
+
+#: includes/dashboard-html.php:116
+msgid "Free account — 10 scans per month."
+msgstr "حساب مجاني — 10 عمليات مسح شهريًا."
+
+#: includes/dashboard-html.php:117
+msgid "Open Account"
+msgstr "فتح حساب"
+
+#: includes/dashboard-html.php:121
+msgid "Connect with Cloud Sync"
+msgstr "الاتصال باستخدام Cloud Sync"
+
+#: includes/dashboard-html.php:122
+msgid "Get API key and paste it here."
+msgstr "احصل على مفتاح API والصقه هنا."
+
+#: includes/dashboard-html.php:127
+msgid "Add Marketplace API"
+msgstr "إضافة API السوق"
+
+#: includes/dashboard-html.php:128
+msgid "Trendyol, HB, N11 API credentials. WooCommerce required."
+msgstr "بيانات اعتماد API من Trendyol و HB و N11. WooCommerce مطلوب."
+
+#: includes/dashboard-html.php:129 includes/welcome-html.php:167
+msgid "Marketplaces"
+msgstr "الأسواق"
+
+#: includes/dashboard-html.php:133
+msgid "Configure Webhook"
+msgstr "تكوين Webhook"
+
+#: includes/dashboard-html.php:134
+msgid "For bi-directional inventory sync."
+msgstr "للمزامنة ثنائية الاتجاه للمخزون."
+
+#: includes/dashboard-html.php:149
+msgid "Last 24 Hours"
+msgstr "آخر 24 ساعة"
+
+#: includes/dashboard-html.php:204
+msgid "View All Activities"
+msgstr "عرض جميع الأنشطة"
+
+#: includes/dashboard-html.php:207
+msgid "No activity in the last 24 hours"
+msgstr "لا توجد أنشطة في آخر 24 ساعة"
+
+#: includes/dashboard-html.php:214 includes/ecosystem-html.php:5
+#: includes/ecosystem-html.php:34 includes/welcome-html.php:94
+msgid "Payment System"
+msgstr "نظام الدفع"
+
+#: includes/dashboard-html.php:215
+msgid "Accept online payments with Virtual POS"
+msgstr "قبول المدفوعات عبر الإنترنت مع Virtual POS"
+
+#: includes/dashboard-html.php:224 includes/ecosystem-html.php:35
+msgid "Shipping Integration"
+msgstr "تكامل الشحن"
+
+#: includes/dashboard-html.php:225
+msgid "Automatic integration with shipping companies"
+msgstr "التكامل التلقائي مع شركات الشحن"
+
+#: includes/dashboard-html.php:234 includes/ecosystem-html.php:36
+msgid "SEO Management"
+msgstr "إدارة SEO"
+
+#: includes/dashboard-html.php:235
+msgid "Rank higher in search engines"
+msgstr "احصل على ترتيب أعلى في محركات البحث"
+
+#: includes/dashboard-html.php:243 includes/ecosystem-html.php:37
+msgid "Marketing Automation"
+msgstr "أتمتة التسويق"
+
+#: includes/dashboard-html.php:244
+msgid "Cart reminders, email and campaigns"
+msgstr "تذكيرات عربة التسوق والبريد الإلكتروني والحملات"
+
+#: includes/dashboard-html.php:248 includes/ecosystem-html.php:212
+msgid "Email Design"
+msgstr "تصميم البريد الإلكتروني"
+
+#: includes/dashboard-html.php:253 includes/ecosystem-html.php:38
+msgid "Analytics and Reporting"
+msgstr "التحليلات والتقارير"
+
+#: includes/dashboard-html.php:254
+msgid "Visitor and sales analytics"
+msgstr "تحليلات الزوار والمبيعات"
+
+#: includes/dashboard-html.php:262 includes/ecosystem-html.php:10
+#: includes/ecosystem-html.php:39
+msgid "Security"
+msgstr "الأمان"
+
+#: includes/dashboard-html.php:263
+msgid "Site security and spam protection"
+msgstr "أمان الموقع وحماية البريد العشوائي"
+
+#: includes/dashboard-html.php:290
+msgid "E-commerce Infrastructure Status"
+msgstr "حالة بنية التجارة الإلكترونية"
+
+#: includes/dashboard-html.php:291
+msgid "Completed"
+msgstr "مكتمل"
+
+#: includes/dashboard-html.php:309
+msgid "Ready"
+msgstr "جاهز"
+
+#: includes/dashboard-html.php:311
+msgid "Missing"
+msgstr "مفقود"
+
+#: includes/dashboard-html.php:319
+msgid "Installed but not active — click"
+msgstr "مثبت لكن غير نشط — انقر"
+
+#: includes/dashboard-html.php:321
+msgid "Click and install"
+msgstr "انقر والتثبيت"
+
+#: includes/dashboard-html.php:330
+msgid "Complete Your E-commerce Infrastructure"
+msgstr "أكمل بنية التجارة الإلكترونية الخاصة بك"
+
+#: includes/dashboard-html.php:331
+msgid "Payment, shipping, SEO, marketing and security setup guide"
+msgstr "دليل إعداد الدفع والشحن وتحسين محركات البحث والتسويق والأمان"
+
+#: includes/dashboard-html.php:333
+msgid "Setup Guide"
+msgstr "دليل الإعداد"
+
+#: includes/ebay-html.php:25
+msgid "Cloud Sync not installed."
+msgstr "Cloud Sync غير مثبت."
+
+#: includes/ebay-html.php:35
+msgid "Checking eBay connection..."
+msgstr "جاري التحقق من اتصال eBay..."
+
+#: includes/ebay-html.php:40
+msgid "Your eBay Store is Not Connected"
+msgstr "متجرك على eBay غير متصل"
+
+#: includes/ebay-html.php:42
+msgid "Complete eBay OAuth authorization from the isarud.com panel to connect your eBay account. Once connected, your products and orders will appear here."
+msgstr "أكمل تفويض eBay OAuth من لوحة isarud.com لربط حسابك في eBay. بعد الاتصال، ستظهر منتجاتك وطلباتك هنا."
+
+#: includes/ebay-html.php:45
+msgid "Connect eBay on isarud.com"
+msgstr "اتصل بـ eBay على isarud.com"
+
+#: includes/ebay-html.php:55
+msgid "eBay Account:"
+msgstr "حساب eBay:"
+
+#: includes/ebay-html.php:63
+msgid "Finance"
+msgstr "المالية"
+
+#: includes/ebay-html.php:64 includes/ecosystem-html.php:9
+msgid "Analytics"
+msgstr "التحليلات"
+
+#: includes/ebay-html.php:69 includes/n11-html.php:123
+msgid "Upload Products"
+msgstr "تحميل المنتجات"
+
+#: includes/ebay-html.php:76
+msgid "Last"
+msgstr "الأخير"
+
+#: includes/ebay-html.php:78 includes/email-marketing-html.php:74
+#: includes/email-marketing-html.php:81 includes/email-marketing-html.php:88
+msgid "day"
+msgstr "يوم"
+
+#: includes/ebay-html.php:80
+msgid "Upload Orders"
+msgstr "تحميل الطلبات"
+
+#: includes/ebay-html.php:87
+msgid "Upload Financial Data"
+msgstr "تحميل البيانات المالية"
+
+#: includes/ebay-html.php:93
+msgid "Upload Traffic Report"
+msgstr "تحميل تقرير حركة المرور"
+
+#: includes/ecosystem-html.php:4
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: includes/ecosystem-html.php:7 includes/welcome-html.php:96
+msgid "SEO"
+msgstr "تحسين محركات البحث"
+
+#: includes/ecosystem-html.php:8 includes/welcome-html.php:97
+msgid "Marketing"
+msgstr "التسويق"
+
+#: includes/ecosystem-html.php:20
+msgid "Build your end-to-end e-commerce infrastructure"
+msgstr "بناء بنيتك التحتية للتجارة الإلكترونية الكاملة"
+
+#: includes/ecosystem-html.php:34
+msgid "Enable credit card, bank transfer, and cash on delivery payment options with Virtual POS setup."
+msgstr "تفعيل خيارات الدفع ببطاقة الائتمان والتحويل البنكي والدفع عند الاستلام من خلال إعداد Virtual POS."
+
+#: includes/ecosystem-html.php:35
+msgid "Set up automatic integration with Aras, Yurtiçi, MNG and other cargo companies."
+msgstr "قم بإعداد التكامل التلقائي مع Aras و Yurtiçi و MNG وشركات الشحن الأخرى."
+
+#: includes/ecosystem-html.php:36
+msgid "Set up SEO tools to rank higher in search engines."
+msgstr "قم بإعداد أدوات تحسين محركات البحث لتحتل ترتيباً أعلى في محركات البحث."
+
+#: includes/ecosystem-html.php:37
+msgid "Cart abandonment reminders, email campaigns, and customer retention tools."
+msgstr "تذكيرات سلة التسوق المهجورة وحملات البريد الإلكتروني وأدوات الاحتفاظ بالعملاء."
+
+#: includes/ecosystem-html.php:38
+msgid "Visitor behavior, sales analytics, and conversion tracking."
+msgstr "سلوك الزائرين وتحليلات المبيعات وتتبع التحويلات."
+
+#: includes/ecosystem-html.php:39
+msgid "Site security, firewall, and spam protection."
+msgstr "أمان الموقع وجدار الحماية وحماية البريد العشوائي."
+
+#: includes/ecosystem-html.php:54
+msgid "Payment System Setup"
+msgstr "إعداد نظام الدفع"
+
+#: includes/ecosystem-html.php:55
+msgid "You need to install a Virtual POS plugin to accept online payments in your WooCommerce store. You can choose one of the following options."
+msgstr "يجب عليك تثبيت مكون إضافي Virtual POS لقبول الدفعات عبر الإنترنت في متجر WooCommerce الخاص بك. يمكنك اختيار أحد الخيارات التالية."
+
+#: includes/ecosystem-html.php:60
+msgid "(Recommended)"
+msgstr "(موصى به)"
+
+#: includes/ecosystem-html.php:62
+msgid "Turkey's most widely used payment infrastructure. Supports credit card, debit card, and BKM Express. Commission rates: 2.79% + 0.25 TL. To apply, open an account at iyzico.com, get your API keys, and enter them in the plugin."
+msgstr "البنية التحتية للدفع الأكثر استخداماً في تركيا. تدعم بطاقات الائتمان والبطاقات الخصم و BKM Express. رسوم العمولة: 2.79% + 0.25 TL. للتقديم، افتح حساباً على iyzico.com، احصل على مفاتيح API الخاصة بك، وأدخلها في المكون الإضافي."
+
+#: includes/ecosystem-html.php:65 includes/ecosystem-html.php:78
+#: includes/ecosystem-html.php:91 includes/ecosystem-html.php:234
+#: includes/ecosystem-html.php:273 includes/ecosystem-html.php:286
+msgid "Installed and active"
+msgstr "مثبت ونشط"
+
+#: includes/ecosystem-html.php:67
+msgid "Install iyzico Plugin"
+msgstr "تثبيت ملحق iyzico"
+
+#: includes/ecosystem-html.php:75
+msgid "Payment infrastructure known for low commission rates. Supports 3D Secure, installments, and Virtual POS. Apply at paytr.com and obtain your Store Number and API information."
+msgstr "البنية التحتية للدفع المعروفة برسوم العمولة المنخفضة. تدعم 3D Secure والأقساط والـ Virtual POS. تقدم بطلبك على paytr.com واحصل على رقم المتجر ومعلومات API الخاصة بك."
+
+#: includes/ecosystem-html.php:80
+msgid "Install PayTR Plugin"
+msgstr "تثبيت ملحق PayTR"
+
+#: includes/ecosystem-html.php:88
+msgid "Payment system operating on Türk Telekom infrastructure. Offers fast application process and competitive commission rates."
+msgstr "نظام دفع يعمل على بنية Türk Telekom الأساسية. يوفر عملية تطبيق سريعة وأسعار عمولات تنافسية."
+
+#: includes/ecosystem-html.php:93
+msgid "Install Param Plugin"
+msgstr "تثبيت مكون Param"
+
+#: includes/ecosystem-html.php:99
+msgid "After setup, remember to activate it and enter your API information from WooCommerce > Settings > Payments."
+msgstr "بعد الإعداد، تذكر تفعيله وإدخال معلومات API الخاصة بك من WooCommerce > الإعدادات > المدفوعات."
+
+#: includes/ecosystem-html.php:105
+msgid "Shipping Integration Setup"
+msgstr "إعداد تكامل الشحن"
+
+#: includes/ecosystem-html.php:106
+msgid "Install a shipping plugin to automatically forward your orders to shipping companies and obtain tracking numbers."
+msgstr "قم بتثبيت مكون إضافي للشحن لإعادة توجيه طلباتك تلقائياً إلى شركات الشحن والحصول على أرقام التتبع."
+
+#: includes/ecosystem-html.php:111
+msgid "Select Shipping Plugin"
+msgstr "اختر ملحق الشحن"
+
+#: includes/ecosystem-html.php:113
+msgid "There are plugins that integrate popular shipping companies in Turkey with WooCommerce. Select the plugin suitable for your shipping company."
+msgstr "هناك ملحقات توفر التكامل بين شركات الشحن الشهيرة في تركيا مع WooCommerce. اختر الملحق المناسب لشركة الشحن الخاصة بك."
+
+#: includes/ecosystem-html.php:116
+msgid "Hezarfen (23 Shipping Companies)"
+msgstr "Hezarfen (23 شركة شحن)"
+
+#: includes/ecosystem-html.php:117
+msgid "Cargo Integrator"
+msgstr "Cargo Integrator"
+
+#: includes/ecosystem-html.php:118
+msgid "POS (Physical Store)"
+msgstr "POS (المتجر الفعلي)"
+
+#: includes/ecosystem-html.php:124
+msgid "Configure Shipping Zones"
+msgstr "تكوين مناطق الشحن"
+
+#: includes/ecosystem-html.php:126
+msgid "Define your shipping zones and rates from WooCommerce > Settings > Shipping. You can create fixed price, free shipping, or conditional shipping rules."
+msgstr "حدّد مناطق الشحن والأسعار من WooCommerce > الإعدادات > الشحن. يمكنك إنشاء قواعد شحن بسعر ثابت أو شحن مجاني أو قواعد شحن مشروطة."
+
+#: includes/ecosystem-html.php:128
+msgid "Shipping Settings"
+msgstr "إعدادات الشحن"
+
+#: includes/ecosystem-html.php:133
+msgid "Marketplace Shipping Integration"
+msgstr "تكامل شحن السوق"
+
+#: includes/ecosystem-html.php:135
+msgid "Isarud has the ability to automatically assign shipping companies to Trendyol orders. Configure Trendyol shipping settings from Isarud > Marketplace API page."
+msgstr "يتمتع Isarud بالقدرة على تعيين شركات الشحن تلقائياً لطلبات Trendyol. قم بتكوين إعدادات شحن Trendyol من صفحة Isarud > Marketplace API."
+
+#: includes/ecosystem-html.php:144
+msgid "SEO Management Setup"
+msgstr "إعداد إدارة تحسين محركات البحث"
+
+#: includes/ecosystem-html.php:145
+msgid "Install and configure an SEO plugin to help your products rank higher on Google."
+msgstr "قم بتثبيت وتكوين مكون SEO لمساعدة منتجاتك على الترتيب الأعلى في Google."
+
+#: includes/ecosystem-html.php:150
+msgid "Install SEO Plugin"
+msgstr "تثبيت مكون SEO"
+
+#: includes/ecosystem-html.php:152
+msgid "Yoast SEO or Rank Math creates meta titles, descriptions, schema markup, and sitemaps for your WooCommerce products."
+msgstr "Yoast SEO أو Rank Math ينشئ عناوين ميتا ووصفات وترميز schema وخرائط المواقع لمنتجات WooCommerce الخاصة بك."
+
+#: includes/ecosystem-html.php:156 includes/ecosystem-html.php:161
+msgid "active"
+msgstr "نشط"
+
+#: includes/ecosystem-html.php:158 includes/ecosystem-html.php:163
+#: includes/ecosystem-html.php:207 includes/ecosystem-html.php:236
+#: includes/ecosystem-html.php:275 includes/ecosystem-html.php:288
+msgid "Install"
+msgstr "تثبيت"
+
+#: includes/ecosystem-html.php:170
+msgid "Connect Google Search Console"
+msgstr "ربط Google Search Console"
+
+#: includes/ecosystem-html.php:172
+msgid "Verify your site at search.google.com/search-console. Submit your sitemap and monitor indexing status."
+msgstr "تحقق من موقعك على search.google.com/search-console. أرسل خريطة موقعك وراقب حالة الفهرسة."
+
+#: includes/ecosystem-html.php:178
+msgid "Product SEO Optimization"
+msgstr "تحسين SEO للمنتجات"
+
+#: includes/ecosystem-html.php:180
+msgid "Write unique titles and descriptions for each product. Add alt text to product images. Organize your category and tag structure."
+msgstr "اكتب عناوين وأوصاف فريدة لكل منتج. أضف نصًا بديلاً لصور المنتج. نظّم بنية الفئات والوسوم الخاصة بك."
+
+#: includes/ecosystem-html.php:188
+msgid "Marketing Automation Setup"
+msgstr "إعداد أتمتة التسويق"
+
+#: includes/ecosystem-html.php:189
+msgid "Recover abandoned carts, send email campaigns, and stay in touch with your customers."
+msgstr "استرجع سلات المشتريات المهجورة، وأرسل حملات البريد الإلكتروني، وابقَ على تواصل مع عملائك."
+
+#: includes/ecosystem-html.php:196
+msgid "Send automatic email reminders when customers abandon their carts. According to research, 10-15% of abandoned carts can be recovered this way."
+msgstr "إرسال تذكيرات بريد إلكتروني تلقائية عندما يتخلى العملاء عن سلاتهم. وفقاً للأبحاث، يمكن استرجاع 10-15% من السلات المهجورة بهذه الطريقة."
+
+#: includes/ecosystem-html.php:198
+msgid "Install Cart Recovery Plugin"
+msgstr "تثبيت مكون استعادة السلة"
+
+#: includes/ecosystem-html.php:205
+msgid "Create a customer list with Mailchimp, send automatic welcome emails and campaign notifications."
+msgstr "إنشاء قائمة عملاء باستخدام Mailchimp وإرسال رسائل ترحيب تلقائية وإشعارات الحملات."
+
+#: includes/ecosystem-html.php:214
+msgid "Customize your WooCommerce order emails to match your brand. Adjust logo, colors, and content layout."
+msgstr "خصص رسائل بريد WooCommerce الخاصة بك لتطابق علامتك التجارية. اضبط الشعار والألوان وتخطيط المحتوى."
+
+#: includes/ecosystem-html.php:216
+msgid "Install Email Design Plugin"
+msgstr "تثبيت مكون تصميم البريد الإلكتروني الإضافي"
+
+#: includes/ecosystem-html.php:223
+msgid "Analytics and Reporting Setup"
+msgstr "إعداد التحليلات والتقارير"
+
+#: includes/ecosystem-html.php:224
+msgid "Track visitor behavior, sales performance, and conversion rates."
+msgstr "تتبع سلوك الزائرين وأداء المبيعات ومعدلات التحويل."
+
+#: includes/ecosystem-html.php:231
+msgid "View Google Analytics, Search Console, PageSpeed Insights, and AdSense data from a single dashboard. Google's official WordPress plugin."
+msgstr "عرض بيانات Google Analytics و Search Console و PageSpeed Insights و AdSense من لوحة تحكم واحدة. المكون الإضافي الرسمي من Google لـ WordPress."
+
+#: includes/ecosystem-html.php:242
+msgid "WooCommerce Google Analytics"
+msgstr "WooCommerce Google Analytics"
+
+#: includes/ecosystem-html.php:244
+msgid "Send e-commerce events (product view, add to cart, purchase) to Google Analytics. Perform conversion funnel analysis."
+msgstr "إرسال أحداث التجارة الإلكترونية (عرض المنتج، إضافة إلى السلة، الشراء) إلى Google Analytics. تنفيذ تحليل قمع التحويل."
+
+#: includes/ecosystem-html.php:246
+msgid "Install WC Analytics Plugin"
+msgstr "تثبيت مكون WC Analytics الإضافي"
+
+#: includes/ecosystem-html.php:251
+msgid "Isarud Analytics"
+msgstr "تحليلات إسارود"
+
+#: includes/ecosystem-html.php:253
+msgid "Track compliance scans and marketplace sync activities from Isarud's own statistics page."
+msgstr "تتبع عمليات فحص الامتثال وأنشطة مزامنة السوق من صفحة الإحصائيات الخاصة بـ Isarud."
+
+#: includes/ecosystem-html.php:255
+msgid "Isarud Statistics"
+msgstr "إحصائيات Isarud"
+
+#: includes/ecosystem-html.php:262
+msgid "Security Setup"
+msgstr "إعداد الأمان"
+
+#: includes/ecosystem-html.php:263
+msgid "Protect your e-commerce site against malware, brute force attacks, and spam."
+msgstr "حماية موقع التجارة الإلكترونية الخاص بك من البرامج الضارة وهجمات القوة الغاشمة والرسائل غير المرغوبة."
+
+#: includes/ecosystem-html.php:270
+msgid "Firewall (WAF), malware scanner, login security, and real-time threat intelligence. Used by over 4 million sites."
+msgstr "جدار الحماية (WAF)، وماسح البرامج الضارة، وأمان تسجيل الدخول، والذكاء التهديدات في الوقت الفعلي. تستخدمه أكثر من 4 ملايين موقع."
+
+#: includes/ecosystem-html.php:283
+msgid "Automatically filters comment and form spam. Free to use with WordPress.com account."
+msgstr "يقوم تلقائياً بتصفية البريد العشوائي في التعليقات والنماذج. مجاني الاستخدام مع حساب WordPress.com."
+
+#: includes/ecosystem-html.php:294
+msgid "SSL Certificate"
+msgstr "شهادة SSL"
+
+#: includes/ecosystem-html.php:296
+msgid "Ensure your site runs with HTTPS. Your hosting provider typically offers free SSL (Let's Encrypt). SSL is mandatory for e-commerce sites."
+msgstr "تأكد من أن موقعك يعمل عبر HTTPS. يوفر مزود الاستضافة الخاص بك عادةً SSL مجاني (Let's Encrypt). SSL إلزامي لمواقع التجارة الإلكترونية."
+
+#: includes/ecosystem-html.php:299
+msgid "SSL active"
+msgstr "SSL نشط"
+
+#: includes/ecosystem-html.php:301
+msgid "SSL not active — contact your hosting provider"
+msgstr "SSL غير نشط — اتصل بمزود الاستضافة الخاص بك"
+
+#: includes/ecosystem-html.php:309
+msgid "Return to Dashboard"
+msgstr "العودة إلى لوحة التحكم"
+
+#: includes/einvoice-html.php:55 includes/einvoice-html.php:236
+msgid "Test Mode"
+msgstr "وضع الاختبار"
+
+#: includes/einvoice-html.php:63
+msgid "Summary"
+msgstr "ملخص"
+
+#: includes/einvoice-html.php:66
+msgid "Invoices"
+msgstr "الفواتير"
+
+#: includes/einvoice-html.php:69 includes/n11-html.php:113
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: includes/einvoice-html.php:78
+msgid "Total Invoices"
+msgstr "إجمالي الفواتير"
+
+#: includes/einvoice-html.php:94 includes/segments-html.php:41
+msgid "Total Revenue"
+msgstr "إجمالي الإيرادات"
+
+#: includes/einvoice-html.php:100
+msgid "Recent Invoices"
+msgstr "الفواتير الأخيرة"
+
+#: includes/einvoice-html.php:104
+msgid "No invoices created yet."
+msgstr "لم يتم إنشاء أي فواتير حتى الآن."
+
+#: includes/einvoice-html.php:110 includes/einvoice-html.php:167
+msgid "Buyer"
+msgstr "المشتري"
+
+#: includes/einvoice-html.php:127 includes/einvoice-html.php:189
+msgid "Cancelled"
+msgstr "ملغى"
+
+#: includes/einvoice-html.php:154
+msgid "Search (order number, buyer, UUID)..."
+msgstr "بحث (رقم الطلب، المشتري، UUID)..."
+
+#: includes/einvoice-html.php:155
+msgid "Filter"
+msgstr "تصفية"
+
+#: includes/einvoice-html.php:160
+msgid "Invoice not found."
+msgstr "لم يتم العثور على الفاتورة."
+
+#: includes/einvoice-html.php:166
+msgid "UUID"
+msgstr "UUID"
+
+#: includes/einvoice-html.php:168 includes/einvoice-html.php:313
+msgid "Tax ID / ID Number"
+msgstr "رقم معرف الضريبة / رقم الهوية"
+
+#: includes/einvoice-html.php:170
+msgid "VAT"
+msgstr "ضريبة القيمة المضافة"
+
+#: includes/einvoice-html.php:224 includes/popup-html.php:83
+msgid "General Settings"
+msgstr "الإعدادات العامة"
+
+#: includes/einvoice-html.php:227
+msgid "E-Invoice Module"
+msgstr "وحدة الفاتورة الإلكترونية"
+
+#: includes/einvoice-html.php:231
+msgid "Enable E-Invoice Module"
+msgstr "تفعيل وحدة الفاتورة الإلكترونية"
+
+#: includes/einvoice-html.php:240
+msgid "Use GIB test environment (no real invoices will be issued)"
+msgstr "استخدم بيئة اختبار GIB (لن يتم إصدار فواتير حقيقية)"
+
+#: includes/einvoice-html.php:245
+msgid "Automatic Invoice"
+msgstr "فاتورة تلقائية"
+
+#: includes/einvoice-html.php:249
+msgid "Create invoice automatically when order is completed"
+msgstr "إنشاء فاتورة تلقائياً عند إكمال الطلب"
+
+#: includes/einvoice-html.php:254
+msgid "Auto Signature"
+msgstr "التوقيع التلقائي"
+
+#: includes/einvoice-html.php:258
+msgid "Automatically sign the created invoice"
+msgstr "توقيع الفاتورة المنشأة تلقائياً"
+
+#: includes/einvoice-html.php:260
+msgid "Warning: Signed invoices create financial records!"
+msgstr "تحذير: الفواتير الموقعة تنشئ سجلات مالية!"
+
+#: includes/einvoice-html.php:264
+msgid "Auto Email"
+msgstr "البريد الإلكتروني التلقائي"
+
+#: includes/einvoice-html.php:268
+msgid "Send email to customer when invoice is created"
+msgstr "إرسال بريد إلكتروني للعميل عند إنشاء الفاتورة"
+
+#: includes/einvoice-html.php:277
+msgid "GIB E-Archive Portal Login"
+msgstr "تسجيل دخول بوابة GIB للأرشيف الإلكتروني"
+
+#: includes/einvoice-html.php:278
+msgid "You can obtain your username and password from your accountant or the GIB Interactive Tax Office."
+msgstr "يمكنك الحصول على اسم المستخدم وكلمة المرور من محاسبك أو مكتب الضرائب التفاعلي التابع لـ GIB."
+
+#: includes/einvoice-html.php:281
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: includes/einvoice-html.php:287
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: includes/einvoice-html.php:296 includes/marketplaces-html.php:578
+#: includes/n11-html.php:208
+msgid "Test Connection"
+msgstr "اختبار الاتصال"
+
+#: includes/einvoice-html.php:306
+msgid "Company Information"
+msgstr "معلومات الشركة"
+
+#: includes/einvoice-html.php:309
+msgid "Company / Individual Name"
+msgstr "اسم الشركة / الفرد"
+
+#: includes/einvoice-html.php:321
+msgid "Address"
+msgstr "العنوان"
+
+#: includes/einvoice-html.php:325
+msgid "City"
+msgstr "المدينة"
+
+#: includes/einvoice-html.php:329
+msgid "District"
+msgstr "الحي"
+
+#: includes/einvoice-html.php:333
+msgid "Phone"
+msgstr "الهاتف"
+
+#: includes/einvoice-html.php:345
+msgid "Invoice Settings"
+msgstr "إعدادات الفاتورة"
+
+#: includes/einvoice-html.php:348
+msgid "Default VAT Rate (%)"
+msgstr "معدل ضريبة القيمة المضافة الافتراضي (%)"
+
+#: includes/einvoice-html.php:359
+msgid "Invoice Prefix"
+msgstr "بادئة الفاتورة"
+
+#: includes/einvoice-html.php:363
+msgid "Invoice Note"
+msgstr "ملاحظة الفاتورة"
+
+#: includes/einvoice-html.php:366
+msgid "Note to be added to all invoices. If left blank, the order number will be used."
+msgstr "ملاحظة سيتم إضافتها إلى جميع الفواتير. إذا تركت فارغة، سيتم استخدام رقم الطلب."
+
+#: includes/einvoice-html.php:385
+msgid "Testing..."
+msgstr "جاري الاختبار..."
+
+#: includes/einvoice-html.php:398
+msgid "Connection Error"
+msgstr "خطأ في الاتصال"
+
+#: includes/email-marketing-html.php:33
+msgid "Post-Purchase"
+msgstr "ما بعد الشراء"
+
+#: includes/email-marketing-html.php:33
+msgid "Review Request"
+msgstr "طلب المراجعة"
+
+#: includes/email-marketing-html.php:33 includes/email-marketing-html.php:48
+msgid "Win-Back"
+msgstr "استرجاع العملاء"
+
+#: includes/email-marketing-html.php:40
+msgid "Retain your customers with automated email campaigns"
+msgstr "احتفظ بعملائك من خلال حملات بريد إلكتروني مؤتمتة"
+
+#: includes/email-marketing-html.php:45
+msgid "Total Sent"
+msgstr "إجمالي المرسل"
+
+#: includes/email-marketing-html.php:47
+msgid "Purchase"
+msgstr "عملية شراء"
+
+#: includes/email-marketing-html.php:53 includes/upsell-html.php:39
+msgid "Automation Settings"
+msgstr "إعدادات الأتمتة"
+
+#: includes/email-marketing-html.php:58
+msgid "Enable email marketing module"
+msgstr "تفعيل وحدة التسويق عبر البريد الإلكتروني"
+
+#: includes/email-marketing-html.php:63
+msgid "1. Welcome Email"
+msgstr "1. بريد الترحيب"
+
+#: includes/email-marketing-html.php:65
+msgid "Send a welcome email to newly registered users"
+msgstr "إرسال بريد ترحيب للمستخدمين المسجلين حديثاً"
+
+#: includes/email-marketing-html.php:67 includes/email-marketing-html.php:88
+#: includes/upsell-html.php:71
+msgid "Coupon:"
+msgstr "القسيمة:"
+
+#: includes/email-marketing-html.php:67 includes/email-marketing-html.php:74
+#: includes/email-marketing-html.php:81
+msgid "Delay:"
+msgstr "التأخير:"
+
+#: includes/email-marketing-html.php:67
+msgid "hours"
+msgstr "ساعات"
+
+#: includes/email-marketing-html.php:70
+msgid "2. Post-Purchase Recommendation"
+msgstr "2. التوصيات بعد الشراء"
+
+#: includes/email-marketing-html.php:72
+msgid "Send relevant product recommendations when order is completed"
+msgstr "إرسال توصيات منتجات ذات صلة عند اكتمال الطلب"
+
+#: includes/email-marketing-html.php:77
+msgid "3. Review Request"
+msgstr "3. طلب المراجعة"
+
+#: includes/email-marketing-html.php:79
+msgid "Request product review when order is completed"
+msgstr "طلب مراجعة المنتج عند اكتمال الطلب"
+
+#: includes/email-marketing-html.php:84
+msgid "4. Win-Back"
+msgstr "4. استرجاع العملاء"
+
+#: includes/email-marketing-html.php:86
+msgid "Send win-back email to customers who haven't ordered in a long time"
+msgstr "إرسال بريد استرجاع للعملاء الذين لم يطلبوا منذ فترة طويلة"
+
+#: includes/email-marketing-html.php:88
+msgid "Inactive period:"
+msgstr "فترة عدم النشاط:"
+
+#: includes/email-marketing-html.php:97
+msgid "Sending History"
+msgstr "سجل الإرسال"
+
+#: includes/email-marketing-html.php:114
+msgid "No email sent yet."
+msgstr "لم يتم إرسال أي بريد إلكتروني حتى الآن."
+
+#: includes/email-marketing-html.php:121
+msgid "How it works: Welcome email is sent instantly to newly registered users. Post-purchase recommendations and review requests are sent automatically a certain number of days after order completion. Win-back emails are checked and sent daily to customers who haven't placed an order within the specified number of days."
+msgstr "كيف يعمل: يتم إرسال رسالة الترحيب فوراً للمستخدمين المسجلين حديثاً. يتم إرسال التوصيات بعد الشراء وطلبات المراجعات تلقائياً بعد عدد معين من الأيام من إكمال الطلب. يتم فحص رسائل استعادة العملاء وإرسالها يومياً للعملاء الذين لم يضعوا طلباً خلال العدد المحدد من الأيام."
+
+#: includes/etsy-html.php:18
+msgid "Etsy Marketplace Management"
+msgstr "إدارة Etsy Marketplace"
+
+#: includes/etsy-html.php:23
+msgid "✅ Etsy connection successful!"
+msgstr "✅ اتصال Etsy ناجح!"
+
+#: includes/etsy-html.php:25
+msgid "❌ Etsy connection failed."
+msgstr "❌ فشل اتصال Etsy."
+
+#: includes/etsy-html.php:32
+msgid "Checking connection..."
+msgstr "جاري التحقق من الاتصال..."
+
+#: includes/etsy-html.php:40
+msgid "Images"
+msgstr "الصور"
+
+#: includes/etsy-html.php:41
+msgid "Sections"
+msgstr "الأقسام"
+
+#: includes/etsy-html.php:42
+msgid "Translations"
+msgstr "الترجمات"
+
+#: includes/etsy-html.php:43 includes/etsy-html.php:118
+msgid "Shipping Profiles"
+msgstr "ملفات الشحن"
+
+#: includes/etsy-html.php:46 includes/etsy-html.php:152
+msgid "Return Policies"
+msgstr "سياسات الإرجاع"
+
+#: includes/etsy-html.php:55
+msgid "Etsy Product Listings"
+msgstr "قوائم منتجات Etsy"
+
+#: includes/etsy-html.php:58 includes/etsy-html.php:59
+#: includes/etsy-html.php:60 includes/etsy-html.php:61
+msgid "page"
+msgstr "صفحة"
+
+#: includes/etsy-html.php:71
+msgid "Listing Image Management"
+msgstr "إدارة صور القائمة"
+
+#: includes/etsy-html.php:72
+msgid "Select a listing to manage its images."
+msgstr "حدد قائمة لإدارة صورها."
+
+#: includes/etsy-html.php:74 includes/etsy-html.php:109
+msgid "Listing ID:"
+msgstr "معرّف القائمة:"
+
+#: includes/etsy-html.php:75 includes/etsy-html.php:110
+#: includes/etsy-html.php:485
+msgid "Enter Listing ID"
+msgstr "أدخل معرّف القائمة"
+
+#: includes/etsy-html.php:76
+msgid "Upload Images"
+msgstr "تحميل الصور"
+
+#: includes/etsy-html.php:80
+msgid "Upload New Image"
+msgstr "تحميل صورة جديدة"
+
+#: includes/etsy-html.php:92
+msgid "Store Sections"
+msgstr "أقسام المتجر"
+
+#: includes/etsy-html.php:93
+msgid "Manage your Etsy store sections (categories)."
+msgstr "أدر أقسام متجر Etsy الخاص بك (الفئات)."
+
+#: includes/etsy-html.php:94
+msgid "Load Sections"
+msgstr "تحميل الأقسام"
+
+#: includes/etsy-html.php:97
+msgid "Add New Section"
+msgstr "إضافة قسم جديد"
+
+#: includes/etsy-html.php:99
+msgid "Section Name"
+msgstr "اسم القسم"
+
+#: includes/etsy-html.php:100 includes/trendyol-html.php:293
+msgid "Create"
+msgstr "إنشاء"
+
+#: includes/etsy-html.php:106
+msgid "Listing Translations"
+msgstr "ترجمات القائمة"
+
+#: includes/etsy-html.php:107
+msgid "View and edit listing translations in 16 languages."
+msgstr "عرض وتحرير ترجمات القائمة في 16 لغة."
+
+#: includes/etsy-html.php:111
+msgid "Load Translations"
+msgstr "تحميل الترجمات"
+
+#: includes/etsy-html.php:119
+msgid "Manage your Etsy store shipping profiles."
+msgstr "أدر ملفات شحن متجر Etsy الخاص بك."
+
+#: includes/etsy-html.php:120
+msgid "Load Profiles"
+msgstr "تحميل الملفات الشخصية"
+
+#: includes/etsy-html.php:126
+msgid "Store Information"
+msgstr "معلومات المتجر"
+
+#: includes/etsy-html.php:127
+msgid "Load Store Information"
+msgstr "تحميل معلومات المتجر"
+
+#: includes/etsy-html.php:133
+msgid "Statistics & Inventory"
+msgstr "الإحصائيات والمخزون"
+
+#: includes/etsy-html.php:136
+msgid "Listing Statistics"
+msgstr "إحصائيات القوائم"
+
+#: includes/etsy-html.php:137 includes/etsy-html.php:599
+#: includes/etsy-html.php:611
+msgid "Listing ID"
+msgstr "معرّف القائمة"
+
+#: includes/etsy-html.php:143
+msgid "Products Sold"
+msgstr "المنتجات المباعة"
+
+#: includes/etsy-html.php:153
+msgid "Manage return policies for your Etsy store."
+msgstr "إدارة سياسات الإرجاع لمتجر Etsy الخاص بك."
+
+#: includes/etsy-html.php:154
+msgid "Load Policies"
+msgstr "تحميل السياسات"
+
+#: includes/etsy-html.php:162
+msgid "Connect Your Etsy Store"
+msgstr "ربط متجرك على Etsy"
+
+#: includes/etsy-html.php:163
+msgid "Connect to your Etsy account with one click through the Isarud application."
+msgstr "اتصل بحسابك على Etsy بنقرة واحدة من خلال تطبيق Isarud."
+
+#: includes/etsy-html.php:165
+msgid "Connect with Etsy"
+msgstr "الاتصال مع Etsy"
+
+#: includes/etsy-html.php:172
+msgid "Which Isarud store?"
+msgstr "أي متجر Isarud؟"
+
+#: includes/etsy-html.php:193
+msgid "Out of Stock"
+msgstr "غير متوفر"
+
+#: includes/etsy-html.php:194
+msgid "No products found in your Etsy store."
+msgstr "لم يتم العثور على منتجات في متجر Etsy الخاص بك."
+
+#: includes/etsy-html.php:195
+msgid "No image for this listing."
+msgstr "لا توجد صورة لهذه القائمة."
+
+#: includes/etsy-html.php:196
+msgid "No sections yet."
+msgstr "لا توجد أقسام حتى الآن."
+
+#: includes/etsy-html.php:197
+msgid "No shipping profile."
+msgstr "لا توجد ملف تعريف شحن."
+
+#: includes/etsy-html.php:198
+msgid "No return policy."
+msgstr "لا توجد سياسة إرجاع."
+
+#: includes/etsy-html.php:201 includes/n11-html.php:346
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/etsy-html.php:202
+msgid "View on Etsy"
+msgstr "عرض على Etsy"
+
+#: includes/etsy-html.php:203
+msgid "Edit"
+msgstr "تحرير"
+
+#: includes/etsy-html.php:268
+msgid "Status could not be checked"
+msgstr "تعذر التحقق من الحالة"
+
+#: includes/etsy-html.php:301 includes/etsy-html.php:431
+#: includes/etsy-html.php:530 includes/n11-html.php:332
+#: includes/popup-html.php:32 includes/popup-html.php:57
+msgid "Title"
+msgstr "العنوان"
+
+#: includes/etsy-html.php:305 includes/etsy-html.php:431
+#: includes/etsy-html.php:530 includes/etsy-html.php:650
+#: includes/n11-html.php:112
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: includes/etsy-html.php:339
+msgid "product"
+msgstr "منتج"
+
+#: includes/etsy-html.php:343
+msgid "Loading failed:"
+msgstr "فشل التحميل:"
+
+#: includes/etsy-html.php:369
+msgid "Enter valid Listing ID"
+msgstr "أدخل معرّف قائمة صحيح"
+
+#: includes/etsy-html.php:386
+msgid "Order:"
+msgstr "الطلب:"
+
+#: includes/etsy-html.php:411
+msgid "Enter Listing ID and URL"
+msgstr "أدخل معرّف الإدراج و URL"
+
+#: includes/etsy-html.php:431
+msgid "Active Listing"
+msgstr "الإدراج النشط"
+
+#: includes/etsy-html.php:448
+msgid "Enter category name"
+msgstr "أدخل اسم الفئة"
+
+#: includes/etsy-html.php:460
+msgid "New title:"
+msgstr "عنوان جديد:"
+
+#: includes/etsy-html.php:497 includes/etsy-html.php:568
+#: includes/upsell-html.php:50 includes/upsell-html.php:58
+#: includes/upsell-html.php:64 includes/upsell-html.php:70
+msgid "Title:"
+msgstr "العنوان:"
+
+#: includes/etsy-html.php:498
+msgid "Description:"
+msgstr "الوصف:"
+
+#: includes/etsy-html.php:530
+msgid "Origin"
+msgstr "الأصل"
+
+#: includes/etsy-html.php:530
+msgid "Min Duration"
+msgstr "الحد الأدنى للمدة"
+
+#: includes/etsy-html.php:530
+msgid "Max Duration"
+msgstr "الحد الأقصى للمدة"
+
+#: includes/etsy-html.php:569
+msgid "Announcement:"
+msgstr "الإعلان:"
+
+#: includes/etsy-html.php:570
+msgid "On Vacation?"
+msgstr "في إجازة؟"
+
+#: includes/etsy-html.php:571
+msgid "Vacation Message:"
+msgstr "رسالة الإجازة:"
+
+#: includes/etsy-html.php:572
+msgid "Currency:"
+msgstr "العملة:"
+
+#: includes/etsy-html.php:628
+msgid "No sales yet."
+msgstr "لا توجد مبيعات حتى الآن."
+
+#: includes/etsy-html.php:650
+msgid "Acceptable?"
+msgstr "مقبول؟"
+
+#: includes/etsy-html.php:650
+msgid "Exchange"
+msgstr "التبديل"
+
+#: includes/etsy-html.php:650
+msgid "Duration (days)"
+msgstr "المدة (أيام)"
+
+#: includes/etsy-html.php:683
+msgid "No isarud store found."
+msgstr "لم يتم العثور على متجر isarud."
+
+#: includes/hb-html.php:32
+msgid "Checking Hepsiburada connection..."
+msgstr "جاري التحقق من اتصال Hepsiburada..."
+
+#: includes/hb-html.php:38
+msgid "Connect to Hepsiburada"
+msgstr "الاتصال بـ Hepsiburada"
+
+#: includes/hb-html.php:40
+msgid "Connect with Hepsiburada"
+msgstr "الاتصال بـ Hepsiburada"
+
+#: includes/hb-html.php:43
+msgid "You can integrate your store with the API Key, API Secret, and Seller (Current) Number that you will receive from the Hepsiburada Seller Panel."
+msgstr "يمكنك دمج متجرك باستخدام مفتاح API وسر API ورقم البائع (الحالي) الذي ستتلقاه من لوحة بائع Hepsiburada."
+
+#: includes/hb-html.php:52
+msgid "Select your isarud store to connect with Hepsiburada:"
+msgstr "اختر متجر isarud الخاص بك للاتصال بـ Hepsiburada:"
+
+#: includes/hb-html.php:96
+msgid "Hepsiburada Products"
+msgstr "منتجات Hepsiburada"
+
+#: includes/hb-html.php:116
+msgid "Hepsiburada Categories"
+msgstr "فئات Hepsiburada"
+
+#: includes/hb-html.php:119
+msgid "View the Hepsiburada category tree and examine its properties."
+msgstr "اعرض شجرة فئات Hepsiburada وفحص خصائصها."
+
+#: includes/hb-html.php:131
+msgid "Send a product's barcode, stock, and price information to Hepsiburada."
+msgstr "إرسال معلومات رمز المنتج وكميته وسعره إلى Hepsiburada."
+
+#: includes/hb-html.php:156
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Hepsiburada)."
+msgstr "عندما تكون هذه الميزة مفعلة، كلما أضفت منتجًا جديدًا أو حدثت منتجًا موجودًا في WooCommerce، يتم إرسال المنتج تلقائيًا إلى جميع الأسواق النشطة (بما في ذلك Hepsiburada)."
+
+#: includes/hb-html.php:168
+msgid "Hepsiburada category and brand matching"
+msgstr "مطابقة فئة وعلامة Hepsiburada"
+
+#: includes/hb-html.php:174
+msgid "Manual Bulk Send (WooCommerce → Hepsiburada)"
+msgstr "إرسال جماعي يدوي (WooCommerce → Hepsiburada)"
+
+#: includes/hb-html.php:175
+msgid "Use this button to send all your WooCommerce products to Hepsiburada at once. Only products with completed category and brand matching will be transferred."
+msgstr "استخدم هذا الزر لإرسال جميع منتجات WooCommerce الخاصة بك إلى Hepsiburada مرة واحدة. سيتم نقل المنتجات التي تم إكمال مطابقة الفئة والعلامة التجارية لها فقط."
+
+#: includes/hb-html.php:177 includes/hb-html.php:653 includes/hb-html.php:660
+msgid "Send All Products to Hepsiburada"
+msgstr "أرسل جميع المنتجات إلى Hepsiburada"
+
+#: includes/hb-html.php:223
+msgid "Add shipping tracking number to Hepsiburada orders."
+msgstr "أضف رقم تتبع الشحنة إلى طلبات Hepsiburada."
+
+#: includes/hb-html.php:259
+msgid "Hepsiburada Connection Information"
+msgstr "معلومات اتصال Hepsiburada"
+
+#: includes/hb-html.php:260
+msgid "Status and information of your Hepsiburada API connection."
+msgstr "حالة ومعلومات اتصال Hepsiburada API الخاص بك."
+
+#: includes/hb-html.php:438
+msgid "Delete this product from Hepsiburada? This cannot be undone."
+msgstr "حذف هذا المنتج من Hepsiburada؟ لا يمكن التراجع عن هذا."
+
+#: includes/hb-html.php:641
+msgid "All WooCommerce products will be sent to Hepsiburada. Continue?"
+msgstr "سيتم إرسال جميع منتجات WooCommerce إلى Hepsiburada. هل تريد المتابعة؟"
+
+#: includes/marketplaces-html.php:4
+msgid "Etsy v3 API listing synchronization"
+msgstr "مزامنة قائمة Etsy v3 API"
+
+#: includes/marketplaces-html.php:5
+msgid "Dogan Online marketplace. Modern REST API integration"
+msgstr "سوق Dogan Online. تكامل REST API حديث"
+
+#: includes/marketplaces-html.php:6
+msgid "Turkey's largest e-commerce platform"
+msgstr "أكبر منصة تجارة إلكترونية في تركيا"
+
+#: includes/marketplaces-html.php:7
+msgid "Turkey's leading online shopping site"
+msgstr "الموقع الرائد للتسوق عبر الإنترنت في تركيا"
+
+#: includes/marketplaces-html.php:8
+msgid "Inventory synchronization with Amazon SP-API"
+msgstr "مزامنة المخزون مع Amazon SP-API"
+
+#: includes/marketplaces-html.php:10
+msgid "Product Upload"
+msgstr "تحميل المنتج"
+
+#: includes/marketplaces-html.php:10
+msgid "Brand Search"
+msgstr "البحث عن العلامة التجارية"
+
+#: includes/marketplaces-html.php:64 includes/welcome-html.php:82
+msgid "Marketplace API Settings"
+msgstr "إعدادات API السوق"
+
+#: includes/marketplaces-html.php:66
+msgid "Enter your marketplace API credentials and test the connection."
+msgstr "أدخل بيانات اعتماد API الخاصة بسوقك واختبر الاتصال."
+
+#: includes/marketplaces-html.php:83
+msgid "Manage your store with Etsy v3 API — one-click OAuth connection, no need to create API keys"
+msgstr "أدر متجرك باستخدام Etsy v3 API — اتصال OAuth بنقرة واحدة، لا حاجة لإنشاء مفاتيح API"
+
+#: includes/marketplaces-html.php:90
+msgid "Listing CRUD"
+msgstr "عمليات القائمة"
+
+#: includes/marketplaces-html.php:91
+msgid "Image"
+msgstr "صورة"
+
+#: includes/marketplaces-html.php:94
+msgid "Translation"
+msgstr "ترجمة"
+
+#: includes/marketplaces-html.php:95 includes/marketplaces-html.php:166
+#: includes/marketplaces-html.php:415
+msgid "Return"
+msgstr "إرجاع"
+
+#: includes/marketplaces-html.php:100
+#, php-format
+msgid "You must first %s to connect Etsy."
+msgstr "يجب عليك أولاً %s للاتصال بـ Etsy."
+
+#: includes/marketplaces-html.php:104
+msgid "Connect and Manage with Etsy"
+msgstr "الاتصال والإدارة مع Etsy"
+
+#: includes/marketplaces-html.php:106
+msgid "Your OAuth information is securely stored on Isarud servers"
+msgstr "معلومات OAuth الخاصة بك مخزنة بشكل آمن على خوادم Isarud"
+
+#: includes/marketplaces-html.php:128 includes/marketplaces-html.php:187
+#: includes/marketplaces-html.php:250 includes/marketplaces-html.php:314
+#: includes/marketplaces-html.php:378 includes/marketplaces-html.php:453
+msgid "Manage"
+msgstr "إدارة"
+
+#: includes/marketplaces-html.php:152
+msgid "Isbank subsidiary — Modern REST API"
+msgstr "شركة تابعة لـ Isbank — REST API حديثة"
+
+#: includes/marketplaces-html.php:164
+msgid "Import"
+msgstr "استيراد"
+
+#: includes/marketplaces-html.php:167 includes/marketplaces-html.php:416
+msgid "Question"
+msgstr "سؤال"
+
+#: includes/marketplaces-html.php:168
+msgid "Brand"
+msgstr "العلامة التجارية"
+
+#: includes/marketplaces-html.php:172
+msgid "Go to Pazarama Page"
+msgstr "اذهب إلى صفحة Pazarama"
+
+#: includes/marketplaces-html.php:213
+msgid "Amazon Selling Partner API integration — listing, order, stock, FBA, returns, report management"
+msgstr "تكامل Amazon Selling Partner API — إدارة القوائم والطلبات والمخزون و FBA والعوائد والتقارير"
+
+#: includes/marketplaces-html.php:222
+msgid "Order Management"
+msgstr "إدارة الطلبات"
+
+#: includes/marketplaces-html.php:225
+msgid "Sales Reports"
+msgstr "تقارير المبيعات"
+
+#: includes/marketplaces-html.php:229
+msgid "Amazon SP-API Management Panel"
+msgstr "لوحة إدارة Amazon SP-API"
+
+#: includes/marketplaces-html.php:253 includes/marketplaces-html.php:317
+#: includes/marketplaces-html.php:381
+msgid "Not connected"
+msgstr "غير متصل"
+
+#: includes/marketplaces-html.php:256
+msgid "No Amazon SP-API connection yet"
+msgstr "لا توجد اتصال Amazon SP-API حتى الآن"
+
+#: includes/marketplaces-html.php:257
+msgid "Click the \"Connect with Amazon\" button in the Management Panel and approve in Seller Central (no manual API key needed — OAuth flow)."
+msgstr "انقر على زر \"الاتصال مع Amazon\" في لوحة الإدارة والموافقة في Seller Central (لا توجد حاجة إلى مفتاح API يدوي — تدفق OAuth)."
+
+#: includes/marketplaces-html.php:259
+msgid "Go to Amazon Page"
+msgstr "اذهب إلى صفحة Amazon"
+
+#: includes/marketplaces-html.php:277
+msgid "Hepsiburada Marketplace API integration — listing, order, stock, category, returns management"
+msgstr "تكامل واجهة برمجة تطبيقات سوق Hepsiburada — إدارة الفهرس والطلبات والمخزون والفئات والمرتجعات"
+
+#: includes/marketplaces-html.php:284 includes/marketplaces-html.php:348
+#: includes/marketplaces-html.php:412
+msgid "Product Management"
+msgstr "إدارة المنتجات"
+
+#: includes/marketplaces-html.php:293
+msgid "Hepsiburada Management Panel"
+msgstr "لوحة إدارة Hepsiburada"
+
+#: includes/marketplaces-html.php:320
+msgid "No Hepsiburada connection yet"
+msgstr "لا توجد اتصال Hepsiburada حتى الآن"
+
+#: includes/marketplaces-html.php:321
+msgid "Connect your Hepsiburada store from your isarud.com account, then manage it on this page."
+msgstr "اربط متجر Hepsiburada الخاص بك من حسابك على isarud.com، ثم أدره من هذه الصفحة."
+
+#: includes/marketplaces-html.php:323
+msgid "Go to Hepsiburada Page"
+msgstr "اذهب إلى صفحة Hepsiburada"
+
+#: includes/marketplaces-html.php:341
+msgid "Dogan Online marketplace — modern REST API integration, listing, order, stock, category management"
+msgstr "سوق دوغان الإلكتروني — تكامل REST API حديث، إدارة الإدراجات والطلبات والمخزون والفئات"
+
+#: includes/marketplaces-html.php:357
+msgid "N11 Management Panel"
+msgstr "لوحة إدارة N11"
+
+#: includes/marketplaces-html.php:384
+msgid "No N11 connection yet"
+msgstr "لم يتم إنشاء اتصال N11 حتى الآن"
+
+#: includes/marketplaces-html.php:385
+msgid "Connect your N11 store from your isarud.com account, then manage it on this page."
+msgstr "قم بتوصيل متجرك على N11 من حسابك على isarud.com، ثم أدره من هذه الصفحة."
+
+#: includes/marketplaces-html.php:387
+msgid "Go to N11 Page"
+msgstr "اذهب إلى صفحة N11"
+
+#: includes/marketplaces-html.php:405
+msgid "Turkey's largest e-commerce platform — listing, order, returns, invoice, customer questions, webhook"
+msgstr "منصة التجارة الإلكترونية الأكبر في تركيا — القوائم، الطلبات، المرتجعات، الفواتير، أسئلة العملاء، Webhook"
+
+#: includes/marketplaces-html.php:423
+#, php-format
+msgid "You must first %s to connect Trendyol."
+msgstr "يجب عليك أولاً %s للاتصال بـ Trendyol."
+
+#: includes/marketplaces-html.php:427
+msgid "Trendyol Management Panel"
+msgstr "لوحة إدارة Trendyol"
+
+#: includes/marketplaces-html.php:459
+msgid "No Trendyol connection yet"
+msgstr "لا توجد اتصال Trendyol بعد"
+
+#: includes/marketplaces-html.php:460
+msgid "Connect your Trendyol store from your isarud.com account, then manage it on this page."
+msgstr "قم بربط متجرك على Trendyol من حسابك على isarud.com، ثم أدره من هذه الصفحة."
+
+#: includes/marketplaces-html.php:462
+msgid "Go to Trendyol Page"
+msgstr "انتقل إلى صفحة Trendyol"
+
+#: includes/marketplaces-html.php:503
+msgid "Saved"
+msgstr "تم الحفظ"
+
+#: includes/marketplaces-html.php:503
+msgid "Not Configured"
+msgstr "غير مُعَد"
+
+#: includes/marketplaces-html.php:519
+msgid "API Information"
+msgstr "معلومات API"
+
+#: includes/marketplaces-html.php:529
+msgid "Synchronization Settings"
+msgstr "إعدادات المزامنة"
+
+#: includes/marketplaces-html.php:540
+msgid "Shipping Surcharge"
+msgstr "رسوم الشحن الإضافية"
+
+#: includes/marketplaces-html.php:549
+msgid "Amount to be added to marketplace price"
+msgstr "المبلغ المراد إضافته إلى سعر السوق"
+
+#: includes/marketplaces-html.php:554 includes/n11-html.php:157
+#: includes/n11-html.php:409
+msgid "Closed"
+msgstr "مُغلق"
+
+#: includes/marketplaces-html.php:555
+msgid "Open"
+msgstr "مفتوح"
+
+#: includes/marketplaces-html.php:573
+msgid "Add this URL to the webhook settings in your marketplace panel."
+msgstr "أضف عنوان URL هذا إلى إعدادات webhook في لوحة السوق الخاصة بك."
+
+#: includes/n11-html.php:52
+msgid "N11 Management"
+msgstr "إدارة N11"
+
+#: includes/n11-html.php:71 includes/n11-html.php:89 includes/n11-html.php:102
+msgid "Connect with N11"
+msgstr "الاتصال مع N11"
+
+#: includes/n11-html.php:72
+msgid "Select the store you want to connect:"
+msgstr "اختر المتجر الذي تريد الاتصال به:"
+
+#: includes/n11-html.php:85
+msgid "Checking..."
+msgstr "جاري الفحص..."
+
+#: includes/n11-html.php:97
+msgid "Connect your N11 store"
+msgstr "ربط متجر N11 الخاص بك"
+
+#: includes/n11-html.php:99
+msgid "Connect your N11 store from your isarud.com account to send products from WordPress to N11, pull orders, and synchronize inventory."
+msgstr "قم بربط متجرك على N11 من حسابك على isarud.com لإرسال المنتجات من WordPress إلى N11، وسحب الطلبات، ومزامنة المخزون."
+
+#: includes/n11-html.php:109
+msgid "Categories"
+msgstr "الفئات"
+
+#: includes/n11-html.php:121
+msgid "N11 Products"
+msgstr "منتجات N11"
+
+#: includes/n11-html.php:122
+msgid "View and manage products in your N11 store."
+msgstr "اعرض وأدر المنتجات في متجر N11 الخاص بك."
+
+#: includes/n11-html.php:132
+msgid "N11 Category Tree"
+msgstr "شجرة فئات N11"
+
+#: includes/n11-html.php:133
+msgid "View the N11 category list. Category ID is required to upload products."
+msgstr "اعرض قائمة فئات N11. معرّف الفئة مطلوب لتحميل المنتجات."
+
+#: includes/n11-html.php:134
+msgid "Upload Categories"
+msgstr "تحميل الفئات"
+
+#: includes/n11-html.php:139
+msgid "Category Attributes"
+msgstr "خصائص الفئة"
+
+#: includes/n11-html.php:140
+msgid "Query required/optional attributes of a category."
+msgstr "استعلم عن الخصائص المطلوبة/الاختيارية للفئة."
+
+#: includes/n11-html.php:141
+msgid "Category ID"
+msgstr "معرّف الفئة"
+
+#: includes/n11-html.php:142
+msgid "Load Attributes"
+msgstr "تحميل الخصائص"
+
+#: includes/n11-html.php:150
+msgid "Automatic Product Export (Auto-Export)"
+msgstr "تصدير المنتجات التلقائي (التصدير التلقائي)"
+
+#: includes/n11-html.php:151
+msgid "When you add or update a new product in WooCommerce, the product can be automatically sent to N11 (and other active marketplaces)."
+msgstr "عندما تضيف أو تحدث منتجاً جديداً في WooCommerce، يمكن إرسال المنتج تلقائياً إلى N11 (والأسواق النشطة الأخرى)."
+
+#: includes/n11-html.php:155
+msgid "Automatic Export"
+msgstr "التصدير التلقائي"
+
+#: includes/n11-html.php:161
+msgid "For Auto-Export, the product's N11 category and required attributes must be matched."
+msgstr "لتصدير تلقائي، يجب مطابقة فئة N11 للمنتج والسمات المطلوبة."
+
+#: includes/n11-html.php:165
+msgid "Bulk Stock/Price Update"
+msgstr "تحديث المخزون/السعر بشكل مجموعي"
+
+#: includes/n11-html.php:166
+msgid "Sends stock/price information of all WooCommerce products to N11. Max. 1000 products/batch (async, returns taskId)."
+msgstr "يرسل معلومات المخزون / السعر لجميع منتجات WooCommerce إلى N11. أقصى 1000 منتج / دفعة (غير متزامن، يرجع taskId)."
+
+#: includes/n11-html.php:167
+msgid "Start Bulk Synchronization"
+msgstr "بدء المزامنة بكميات كبيرة"
+
+#: includes/n11-html.php:169
+msgid "You can track the result by taskId from the \"Operations\" tab."
+msgstr "يمكنك تتبع النتيجة بواسطة taskId من علامة التبويب \"العمليات\"."
+
+#: includes/n11-html.php:176
+msgid "N11 Orders"
+msgstr "طلبات N11"
+
+#: includes/n11-html.php:177
+msgid "View the latest order packages from N11."
+msgstr "عرض أحدث حزم الطلبات من N11."
+
+#: includes/n11-html.php:178
+msgid "Load Orders"
+msgstr "تحميل الطلبات"
+
+#: includes/n11-html.php:186
+msgid "Async Task Tracking"
+msgstr "تتبع المهام غير المتزامنة"
+
+#: includes/n11-html.php:187
+msgid "N11 product/stock/price updates work asynchronously. Each operation returns a taskId. You can query the taskId status from this tab."
+msgstr "تحديثات منتجات/مخزون/أسعار N11 تعمل بشكل غير متزامن. كل عملية تعيد taskId. يمكنك الاستعلام عن حالة taskId من هذه التبويبة."
+
+#: includes/n11-html.php:190
+msgid "Task ID (e.g.: 12345678)"
+msgstr "معرّف المهمة (على سبيل المثال: 12345678)"
+
+#: includes/n11-html.php:191
+msgid "Query Status"
+msgstr "حالة الاستعلام"
+
+#: includes/n11-html.php:197
+msgid "PROCESSED = Operation completed | IN_QUEUE = Waiting in queue | REJECT = Rejected"
+msgstr "PROCESSED = اكتملت العملية | IN_QUEUE = في انتظار الطابور | REJECT = مرفوضة"
+
+#: includes/n11-html.php:206
+msgid "Test or remove your N11 connection."
+msgstr "اختبر أو أزل اتصالك بـ N11."
+
+#: includes/n11-html.php:209
+msgid "Remove Connection"
+msgstr "إزالة الاتصال"
+
+#: includes/n11-html.php:229
+msgid "No data"
+msgstr "لا توجد بيانات"
+
+#: includes/n11-html.php:230
+msgid "Are you sure you want to delete this product from N11?"
+msgstr "هل أنت متأكد من رغبتك في حذف هذا المنتج من N11؟"
+
+#: includes/n11-html.php:231
+msgid "Are you sure you want to remove your N11 connection?"
+msgstr "هل أنت متأكد من رغبتك في إزالة اتصالك بـ N11؟"
+
+#: includes/n11-html.php:232
+msgid "All WC products will be sent to N11. Continue?"
+msgstr "سيتم إرسال جميع منتجات WC إلى N11. هل تريد المتابعة؟"
+
+#: includes/n11-html.php:391
+msgid "Attribute Name"
+msgstr "اسم الخاصية"
+
+#: includes/n11-html.php:391
+msgid "Required"
+msgstr "مطلوب"
+
+#: includes/n11-html.php:391
+msgid "Variant"
+msgstr "المتغير"
+
+#: includes/n11-html.php:431
+msgid "Order No"
+msgstr "رقم الطلب"
+
+#: includes/n11-html.php:462
+msgid "Total Items"
+msgstr "إجمالي العناصر"
+
+#: includes/n11-html.php:464
+msgid "Show Details"
+msgstr "عرض التفاصيل"
+
+#: includes/pazarama-html.php:32
+msgid "Checking Pazarama connection..."
+msgstr "جاري فحص اتصال Pazarama..."
+
+#: includes/pazarama-html.php:38
+msgid "Connect to Pazarama"
+msgstr "الاتصال بـ Pazarama"
+
+#: includes/pazarama-html.php:40
+msgid "Connect with Pazarama"
+msgstr "الاتصال بـ Pazarama"
+
+#: includes/pazarama-html.php:43
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Pazarama Seller Panel."
+msgstr "يمكنك دمج متجرك باستخدام API Key و API Secret و رقم البائع (الحساب) من لوحة بيع Pazarama."
+
+#: includes/pazarama-html.php:52
+msgid "Select your Isarud store to connect to Pazarama:"
+msgstr "حدد متجر Isarud الخاص بك للاتصال بـ Pazarama:"
+
+#: includes/pazarama-html.php:96
+msgid "Pazarama Products"
+msgstr "منتجات Pazarama"
+
+#: includes/pazarama-html.php:116
+msgid "Pazarama Categories"
+msgstr "فئات Pazarama"
+
+#: includes/pazarama-html.php:119
+msgid "View the Pazarama category tree and review its attributes."
+msgstr "عرض شجرة فئات Pazarama ومراجعة سماتها."
+
+#: includes/pazarama-html.php:131
+msgid "Send a product's barcode, stock, and price information to Pazarama."
+msgstr "أرسل معلومات الباركود والمخزون والسعر الخاص بالمنتج إلى Pazarama."
+
+#: includes/pazarama-html.php:156
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Pazarama)."
+msgstr "عند تفعيل هذه الميزة، كلما أضفت منتجاً جديداً أو قمت بتحديث منتج موجود في WooCommerce، يتم إرسال المنتج تلقائياً إلى جميع الأسواق النشطة (بما في ذلك Pazarama)."
+
+#: includes/pazarama-html.php:168
+msgid "Pazarama category and brand mappings"
+msgstr "تعيينات فئة وعلامة تجارية في Pazarama"
+
+#: includes/pazarama-html.php:174
+msgid "Manual Bulk Submit (WooCommerce → Pazarama)"
+msgstr "إرسال جماعي يدوي (WooCommerce → Pazarama)"
+
+#: includes/pazarama-html.php:175
+msgid "Use this button to send all your WooCommerce products to Pazarama at once. Only products with completed category and brand mappings will be transferred."
+msgstr "استخدم هذا الزر لإرسال جميع منتجات WooCommerce إلى Pazarama مرة واحدة. سيتم نقل المنتجات التي تم إكمال تعيينات الفئة والعلامة التجارية لها فقط."
+
+#: includes/pazarama-html.php:177 includes/pazarama-html.php:653
+#: includes/pazarama-html.php:660
+msgid "Send All Products to Pazarama"
+msgstr "إرسال جميع المنتجات إلى Pazarama"
+
+#: includes/pazarama-html.php:223
+msgid "Add tracking numbers to Pazarama orders."
+msgstr "إضافة أرقام التتبع إلى طلبات Pazarama."
+
+#: includes/pazarama-html.php:259
+msgid "Pazarama Connection Information"
+msgstr "معلومات اتصال Pazarama"
+
+#: includes/pazarama-html.php:260
+msgid "Status and information about your Pazarama API connection."
+msgstr "الحالة والمعلومات حول اتصال Pazarama API الخاص بك."
+
+#: includes/pazarama-html.php:438
+msgid "Delete this product from Pazarama? This cannot be undone."
+msgstr "حذف هذا المنتج من Pazarama؟ لا يمكن التراجع عن هذا."
+
+#: includes/pazarama-html.php:641
+msgid "All WooCommerce products will be sent to Pazarama. Continue?"
+msgstr "سيتم إرسال جميع منتجات WooCommerce إلى Pazarama. هل تريد المتابعة؟"
+
+#: includes/popup-html.php:23
+msgid "Exit-intent, timed, and cart-based popup management"
+msgstr "إدارة النوافذ المنبثقة بناءً على نية الخروج والمؤقتة وسلة التسوق"
+
+#: includes/popup-html.php:30
+msgid "Create New Campaign"
+msgstr "إنشاء حملة جديدة"
+
+#: includes/popup-html.php:32
+msgid "Welcome Discount!"
+msgstr "خصم الترحيب!"
+
+#: includes/popup-html.php:34
+msgid "Get %10 off your first order!"
+msgstr "احصل على خصم 10% على طلبك الأول!"
+
+#: includes/popup-html.php:35
+msgid "Button Text"
+msgstr "نص الزر"
+
+#: includes/popup-html.php:36
+msgid "Button URL"
+msgstr "رابط الزر"
+
+#: includes/popup-html.php:37 includes/popup-html.php:57
+msgid "Trigger"
+msgstr "المحفز"
+
+#: includes/popup-html.php:39
+msgid "Exit-Intent (when leaving the page)"
+msgstr "نية الخروج (عند مغادرة الصفحة)"
+
+#: includes/popup-html.php:40
+msgid "Timed (after X seconds)"
+msgstr "مؤقتة (بعد X ثانية)"
+
+#: includes/popup-html.php:41
+msgid "Scroll (when scrolling 50% down)"
+msgstr "التمرير (عند التمرير 50% لأسفل)"
+
+#: includes/popup-html.php:42
+msgid "When adding to cart"
+msgstr "عند الإضافة إلى سلة التسوق"
+
+#: includes/popup-html.php:44
+msgid "Delay (seconds)"
+msgstr "التأخير (ثواني)"
+
+#: includes/popup-html.php:45
+msgid "Button Color"
+msgstr "لون الزر"
+
+#: includes/popup-html.php:48
+msgid "Create Campaign"
+msgstr "إنشاء حملة"
+
+#: includes/popup-html.php:54
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+#: includes/popup-html.php:58
+msgid "Coupon"
+msgstr "قسيمة"
+
+#: includes/popup-html.php:58
+msgid "Display"
+msgstr "عرض"
+
+#: includes/popup-html.php:70
+msgid "Stop"
+msgstr "إيقاف"
+
+#: includes/popup-html.php:70
+msgid "Start"
+msgstr "بدء"
+
+#: includes/popup-html.php:87
+msgid "Enable popup module"
+msgstr "تفعيل وحدة النافذة المنبثقة"
+
+#: includes/popup-html.php:88
+msgid "Hide on mobile"
+msgstr "إخفاء على الجوال"
+
+#: includes/popup-html.php:89
+msgid "Cookie duration (days):"
+msgstr "مدة ملف تعريف الارتباط (أيام):"
+
+#: includes/popup-html.php:107
+msgid "Campaign created!"
+msgstr "تم إنشاء الحملة!"
+
+#: includes/popup-html.php:111
+msgid "Delete?"
+msgstr "حذف؟"
+
+#: includes/segments-html.php:30
+msgid "Customer analysis based on purchase behavior"
+msgstr "تحليل العملاء بناءً على سلوك الشراء"
+
+#: includes/segments-html.php:37
+msgid "Total Customers"
+msgstr "إجمالي العملاء"
+
+#: includes/segments-html.php:45
+msgid "VIP Customer"
+msgstr "عميل VIP"
+
+#: includes/segments-html.php:83
+msgid "Average Cart"
+msgstr "متوسط السلة"
+
+#: includes/segments-html.php:84
+msgid "Last Order"
+msgstr "آخر طلب"
+
+#: includes/segments-html.php:93 includes/segments-html.php:145
+#: includes/segments-html.php:146
+msgid "days ago"
+msgstr "منذ أيام"
+
+#: includes/segments-html.php:97
+msgid "more"
+msgstr "أكثر"
+
+#: includes/segments-html.php:107
+msgid "No order data yet. Customer segments will be created automatically as orders arrive."
+msgstr "لا توجد بيانات طلبات حتى الآن. سيتم إنشاء قطاعات العملاء تلقائياً عند وصول الطلبات."
+
+#: includes/segments-html.php:114
+msgid "Segment Settings"
+msgstr "إعدادات القطاع"
+
+#: includes/segments-html.php:119
+msgid "VIP Min. Order"
+msgstr "حد أدنى لطلبات VIP"
+
+#: includes/segments-html.php:123
+msgid "VIP Min. Amount"
+msgstr "الحد الأدنى للمبلغ VIP"
+
+#: includes/segments-html.php:127
+msgid "Risk (days)"
+msgstr "المخاطرة (أيام)"
+
+#: includes/segments-html.php:131
+msgid "Lost (days)"
+msgstr "مفقود (أيام)"
+
+#: includes/segments-html.php:135
+msgid "Save and Refresh"
+msgstr "حفظ وتحديث"
+
+#: includes/segments-html.php:140
+msgid "Segment Definitions"
+msgstr "تعريفات القطاع"
+
+#: includes/segments-html.php:142
+msgid "order and"
+msgstr "الطلب و"
+
+#: includes/segments-html.php:143
+msgid "Loyal:"
+msgstr "مخلص:"
+
+#: includes/segments-html.php:143
+msgid "order, active"
+msgstr "الطلب، نشط"
+
+#: includes/segments-html.php:144
+msgid "New:"
+msgstr "جديد:"
+
+#: includes/segments-html.php:144
+msgid "Last 30 days, 1-2 orders"
+msgstr "آخر 30 يوم، 1-2 طلب"
+
+#: includes/segments-html.php:145
+msgid "Risk:"
+msgstr "مخاطر:"
+
+#: includes/segments-html.php:146
+msgid "Lost:"
+msgstr "مفقود:"
+
+#: includes/segments-html.php:147
+msgid "One-Time:"
+msgstr "مرة واحدة:"
+
+#: includes/segments-html.php:147
+msgid "1 order"
+msgstr "طلب واحد"
+
+#: includes/segments-html.php:152
+msgid "Last analysis:"
+msgstr "آخر تحليل:"
+
+#: includes/segments-html.php:158
+msgid "How it works: Your customers are automatically divided into segments based on their order history. You can send special campaigns to your VIP customers and recovery emails to at-risk customers."
+msgstr "كيف يعمل: يتم تقسيم عملائك تلقائياً إلى قطاعات بناءً على سجل طلباتهم. يمكنك إرسال حملات خاصة لعملائك المميزين وإرسال رسائل بريد إلكترونية للاسترجاع للعملاء المعرضين للخطر."
+
+#: includes/trendyol-html.php:32
+msgid "Checking Trendyol connection..."
+msgstr "جاري التحقق من اتصال Trendyol..."
+
+#: includes/trendyol-html.php:38
+msgid "Connect to Trendyol"
+msgstr "الاتصال بـ Trendyol"
+
+#: includes/trendyol-html.php:40
+msgid "Connect with Trendyol"
+msgstr "الاتصال بـ Trendyol"
+
+#: includes/trendyol-html.php:43
+msgid "You can integrate your store with the API Key, API Secret, and Seller (Account) Number obtained from the Trendyol Seller Panel."
+msgstr "يمكنك دمج متجرك باستخدام مفتاح API وسر API ورقم البائع (الحساب) الذي تم الحصول عليه من لوحة بيع Trendyol."
+
+#: includes/trendyol-html.php:52
+msgid "Select your Isarud store to connect with Trendyol:"
+msgstr "حدد متجر Isarud الخاص بك للاتصال بـ Trendyol:"
+
+#: includes/trendyol-html.php:69
+msgid "Seller ID:"
+msgstr "معرّف البائع:"
+
+#: includes/trendyol-html.php:96
+msgid "Trendyol Products"
+msgstr "منتجات Trendyol"
+
+#: includes/trendyol-html.php:116
+msgid "Search Brand"
+msgstr "البحث عن علامة تجارية"
+
+#: includes/trendyol-html.php:118
+msgid "Brand name (minimum 2 characters)..."
+msgstr "اسم العلامة التجارية (الحد الأدنى حرفين)..."
+
+#: includes/trendyol-html.php:122
+msgid "Category Tree"
+msgstr "شجرة الفئات"
+
+#: includes/trendyol-html.php:123
+msgid "Load (24h cached)"
+msgstr "تحميل (مخزن مؤقتاً لمدة 24 ساعة)"
+
+#: includes/trendyol-html.php:135
+msgid "Send product barcode, stock, and price information to Trendyol."
+msgstr "إرسال معلومات باركود المنتج والمخزون والسعر إلى Trendyol."
+
+#: includes/trendyol-html.php:160
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Trendyol)."
+msgstr "عندما تكون هذه الميزة مُفعّلة، كلما أضفت منتجًا جديدًا أو حدّثت منتجًا موجودًا في WooCommerce، يتم إرسال المنتج تلقائيًا إلى جميع الأسواق النشطة (بما في ذلك Trendyol)."
+
+#: includes/trendyol-html.php:172
+msgid "Trendyol category and brand mappings"
+msgstr "تعيينات فئات وعلامات Trendyol التجارية"
+
+#: includes/trendyol-html.php:178
+msgid "Manual Bulk Send (WooCommerce → Trendyol)"
+msgstr "إرسال جماعي يدوي (WooCommerce → Trendyol)"
+
+#: includes/trendyol-html.php:179
+msgid "Use this button to send all your WooCommerce products to Trendyol at once. Only products with completed category and brand mappings will be transferred."
+msgstr "استخدم هذا الزر لإرسال جميع منتجات WooCommerce الخاصة بك إلى Trendyol في وقت واحد. سيتم نقل المنتجات التي تحتوي على تعيينات فئة وعلامة تجارية مكتملة فقط."
+
+#: includes/trendyol-html.php:181 includes/trendyol-html.php:870
+#: includes/trendyol-html.php:877
+msgid "Send All Products to Trendyol"
+msgstr "إرسال جميع المنتجات إلى Trendyol"
+
+#: includes/trendyol-html.php:232
+msgid "Answered"
+msgstr "تم الرد عليه"
+
+#: includes/trendyol-html.php:233
+msgid "Reported"
+msgstr "تم الإبلاغ عنه"
+
+#: includes/trendyol-html.php:246
+msgid "Invoice Link Sending"
+msgstr "إرسال رابط الفاتورة"
+
+#: includes/trendyol-html.php:248
+msgid "Send Invoice for Single Order"
+msgstr "إرسال فاتورة لطلب واحد"
+
+#: includes/trendyol-html.php:249
+msgid "Submit the e-invoice PDF link that the customer can view to Trendyol. The link must be HTTPS and publicly accessible."
+msgstr "إرسال رابط ملف PDF الفاتورة الإلكترونية الذي يمكن للعميل عرضه إلى Trendyol. يجب أن يكون الرابط HTTPS وقابلاً للوصول علناً."
+
+#: includes/trendyol-html.php:252
+msgid "Order Package ID"
+msgstr "معرّف حزمة الطلب"
+
+#: includes/trendyol-html.php:256
+msgid "Invoice Number"
+msgstr "رقم الفاتورة"
+
+#: includes/trendyol-html.php:260
+msgid "Invoice PDF Link"
+msgstr "رابط PDF الفاتورة"
+
+#: includes/trendyol-html.php:264
+msgid "Send Invoice"
+msgstr "إرسال الفاتورة"
+
+#: includes/trendyol-html.php:272
+msgid "Webhook Management"
+msgstr "إدارة Webhook"
+
+#: includes/trendyol-html.php:273
+msgid "New Webhook"
+msgstr "Webhook جديد"
+
+#: includes/trendyol-html.php:277
+msgid "Create New Webhook"
+msgstr "إنشاء Webhook جديد"
+
+#: includes/trendyol-html.php:280
+msgid "Webhook URL (HTTPS)"
+msgstr "رابط Webhook (HTTPS)"
+
+#: includes/trendyol-html.php:284
+msgid "Event Types"
+msgstr "أنواع الأحداث"
+
+#: includes/trendyol-html.php:454
+msgid "Delete this product from Trendyol? This cannot be undone."
+msgstr "حذف هذا المنتج من Trendyol؟ لا يمكن التراجع عن هذا."
+
+#: includes/trendyol-html.php:473
+msgid "Searching..."
+msgstr "جاري البحث..."
+
+#: includes/trendyol-html.php:480
+msgid "No results."
+msgstr "لا توجد نتائج."
+
+#: includes/trendyol-html.php:639
+msgid "No questions found."
+msgstr "لم يتم العثور على أسئلة."
+
+#: includes/trendyol-html.php:651
+msgid "Write your answer (min 10 characters)..."
+msgstr "اكتب إجابتك (10 أحرف على الأقل)..."
+
+#: includes/trendyol-html.php:652
+msgid "Send Answer"
+msgstr "إرسال الإجابة"
+
+#: includes/trendyol-html.php:665
+msgid "Answer must be at least 10 characters."
+msgstr "يجب أن تحتوي الإجابة على 10 أحرف على الأقل."
+
+#: includes/trendyol-html.php:687
+msgid "Please fill in all fields."
+msgstr "يرجى ملء جميع الحقول."
+
+#: includes/trendyol-html.php:706
+msgid "No webhooks defined."
+msgstr "لم يتم تعريف أي Webhooks."
+
+#: includes/trendyol-html.php:735
+msgid "You must select a URL and at least 1 event type."
+msgstr "يجب عليك تحديد رابط وواحد على الأقل من أنواع الأحداث."
+
+#: includes/trendyol-html.php:858
+msgid "All WooCommerce products will be sent to Trendyol. Continue?"
+msgstr "سيتم إرسال جميع منتجات WooCommerce إلى Trendyol. هل تريد المتابعة؟"
+
+#: includes/upsell-html.php:33
+msgid "Sales increase automation — product recommendation, order bump, cart suggestion"
+msgstr "أتمتة زيادة المبيعات — توصية المنتجات، إضافة طلب، اقتراح السلة"
+
+#: includes/upsell-html.php:44
+msgid "Enable Cross-sell & Upsell module"
+msgstr "تفعيل وحدة البيع الإضافي والبيع المتقاطع"
+
+#: includes/upsell-html.php:47
+msgid "1. Frequently Bought Together (FBT)"
+msgstr "1. يتم شراؤها معاً بكثرة (FBT)"
+
+#: includes/upsell-html.php:49
+msgid "Show frequently bought together products on product page"
+msgstr "عرض المنتجات المشتراة معًا بشكل متكرر على صفحة المنتج"
+
+#: includes/upsell-html.php:51
+msgid "Automatic recommendations from order history (if no manual selection)"
+msgstr "التوصيات التلقائية من سجل الطلبات (في حالة عدم وجود تحديد يدوي)"
+
+#: includes/upsell-html.php:52
+msgid "Max products:"
+msgstr "الحد الأقصى للمنتجات:"
+
+#: includes/upsell-html.php:55
+msgid "2. Order Bump (Checkout)"
+msgstr "2. Order Bump (الدفع)"
+
+#: includes/upsell-html.php:57
+msgid "Show order bump on payment page"
+msgstr "عرض Order Bump على صفحة الدفع"
+
+#: includes/upsell-html.php:61
+msgid "3. Cart Recommendation"
+msgstr "3. توصيات سلة التسوق"
+
+#: includes/upsell-html.php:63
+msgid "Show related product recommendations on cart page"
+msgstr "عرض توصيات المنتجات ذات الصلة على صفحة سلة التسوق"
+
+#: includes/upsell-html.php:67
+msgid "4. Post-Order Recommendation"
+msgstr "4. توصيات ما بعد الطلب"
+
+#: includes/upsell-html.php:69
+msgid "Show product recommendations on thank you page"
+msgstr "عرض توصيات المنتجات على صفحة الشكر"
+
+#: includes/upsell-html.php:80
+msgid "Feature Descriptions"
+msgstr "أوصاف الميزات"
+
+#: includes/upsell-html.php:82
+msgid "Frequently Bought Together:"
+msgstr "تم شراؤها معاً بشكل متكرر:"
+
+#: includes/upsell-html.php:82
+msgid "Urun sayfasinda Amazon tarzı \"Bu urunu alanlar sunlari da aldi\" blogu. Manuel urun secimi veya siparis gecmisinden otomatik."
+msgstr "صفحة المنتج تتضمن مقطع \"المشترون لهذا المنتج اشتروا أيضاً\" بأسلوب Amazon. اختيار يدوي للمنتجات أو تلقائياً من سجل الطلبات."
+
+#: includes/upsell-html.php:83
+msgid "Order Bump:"
+msgstr "Order Bump:"
+
+#: includes/upsell-html.php:83
+msgid "One-click product recommendation that can be added before the payment button. Instantly added to cart with checkbox."
+msgstr "توصية منتج بنقرة واحدة يمكن إضافتها قبل زر الدفع. يتم إضافتها فوراً إلى السلة مع خانة اختيار."
+
+#: includes/upsell-html.php:84
+msgid "Cart Recommendation:"
+msgstr "توصية سلة التسوق:"
+
+#: includes/upsell-html.php:84
+msgid "Related products on cart page based on items in cart. Automatically selected from category."
+msgstr "منتجات ذات صلة على صفحة السلة بناءً على العناصر الموجودة في السلة. يتم اختيارها تلقائياً من الفئة."
+
+#: includes/upsell-html.php:85
+msgid "Post-Order:"
+msgstr "ما بعد الطلب:"
+
+#: includes/upsell-html.php:85
+msgid "Product recommendation for next order on thank you page + coupon code."
+msgstr "توصية المنتج للطلب التالي على صفحة الشكر + رمز القسيمة."
+
+#: includes/upsell-html.php:90
+msgid "Product-Based FBT Selection"
+msgstr "اختيار FBT المستند إلى المنتج"
+
+#: includes/upsell-html.php:91
+msgid "Her urun icin manuel FBT secimi yapmak isterseniz: Urun Duzenle > Bagli Urunler bolumune gidin. \"Birlikte Satin Alinan Urunler\" alani eklendi."
+msgstr "إذا كنت تريد إجراء اختيار FBT يدوي لكل منتج: انتقل إلى تعديل المنتج > قسم المنتجات المرتبطة. تمت إضافة حقل \"المنتجات المشتراة معاً\"."
+
+#: includes/upsell-html.php:97
+msgid "How it works: Frequently Bought Together analyzes order history and automatically shows the most frequently purchased together products. Order Bump provides one-click product addition on the payment page. All recommendations are automatically selected from WooCommerce product categories."
+msgstr "كيفية عملها: يحلل \"الشراء المتكرر معاً\" سجل الطلبات ويعرض تلقائياً المنتجات الأكثر شراءً معاً. يوفر \"إضافة الطلب\" إضافة منتج بنقرة واحدة على صفحة الدفع. يتم تحديد جميع التوصيات تلقائياً من فئات منتجات WooCommerce."
+
+#: includes/welcome-html.php:17
+msgid "Sanction screening, marketplace integration, and e-commerce management platform. Let's get started with quick setup."
+msgstr "فحص العقوبات، تكامل السوق، ومنصة إدارة التجارة الإلكترونية. دعونا نبدأ بالإعداد السريع."
+
+#: includes/welcome-html.php:29
+msgid "1. Connect Your Isarud Account"
+msgstr "ربط حسابك على Isarud"
+
+#: includes/welcome-html.php:30
+msgid "Create a free account on isarud.com and get your API key. This key is required for sanction screening."
+msgstr "أنشئ حساباً مجانياً على isarud.com واحصل على مفتاح API الخاص بك. هذا المفتاح مطلوب لفحص العقوبات."
+
+#: includes/welcome-html.php:35
+msgid "Create an account on isarud.com"
+msgstr "أنشئ حسابًا على isarud.com"
+
+#: includes/welcome-html.php:36
+msgid "Register quickly with your Google or Apple account"
+msgstr "قم بالتسجيل بسرعة باستخدام حساب Google أو Apple الخاص بك"
+
+#: includes/welcome-html.php:42
+msgid "Get your API key from the Account > API Keys page"
+msgstr "احصل على مفتاح API الخاص بك من الحساب > صفحة مفاتيح API"
+
+#: includes/welcome-html.php:43
+msgid "Your API key is generated automatically, copy it"
+msgstr "يتم إنشاء مفتاح API الخاص بك تلقائيًا، انسخه"
+
+#: includes/welcome-html.php:49
+msgid "Enter your API key in the Isarud > Settings page"
+msgstr "أدخل مفتاح API الخاص بك في صفحة Isarud > Settings"
+
+#: includes/welcome-html.php:50
+msgid "When the API key is entered, sanction screening is automatically activated"
+msgstr "عند إدخال مفتاح API، يتم تفعيل فحص العقوبات تلقائياً"
+
+#: includes/welcome-html.php:55
+msgid "Sign Up on isarud.com"
+msgstr "قم بالتسجيل على isarud.com"
+
+#: includes/welcome-html.php:56 includes/welcome-html.php:83
+#: includes/welcome-html.php:113 includes/welcome-html.php:151
+msgid "Next Step"
+msgstr "الخطوة التالية"
+
+#: includes/welcome-html.php:62
+msgid "2. Enter Your Marketplace API Information"
+msgstr "2. أدخل معلومات API الخاصة بك في السوق"
+
+#: includes/welcome-html.php:63
+msgid "If you are selling on Trendyol, Hepsiburada, N11 or other marketplaces, set up the integration by entering your API information."
+msgstr "إذا كنت تبيع على Trendyol أو Hepsiburada أو N11 أو أسواق إلكترونية أخرى، فقم بإعداد التكامل بإدخال معلومات API الخاصة بك."
+
+#: includes/welcome-html.php:89
+msgid "3. Complete Your E-commerce Infrastructure"
+msgstr "3. أكمل بنيتك التحتية للتجارة الإلكترونية"
+
+#: includes/welcome-html.php:90
+msgid "Use the E-commerce Guide to set up payment, shipping, SEO and marketing tools."
+msgstr "استخدم دليل التجارة الإلكترونية لإعداد أدوات الدفع والشحن وتحسين محركات البحث والتسويق."
+
+#: includes/welcome-html.php:94
+msgid "iyzico, PayTR setup"
+msgstr "إعداد iyzico و PayTR"
+
+#: includes/welcome-html.php:95
+msgid "Hezarfen (23 companies)"
+msgstr "Hezarfen (23 شركة)"
+
+#: includes/welcome-html.php:96
+msgid "Yoast/RankMath"
+msgstr "Yoast/RankMath"
+
+#: includes/welcome-html.php:97
+msgid "Email, popup, cart"
+msgstr "البريد الإلكتروني والنوافذ المنبثقة والسلة"
+
+#: includes/welcome-html.php:98
+msgid "GIB e-Archive Portal"
+msgstr "بوابة GIB الإلكترونية للأرشيف"
+
+#: includes/welcome-html.php:99
+msgid "POS"
+msgstr "POS"
+
+#: includes/welcome-html.php:99
+msgid "Physical store"
+msgstr "المتجر الفعلي"
+
+#: includes/welcome-html.php:119
+msgid "4. Set Up Your Connection with Cloud Sync"
+msgstr "4. قم بإعداد اتصالك مع Cloud Sync"
+
+#: includes/welcome-html.php:120
+msgid "With Cloud Sync, your WooCommerce store automatically synchronizes with your isarud.com account. Track your products and orders from any device."
+msgstr "مع Cloud Sync، يتم مزامنة متجرك في WooCommerce تلقائياً مع حسابك على isarud.com. تتبع منتجاتك وطلباتك من أي جهاز."
+
+#: includes/welcome-html.php:122
+msgid "Access From Anywhere"
+msgstr "الوصول من أي مكان"
+
+#: includes/welcome-html.php:126
+msgid "Web browser"
+msgstr "متصفح الويب"
+
+#: includes/welcome-html.php:130
+msgid "This plugin"
+msgstr "هذا المكوّن الإضافي"
+
+#: includes/welcome-html.php:131
+msgid "Shopify app"
+msgstr "تطبيق Shopify"
+
+#: includes/welcome-html.php:132
+msgid "Custom Integration"
+msgstr "تكامل مخصص"
+
+#: includes/welcome-html.php:160
+msgid "You're All Set!"
+msgstr "أنت جاهز الآن!"
+
+#: includes/welcome-html.php:161
+msgid "Isarud setup is complete. You can now run compliance scans, manage your marketplaces, and grow your e-commerce business."
+msgstr "تم إكمال إعداد Isarud. يمكنك الآن تشغيل عمليات فحص الامتثال وإدارة أسواقك وتنمية عملك في التجارة الإلكترونية."
+
+#: includes/welcome-html.php:170
+msgid "Guide"
+msgstr "الدليل"
+
+#: includes/welcome-html.php:173
+msgid "Close Welcome Screen"
+msgstr "إغلاق شاشة الترحيب"
+
+#: includes/welcome-html.php:174
+msgid "You can reopen the welcome screen from Isarud > Settings page."
+msgstr "يمكنك إعادة فتح شاشة الترحيب من صفحة Isarud > الإعدادات."
+
+#: includes/welcome-html.php:188
+msgid "Previous Step"
+msgstr "الخطوة السابقة"
+
+#: includes/welcome-html.php:190
+msgid "Skip, Go to Dashboard"
+msgstr "تخطي، انتقل إلى لوحة التحكم"

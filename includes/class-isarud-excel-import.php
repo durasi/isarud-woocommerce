@@ -50,7 +50,7 @@ class Isarud_Excel_Import {
             $row_num++;
 
             if (count($row) !== count($header)) {
-                $errors[] = "Satır {$row_num}: Sütun sayısı uyuşmuyor";
+                $errors[] = sprintf(__('Row %d: Column count mismatch','api-isarud'), $row_num);
                 $skipped++;
                 continue;
             }
@@ -130,7 +130,7 @@ class Isarud_Excel_Import {
                     $imported++;
                 }
             } catch (\Throwable $e) {
-                $errors[] = "Satır {$row_num}: " . $e->getMessage();
+                $errors[] = sprintf(__('Row %d: ','api-isarud'), $row_num) . $e->getMessage();
                 $skipped++;
             }
         }
@@ -192,13 +192,13 @@ class Isarud_Excel_Import {
         check_ajax_referer('isarud_nonce', 'nonce');
         if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
 
-        if (empty($_FILES['csv_file'])) wp_send_json_error('Dosya yüklenmedi');
+        if (empty($_FILES['csv_file'])) wp_send_json_error(__('No file uploaded','api-isarud'));
 
         $file = $_FILES['csv_file'];
-        if ($file['error'] !== UPLOAD_ERR_OK) wp_send_json_error('Yükleme hatası: ' . $file['error']);
+        if ($file['error'] !== UPLOAD_ERR_OK) wp_send_json_error(__('Upload error: ','api-isarud') . $file['error']);
 
         $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-        if (!in_array($ext, ['csv', 'txt', 'tsv'])) wp_send_json_error('Sadece CSV/TSV dosyaları desteklenir');
+        if (!in_array($ext, ['csv', 'txt', 'tsv'])) wp_send_json_error(__('Only CSV/TSV files are supported','api-isarud'));
 
         $result = $this->import_from_csv($file['tmp_name'], [
             'delimiter' => $ext === 'tsv' ? "\t" : ',',

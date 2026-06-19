@@ -29,11 +29,11 @@ class Isarud_Product_Export {
         // Cloud Sync key kontrolü
         $api_key = get_option('isarud_cloud_api_key', '');
         if (empty($api_key)) {
-            return ['error' => 'Cloud Sync bağlantısı yok. Önce Cloud Sync sayfasından bağlanın.'];
+            return ['error' => __('No Cloud Sync connection. Please connect from the Cloud Sync page first.','api-isarud')];
         }
 
         $barcode = get_post_meta($product->get_id(), '_isarud_barcode', true) ?: $product->get_sku();
-        if (empty($barcode)) return ['error' => 'Ürünün barkodu veya SKU\'su yok'];
+        if (empty($barcode)) return ['error' => __('Product has no barcode or SKU','api-isarud')];
 
         // Attribute mappings
         $attr_map = Isarud_Attribute_Map::instance();
@@ -41,7 +41,7 @@ class Isarud_Product_Export {
         $brand_id = $attr_map->get_mp_attribute('trendyol', 'brand_id', $product->get_id());
 
         if (empty($category_id) || empty($brand_id)) {
-            return ['error' => 'Trendyol kategori ve marka eşleştirmesi gerekli (Trendyol > Marka & Kategori sekmesi)'];
+            return ['error' => __('Trendyol category and brand mapping required (Trendyol > Brand & Category tab)','api-isarud')];
         }
 
         // Görseller
@@ -107,7 +107,7 @@ class Isarud_Product_Export {
             if ($code >= 400) {
                 $result = ['error' => $decoded['message'] ?? "HTTP $code", 'data' => $decoded];
             } else {
-                $result = $decoded ?? ['error' => 'Geçersiz JSON yanıt'];
+                $result = $decoded ?? ['error' => __('Invalid JSON response','api-isarud')];
             }
         }
 
@@ -121,14 +121,14 @@ class Isarud_Product_Export {
      */
     public function export_to_amazon(\WC_Product $product): array {
         if (!class_exists('Isarud_Amazon')) {
-            return ['error' => 'Amazon modülü yüklü değil'];
+            return ['error' => __('Amazon module not loaded','api-isarud')];
         }
         $api_key = get_option('isarud_cloud_api_key', '');
         if (empty($api_key)) {
-            return ['error' => 'Cloud Sync bağlantısı yok'];
+            return ['error' => __('No Cloud Sync connection','api-isarud')];
         }
         // Amazon SP-API listing creation stub - test mağaza geldiğinde aktif
-        return ['error' => 'Amazon listing oluşturma henüz aktif değil (test mağaza bekleniyor)'];
+        return ['error' => __('Amazon listing creation not active yet (test store pending)','api-isarud')];
     }
 
     /**
@@ -136,7 +136,7 @@ class Isarud_Product_Export {
      */
     public function export_to_pazarama(\WC_Product $product): array {
         if (!class_exists('Isarud_Pazarama')) {
-            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil'];
+            return ['success' => false, 'message' => __('Pazarama module not loaded','api-isarud')];
         }
 
         $svc = \Isarud_Pazarama::instance();
@@ -189,7 +189,7 @@ class Isarud_Product_Export {
         if (empty($merchant_id)) return ['error' => 'Hepsiburada credentials not configured'];
 
         $sku = $product->get_sku() ?: get_post_meta($product->get_id(), '_isarud_barcode', true);
-        if (empty($sku)) return ['error' => 'Ürünün SKU\'su yok'];
+        if (empty($sku)) return ['error' => __('Product has no SKU','api-isarud')];
 
         $attr_map = Isarud_Attribute_Map::instance();
         $category_id = $attr_map->get_mp_attribute('hepsiburada', 'category_id', $product->get_id());
@@ -224,11 +224,11 @@ class Isarud_Product_Export {
 
         // Bridge to Isarud_Hepsiburada (v6.6.6+ - server-side credentials)
         if (!class_exists('Isarud_Hepsiburada')) {
-            $result = ['error' => 'Hepsiburada modülü yüklü değil'];
+            $result = ['error' => __('Hepsiburada module not loaded','api-isarud')];
         } else {
             $api_key = get_option('isarud_cloud_api_key', '');
             if (empty($api_key)) {
-                $result = ['error' => 'Cloud Sync bağlantısı yok'];
+                $result = ['error' => __('No Cloud Sync connection','api-isarud')];
             } else {
                 // Hepsiburada submit via bridge (sunucu credentials kullanır)
                 $result = Isarud_Hepsiburada::instance()->sync_stock_bulk([$item]);
@@ -246,18 +246,18 @@ class Isarud_Product_Export {
         // Cloud Sync key kontrolü
         $api_key = get_option('isarud_cloud_api_key', '');
         if (empty($api_key)) {
-            return ['error' => 'Cloud Sync bağlantısı yok. Önce Cloud Sync sayfasından bağlanın.'];
+            return ['error' => __('No Cloud Sync connection. Please connect from the Cloud Sync page first.','api-isarud')];
         }
 
         $sku = $product->get_sku() ?: get_post_meta($product->get_id(), '_isarud_barcode', true);
-        if (empty($sku)) return ['error' => 'Ürünün SKU\'su yok'];
+        if (empty($sku)) return ['error' => __('Product has no SKU','api-isarud')];
 
         // Attribute mappings
         $attr_map = Isarud_Attribute_Map::instance();
         $category_id = $attr_map->get_mp_attribute('n11', 'category_id', $product->get_id());
 
         if (empty($category_id)) {
-            return ['error' => 'N11 kategori eşleştirmesi gerekli (N11 > Kategoriler sekmesi)'];
+            return ['error' => __('N11 category mapping required (N11 > Categories tab)','api-isarud')];
         }
 
         // Görseller
@@ -304,7 +304,7 @@ class Isarud_Product_Export {
 
         // Bridge: WP plugin → isarud.com → N11 (modern REST)
         if (!class_exists('Isarud_N11')) {
-            return ['error' => 'N11 modülü yüklü değil'];
+            return ['error' => __('N11 module not loaded','api-isarud')];
         }
 
         $result = Isarud_N11::instance()->submit_product_batch([$item]);
@@ -433,7 +433,7 @@ class Isarud_Product_Export {
         wp_send_json([
             'success' => true,
             'enabled' => $enabled,
-            'message' => $enabled ? 'Otomatik gönderim AÇIK' : 'Otomatik gönderim KAPALI',
+            'message' => $enabled ? __('Auto-send ON','api-isarud') : __('Auto-send OFF','api-isarud'),
         ]);
     }
 

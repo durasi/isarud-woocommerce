@@ -40,9 +40,9 @@ class Isarud_Cart_Recovery {
             'coupon_code' => '',
             'from_name' => get_bloginfo('name'),
             'from_email' => get_option('admin_email'),
-            'subject_first' => __('Sepetinizde urunler var!', 'api-isarud'),
-            'subject_second' => __('Sepetinizi unutmayin!', 'api-isarud'),
-            'subject_third' => __('Son sans! Sepetiniz sizi bekliyor', 'api-isarud'),
+            'subject_first' => __('You have items in your cart!', 'api-isarud'),
+            'subject_second' => __('Don\'t forget your cart!', 'api-isarud'),
+            'subject_third' => __('Last chance! Your cart is waiting for you', 'api-isarud'),
             'enable_second' => true,
             'enable_third' => true,
             'capture_guests' => true,
@@ -203,8 +203,8 @@ class Isarud_Cart_Recovery {
         $html .= '<div style="background:#358a4f;padding:20px;text-align:center;border-radius:8px 8px 0 0">';
         $html .= '<h1 style="color:#fff;margin:0;font-size:20px">' . esc_html($shop_name) . '</h1></div>';
         $html .= '<div style="padding:24px;background:#fff;border:1px solid #e5e7eb">';
-        $html .= '<p style="font-size:15px;color:#333">' . __('Merhaba,', 'api-isarud') . '</p>';
-        $html .= '<p style="font-size:14px;color:#555">' . __('Sepetinizde asagidaki urunler bekliyor:', 'api-isarud') . '</p>';
+        $html .= '<p style="font-size:15px;color:#333">' . __('Hello,', 'api-isarud') . '</p>';
+        $html .= '<p style="font-size:14px;color:#555">' . __('The following items are waiting in your cart:', 'api-isarud') . '</p>';
         $html .= '<table style="width:100%;border-collapse:collapse;margin:16px 0">';
 
         foreach ($items as $item) {
@@ -212,23 +212,23 @@ class Isarud_Cart_Recovery {
             if (!empty($item['image'])) {
                 $html .= '<td style="padding:8px;width:60px"><img src="' . esc_url($item['image']) . '" width="50" height="50" style="border-radius:6px;object-fit:cover"></td>';
             }
-            $html .= '<td style="padding:8px"><strong style="font-size:13px;color:#333">' . esc_html($item['name']) . '</strong><br><span style="font-size:12px;color:#888">' . __('Adet:', 'api-isarud') . ' ' . $item['quantity'] . '</span></td>';
+            $html .= '<td style="padding:8px"><strong style="font-size:13px;color:#333">' . esc_html($item['name']) . '</strong><br><span style="font-size:12px;color:#888">' . __('Quantity:', 'api-isarud') . ' ' . $item['quantity'] . '</span></td>';
             $html .= '<td style="padding:8px;text-align:right;font-size:13px;color:#333">' . wc_price($item['price'] * $item['quantity']) . '</td>';
             $html .= '</tr>';
         }
 
         $html .= '</table>';
-        $html .= '<p style="font-size:15px;font-weight:bold;color:#333">' . __('Toplam:', 'api-isarud') . ' ' . wc_price($cart->cart_total) . '</p>';
+        $html .= '<p style="font-size:15px;font-weight:bold;color:#333">' . __('Total:', 'api-isarud') . ' ' . wc_price($cart->cart_total) . '</p>';
 
         if (!empty($settings['coupon_code']) && $cart->emails_sent >= 1) {
             $html .= '<div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px;margin:16px 0;text-align:center">';
-            $html .= '<p style="margin:0;font-size:13px;color:#92400e">' . __('Ozel indirim kodunuz:', 'api-isarud') . '</p>';
+            $html .= '<p style="margin:0;font-size:13px;color:#92400e">' . __('Your special discount code:', 'api-isarud') . '</p>';
             $html .= '<p style="margin:4px 0 0;font-size:18px;font-weight:bold;color:#92400e">' . esc_html($settings['coupon_code']) . '</p>';
             $html .= '</div>';
         }
 
         $html .= '<div style="text-align:center;margin:20px 0">';
-        $html .= '<a href="' . esc_url($shop_url) . '" style="display:inline-block;background:#358a4f;color:#fff;padding:12px 32px;text-decoration:none;border-radius:8px;font-size:14px;font-weight:bold">' . __('Sepetime Don', 'api-isarud') . '</a>';
+        $html .= '<a href="' . esc_url($shop_url) . '" style="display:inline-block;background:#358a4f;color:#fff;padding:12px 32px;text-decoration:none;border-radius:8px;font-size:14px;font-weight:bold">' . __('Return to Cart', 'api-isarud') . '</a>';
         $html .= '</div></div>';
         $html .= '<div style="padding:12px;text-align:center;font-size:11px;color:#aaa;border-radius:0 0 8px 8px">';
         $html .= esc_html($shop_name) . '</div></div>';
@@ -281,7 +281,7 @@ class Isarud_Cart_Recovery {
         check_ajax_referer('isarud_nonce', 'nonce');
         if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
         $email = sanitize_email($_POST['test_email'] ?? '');
-        if (!$email) wp_send_json_error(__('Gecerli e-posta girin', 'api-isarud'));
+        if (!$email) wp_send_json_error(__('Enter a valid email', 'api-isarud'));
 
         $settings = $this->get_settings();
         $cart = (object)[
@@ -289,7 +289,7 @@ class Isarud_Cart_Recovery {
             'cart_data' => wp_json_encode([['product_id' => 1, 'name' => 'Ornek Urun', 'quantity' => 2, 'price' => 149.95, 'image' => '', 'url' => '#']]),
         ];
         $sent = $this->send_email($cart, $settings['subject_first'], $settings);
-        $sent ? wp_send_json_success(__('Test e-postasi gonderildi', 'api-isarud')) : wp_send_json_error(__('E-posta gonderilemedi', 'api-isarud'));
+        $sent ? wp_send_json_success(__('Test email sent', 'api-isarud')) : wp_send_json_error(__('Email could not be sent', 'api-isarud'));
     }
 }
 

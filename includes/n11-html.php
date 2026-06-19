@@ -49,7 +49,7 @@ if (!defined('ABSPATH')) exit;
 <div class="wrap" id="isarud-n11-app">
     <h1 style="display:flex;align-items:center;gap:12px;">
         <img src="<?php echo ISARUD_URL; ?>assets/n11-icon.png" alt="N11" style="width:40px;height:40px;border-radius:8px;background:#fff;padding:3px;border:1px solid #e9d5ff;" onerror="this.style.display='none'">
-        <span><?php _e('N11 Yönetimi', 'api-isarud'); ?></span>
+        <span><?php _e('N11 Management', 'api-isarud'); ?></span>
         <span style="background:#7b2b8e;color:white;padding:3px 10px;border-radius:12px;font-size:11px;">v6.7.0</span>
     </h1>
 
@@ -58,23 +58,23 @@ if (!defined('ABSPATH')) exit;
     if (empty($cloud_key)):
     ?>
     <div class="notice notice-warning">
-        <p><strong><?php _e('Cloud Sync kurulmamış.', 'api-isarud'); ?></strong>
-        <?php _e('Önce', 'api-isarud'); ?>
-        <a href="<?php echo esc_url(admin_url('admin.php?page=isarud-cloud')); ?>"><?php _e('Cloud Sync sayfasına gidin', 'api-isarud'); ?></a>
-        <?php _e('ve isarud.com hesabınıza bağlanın.', 'api-isarud'); ?></p>
+        <p><strong><?php _e('Cloud Sync is not configured.', 'api-isarud'); ?></strong>
+        <?php _e('First', 'api-isarud'); ?>
+        <a href="<?php echo esc_url(admin_url('admin.php?page=isarud-cloud')); ?>"><?php _e('Go to Cloud Sync page', 'api-isarud'); ?></a>
+        <?php _e('and connect to your isarud.com account.', 'api-isarud'); ?></p>
     </div>
     <?php else: ?>
 
     <!-- Connect Modal -->
     <div id="isarud-n11-connect-modal" class="isarud-n11-modal">
         <div class="isarud-n11-modal-box">
-            <h3 style="margin-top:0;"><?php _e('N11 ile Bağlan', 'api-isarud'); ?></h3>
-            <p style="color:#6b7280;font-size:13px;"><?php _e('Bağlantı kuracağınız mağazayı seçin:', 'api-isarud'); ?></p>
+            <h3 style="margin-top:0;"><?php _e('Connect with N11', 'api-isarud'); ?></h3>
+            <p style="color:#6b7280;font-size:13px;"><?php _e('Select the store you want to connect:', 'api-isarud'); ?></p>
             <div id="isarud-n11-stores-list" style="margin:20px 0;">
-                <p style="text-align:center;color:#999;"><?php echo esc_js(__('Mağazalarınız yükleniyor...', 'api-isarud')); ?></p>
+                <p style="text-align:center;color:#999;"><?php echo esc_js(__('Loading your stores...', 'api-isarud')); ?></p>
             </div>
             <div style="text-align:right;">
-                <button type="button" class="button" id="isarud-n11-modal-close"><?php _e('Vazgeç', 'api-isarud'); ?></button>
+                <button type="button" class="button" id="isarud-n11-modal-close"><?php _e('Cancel', 'api-isarud'); ?></button>
             </div>
         </div>
     </div>
@@ -82,35 +82,35 @@ if (!defined('ABSPATH')) exit;
     <!-- Status bar -->
     <div class="isarud-n11-status-bar">
         <div style="display:flex;align-items:center;gap:14px;">
-            <span id="isarud-n11-status-badge" class="isarud-n11-badge isarud-n11-badge-gray"><?php _e('Kontrol ediliyor...', 'api-isarud'); ?></span>
+            <span id="isarud-n11-status-badge" class="isarud-n11-badge isarud-n11-badge-gray"><?php _e('Checking...', 'api-isarud'); ?></span>
             <div id="isarud-n11-account-info" style="font-size:13px;color:#6b7280;"></div>
         </div>
         <div style="display:flex;gap:8px;">
-            <button id="isarud-n11-connect-btn" class="isarud-n11-btn isarud-n11-btn-primary" style="display:none;"><?php _e('N11 ile Bağlan', 'api-isarud'); ?></button>
-            <button id="isarud-n11-refresh-btn" class="isarud-n11-btn isarud-n11-btn-secondary">⟳ <?php _e('Yenile', 'api-isarud'); ?></button>
+            <button id="isarud-n11-connect-btn" class="isarud-n11-btn isarud-n11-btn-primary" style="display:none;"><?php _e('Connect with N11', 'api-isarud'); ?></button>
+            <button id="isarud-n11-refresh-btn" class="isarud-n11-btn isarud-n11-btn-secondary">⟳ <?php _e('Refresh', 'api-isarud'); ?></button>
         </div>
     </div>
 
     <!-- Not connected CTA -->
     <div id="isarud-n11-not-connected-card" style="display:none;background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%);border:1px solid #d8b4fe;border-radius:14px;padding:40px 30px;text-align:center;margin-bottom:24px;">
         <div style="font-size:48px;margin-bottom:12px;">🔌</div>
-        <h2 style="margin:0 0 10px 0;color:#7b2b8e;font-size:22px;"><?php _e('N11 mağazanızı bağlayın', 'api-isarud'); ?></h2>
+        <h2 style="margin:0 0 10px 0;color:#7b2b8e;font-size:22px;"><?php _e('Connect your N11 store', 'api-isarud'); ?></h2>
         <p style="color:#6b7280;font-size:14px;line-height:1.6;max-width:480px;margin:0 auto 20px;">
-            <?php _e('WordPress\'tan N11\'e ürün gönderme, sipariş çekme, stok senkronizasyonu için isarud.com hesabınızdan N11 mağazanızı bağlayın.', 'api-isarud'); ?>
+            <?php _e('Connect your N11 store from your isarud.com account to send products from WordPress to N11, pull orders, and synchronize inventory.', 'api-isarud'); ?>
         </p>
         <button id="isarud-n11-cta-connect" class="isarud-n11-btn isarud-n11-btn-primary" style="font-size:15px;padding:12px 24px;">
-            <?php _e('N11 ile Bağlan', 'api-isarud'); ?>
+            <?php _e('Connect with N11', 'api-isarud'); ?>
         </button>
     </div>
 
     <!-- Tab navigation -->
     <h2 class="nav-tab-wrapper" id="isarud-n11-tabs" style="margin-bottom:0;display:none;">
-        <a href="#listings"   class="nav-tab nav-tab-active" data-tab="listings">📦 <?php _e('Ürünler', 'api-isarud'); ?></a>
-        <a href="#categories" class="nav-tab" data-tab="categories">📂 <?php _e('Kategoriler', 'api-isarud'); ?></a>
-        <a href="#stock"      class="nav-tab" data-tab="stock">💰 <?php _e('Stok & Fiyat', 'api-isarud'); ?></a>
-        <a href="#orders"     class="nav-tab" data-tab="orders">🛒 <?php _e('Siparişler', 'api-isarud'); ?></a>
-        <a href="#tasks"      class="nav-tab" data-tab="tasks">⏱️ <?php _e('İşlemler', 'api-isarud'); ?></a>
-        <a href="#settings"   class="nav-tab" data-tab="settings">⚙️ <?php _e('Ayarlar', 'api-isarud'); ?></a>
+        <a href="#listings"   class="nav-tab nav-tab-active" data-tab="listings">📦 <?php _e('Products', 'api-isarud'); ?></a>
+        <a href="#categories" class="nav-tab" data-tab="categories">📂 <?php _e('Categories', 'api-isarud'); ?></a>
+        <a href="#stock"      class="nav-tab" data-tab="stock">💰 <?php _e('Stock & Price', 'api-isarud'); ?></a>
+        <a href="#orders"     class="nav-tab" data-tab="orders">🛒 <?php _e('Orders', 'api-isarud'); ?></a>
+        <a href="#tasks"      class="nav-tab" data-tab="tasks">⏱️ <?php _e('Actions', 'api-isarud'); ?></a>
+        <a href="#settings"   class="nav-tab" data-tab="settings">⚙️ <?php _e('Settings', 'api-isarud'); ?></a>
     </h2>
 
     <div id="isarud-n11-content-wrap" style="margin-top:24px;display:none;">
@@ -118,9 +118,9 @@ if (!defined('ABSPATH')) exit;
         <!-- TAB: LISTINGS -->
         <div class="isarud-n11-section active" id="section-listings">
             <div class="isarud-n11-card">
-                <h3>📦 <?php _e('N11 Ürünleri', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('N11 mağazanızdaki ürünleri görüntüleyin ve yönetin.', 'api-isarud'); ?></p>
-                <button id="isarud-n11-load-listings" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Ürünleri Yükle', 'api-isarud'); ?></button>
+                <h3>📦 <?php _e('N11 Products', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('View and manage products in your N11 store.', 'api-isarud'); ?></p>
+                <button id="isarud-n11-load-listings" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Upload Products', 'api-isarud'); ?></button>
                 <span id="isarud-n11-listings-count" style="color:#6b7280;font-size:12px;margin-left:8px;"></span>
                 <div id="isarud-n11-listings-table" style="margin-top:15px;"></div>
             </div>
@@ -129,17 +129,17 @@ if (!defined('ABSPATH')) exit;
         <!-- TAB: CATEGORIES -->
         <div class="isarud-n11-section" id="section-categories">
             <div class="isarud-n11-card">
-                <h3>📂 <?php _e('N11 Kategori Ağacı', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('N11 kategori listesini görüntüleyin. Ürün yüklemek için kategori ID gereklidir.', 'api-isarud'); ?></p>
-                <button id="isarud-n11-load-categories" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Kategorileri Yükle', 'api-isarud'); ?></button>
+                <h3>📂 <?php _e('N11 Category Tree', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('View the N11 category list. Category ID is required to upload products.', 'api-isarud'); ?></p>
+                <button id="isarud-n11-load-categories" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Upload Categories', 'api-isarud'); ?></button>
                 <div id="isarud-n11-categories-tree" style="margin-top:15px;"></div>
             </div>
 
             <div class="isarud-n11-card">
-                <h3>🔍 <?php _e('Kategori Öznitelikleri', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('Bir kategorinin zorunlu/opsiyonel özniteliklerini sorgulayın.', 'api-isarud'); ?></p>
-                <input type="number" id="isarud-n11-attr-cat-id" placeholder="<?php esc_attr_e('Kategori ID', 'api-isarud'); ?>" class="regular-text" style="width:200px;margin-right:8px;">
-                <button id="isarud-n11-load-attributes" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Özellikleri Yükle', 'api-isarud'); ?></button>
+                <h3>🔍 <?php _e('Category Attributes', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('Query required/optional attributes of a category.', 'api-isarud'); ?></p>
+                <input type="number" id="isarud-n11-attr-cat-id" placeholder="<?php esc_attr_e('Category ID', 'api-isarud'); ?>" class="regular-text" style="width:200px;margin-right:8px;">
+                <button id="isarud-n11-load-attributes" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Load Attributes', 'api-isarud'); ?></button>
                 <div id="isarud-n11-attributes-result" style="margin-top:15px;"></div>
             </div>
         </div>
@@ -147,35 +147,35 @@ if (!defined('ABSPATH')) exit;
         <!-- TAB: STOCK & PRICE -->
         <div class="isarud-n11-section" id="section-stock">
             <div class="isarud-n11-card isarud-n11-card-purple">
-                <h3 style="color:#7b2b8e;">🚀 <?php _e('Otomatik Ürün Gönderimi (Auto-Export)', 'api-isarud'); ?></h3>
-                <p style="color:#444;font-size:13px;line-height:1.6;"><?php _e('WooCommerce\'de yeni ürün eklediğinizde veya güncellediğinizde, ürün otomatik olarak N11\'e (ve diğer aktif pazaryerlerine) gönderilebilir.', 'api-isarud'); ?></p>
+                <h3 style="color:#7b2b8e;">🚀 <?php _e('Automatic Product Export (Auto-Export)', 'api-isarud'); ?></h3>
+                <p style="color:#444;font-size:13px;line-height:1.6;"><?php _e('When you add or update a new product in WooCommerce, the product can be automatically sent to N11 (and other active marketplaces).', 'api-isarud'); ?></p>
 
                 <label style="display:flex;align-items:center;gap:12px;background:#fff;padding:12px 15px;border-radius:8px;border:1px solid #ddd;cursor:pointer;">
                     <input type="checkbox" id="isarud-n11-auto-export" <?php echo get_option('isarud_n11_auto_export', '0') === '1' ? 'checked' : ''; ?>>
-                    <span style="flex:1;font-weight:600;font-size:15px;"><?php _e('Otomatik Gönderim', 'api-isarud'); ?></span>
+                    <span style="flex:1;font-weight:600;font-size:15px;"><?php _e('Automatic Export', 'api-isarud'); ?></span>
                     <span id="isarud-n11-auto-status" class="isarud-n11-badge <?php echo get_option('isarud_n11_auto_export', '0') === '1' ? 'isarud-n11-badge-green' : 'isarud-n11-badge-gray'; ?>">
-                        <?php echo get_option('isarud_n11_auto_export', '0') === '1' ? __('Aktif', 'api-isarud') : __('Kapalı', 'api-isarud'); ?>
+                        <?php echo get_option('isarud_n11_auto_export', '0') === '1' ? __('Active', 'api-isarud') : __('Closed', 'api-isarud'); ?>
                     </span>
                 </label>
 
-                <p style="color:#6b7280;font-size:12px;margin-top:12px;">⚠️ <?php _e('Auto-Export için ürünün N11 kategorisi ve zorunlu öznitelikleri eşleştirilmelidir.', 'api-isarud'); ?></p>
+                <p style="color:#6b7280;font-size:12px;margin-top:12px;">⚠️ <?php _e('For Auto-Export, the product\'s N11 category and required attributes must be matched.', 'api-isarud'); ?></p>
             </div>
 
             <div class="isarud-n11-card">
-                <h3>📊 <?php _e('Toplu Stok/Fiyat Güncelleme', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('Tüm WooCommerce ürünlerinin stok/fiyat bilgisini N11\'e gönderir. Maks. 1000 ürün/batch (async, taskId döner).', 'api-isarud'); ?></p>
-                <button id="isarud-n11-bulk-sync" class="isarud-n11-btn isarud-n11-btn-secondary"><?php _e('Toplu Senkronizasyon Başlat', 'api-isarud'); ?></button>
+                <h3>📊 <?php _e('Bulk Stock/Price Update', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('Sends stock/price information of all WooCommerce products to N11. Max. 1000 products/batch (async, returns taskId).', 'api-isarud'); ?></p>
+                <button id="isarud-n11-bulk-sync" class="isarud-n11-btn isarud-n11-btn-secondary"><?php _e('Start Bulk Synchronization', 'api-isarud'); ?></button>
                 <div id="isarud-n11-bulk-result" style="margin-top:15px;"></div>
-                <p style="color:#6b7280;font-size:12px;margin-top:12px;">💡 <?php _e('Sonucu "İşlemler" sekmesinden taskId ile takip edebilirsiniz.', 'api-isarud'); ?></p>
+                <p style="color:#6b7280;font-size:12px;margin-top:12px;">💡 <?php _e('You can track the result by taskId from the "Operations" tab.', 'api-isarud'); ?></p>
             </div>
         </div>
 
         <!-- TAB: ORDERS -->
         <div class="isarud-n11-section" id="section-orders">
             <div class="isarud-n11-card">
-                <h3>🛒 <?php _e('N11 Siparişleri', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('N11\'den gelen son sipariş paketlerini görüntüleyin.', 'api-isarud'); ?></p>
-                <button id="isarud-n11-load-orders" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Siparişleri Yükle', 'api-isarud'); ?></button>
+                <h3>🛒 <?php _e('N11 Orders', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('View the latest order packages from N11.', 'api-isarud'); ?></p>
+                <button id="isarud-n11-load-orders" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Load Orders', 'api-isarud'); ?></button>
                 <div id="isarud-n11-orders-table" style="margin-top:15px;"></div>
             </div>
         </div>
@@ -183,18 +183,18 @@ if (!defined('ABSPATH')) exit;
         <!-- TAB: TASKS -->
         <div class="isarud-n11-section" id="section-tasks">
             <div class="isarud-n11-card">
-                <h3>⏱️ <?php _e('Async İşlem Takibi', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;line-height:1.6;"><?php _e('N11 ürün/stok/fiyat güncellemeleri async (asenkron) çalışır. Her işlem için bir taskId döner. Bu sekmeden taskId\'nin durumunu sorgulayabilirsiniz.', 'api-isarud'); ?></p>
+                <h3>⏱️ <?php _e('Async Task Tracking', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;line-height:1.6;"><?php _e('N11 product/stock/price updates work asynchronously. Each operation returns a taskId. You can query the taskId status from this tab.', 'api-isarud'); ?></p>
 
                 <div style="display:flex;gap:8px;margin-bottom:15px;">
-                    <input type="text" id="isarud-n11-task-id" placeholder="<?php esc_attr_e('Task ID (örn: 12345678)', 'api-isarud'); ?>" class="regular-text" style="flex:1;font-family:monospace;">
-                    <button id="isarud-n11-check-task" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Durumu Sorgula', 'api-isarud'); ?></button>
+                    <input type="text" id="isarud-n11-task-id" placeholder="<?php esc_attr_e('Task ID (e.g.: 12345678)', 'api-isarud'); ?>" class="regular-text" style="flex:1;font-family:monospace;">
+                    <button id="isarud-n11-check-task" class="isarud-n11-btn isarud-n11-btn-primary"><?php _e('Query Status', 'api-isarud'); ?></button>
                 </div>
 
                 <div id="isarud-n11-task-result"></div>
 
                 <p style="color:#6b7280;font-size:12px;margin-top:15px;">
-                    💡 <?php _e('PROCESSED = İşlem tamamlandı | IN_QUEUE = Sırada bekliyor | REJECT = Reddedildi', 'api-isarud'); ?>
+                    💡 <?php _e('PROCESSED = Operation completed | IN_QUEUE = Waiting in queue | REJECT = Rejected', 'api-isarud'); ?>
                 </p>
             </div>
         </div>
@@ -202,11 +202,11 @@ if (!defined('ABSPATH')) exit;
         <!-- TAB: SETTINGS -->
         <div class="isarud-n11-section" id="section-settings">
             <div class="isarud-n11-card">
-                <h3>⚙️ <?php _e('Bağlantı Ayarları', 'api-isarud'); ?></h3>
-                <p style="color:#6b7280;font-size:13px;"><?php _e('N11 bağlantınızı test edin veya kaldırın.', 'api-isarud'); ?></p>
+                <h3>⚙️ <?php _e('Connection Settings', 'api-isarud'); ?></h3>
+                <p style="color:#6b7280;font-size:13px;"><?php _e('Test or remove your N11 connection.', 'api-isarud'); ?></p>
                 <div style="display:flex;gap:8px;">
-                    <button id="isarud-n11-retest" class="isarud-n11-btn isarud-n11-btn-secondary"><?php _e('Bağlantıyı Test Et', 'api-isarud'); ?></button>
-                    <button id="isarud-n11-disconnect" class="isarud-n11-btn isarud-n11-btn-danger"><?php _e('Bağlantıyı Kaldır', 'api-isarud'); ?></button>
+                    <button id="isarud-n11-retest" class="isarud-n11-btn isarud-n11-btn-secondary"><?php _e('Test Connection', 'api-isarud'); ?></button>
+                    <button id="isarud-n11-disconnect" class="isarud-n11-btn isarud-n11-btn-danger"><?php _e('Remove Connection', 'api-isarud'); ?></button>
                 </div>
                 <div id="isarud-n11-settings-result" style="margin-top:15px;"></div>
             </div>
@@ -222,14 +222,14 @@ jQuery(document).ready(function($) {
     var NONCE = '<?php echo wp_create_nonce("isarud_n11_nonce"); ?>';
     var STORE_ID = 0; // Connect sırasında set edilir
     var T = {
-        loading: '<?php echo esc_js(__("Yükleniyor...", "api-isarud")); ?>',
-        error: '<?php echo esc_js(__("Hata", "api-isarud")); ?>',
-        connected: '✓ <?php echo esc_js(__("Bağlı", "api-isarud")); ?>',
-        not_connected: '<?php echo esc_js(__("Bağlı değil", "api-isarud")); ?>',
-        no_data: '<?php echo esc_js(__("Veri yok", "api-isarud")); ?>',
-        delete_confirm: '<?php echo esc_js(__("Bu ürünü N11'den silmek istediğinize emin misiniz?", "api-isarud")); ?>',
-        disconnect_confirm: '<?php echo esc_js(__("N11 bağlantısını kaldırmak istediğinize emin misiniz?", "api-isarud")); ?>',
-        bulk_confirm: '<?php echo esc_js(__("Tüm WC ürünleri N11'e gönderilecek. Devam edilsin mi?", "api-isarud")); ?>',
+        loading: '<?php echo esc_js(__("Loading...", "api-isarud")); ?>',
+        error: '<?php echo esc_js(__("Error", "api-isarud")); ?>',
+        connected: '✓ <?php echo esc_js(__("Connected", "api-isarud")); ?>',
+        not_connected: '<?php echo esc_js(__("Not Connected", "api-isarud")); ?>',
+        no_data: '<?php echo esc_js(__("No data", "api-isarud")); ?>',
+        delete_confirm: '<?php echo esc_js(__('Are you sure you want to delete this product from N11?', 'api-isarud')); ?>',
+        disconnect_confirm: '<?php echo esc_js(__("Are you sure you want to remove your N11 connection?", "api-isarud")); ?>',
+        bulk_confirm: '<?php echo esc_js(__('All WC products will be sent to N11. Continue?', 'api-isarud')); ?>',
     };
 
     // Tab switching
@@ -285,7 +285,7 @@ jQuery(document).ready(function($) {
         $('#isarud-n11-stores-list').html('<p style="text-align:center;color:#999;">' + T.loading + '</p>');
         $.post(ajaxurl, { action: 'isarud_n11_stores', nonce: NONCE }, function(r) {
             if (!r || !r.success || !r.stores || r.stores.length === 0) {
-                $('#isarud-n11-stores-list').html('<p style="color:#d32f2f;"><?php echo esc_js(__("Mağaza bulunamadı veya yüklenemedi.", "api-isarud")); ?></p>');
+                $('#isarud-n11-stores-list').html('<p style="color:#d32f2f;"><?php echo esc_js(__("Store not found or could not be loaded.", "api-isarud")); ?></p>');
                 return;
             }
             var html = '';
@@ -297,7 +297,7 @@ jQuery(document).ready(function($) {
             });
             $('#isarud-n11-stores-list').html(html);
         }).fail(function() {
-            $('#isarud-n11-stores-list').html('<p style="color:#d32f2f;"><?php echo esc_js(__("İstek başarısız.", "api-isarud")); ?></p>');
+            $('#isarud-n11-stores-list').html('<p style="color:#d32f2f;"><?php echo esc_js(__("Request failed.", "api-isarud")); ?></p>');
         });
     });
 
@@ -329,7 +329,7 @@ jQuery(document).ready(function($) {
             var items = r.items || [];
             $('#isarud-n11-listings-count').text(items.length + ' / ' + (r.totalElements || items.length));
             if (items.length === 0) { $w.html('<p style="color:#999">' + T.no_data + '</p>'); return; }
-            var html = '<table class="isarud-n11-table"><thead><tr><th>SKU</th><th><?php echo esc_js(__("Başlık", "api-isarud")); ?></th><th><?php echo esc_js(__("Fiyat", "api-isarud")); ?></th><th><?php echo esc_js(__("Stok", "api-isarud")); ?></th><th><?php echo esc_js(__("Durum", "api-isarud")); ?></th><th></th></tr></thead><tbody>';
+            var html = '<table class="isarud-n11-table"><thead><tr><th>SKU</th><th><?php echo esc_js(__("Title", "api-isarud")); ?></th><th><?php echo esc_js(__("Price", "api-isarud")); ?></th><th><?php echo esc_js(__("Inventory", "api-isarud")); ?></th><th><?php echo esc_js(__("Status", "api-isarud")); ?></th><th></th></tr></thead><tbody>';
             items.forEach(function(item) {
                 var sku = item.stockCode || item.productSellerCode || '—';
                 var title = (item.title || item.productName || '—').substring(0, 50);
@@ -343,7 +343,7 @@ jQuery(document).ready(function($) {
                 html += '<td>' + price + ' ₺</td>';
                 html += '<td>' + stock + '</td>';
                 html += '<td><span class="isarud-n11-badge ' + sclass + '">' + status + '</span></td>';
-                html += '<td><button class="isarud-n11-btn isarud-n11-btn-danger" data-sku="' + sku + '"><?php echo esc_js(__("Sil", "api-isarud")); ?></button></td>';
+                html += '<td><button class="isarud-n11-btn isarud-n11-btn-danger" data-sku="' + sku + '"><?php echo esc_js(__("Delete", "api-isarud")); ?></button></td>';
                 html += '</tr>';
             });
             html += '</tbody></table>';
@@ -388,7 +388,7 @@ jQuery(document).ready(function($) {
             if (!r || !r.success) { $w.html('<p style="color:#d32f2f">' + (r && r.message ? r.message : T.error) + '</p>'); return; }
             var attrs = r.attributes || [];
             if (attrs.length === 0) { $w.html('<p style="color:#999">' + T.no_data + '</p>'); return; }
-            var html = '<table class="isarud-n11-table"><thead><tr><th>ID</th><th><?php echo esc_js(__("Özellik Adı", "api-isarud")); ?></th><th><?php echo esc_js(__("Zorunlu", "api-isarud")); ?></th><th><?php echo esc_js(__("Varyant", "api-isarud")); ?></th></tr></thead><tbody>';
+            var html = '<table class="isarud-n11-table"><thead><tr><th>ID</th><th><?php echo esc_js(__("Attribute Name", "api-isarud")); ?></th><th><?php echo esc_js(__("Required", "api-isarud")); ?></th><th><?php echo esc_js(__("Variant", "api-isarud")); ?></th></tr></thead><tbody>';
             attrs.forEach(function(a) {
                 html += '<tr>';
                 html += '<td style="font-family:monospace;font-size:12px;">' + (a.id || '—') + '</td>';
@@ -406,7 +406,7 @@ jQuery(document).ready(function($) {
     $('#isarud-n11-auto-export').on('change', function() {
         var enabled = $(this).is(':checked') ? '1' : '0';
         $.post(ajaxurl, { action: 'isarud_set_option', nonce: NONCE, key: 'isarud_n11_auto_export', value: enabled });
-        $('#isarud-n11-auto-status').text(enabled === '1' ? '<?php echo esc_js(__("Aktif", "api-isarud")); ?>' : '<?php echo esc_js(__("Kapalı", "api-isarud")); ?>')
+        $('#isarud-n11-auto-status').text(enabled === '1' ? '<?php echo esc_js(__("Active", "api-isarud")); ?>' : '<?php echo esc_js(__("Closed", "api-isarud")); ?>')
             .removeClass('isarud-n11-badge-green isarud-n11-badge-gray')
             .addClass(enabled === '1' ? 'isarud-n11-badge-green' : 'isarud-n11-badge-gray');
     });
@@ -428,7 +428,7 @@ jQuery(document).ready(function($) {
             if (!r || !r.success) { $w.html('<p style="color:#d32f2f">' + (r && r.message ? r.message : T.error) + '</p>'); return; }
             var orders = r.orders || [];
             if (orders.length === 0) { $w.html('<p style="color:#999">' + T.no_data + '</p>'); return; }
-            var html = '<table class="isarud-n11-table"><thead><tr><th><?php echo esc_js(__("Sipariş No", "api-isarud")); ?></th><th><?php echo esc_js(__("Müşteri", "api-isarud")); ?></th><th><?php echo esc_js(__("Tutar", "api-isarud")); ?></th><th><?php echo esc_js(__("Durum", "api-isarud")); ?></th><th><?php echo esc_js(__("Kargo", "api-isarud")); ?></th></tr></thead><tbody>';
+            var html = '<table class="isarud-n11-table"><thead><tr><th><?php echo esc_js(__("Order No", "api-isarud")); ?></th><th><?php echo esc_js(__("Customer", "api-isarud")); ?></th><th><?php echo esc_js(__("Amount", "api-isarud")); ?></th><th><?php echo esc_js(__("Status", "api-isarud")); ?></th><th><?php echo esc_js(__("Shipping", "api-isarud")); ?></th></tr></thead><tbody>';
             orders.forEach(function(o) {
                 html += '<tr>';
                 html += '<td style="font-family:monospace;font-size:12px;">' + (o.orderNumber || '—') + '</td>';
@@ -458,11 +458,11 @@ jQuery(document).ready(function($) {
 
             var html = '<div style="background:#f9fafb;padding:15px;border-radius:8px;border:1px solid #e5e7eb;">';
             html += '<div style="margin-bottom:10px;"><strong>Task ID:</strong> <span style="font-family:monospace;font-size:12px;">' + r.task_id + '</span></div>';
-            html += '<div style="margin-bottom:10px;"><strong><?php echo esc_js(__("Durum", "api-isarud")); ?>:</strong> <span class="isarud-n11-badge ' + sclass + '">' + r.status + '</span></div>';
-            html += '<div style="margin-bottom:10px;"><strong><?php echo esc_js(__("Toplam Öğe", "api-isarud")); ?>:</strong> ' + (r.totalElements || 0) + '</div>';
+            html += '<div style="margin-bottom:10px;"><strong><?php echo esc_js(__("Status", "api-isarud")); ?>:</strong> <span class="isarud-n11-badge ' + sclass + '">' + r.status + '</span></div>';
+            html += '<div style="margin-bottom:10px;"><strong><?php echo esc_js(__("Total Items", "api-isarud")); ?>:</strong> ' + (r.totalElements || 0) + '</div>';
             if ((r.items || []).length > 0) {
-                html += '<details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:600;color:#7b2b8e;"><?php echo esc_js(__("Detayları Göster", "api-isarud")); ?></summary>';
-                html += '<table class="isarud-n11-table" style="margin-top:10px;"><thead><tr><th>SKU</th><th><?php echo esc_js(__("Durum", "api-isarud")); ?></th><th><?php echo esc_js(__("Mesaj", "api-isarud")); ?></th></tr></thead><tbody>';
+                html += '<details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:600;color:#7b2b8e;"><?php echo esc_js(__("Show Details", "api-isarud")); ?></summary>';
+                html += '<table class="isarud-n11-table" style="margin-top:10px;"><thead><tr><th>SKU</th><th><?php echo esc_js(__("Status", "api-isarud")); ?></th><th><?php echo esc_js(__("Message", "api-isarud")); ?></th></tr></thead><tbody>';
                 (r.items || []).forEach(function(i) {
                     var iclass = (i.status === 'SUCCESS') ? 'isarud-n11-badge-green' : 'isarud-n11-badge-red';
                     html += '<tr>';

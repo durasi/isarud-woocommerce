@@ -1,10 +1,10 @@
 === API Isarud Tüm Pazar Yerleri Ticaret Entegrasyonu ===
 Contributors: durasi
-Tags: marketplace, trendyol, etsy, hepsiburada, n11, woocommerce
+Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.6.9
+Stable tag: 6.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Trendyol, Etsy, Hepsiburada, N11, Amazon ve Pazarama için tek çatı altında p
 
 **API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi %100 ücretsiz.
 
-= 🚀 Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
+= Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
 
 WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncellediğinizde, ürün **otomatik olarak tüm bağlı pazaryerlerine gönderilir** — manuel işlem gerektirmeden. Trendyol, Etsy, N11, Hepsiburada ve daha fazlası için tek tıkla aktif edin.
 
@@ -152,6 +152,11 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.7 =
+* Yeni: eBay pazaryeri entegrasyonu — ürün, sipariş, finans ve analitik yönetimi
+* eBay OAuth (19 kapsam) isarud.com bulut köprüsü üzerinden yönetilir
+* eBay yönetim paneli 4 sekme (Ürünler, Siparişler, Finans, Analitik)
 
 = 6.6.9 =
 * Yeni: Pazaryerleri için kargo ek ücreti ayarı (TL/USD/EUR/GBP)

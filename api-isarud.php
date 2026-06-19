@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.6.11
+ * Version: 6.7
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define("ISARUD_VERSION", "6.6.9");
+define("ISARUD_VERSION", "6.7");
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -51,6 +51,7 @@ require_once ISARUD_DIR . 'includes/class-isarud-n11.php';
 require_once ISARUD_DIR . 'includes/class-isarud-hepsiburada.php';
 require_once ISARUD_DIR . 'includes/class-isarud-pazarama.php';
 require_once ISARUD_DIR . 'includes/class-isarud-amazon.php';
+require_once ISARUD_DIR . 'includes/class-isarud-ebay.php';
 
 
 // HPOS (High-Performance Order Storage) compatibility
@@ -213,6 +214,7 @@ add_action('plugins_loaded', function() {
     Isarud_Hepsiburada::instance();
     Isarud_Pazarama::instance();
     Isarud_Amazon::instance();
+    Isarud_Ebay::instance();
     Isarud_Webhook::instance();
     Isarud_Order_Import::instance();
     Isarud_Product_Import::instance();
@@ -252,7 +254,7 @@ class Isarud_Plugin {
                 <div class="isd-widget-metrics">
                     <div class="isd-widget-metric">
                         <div class="val blue"><?php echo $screen_24h; ?></div>
-                        <div class="lbl"><?php _e('Tarama (24s)', 'api-isarud'); ?></div>
+                        <div class="lbl"><?php _e('Scan (24s)', 'api-isarud'); ?></div>
                     </div>
                     <div class="isd-widget-metric">
                         <div class="val green"><?php echo $syncs_24h; ?></div>
@@ -260,13 +262,13 @@ class Isarud_Plugin {
                     </div>
                     <div class="isd-widget-metric">
                         <div class="val <?php echo $errors_24h > 0 ? 'amber' : 'muted'; ?>"><?php echo $errors_24h; ?></div>
-                        <div class="lbl"><?php _e('Hata (24s)', 'api-isarud'); ?></div>
+                        <div class="lbl"><?php _e('Error (24s)', 'api-isarud'); ?></div>
                     </div>
                 </div>
                 <div>
-                    <div class="isd-widget-row"><span style="color:#666"><?php _e('Toplam tarama', 'api-isarud'); ?></span><strong><?php echo number_format_i18n($screenings); ?></strong></div>
-                    <?php if ($matches_24h > 0): ?><div class="isd-widget-row"><span style="color:#d63638"><?php _e('Eşleşme (24s)', 'api-isarud'); ?></span><strong style="color:#d63638"><?php echo $matches_24h; ?></strong></div><?php endif; ?>
-                    <div class="isd-widget-row"><span style="color:#666"><?php _e('Aktif pazar yeri', 'api-isarud'); ?></span><strong><?php echo $active_mp; ?></strong></div>
+                    <div class="isd-widget-row"><span style="color:#666"><?php _e('Total Scans', 'api-isarud'); ?></span><strong><?php echo number_format_i18n($screenings); ?></strong></div>
+                    <?php if ($matches_24h > 0): ?><div class="isd-widget-row"><span style="color:#d63638"><?php _e('Matches (24s)', 'api-isarud'); ?></span><strong style="color:#d63638"><?php echo $matches_24h; ?></strong></div><?php endif; ?>
+                    <div class="isd-widget-row"><span style="color:#666"><?php _e('Active Marketplace', 'api-isarud'); ?></span><strong><?php echo $active_mp; ?></strong></div>
                 </div>
                 <?php
                 $recent = $wpdb->get_results($wpdb->prepare(
@@ -277,18 +279,18 @@ class Isarud_Plugin {
                 ));
                 if (!empty($recent)): ?>
                 <div class="isd-widget-activity">
-                    <div class="isd-widget-activity-title"><?php _e('Son Aktivite', 'api-isarud'); ?></div>
+                    <div class="isd-widget-activity-title"><?php _e('Last Activity', 'api-isarud'); ?></div>
                     <?php foreach ($recent as $r): ?>
                     <div class="isd-widget-act-row">
                         <span><?php echo ($r->type === 'screening' ? '<svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' : '<svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="#00a32a" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>') . esc_html(mb_substr($r->detail, 0, 30)); ?></span>
-                        <span style="color:#aaa"><?php echo human_time_diff(strtotime($r->created_at)) . ' ' . __('önce', 'api-isarud'); ?></span>
+                        <span style="color:#aaa"><?php echo human_time_diff(strtotime($r->created_at)) . ' ' . __('first', 'api-isarud'); ?></span>
                     </div>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
                 <p style="margin:12px 0 0;text-align:center">
                     <a href="<?php echo admin_url('admin.php?page=isarud'); ?>" class="button button-small"><?php _e('Dashboard', 'api-isarud'); ?></a>
-                    <a href="<?php echo admin_url('admin.php?page=isarud-statistics'); ?>" class="button button-small"><?php _e('İstatistikler', 'api-isarud'); ?></a>
+                    <a href="<?php echo admin_url('admin.php?page=isarud-statistics'); ?>" class="button button-small"><?php _e('Statistics', 'api-isarud'); ?></a>
                 </p>
                 <?php
             });
@@ -341,34 +343,35 @@ class Isarud_Plugin {
     public function admin_menu() {
         add_menu_page('Isarud', 'Isarud', 'manage_options', 'isarud', [$this, 'page_dashboard'], 'dashicons-shield', 56);
         add_submenu_page('isarud', 'Dashboard', 'Dashboard', 'manage_options', 'isarud', [$this, 'page_dashboard']);
-        add_submenu_page('isarud', 'Sanctions', __('Yaptırım Taraması', 'api-isarud'), 'manage_options', 'isarud-sanctions', [$this, 'page_sanctions']);
+        add_submenu_page('isarud', 'Sanctions', __('Sanctions Screening', 'api-isarud'), 'manage_options', 'isarud-sanctions', [$this, 'page_sanctions']);
         // WooCommerce-dependent menus
         if (class_exists('WooCommerce')) {
-        add_submenu_page('isarud', 'Marketplaces', __('Pazar Yeri API', 'api-isarud'), 'manage_options', 'isarud-marketplaces', [$this, 'page_marketplaces']);
+        add_submenu_page('isarud', 'Marketplaces', __('Marketplace API', 'api-isarud'), 'manage_options', 'isarud-marketplaces', [$this, 'page_marketplaces']);
         add_submenu_page('isarud', 'Etsy', __('Etsy', 'api-isarud'), 'manage_options', 'isarud-etsy', [$this, 'page_etsy']);
         add_submenu_page('isarud', 'Trendyol', __('Trendyol', 'api-isarud'), 'manage_options', 'isarud-trendyol', [$this, 'page_trendyol']);
         add_submenu_page('isarud', 'N11', __('N11', 'api-isarud'), 'manage_options', 'isarud-n11', [$this, 'page_n11']);
         add_submenu_page('isarud', 'Hepsiburada', __('Hepsiburada', 'api-isarud'), 'manage_options', 'isarud-hepsiburada', [$this, 'page_hepsiburada']);
         add_submenu_page('isarud', 'Pazarama', __('Pazarama', 'api-isarud'), 'manage_options', 'isarud-pazarama', [$this, 'page_pazarama']);
         add_submenu_page('isarud', 'Amazon', __('Amazon SP-API', 'api-isarud'), 'manage_options', 'isarud-amazon', [$this, 'page_amazon']);
-        add_submenu_page('isarud', 'Bulk Sync', __('Toplu Senkronizasyon', 'api-isarud'), 'manage_options', 'isarud-bulk', [$this, 'page_bulk_sync']);
+        add_submenu_page('isarud', 'eBay', __('eBay', 'api-isarud'), 'manage_options', 'isarud-ebay', [$this, 'page_ebay']);
+        add_submenu_page('isarud', 'Bulk Sync', __('Bulk Sync', 'api-isarud'), 'manage_options', 'isarud-bulk', [$this, 'page_bulk_sync']);
         add_submenu_page('isarud', 'Dropshipping', __('Dropshipping', 'api-isarud'), 'manage_options', 'isarud-dropship', [$this, 'page_dropshipping']);
         add_submenu_page('isarud', 'Affiliates', __('Affiliate', 'api-isarud'), 'manage_options', 'isarud-affiliates', [$this, 'page_affiliates']);
         } // end WooCommerce menus
         add_submenu_page('isarud', 'Cloud Sync', __('Cloud Sync', 'api-isarud'), 'manage_options', 'isarud-cloud', [$this, 'page_cloud_sync']);
-        add_submenu_page('isarud', 'İstatistikler', __('İstatistikler', 'api-isarud'), 'manage_options', 'isarud-statistics', [$this, 'page_statistics']);
+        add_submenu_page('isarud', __('Statistics', 'api-isarud'), __('Statistics', 'api-isarud'), 'manage_options', 'isarud-statistics', [$this, 'page_statistics']);
         add_submenu_page('isarud', 'Webhooks', __('Webhooks', 'api-isarud'), 'manage_options', 'isarud-webhooks', [$this, 'page_webhooks']);
-        add_submenu_page('isarud', 'Sync Log', __('Günlük', 'api-isarud'), 'manage_options', 'isarud-log', [$this, 'page_log']);
-        add_submenu_page('isarud', 'E-ticaret Rehberi', __('E-ticaret Rehberi', 'api-isarud'), 'manage_options', 'isarud-ecosystem', [$this, 'page_ecosystem']);
-        add_submenu_page('isarud', 'TCMB Doviz Kuru', __('TCMB Doviz Kuru', 'api-isarud'), 'manage_options', 'isarud-currency', [$this, 'page_currency']);
-        add_submenu_page('isarud', 'B2B Toptan Satis', __('B2B Toptan Satis', 'api-isarud'), 'manage_options', 'isarud-b2b', [$this, 'page_b2b']);
-        add_submenu_page('isarud', 'Musteri Segmentasyonu', __('Musteri Segmentasyonu', 'api-isarud'), 'manage_options', 'isarud-segments', [$this, 'page_segments']);
-        add_submenu_page('isarud', 'Sepet Hatirlatma', __('Sepet Hatirlatma', 'api-isarud'), 'manage_options', 'isarud-cart-recovery', [$this, 'page_cart_recovery']);
-        add_submenu_page('isarud', 'Popup Kampanyalari', __('Popup Kampanyalari', 'api-isarud'), 'manage_options', 'isarud-popup', [$this, 'page_popup']);
-        add_submenu_page('isarud', 'E-posta Pazarlama', __('E-posta Pazarlama', 'api-isarud'), 'manage_options', 'isarud-email-marketing', [$this, 'page_email_marketing']);
-        add_submenu_page('isarud', 'E-Fatura', __('E-Fatura', 'api-isarud'), 'manage_options', 'isarud-einvoice', [$this, 'page_einvoice']);
+        add_submenu_page('isarud', 'Sync Log', __('Daily', 'api-isarud'), 'manage_options', 'isarud-log', [$this, 'page_log']);
+        add_submenu_page('isarud', 'E-ticaret Rehberi', __('E-commerce Guide', 'api-isarud'), 'manage_options', 'isarud-ecosystem', [$this, 'page_ecosystem']);
+        add_submenu_page('isarud', 'TCMB Doviz Kuru', __('CBRT Exchange Rate', 'api-isarud'), 'manage_options', 'isarud-currency', [$this, 'page_currency']);
+        add_submenu_page('isarud', 'B2B Toptan Satis', __('B2B Wholesale', 'api-isarud'), 'manage_options', 'isarud-b2b', [$this, 'page_b2b']);
+        add_submenu_page('isarud', 'Musteri Segmentasyonu', __('Customer Segmentation', 'api-isarud'), 'manage_options', 'isarud-segments', [$this, 'page_segments']);
+        add_submenu_page('isarud', 'Sepet Hatirlatma', __('Cart Reminder', 'api-isarud'), 'manage_options', 'isarud-cart-recovery', [$this, 'page_cart_recovery']);
+        add_submenu_page('isarud', 'Popup Kampanyalari', __('Popup Campaigns', 'api-isarud'), 'manage_options', 'isarud-popup', [$this, 'page_popup']);
+        add_submenu_page('isarud', 'E-posta Pazarlama', __('Email Marketing', 'api-isarud'), 'manage_options', 'isarud-email-marketing', [$this, 'page_email_marketing']);
+        add_submenu_page('isarud', 'E-Fatura', __('E-Invoice', 'api-isarud'), 'manage_options', 'isarud-einvoice', [$this, 'page_einvoice']);
         add_submenu_page('isarud', 'Cross-sell & Upsell', __('Cross-sell & Upsell', 'api-isarud'), 'manage_options', 'isarud-upsell', [$this, 'page_upsell']);
-        add_submenu_page('isarud', 'Hosgeldiniz', __('Hosgeldiniz', 'api-isarud'), 'manage_options', 'isarud-welcome', [$this, 'page_welcome']);
+        add_submenu_page('isarud', 'Hosgeldiniz', __('Welcome', 'api-isarud'), 'manage_options', 'isarud-welcome', [$this, 'page_welcome']);
     }
 
     public function register_settings() {
@@ -405,19 +408,19 @@ class Isarud_Plugin {
         <?php include ISARUD_DIR . 'includes/dashboard-html.php'; ?>
 
             <div class="isd-mp-section">
-                <h2><?php _e('Bağlı Pazaryerleri', 'api-isarud'); ?></h2>
-                <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Pazar Yeri', 'api-isarud'); ?></th><th><?php _e('Durum', 'api-isarud'); ?></th><th><?php _e('Oto-Sync', 'api-isarud'); ?></th><th><?php _e('Fiyat Margin', 'api-isarud'); ?></th><th><?php _e('Son Sync', 'api-isarud'); ?></th><th>Test</th></tr></thead><tbody>
+                <h2><?php _e('Connected Marketplaces', 'api-isarud'); ?></h2>
+                <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Marketplace', 'api-isarud'); ?></th><th><?php _e('Status', 'api-isarud'); ?></th><th><?php _e('Auto-Sync', 'api-isarud'); ?></th><th><?php _e('Price Margin', 'api-isarud'); ?></th><th><?php _e('Last Sync', 'api-isarud'); ?></th><th>Test</th></tr></thead><tbody>
                 <?php foreach ($creds as $c): ?>
                 <tr>
                     <td><strong><?php echo esc_html(ucfirst($c->marketplace)); ?></strong></td>
-                    <td><?php echo $c->is_active ? '<span style="color:#00a32a">● ' . __('Aktif', 'api-isarud') . '</span>' : '<span style="color:#999">○ ' . __('Pasif', 'api-isarud') . '</span>'; ?></td>
+                    <td><?php echo $c->is_active ? '<span style="color:#00a32a">● ' . __('Active', 'api-isarud') . '</span>' : '<span style="color:#999">○ ' . __('Inactive', 'api-isarud') . '</span>'; ?></td>
                     <td><?php echo $c->auto_sync ? '<span style="color:#2271b1">' . esc_html($c->sync_interval) . '</span>' : '<span style="color:#999">—</span>'; ?></td>
                     <td><?php echo $c->price_margin != 0 ? ($c->price_margin_type === 'percent' ? '%' . $c->price_margin : '$' . $c->price_margin) : '—'; ?></td>
-                    <td><?php echo $c->last_sync ? esc_html(human_time_diff(strtotime($c->last_sync))) . ' ' . __('önce', 'api-isarud') : '—'; ?></td>
+                    <td><?php echo $c->last_sync ? esc_html(human_time_diff(strtotime($c->last_sync))) . ' ' . __('first', 'api-isarud') : '—'; ?></td>
                     <td><?php echo $c->test_status === 'success' ? '<span style="color:#00a32a">✓</span>' : ($c->test_status === 'error' ? '<span style="color:#d63638">✗</span>' : '—'); ?></td>
                 </tr>
                 <?php endforeach; ?>
-                <?php if (empty($creds)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('Yapılandırılmış pazar yeri yok.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Ekle', 'api-isarud'); ?> →</a></td></tr><?php endif; ?>
+                <?php if (empty($creds)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('No marketplace configured.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Add', 'api-isarud'); ?> →</a></td></tr><?php endif; ?>
                 </tbody></table>
             </div>
 
@@ -428,18 +431,18 @@ class Isarud_Plugin {
             <div class="isd-cloud">
                 <h2><?php _e('Cloud Sync', 'api-isarud'); ?></h2>
                 <?php if ($cloudStatus['enabled']): ?>
-                    <p class="status-connected"><?php _e('Bağlı', 'api-isarud'); ?></p>
-                    <p class="sync-time"><?php _e('Son sync:', 'api-isarud'); ?> <?php echo $cloudStatus['last_sync'] ?: '—'; ?></p>
-                    <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>" class="button"><?php _e('Cloud Sync Ayarları', 'api-isarud'); ?> →</a>
+                    <p class="status-connected"><?php _e('Connected', 'api-isarud'); ?></p>
+                    <p class="sync-time"><?php _e('Last sync:', 'api-isarud'); ?> <?php echo $cloudStatus['last_sync'] ?: '—'; ?></p>
+                    <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>" class="button"><?php _e('Cloud Sync Settings', 'api-isarud'); ?> →</a>
                 <?php else: ?>
-                    <p class="status-off"><?php _e('Cloud sync aktif değil.', 'api-isarud'); ?></p>
-                    <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>" class="button-primary"><?php _e('Şimdi Bağlan', 'api-isarud'); ?> →</a>
+                    <p class="status-off"><?php _e('Cloud sync is not active.', 'api-isarud'); ?></p>
+                    <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>" class="button-primary"><?php _e('Connect Now', 'api-isarud'); ?> →</a>
                 <?php endif; ?>
             </div>
 
             <div class="isd-cloud" style="margin-top:20px">
-                <h2><?php _e('Çoklu Platform', 'api-isarud'); ?></h2>
-                <p style="color:#555;margin-bottom:12px"><?php _e('Verilerinizi tüm cihazlarınızdan takip edin. Cloud Sync ile WooCommerce verileriniz tüm platformlarda güncel kalır.', 'api-isarud'); ?></p>
+                <h2><?php _e('Multi-Platform', 'api-isarud'); ?></h2>
+                <p style="color:#555;margin-bottom:12px"><?php _e('Track your data from all your devices. With Cloud Sync, your WooCommerce data stays up-to-date across all platforms.', 'api-isarud'); ?></p>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
                     <a href="https://apps.apple.com/tr/app/isarud-e-commerce-tools/id6761309959" target="_blank" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;text-align:center;text-decoration:none;transition:box-shadow .2s">
                         <span style="font-size:24px;display:block;margin-bottom:4px">📱</span>
@@ -459,7 +462,7 @@ class Isarud_Plugin {
                     <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px;text-align:center">
                         <span style="font-size:24px;display:block;margin-bottom:4px">🤖</span>
                         <strong style="color:#111;font-size:13px">Android</strong>
-                        <span style="display:block;font-size:11px;color:#d97706;margin-top:2px"><?php _e('Yakında', 'api-isarud'); ?></span>
+                        <span style="display:block;font-size:11px;color:#d97706;margin-top:2px"><?php _e('Coming Soon', 'api-isarud'); ?></span>
                     </div>
                     <a href="https://isarud.com" target="_blank" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;text-align:center;text-decoration:none;transition:box-shadow .2s">
                         <span style="font-size:24px;display:block;margin-bottom:4px">🌐</span>
@@ -480,24 +483,24 @@ class Isarud_Plugin {
             update_option('isarud_auto_screen', sanitize_text_field($_POST['isarud_auto_screen'] ?? 'yes'));
             update_option('isarud_block_match', sanitize_text_field($_POST['isarud_block_match'] ?? 'no'));
             update_option('isarud_alert_email', sanitize_email($_POST['isarud_alert_email'] ?? get_option('admin_email')));
-            echo '<div class="notice notice-success"><p>' . __('Ayarlar kaydedildi.', 'api-isarud') . '</p></div>';
+            echo '<div class="notice notice-success"><p>' . __('Settings saved.', 'api-isarud') . '</p></div>';
         }
         ?>
         <div class="wrap">
-            <h1><?php _e('Yaptırım Taraması', 'api-isarud'); ?></h1>
+            <h1><?php _e('Sanctions Screening', 'api-isarud'); ?></h1>
             <form method="post"><?php wp_nonce_field('isarud_sanctions'); ?>
                 <table class="form-table">
                     <?php $cloud_connected = Isarud_Cloud_Sync::instance()->is_enabled(); ?>
                     <?php if ($cloud_connected): ?>
-                    <tr><th>Isarud API Key</th><td><span style="color:#00a32a;font-weight:bold">&#x1f7e2; <?php _e('Cloud Sync ile bağlı', 'api-isarud'); ?></span><p class="description"><a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>"><?php _e('Cloud Sync Ayarları', 'api-isarud'); ?> &rarr;</a></p></td></tr>
+                    <tr><th>Isarud API Key</th><td><span style="color:#00a32a;font-weight:bold">&#x1f7e2; <?php _e('Connected via Cloud Sync', 'api-isarud'); ?></span><p class="description"><a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>"><?php _e('Cloud Sync Settings', 'api-isarud'); ?> &rarr;</a></p></td></tr>
                     <?php else: ?>
-                    <tr><th>Isarud API Key</th><td><input type="password" name="isarud_api_key" value="<?php echo esc_attr(get_option('isarud_api_key')); ?>" class="regular-text"><p class="description"><a href="https://isarud.com/account/api-keys" target="_blank"><?php _e('isarud.com\'dan API anahtarı alın', 'api-isarud'); ?> →</a> | <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>"><?php _e('veya Cloud Sync ile bağlan', 'api-isarud'); ?> &rarr;</a></p></td></tr>
+                    <tr><th>Isarud API Key</th><td><input type="password" name="isarud_api_key" value="<?php echo esc_attr(get_option('isarud_api_key')); ?>" class="regular-text"><p class="description"><a href="https://isarud.com/account/api-keys" target="_blank"><?php _e('Get API key from isarud.com', 'api-isarud'); ?> →</a> | <a href="<?php echo admin_url('admin.php?page=isarud-cloud'); ?>"><?php _e('or connect with Cloud Sync', 'api-isarud'); ?> &rarr;</a></p></td></tr>
                     <?php endif; ?>
-                    <tr><th><?php _e('Otomatik tarama', 'api-isarud'); ?></th><td><select name="isarud_auto_screen"><option value="yes" <?php selected(get_option('isarud_auto_screen','yes'),'yes'); ?>><?php _e('Evet', 'api-isarud'); ?></option><option value="no" <?php selected(get_option('isarud_auto_screen','yes'),'no'); ?>><?php _e('Hayır', 'api-isarud'); ?></option></select></td></tr>
-                    <tr><th><?php _e('Eşleşmede beklet', 'api-isarud'); ?></th><td><select name="isarud_block_match"><option value="no" <?php selected(get_option('isarud_block_match','no'),'no'); ?>><?php _e('Hayır — sadece işaretle', 'api-isarud'); ?></option><option value="yes" <?php selected(get_option('isarud_block_match','no'),'yes'); ?>><?php _e('Evet — beklemeye al', 'api-isarud'); ?></option></select></td></tr>
-                    <tr><th><?php _e('Uyarı e-postası', 'api-isarud'); ?></th><td><input type="email" name="isarud_alert_email" value="<?php echo esc_attr(get_option('isarud_alert_email', get_option('admin_email'))); ?>" class="regular-text"></td></tr>
+                    <tr><th><?php _e('Automatic scanning', 'api-isarud'); ?></th><td><select name="isarud_auto_screen"><option value="yes" <?php selected(get_option('isarud_auto_screen','yes'),'yes'); ?>><?php _e('Yes', 'api-isarud'); ?></option><option value="no" <?php selected(get_option('isarud_auto_screen','yes'),'no'); ?>><?php _e('No', 'api-isarud'); ?></option></select></td></tr>
+                    <tr><th><?php _e('Hold on match', 'api-isarud'); ?></th><td><select name="isarud_block_match"><option value="no" <?php selected(get_option('isarud_block_match','no'),'no'); ?>><?php _e('No — mark only', 'api-isarud'); ?></option><option value="yes" <?php selected(get_option('isarud_block_match','no'),'yes'); ?>><?php _e('Yes — put on hold', 'api-isarud'); ?></option></select></td></tr>
+                    <tr><th><?php _e('Warning Email', 'api-isarud'); ?></th><td><input type="email" name="isarud_alert_email" value="<?php echo esc_attr(get_option('isarud_alert_email', get_option('admin_email'))); ?>" class="regular-text"></td></tr>
                 </table>
-                <p class="submit"><input type="submit" name="isarud_save_sanctions" class="button-primary" value="<?php _e('Kaydet', 'api-isarud'); ?>"></p>
+                <p class="submit"><input type="submit" name="isarud_save_sanctions" class="button-primary" value="<?php _e('Save', 'api-isarud'); ?>"></p>
             </form>
         </div>
         <?php
@@ -524,7 +527,7 @@ class Isarud_Plugin {
             $data = ['credentials' => wp_json_encode($creds), 'is_active' => 1, 'price_margin' => $margin, 'price_margin_type' => $margin_type, 'shipping_addition' => $shipping_addition, 'shipping_addition_currency' => $shipping_currency, 'auto_sync' => $auto_sync, 'sync_interval' => $sync_interval];
             if ($exists) { $wpdb->update($table, $data, ['marketplace' => $mp]); }
             else { $data['marketplace'] = $mp; $wpdb->insert($table, $data); }
-            echo '<div class="notice notice-success"><p>' . esc_html(ucfirst($mp)) . ' ' . __('kaydedildi.', 'api-isarud') . '</p></div>';
+            echo '<div class="notice notice-success"><p>' . esc_html(ucfirst($mp)) . ' ' . __('saved.', 'api-isarud') . '</p></div>';
         }
 
         $saved = [];
@@ -542,6 +545,11 @@ class Isarud_Plugin {
     public function page_trendyol() {
         if (!current_user_can('manage_options')) wp_die('Yetki yok');
         require ISARUD_DIR . 'includes/trendyol-html.php';
+    }
+
+    public function page_ebay() {
+        if (!current_user_can('manage_options')) wp_die('Yetki yok');
+        require ISARUD_DIR . 'includes/ebay-html.php';
     }
 
     // ─── N11 PAGE ─────────────────────────
@@ -571,17 +579,17 @@ class Isarud_Plugin {
         $mps = $wpdb->get_results("SELECT marketplace FROM {$wpdb->prefix}isarud_credentials WHERE is_active=1");
         ?>
         <div class="wrap">
-            <h1><?php _e('Toplu Senkronizasyon', 'api-isarud'); ?></h1>
-            <p><?php _e('Tüm WooCommerce ürünlerini seçili pazar yerine senkronize edin.', 'api-isarud'); ?></p>
+            <h1><?php _e('Bulk Sync', 'api-isarud'); ?></h1>
+            <p><?php _e('Sync all WooCommerce products to the selected marketplace.', 'api-isarud'); ?></p>
             <?php if (empty($mps)): ?>
-                <p style="color:#999"><?php _e('Aktif pazar yeri yok.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Ekle', 'api-isarud'); ?> →</a></p>
+                <p style="color:#999"><?php _e('No active marketplaces.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Add', 'api-isarud'); ?> →</a></p>
             <?php else: ?>
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:500px">
                     <select id="isarud-bulk-mp" class="regular-text">
                         <?php foreach ($mps as $m): ?><option value="<?php echo esc_attr($m->marketplace); ?>"><?php echo esc_html(ucfirst($m->marketplace)); ?></option><?php endforeach; ?>
                     </select>
                     <br><br>
-                    <button type="button" id="isarud-bulk-start" class="button-primary"><?php _e('Tümünü Senkronize Et', 'api-isarud'); ?></button>
+                    <button type="button" id="isarud-bulk-start" class="button-primary"><?php _e('Sync All', 'api-isarud'); ?></button>
                     <div id="isarud-bulk-progress" style="margin-top:15px;display:none">
                         <div style="background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden"><div id="isarud-bulk-bar" style="background:#2271b1;height:100%;width:0%;transition:width 0.3s"></div></div>
                         <p id="isarud-bulk-status" style="font-size:12px;color:#999;margin-top:5px"></p>
@@ -604,32 +612,32 @@ class Isarud_Plugin {
                 'auto_forward' => intval($_POST['auto_forward'] ?? 0),
                 'commission_rate' => floatval($_POST['commission_rate'] ?? 0),
             ]);
-            echo '<div class="notice notice-success"><p>' . __('Tedarikçi eklendi.', 'api-isarud') . '</p></div>';
+            echo '<div class="notice notice-success"><p>' . __('Supplier added.', 'api-isarud') . '</p></div>';
         }
         $suppliers = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}isarud_dropship_suppliers ORDER BY id DESC");
         ?>
         <div class="wrap">
-            <h1><?php _e('Dropshipping Tedarikçileri', 'api-isarud'); ?></h1>
+            <h1><?php _e('Dropshipping Suppliers', 'api-isarud'); ?></h1>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
                 <div>
-                    <h2><?php _e('Tedarikçiler', 'api-isarud'); ?></h2>
-                    <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Ad', 'api-isarud'); ?></th><th>E-posta</th><th><?php _e('Oto-İlet', 'api-isarud'); ?></th><th><?php _e('Komisyon', 'api-isarud'); ?></th></tr></thead><tbody>
+                    <h2><?php _e('Suppliers', 'api-isarud'); ?></h2>
+                    <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Name', 'api-isarud'); ?></th><th>E-posta</th><th><?php _e('Auto-Forward', 'api-isarud'); ?></th><th><?php _e('Commission', 'api-isarud'); ?></th></tr></thead><tbody>
                     <?php foreach ($suppliers as $s): ?>
                     <tr><td><?php echo esc_html($s->name); ?></td><td><?php echo esc_html($s->email); ?></td><td><?php echo $s->auto_forward ? '✓' : '—'; ?></td><td>%<?php echo esc_html($s->commission_rate); ?></td></tr>
                     <?php endforeach; ?>
-                    <?php if (empty($suppliers)): ?><tr><td colspan="4" style="text-align:center;color:#999"><?php _e('Henüz tedarikçi yok.', 'api-isarud'); ?></td></tr><?php endif; ?>
+                    <?php if (empty($suppliers)): ?><tr><td colspan="4" style="text-align:center;color:#999"><?php _e('No suppliers yet.', 'api-isarud'); ?></td></tr><?php endif; ?>
                     </tbody></table>
                 </div>
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px">
-                    <h2><?php _e('Yeni Tedarikçi Ekle', 'api-isarud'); ?></h2>
+                    <h2><?php _e('Add New Supplier', 'api-isarud'); ?></h2>
                     <form method="post"><?php wp_nonce_field('isarud_ds'); ?>
-                        <p><label><?php _e('Tedarikçi Adı', 'api-isarud'); ?></label><br><input type="text" name="name" class="regular-text" required></p>
+                        <p><label><?php _e('Supplier Name', 'api-isarud'); ?></label><br><input type="text" name="name" class="regular-text" required></p>
                         <p><label>E-posta</label><br><input type="email" name="email" class="regular-text"></p>
-                        <p><label>API URL (<?php _e('opsiyonel', 'api-isarud'); ?>)</label><br><input type="url" name="api_url" class="regular-text"></p>
-                        <p><label>API Key (<?php _e('opsiyonel', 'api-isarud'); ?>)</label><br><input type="text" name="api_key" class="regular-text"></p>
-                        <p><label><?php _e('Komisyon Oranı', 'api-isarud'); ?> (%)</label><br><input type="number" step="0.01" name="commission_rate" value="0" style="width:80px"></p>
-                        <p><label><input type="checkbox" name="auto_forward" value="1"> <?php _e('Siparişleri otomatik ilet', 'api-isarud'); ?></label></p>
-                        <p><input type="submit" name="isarud_save_supplier" class="button-primary" value="<?php _e('Tedarikçi Ekle', 'api-isarud'); ?>"></p>
+                        <p><label>API URL (<?php _e('optional', 'api-isarud'); ?>)</label><br><input type="url" name="api_url" class="regular-text"></p>
+                        <p><label>API Key (<?php _e('optional', 'api-isarud'); ?>)</label><br><input type="text" name="api_key" class="regular-text"></p>
+                        <p><label><?php _e('Commission Rate', 'api-isarud'); ?> (%)</label><br><input type="number" step="0.01" name="commission_rate" value="0" style="width:80px"></p>
+                        <p><label><input type="checkbox" name="auto_forward" value="1"> <?php _e('Auto-forward orders', 'api-isarud'); ?></label></p>
+                        <p><input type="submit" name="isarud_save_supplier" class="button-primary" value="<?php _e('Add Supplier', 'api-isarud'); ?>"></p>
                     </form>
                 </div>
             </div>
@@ -648,30 +656,30 @@ class Isarud_Plugin {
                 'code' => $code,
                 'commission_rate' => floatval($_POST['commission_rate'] ?? 10),
             ]);
-            echo '<div class="notice notice-success"><p>' . __('Affiliate eklendi. Kod:', 'api-isarud') . ' <strong>' . esc_html($code) . '</strong></p></div>';
+            echo '<div class="notice notice-success"><p>' . __('Affiliate added. Code:', 'api-isarud') . ' <strong>' . esc_html($code) . '</strong></p></div>';
         }
         $affiliates = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}isarud_affiliates ORDER BY total_commission DESC");
         ?>
         <div class="wrap">
-            <h1><?php _e('Affiliate Yönetimi', 'api-isarud'); ?></h1>
+            <h1><?php _e('Affiliate Management', 'api-isarud'); ?></h1>
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px">
                 <div>
-                    <h2><?php _e('Affiliate\'ler', 'api-isarud'); ?></h2>
-                    <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Ad', 'api-isarud'); ?></th><th>Kod</th><th><?php _e('Komisyon', 'api-isarud'); ?></th><th><?php _e('Satışlar', 'api-isarud'); ?></th><th><?php _e('Kazanç', 'api-isarud'); ?></th><th>Link</th></tr></thead><tbody>
+                    <h2><?php _e('Affiliates', 'api-isarud'); ?></h2>
+                    <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Name', 'api-isarud'); ?></th><th>Kod</th><th><?php _e('Commission', 'api-isarud'); ?></th><th><?php _e('Sales', 'api-isarud'); ?></th><th><?php _e('Earnings', 'api-isarud'); ?></th><th>Link</th></tr></thead><tbody>
                     <?php foreach ($affiliates as $a): ?>
                     <tr><td><?php echo esc_html($a->name); ?></td><td><code><?php echo esc_html($a->code); ?></code></td><td>%<?php echo esc_html($a->commission_rate); ?></td><td>$<?php echo number_format($a->total_sales, 2); ?></td><td>$<?php echo number_format($a->total_commission, 2); ?></td><td><code style="font-size:10px"><?php echo esc_url(home_url('?ref=' . $a->code)); ?></code></td></tr>
                     <?php endforeach; ?>
-                    <?php if (empty($affiliates)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('Henüz affiliate yok.', 'api-isarud'); ?></td></tr><?php endif; ?>
+                    <?php if (empty($affiliates)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('No affiliates yet.', 'api-isarud'); ?></td></tr><?php endif; ?>
                     </tbody></table>
                 </div>
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px">
-                    <h2><?php _e('Yeni Affiliate Ekle', 'api-isarud'); ?></h2>
+                    <h2><?php _e('Add New Affiliate', 'api-isarud'); ?></h2>
                     <form method="post"><?php wp_nonce_field('isarud_aff'); ?>
-                        <p><label><?php _e('Ad Soyad', 'api-isarud'); ?></label><br><input type="text" name="name" class="regular-text" required></p>
+                        <p><label><?php _e('Full Name', 'api-isarud'); ?></label><br><input type="text" name="name" class="regular-text" required></p>
                         <p><label>E-posta</label><br><input type="email" name="email" class="regular-text" required></p>
-                        <p><label><?php _e('Referans Kodu', 'api-isarud'); ?> (<?php _e('boş bırakılırsa otomatik', 'api-isarud'); ?>)</label><br><input type="text" name="code" class="regular-text" placeholder="auto"></p>
-                        <p><label><?php _e('Komisyon Oranı', 'api-isarud'); ?> (%)</label><br><input type="number" step="0.01" name="commission_rate" value="10" style="width:80px"></p>
-                        <p><input type="submit" name="isarud_save_aff" class="button-primary" value="<?php _e('Affiliate Ekle', 'api-isarud'); ?>"></p>
+                        <p><label><?php _e('Reference Code', 'api-isarud'); ?> (<?php _e('automatic if left empty', 'api-isarud'); ?>)</label><br><input type="text" name="code" class="regular-text" placeholder="auto"></p>
+                        <p><label><?php _e('Commission Rate', 'api-isarud'); ?> (%)</label><br><input type="number" step="0.01" name="commission_rate" value="10" style="width:80px"></p>
+                        <p><input type="submit" name="isarud_save_aff" class="button-primary" value="<?php _e('Add Affiliate', 'api-isarud'); ?>"></p>
                     </form>
                 </div>
             </div>
@@ -685,12 +693,12 @@ class Isarud_Plugin {
         $logs = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}isarud_sync_log ORDER BY created_at DESC LIMIT 100");
         ?>
         <div class="wrap">
-            <h1><?php _e('Senkronizasyon Günlüğü', 'api-isarud'); ?></h1>
-            <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Tarih', 'api-isarud'); ?></th><th><?php _e('Ürün', 'api-isarud'); ?></th><th><?php _e('Pazar Yeri', 'api-isarud'); ?></th><th><?php _e('İşlem', 'api-isarud'); ?></th><th><?php _e('Durum', 'api-isarud'); ?></th><th><?php _e('Mesaj', 'api-isarud'); ?></th></tr></thead><tbody>
+            <h1><?php _e('Synchronization Log', 'api-isarud'); ?></h1>
+            <table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Date', 'api-isarud'); ?></th><th><?php _e('Product', 'api-isarud'); ?></th><th><?php _e('Marketplace', 'api-isarud'); ?></th><th><?php _e('Transaction', 'api-isarud'); ?></th><th><?php _e('Status', 'api-isarud'); ?></th><th><?php _e('Message', 'api-isarud'); ?></th></tr></thead><tbody>
             <?php foreach ($logs as $l): ?>
             <tr><td><?php echo esc_html($l->created_at); ?></td><td>#<?php echo esc_html($l->product_id); ?></td><td><?php echo esc_html(ucfirst($l->marketplace)); ?></td><td><?php echo esc_html($l->action); ?></td><td style="color:<?php echo $l->status === 'success' ? '#00a32a' : '#d63638'; ?>"><?php echo esc_html($l->status); ?></td><td><?php echo esc_html(wp_trim_words($l->message, 15)); ?></td></tr>
             <?php endforeach; ?>
-            <?php if (empty($logs)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('Henüz etkinlik yok.', 'api-isarud'); ?></td></tr><?php endif; ?>
+            <?php if (empty($logs)): ?><tr><td colspan="6" style="text-align:center;color:#999"><?php _e('No events yet.', 'api-isarud'); ?></td></tr><?php endif; ?>
             </tbody></table>
         </div>
         <?php
@@ -702,7 +710,7 @@ class Isarud_Plugin {
             'n11' => ['name' => 'N11', 'docs' => 'so.n11.com → Hesabım → API Ayarları', 'base_url' => 'https://api.n11.com/', 'auth_type' => 'modern_rest',
                 'fields' => ['api_key' => ['label' => 'API Key (App Key)', 'type' => 'text'], 'api_secret' => ['label' => 'API Secret (App Secret)', 'type' => 'password']]],
             'hepsiburada' => ['name' => 'Hepsiburada', 'docs' => 'merchant.hepsiburada.com → Bilgilerim → Entegrasyon → Entegratör Bilgileri', 'base_url' => 'https://listing-external.hepsiburada.com/', 'auth_type' => 'basic',
-                'fields' => ['merchant_id' => ['label' => 'Merchant ID', 'type' => 'text'], 'username' => ['label' => 'API Kullanıcı Adı', 'type' => 'text'], 'password' => ['label' => 'API Şifresi', 'type' => 'password']]],
+                'fields' => ['merchant_id' => ['label' => 'Merchant ID', 'type' => 'text'], 'username' => ['label' => __('API Username','api-isarud'), 'type' => 'text'], 'password' => ['label' => __('API Password','api-isarud'), 'type' => 'password']]],
             'amazon' => ['name' => 'Amazon SP-API', 'docs' => 'sellercentral.amazon.com → Apps & Services → Develop Apps', 'base_url' => 'https://sellingpartnerapi-eu.amazon.com/', 'auth_type' => 'sp-api',
                 'fields' => ['client_id' => ['label' => 'Client ID', 'type' => 'text'], 'client_secret' => ['label' => 'Client Secret', 'type' => 'password'], 'refresh_token' => ['label' => 'Refresh Token', 'type' => 'password'], 'marketplace_id' => ['label' => 'Marketplace ID', 'type' => 'text']]],
             'pazarama' => ['name' => 'Pazarama', 'docs' => 'merchant.pazarama.com → Entegrasyon Bilgileri', 'base_url' => 'https://api.pazarama.com/', 'auth_type' => 'bearer',
@@ -719,12 +727,12 @@ class Isarud_Plugin {
         $row = $wpdb->get_row($wpdb->prepare("SELECT credentials, is_active FROM {$wpdb->prefix}isarud_credentials WHERE marketplace=%s", $mp));
         if (!$row) {
             $this->isarud_log($mp, 'ERROR', 'Credentials not found in DB (marketplace row missing)');
-            return ['error' => $mp . ' için kayıtlı API bilgisi bulunamadı. Lütfen önce API Key/Secret bilgilerini kaydedin.'];
+            return ['error' => sprintf(__('%s has no saved API credentials. Please save your API Key/Secret first.','api-isarud'), $mp)];
         }
         $creds = json_decode($row->credentials, true);
         if (!is_array($creds) || empty($creds)) {
             $this->isarud_log($mp, 'ERROR', 'Credentials JSON parse failed or empty');
-            return ['error' => 'Credentials okunamadı (JSON parse hatası). Lütfen API bilgilerini yeniden girip kaydedin.'];
+            return ['error' => __('Credentials could not be read (JSON parse error). Please re-enter and save your API details.','api-isarud')];
         }
         $config = $this->get_marketplace_config()[$mp] ?? null;
         if (!$config) return ['error' => 'Unknown marketplace'];
@@ -749,7 +757,7 @@ class Isarud_Plugin {
         if (is_wp_error($response)) {
             $err = $response->get_error_message();
             $this->isarud_log($mp, 'WP_ERROR', $err);
-            return ['error' => 'Bağlantı kurulamadı: ' . $err];
+            return ['error' => __('Connection failed: ','api-isarud') . $err];
         }
         $code = wp_remote_retrieve_response_code($response);
         $body = wp_remote_retrieve_body($response);
@@ -773,7 +781,7 @@ class Isarud_Plugin {
 
 
 
-        return sprintf("%s API hatası (HTTP %d): %s", ucfirst($mp), $code, substr($body, 0, 200));
+        return sprintf(__('%s API error (HTTP %d): %s','api-isarud'), ucfirst($mp), $code, substr($body, 0, 200));
     }
 
     /**
@@ -827,7 +835,7 @@ class Isarud_Plugin {
         global $wpdb;
         $mp = sanitize_text_field($_POST['marketplace'] ?? '');
         $result = match($mp) {
-            'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->get_status() : ['error' => 'Hepsiburada modülü yüklü değil'],
+            'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->get_status() : ['error' => __('Hepsiburada module not loaded','api-isarud')],
             'n11' => $this->test_n11(),
             'amazon' => class_exists('Isarud_Amazon') ? Isarud_Amazon::instance()->get_status() : $this->marketplace_request('amazon', 'sellers/v1/marketplaceParticipations'),
             'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->get_status() : $this->marketplace_request('pazarama', 'product/products?page=0&size=1'),
@@ -838,7 +846,7 @@ class Isarud_Plugin {
         $wpdb->update($wpdb->prefix . 'isarud_credentials', ['last_test' => current_time('mysql'), 'test_status' => $ok ? 'success' : 'error'], ['marketplace' => $mp]);
         if ($ok) {
             $extra = '';
-            wp_send_json_success(['message' => ucfirst($mp) . ' bağlantısı başarılı!' . $extra]);
+            wp_send_json_success(['message' => sprintf(__('%s connection successful!','api-isarud'), ucfirst($mp)) . $extra]);
         } else {
             // Error durumunda detaylı hata ver
             $msg = $result['error'] ?? 'Bilinmeyen hata';
@@ -876,7 +884,7 @@ class Isarud_Plugin {
         if (empty($barcode)) return ['error' => 'No barcode/SKU'];
 
         $result = match($mp) {
-            'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->sync_stock_single($barcode, $stock, $price) : ['error' => 'Hepsiburada modülü yüklü değil'],
+            'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->sync_stock_single($barcode, $stock, $price) : ['error' => __('Hepsiburada module not loaded','api-isarud')],
             'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->sync_stock_single($barcode, $stock, $price) : $this->marketplace_request('pazarama', 'product/products/price-and-inventory', 'PUT', ['items' => [['barcode' => $barcode, 'quantity' => $stock, 'salePrice' => $price]]]),
             default => ['error' => 'Not implemented for ' . $mp],
         };
@@ -924,10 +932,10 @@ class Isarud_Plugin {
         }
         global $wpdb;
         $wpdb->insert($wpdb->prefix . 'isarud_screening_log', ['order_id' => $oid, 'names_screened' => wp_json_encode($names), 'has_match' => $match ? 1 : 0, 'results' => wp_json_encode($results), 'created_at' => current_time('mysql')]);
-        $o->add_order_note($match ? 'Isarud: YAPTIRIM EŞLEŞMESİ: ' . implode(', ', $names) : 'Isarud: Temiz — eşleşme yok');
+        $o->add_order_note($match ? __('Isarud: SANCTION MATCH: ','api-isarud') . implode(', ', $names) : __('Isarud: Clean — no match','api-isarud'));
         if ($match) {
-            wp_mail(get_option('isarud_alert_email', get_option('admin_email')), '[Isarud] Eşleşme — Sipariş #' . $oid, 'Eşleşme: ' . implode(', ', $names));
-            if (get_option('isarud_block_match', 'no') === 'yes') $o->update_status('on-hold', 'Isarud tarafından bekletildi');
+            wp_mail(get_option('isarud_alert_email', get_option('admin_email')), sprintf(__('[Isarud] Match — Order #%s','api-isarud'), $oid), __('Match: ','api-isarud') . implode(', ', $names));
+            if (get_option('isarud_block_match', 'no') === 'yes') $o->update_status('on-hold', __('Held by Isarud','api-isarud'));
         }
     }
 
@@ -935,7 +943,7 @@ class Isarud_Plugin {
         check_ajax_referer('isarud_nonce', 'nonce');
         if (!current_user_can('manage_woocommerce')) wp_send_json_error('Unauthorized');
         $this->auto_screen_order(intval($_POST['order_id'] ?? 0));
-        wp_send_json_success('Tarandı');
+        wp_send_json_success(__('Scanned','api-isarud'));
     }
 
     // ─── DROPSHIPPING AUTO-FORWARD ──────────────
@@ -948,9 +956,9 @@ class Isarud_Plugin {
                 wp_remote_post($s->api_url, ['timeout' => 15, 'headers' => ['Authorization' => 'Bearer ' . $s->api_key, 'Content-Type' => 'application/json'], 'body' => wp_json_encode(['order_id' => $oid, 'items' => $o->get_items(), 'shipping' => $o->get_address('shipping')])]);
             }
             if (!empty($s->email)) {
-                wp_mail($s->email, 'Yeni Sipariş #' . $oid, 'Sipariş detayları: ' . $o->get_edit_order_url());
+                wp_mail($s->email, sprintf(__('New Order #%s','api-isarud'), $oid), __('Order details: ','api-isarud') . $o->get_edit_order_url());
             }
-            $o->add_order_note('Isarud: Tedarikçiye iletildi → ' . $s->name);
+            $o->add_order_note(__('Isarud: Forwarded to supplier → ','api-isarud') . $s->name);
         }
     }
 
@@ -985,17 +993,17 @@ class Isarud_Plugin {
         $o = ($p instanceof \WP_Post) ? wc_get_order($p->ID) : $p; if (!$o) return;
         global $wpdb;
         $log = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}isarud_screening_log WHERE order_id=%d ORDER BY id DESC LIMIT 1", $o->get_id()));
-        if (!$log) { echo '<p style="color:#999">' . __('Taranmadı', 'api-isarud') . '</p><button type="button" class="button isarud-screen-order" data-order="' . $o->get_id() . '">' . __('Şimdi Tara', 'api-isarud') . '</button>'; return; }
-        echo $log->has_match ? '<p style="color:#d63638;font-weight:bold">🔴 ' . __('Eşleşme Bulundu', 'api-isarud') . '</p>' : '<p style="color:#00a32a;font-weight:bold">🟢 ' . __('Temiz', 'api-isarud') . '</p>';
+        if (!$log) { echo '<p style="color:#999">' . __('Not Scanned', 'api-isarud') . '</p><button type="button" class="button isarud-screen-order" data-order="' . $o->get_id() . '">' . __('Scan Now', 'api-isarud') . '</button>'; return; }
+        echo $log->has_match ? '<p style="color:#d63638;font-weight:bold">🔴 ' . __('Match Found', 'api-isarud') . '</p>' : '<p style="color:#00a32a;font-weight:bold">🟢 ' . __('Clear', 'api-isarud') . '</p>';
     }
 
     // ─── PRODUCT FIELDS ─────────────────────────
     public function product_fields() {
         echo '<div class="options_group" style="border-top:1px solid #eee;padding-top:10px"><p style="padding-left:12px;font-weight:bold;color:#2271b1">Isarud</p>';
         woocommerce_wp_text_input(['id' => '_isarud_barcode', 'label' => 'Barkod / EAN']);
-        woocommerce_wp_text_input(['id' => '_isarud_n11_id', 'label' => 'N11 Ürün ID']);
+        woocommerce_wp_text_input(['id' => '_isarud_n11_id', 'label' => __('N11 Product ID','api-isarud')]);
         woocommerce_wp_text_input(['id' => '_isarud_etsy_listing_id', 'label' => 'Etsy Listing ID']);
-        woocommerce_wp_text_input(['id' => '_isarud_supplier_id', 'label' => __('Tedarikçi ID', 'api-isarud')]);
+        woocommerce_wp_text_input(['id' => '_isarud_supplier_id', 'label' => __('Supplier ID', 'api-isarud')]);
         echo '</div>';
     }
 
@@ -1014,28 +1022,28 @@ class Isarud_Plugin {
         $products = wc_get_products(['status' => 'publish', 'limit' => 100]);
         ?>
         <div class="wrap">
-            <h1><?php _e('Ürün Yükleme (WooCommerce → Pazar Yeri)', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('WooCommerce ürünlerinizi pazar yerlerine yükleyin. Yeni ürün oluşturur (stok/fiyat güncelleme değil).', 'api-isarud'); ?></p>
+            <h1><?php _e('Product Upload (WooCommerce → Marketplace)', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('Upload your WooCommerce products to marketplaces. Creates new products (not stock/price updates).', 'api-isarud'); ?></p>
 
             <?php if (empty($mps)): ?>
-                <p style="color:#999"><?php _e('Aktif pazar yeri yok.', 'api-isarud'); ?></p>
+                <p style="color:#999"><?php _e('No active marketplaces.', 'api-isarud'); ?></p>
             <?php else: ?>
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:700px">
                 <table class="form-table" style="margin:0">
-                    <tr><th><?php _e('Pazar Yeri', 'api-isarud'); ?></th><td>
+                    <tr><th><?php _e('Marketplace', 'api-isarud'); ?></th><td>
                         <select id="isarud-export-mp">
                             <?php foreach ($mps as $m): ?><option value="<?php echo esc_attr($m->marketplace); ?>"><?php echo esc_html(ucfirst($m->marketplace)); ?></option><?php endforeach; ?>
                         </select>
                     </td></tr>
                 </table>
                 <p style="margin-top:15px">
-                    <button type="button" class="button-primary" id="isarud-export-all"><?php _e('Tüm Ürünleri Yükle', 'api-isarud'); ?></button>
+                    <button type="button" class="button-primary" id="isarud-export-all"><?php _e('Upload All Products', 'api-isarud'); ?></button>
                 </p>
                 <div id="isarud-export-result" style="margin-top:10px"></div>
 
-                <h3 style="margin-top:20px"><?php _e('Veya tek ürün seç:', 'api-isarud'); ?></h3>
+                <h3 style="margin-top:20px"><?php _e('Or select a single product:', 'api-isarud'); ?></h3>
                 <table class="wp-list-table widefat fixed striped" style="max-height:400px;overflow-y:auto">
-                    <thead><tr><th style="width:40px"></th><th>SKU</th><th><?php _e('Ürün', 'api-isarud'); ?></th><th><?php _e('Fiyat', 'api-isarud'); ?></th><th><?php _e('Stok', 'api-isarud'); ?></th><th></th></tr></thead>
+                    <thead><tr><th style="width:40px"></th><th>SKU</th><th><?php _e('Product', 'api-isarud'); ?></th><th><?php _e('Price', 'api-isarud'); ?></th><th><?php _e('Inventory', 'api-isarud'); ?></th><th></th></tr></thead>
                     <tbody>
                     <?php foreach ($products as $p): ?>
                     <tr>
@@ -1044,7 +1052,7 @@ class Isarud_Plugin {
                         <td><?php echo esc_html($p->get_name()); ?></td>
                         <td><?php echo wc_price($p->get_price()); ?></td>
                         <td><?php echo $p->get_stock_quantity() ?? '-'; ?></td>
-                        <td><button type="button" class="button button-small isarud-export-one" data-id="<?php echo $p->get_id(); ?>"><?php _e('Yükle', 'api-isarud'); ?></button></td>
+                        <td><button type="button" class="button button-small isarud-export-one" data-id="<?php echo $p->get_id(); ?>"><?php _e('Upload', 'api-isarud'); ?></button></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -1055,17 +1063,17 @@ class Isarud_Plugin {
         <script>
         jQuery(function($) {
             $('#isarud-export-all').on('click', function() {
-                if (!confirm('Tüm yayında ürünleri yüklemek istediğinize emin misiniz?')) return;
-                var btn = $(this).prop('disabled', true).text('Yükleniyor...');
+                if (!confirm('<?php echo esc_js(__('Are you sure you want to upload all published products?','api-isarud')); ?>')) return;
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Loading...','api-isarud')); ?>');
                 $.post(isarud.ajax, {
                     action: 'isarud_export_products',
                     nonce: isarud.nonce,
                     marketplace: $('#isarud-export-mp').val()
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Tüm Ürünleri Yükle', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Upload All Products', 'api-isarud'); ?>');
                     if (r.success) {
                         var d = r.data;
-                        var html = '<div class="notice notice-success"><p>✅ ' + d.exported + ' yüklendi, ' + d.failed + ' hata</p>';
+                        var html = '<div class="notice notice-success"><p>✅ ' + d.exported + ' <?php echo esc_js(__('uploaded','api-isarud')); ?>, ' + d.failed + ' <?php echo esc_js(__('errors','api-isarud')); ?></p>';
                         if (d.errors && d.errors.length) html += '<p style="color:#d63638">' + d.errors.join('<br>') + '</p>';
                         html += '</div>';
                         $('#isarud-export-result').html(html);
@@ -1086,7 +1094,7 @@ class Isarud_Plugin {
                     btn.prop('disabled', false);
                     if (r.success) btn.text('✓').css('color', '#00a32a');
                     else { btn.text('✗').css('color', '#d63638'); alert(r.data?.error || 'Hata'); }
-                    setTimeout(function() { btn.text('<?php _e('Yükle', 'api-isarud'); ?>').css('color', ''); }, 3000);
+                    setTimeout(function() { btn.text('<?php _e('Upload', 'api-isarud'); ?>').css('color', ''); }, 3000);
                 });
             });
         });
@@ -1098,8 +1106,8 @@ class Isarud_Plugin {
     public function page_attributes() {
         ?>
         <div class="wrap">
-            <h1><?php _e('Attribute Eşleştirme', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('WooCommerce attribute\'larını pazar yeri attribute\'larıyla eşleştirin. Ürün yükleme ve varyasyon sync için kullanılır.', 'api-isarud'); ?></p>
+            <h1><?php _e('Attribute Mapping', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('Map WooCommerce attributes to marketplace attributes. Used for product uploads and variation sync.', 'api-isarud'); ?></p>
             <?php Isarud_Attribute_Map::instance()->render_mapping_ui(); ?>
         </div>
         <?php
@@ -1109,32 +1117,32 @@ class Isarud_Plugin {
     public function page_csv() {
         ?>
         <div class="wrap">
-            <h1><?php _e('CSV İşlemleri', 'api-isarud'); ?></h1>
+            <h1><?php _e('CSV Operations', 'api-isarud'); ?></h1>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px">
                 <!-- Import -->
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px">
-                    <h2 style="margin-top:0"><?php _e('CSV\'den Ürün Aktar', 'api-isarud'); ?></h2>
-                    <p style="color:#666;font-size:12px"><?php _e('Desteklenen sütunlar: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri', 'api-isarud'); ?></p>
+                    <h2 style="margin-top:0"><?php _e('Import Products from CSV', 'api-isarud'); ?></h2>
+                    <p style="color:#666;font-size:12px"><?php _e('Supported columns: sku, barcode/barkod, title/urun_adi, price/fiyat, stock/stok, category/kategori, description/aciklama, image_url/gorsel, marketplace/pazaryeri', 'api-isarud'); ?></p>
                     <form id="isarud-csv-form" enctype="multipart/form-data">
                         <p><input type="file" name="csv_file" id="isarud-csv-file" accept=".csv,.tsv,.txt"></p>
                         <p>
                             <select name="product_status">
-                                <option value="draft"><?php _e('Taslak', 'api-isarud'); ?></option>
-                                <option value="publish"><?php _e('Yayında', 'api-isarud'); ?></option>
+                                <option value="draft"><?php _e('Draft', 'api-isarud'); ?></option>
+                                <option value="publish"><?php _e('Published', 'api-isarud'); ?></option>
                             </select>
                         </p>
-                        <p><label><input type="checkbox" name="update_existing" value="1"> <?php _e('Mevcut ürünleri güncelle', 'api-isarud'); ?></label></p>
-                        <p><button type="submit" class="button-primary" id="isarud-csv-import-btn"><?php _e('Aktar', 'api-isarud'); ?></button></p>
+                        <p><label><input type="checkbox" name="update_existing" value="1"> <?php _e('Update existing products', 'api-isarud'); ?></label></p>
+                        <p><button type="submit" class="button-primary" id="isarud-csv-import-btn"><?php _e('Export', 'api-isarud'); ?></button></p>
                     </form>
                     <div id="isarud-csv-result" style="margin-top:10px"></div>
                 </div>
 
                 <!-- Export -->
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px">
-                    <h2 style="margin-top:0"><?php _e('Ürünleri CSV\'ye Aktar', 'api-isarud'); ?></h2>
-                    <p style="color:#666;font-size:12px"><?php _e('Tüm yayında WooCommerce ürünlerini CSV olarak indirin. Excel uyumlu (UTF-8 BOM).', 'api-isarud'); ?></p>
-                    <p><button type="button" class="button-primary" id="isarud-csv-export-btn"><?php _e('CSV İndir', 'api-isarud'); ?></button></p>
+                    <h2 style="margin-top:0"><?php _e('Export Products to CSV', 'api-isarud'); ?></h2>
+                    <p style="color:#666;font-size:12px"><?php _e('Download all published WooCommerce products as CSV. Excel compatible (UTF-8 BOM).', 'api-isarud'); ?></p>
+                    <p><button type="button" class="button-primary" id="isarud-csv-export-btn"><?php _e('Download CSV', 'api-isarud'); ?></button></p>
                     <div id="isarud-csv-export-result" style="margin-top:10px"></div>
                 </div>
             </div>
@@ -1146,15 +1154,15 @@ class Isarud_Plugin {
                 var formData = new FormData(this);
                 formData.append('action', 'isarud_csv_import');
                 formData.append('nonce', isarud.nonce);
-                var btn = $('#isarud-csv-import-btn').prop('disabled', true).text('Aktarılıyor...');
+                var btn = $('#isarud-csv-import-btn').prop('disabled', true).text('<?php echo esc_js(__('Importing...','api-isarud')); ?>');
                 $.ajax({
                     url: isarud.ajax, type: 'POST', data: formData,
                     processData: false, contentType: false,
                     success: function(r) {
-                        btn.prop('disabled', false).text('<?php _e('Aktar', 'api-isarud'); ?>');
+                        btn.prop('disabled', false).text('<?php _e('Export', 'api-isarud'); ?>');
                         if (r.success) {
                             var d = r.data;
-                            var html = '<div class="notice notice-success"><p>✅ ' + d.imported + ' aktarıldı, ' + d.updated + ' güncellendi, ' + d.skipped + ' atlandı (' + d.total_rows + ' satır)</p>';
+                            var html = '<div class="notice notice-success"><p>✅ ' + d.imported + ' <?php echo esc_js(__('imported','api-isarud')); ?>, ' + d.updated + ' <?php echo esc_js(__('updated','api-isarud')); ?>, ' + d.skipped + ' <?php echo esc_js(__('skipped','api-isarud')); ?> (' + d.total_rows + ' <?php echo esc_js(__('rows','api-isarud')); ?>)</p>';
                             if (d.errors && d.errors.length) html += '<p style="color:#d63638;font-size:12px">' + d.errors.join('<br>') + '</p>';
                             html += '</div>';
                             $('#isarud-csv-result').html(html);
@@ -1166,11 +1174,11 @@ class Isarud_Plugin {
             });
 
             $('#isarud-csv-export-btn').on('click', function() {
-                var btn = $(this).prop('disabled', true).text('Oluşturuluyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Creating...','api-isarud')); ?>');
                 $.post(isarud.ajax, {action: 'isarud_csv_export', nonce: isarud.nonce}, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('CSV İndir', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Download CSV', 'api-isarud'); ?>');
                     if (r.success) {
-                        $('#isarud-csv-export-result').html('<div class="notice notice-success"><p>✅ <a href="' + r.data.url + '" target="_blank"><?php _e('CSV\'yi İndir', 'api-isarud'); ?> →</a></p></div>');
+                        $('#isarud-csv-export-result').html('<div class="notice notice-success"><p>✅ <a href="' + r.data.url + '" target="_blank"><?php _e('Download CSV', 'api-isarud'); ?> →</a></p></div>');
                     }
                 });
             });
@@ -1213,11 +1221,11 @@ class Isarud_Plugin {
         <div class="wrap" style="max-width:960px">
             <h1 style="display:flex;align-items:center;gap:10px">
                 <span class="dashicons dashicons-chart-area" style="font-size:24px;color:#2271b1"></span>
-                <?php _e('İstatistikler & Aktivite', 'api-isarud'); ?>
+                <?php _e('Statistics & Activity', 'api-isarud'); ?>
             </h1>
 
             <div style="margin:15px 0;display:flex;gap:6px">
-                <?php foreach (['1h' => __( '1 Saat', 'api-isarud'), '24h' => __( '24 Saat', 'api-isarud'), '7d' => __( '7 Gün', 'api-isarud'), '30d' => __( '30 Gün', 'api-isarud'), 'all' => __( 'Tümü', 'api-isarud')] as $k => $label): ?>
+                <?php foreach (['1h' => __( '1 Hour', 'api-isarud'), '24h' => __( '24 Hours', 'api-isarud'), '7d' => __( '7 Days', 'api-isarud'), '30d' => __( '30 Days', 'api-isarud'), 'all' => __( 'All', 'api-isarud')] as $k => $label): ?>
                 <a href="<?php echo esc_url(add_query_arg('period', $k, $page_url)); ?>" class="button <?php echo $period === $k ? 'button-primary' : ''; ?>"><?php echo $label; ?></a>
                 <?php endforeach; ?>
             </div>
@@ -1225,49 +1233,49 @@ class Isarud_Plugin {
             <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0">
                 <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center">
                     <div style="font-size:26px;font-weight:bold;color:#2271b1"><?php echo $screen_count; ?></div>
-                    <small style="color:#999"><?php _e('Tarama', 'api-isarud'); ?></small>
+                    <small style="color:#999"><?php _e('Scan', 'api-isarud'); ?></small>
                 </div>
                 <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center">
                     <div style="font-size:26px;font-weight:bold;color:<?php echo $match_count > 0 ? '#d63638' : '#00a32a'; ?>"><?php echo $match_count; ?></div>
-                    <small style="color:#999"><?php _e('Eşleşme', 'api-isarud'); ?></small>
+                    <small style="color:#999"><?php _e('Match', 'api-isarud'); ?></small>
                 </div>
                 <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center">
                     <div style="font-size:26px;font-weight:bold;color:#00a32a"><?php echo $sync_ok; ?></div>
-                    <small style="color:#999"><?php _e('Başarılı Sync', 'api-isarud'); ?></small>
+                    <small style="color:#999"><?php _e('Successful Sync', 'api-isarud'); ?></small>
                 </div>
                 <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center">
                     <div style="font-size:26px;font-weight:bold;color:<?php echo $sync_err > 0 ? '#dba617' : '#999'; ?>"><?php echo $sync_err; ?></div>
-                    <small style="color:#999"><?php _e('Sync Hataları', 'api-isarud'); ?></small>
+                    <small style="color:#999"><?php _e('Sync Errors', 'api-isarud'); ?></small>
                 </div>
                 <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center">
                     <div style="font-size:26px;font-weight:bold;color:#7c3aed"><?php echo $active_mp; ?></div>
-                    <small style="color:#999"><?php _e('Aktif Platform', 'api-isarud'); ?></small>
+                    <small style="color:#999"><?php _e('Active Platform', 'api-isarud'); ?></small>
                 </div>
             </div>
 
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:20px 0">
-                <h3 style="margin:0 0 15px 0"><?php _e('Aktivite Günlüğü', 'api-isarud'); ?></h3>
+                <h3 style="margin:0 0 15px 0"><?php _e('Activity Log', 'api-isarud'); ?></h3>
                 <?php if (empty($all_activities)): ?>
-                <p style="color:#999;text-align:center;padding:20px"><?php _e('Bu dönemde aktivite bulunamadı.', 'api-isarud'); ?></p>
+                <p style="color:#999;text-align:center;padding:20px"><?php _e('No activity found for this period.', 'api-isarud'); ?></p>
                 <?php else: ?>
                 <table class="wp-list-table widefat fixed striped">
                     <thead><tr>
-                        <th style="width:160px"><?php _e('Tarih/Saat', 'api-isarud'); ?></th>
-                        <th style="width:90px"><?php _e('Tür', 'api-isarud'); ?></th>
-                        <th><?php _e('Detay', 'api-isarud'); ?></th>
-                        <th style="width:100px"><?php _e('Durum', 'api-isarud'); ?></th>
+                        <th style="width:160px"><?php _e('Date/Time', 'api-isarud'); ?></th>
+                        <th style="width:90px"><?php _e('Type', 'api-isarud'); ?></th>
+                        <th><?php _e('Details', 'api-isarud'); ?></th>
+                        <th style="width:100px"><?php _e('Status', 'api-isarud'); ?></th>
                     </tr></thead>
                     <tbody>
                     <?php foreach ($all_activities as $act):
                         $type_icon = $act->type === 'screening' ? '🛡️' : '🔄';
-                        $type_label = $act->type === 'screening' ? __( 'Tarama', 'api-isarud') : __( 'Sync', 'api-isarud');
+                        $type_label = $act->type === 'screening' ? __( 'Scan', 'api-isarud') : __( 'Sync', 'api-isarud');
                         $sc = match($act->status) { 'match' => '#d63638', 'error' => '#dba617', 'clean','success' => '#00a32a', default => '#999' };
-                        $sl = match($act->status) { 'match' => '⚠️ ' . __( 'Eşleşme', 'api-isarud'), 'clean' => '✓ ' . __( 'Temiz', 'api-isarud'), 'success' => '✓ ' . __( 'Başarılı', 'api-isarud'), 'error' => '✗ ' . __( 'Hata', 'api-isarud'), default => $act->status };
+                        $sl = match($act->status) { 'match' => '⚠️ ' . __( 'Match', 'api-isarud'), 'clean' => '✓ ' . __( 'Clear', 'api-isarud'), 'success' => '✓ ' . __( 'Successful', 'api-isarud'), 'error' => '✗ ' . __( 'Error', 'api-isarud'), default => $act->status };
                     ?>
                     <tr>
                         <td style="font-size:12px">
                             <span style="color:#333"><?php echo date('d.m.Y H:i', strtotime($act->created_at)); ?></span>
-                            <br><small style="color:#999"><?php echo human_time_diff(strtotime($act->created_at)) . ' ' . __( 'önce', 'api-isarud'); ?></small>
+                            <br><small style="color:#999"><?php echo human_time_diff(strtotime($act->created_at)) . ' ' . __( 'first', 'api-isarud'); ?></small>
                         </td>
                         <td style="font-size:12px"><?php echo $type_icon . ' ' . $type_label; ?></td>
                         <td style="font-size:12px"><?php echo esc_html(mb_substr($act->detail, 0, 80)); ?></td>
@@ -1276,7 +1284,7 @@ class Isarud_Plugin {
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p style="margin:10px 0 0;color:#999;font-size:11px;text-align:right"><?php echo count($all_activities); ?> <?php _e('kayıt gösteriliyor (maks. 100)', 'api-isarud'); ?></p>
+                <p style="margin:10px 0 0;color:#999;font-size:11px;text-align:right"><?php echo count($all_activities); ?> <?php _e('showing records (max. 100)', 'api-isarud'); ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -1287,12 +1295,12 @@ class Isarud_Plugin {
     public function page_returns() {
         ?>
         <div class="wrap">
-            <h1><?php _e('İade Yönetimi', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('Pazar yerlerinden gelen iade taleplerini görüntüleyin ve yönetin.', 'api-isarud'); ?></p>
+            <h1><?php _e('Returns Management', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('View and manage return requests from marketplaces', 'api-isarud'); ?></p>
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:900px">
                 <div style="display:flex;gap:10px;margin-bottom:15px">
-                    <select id="isarud-return-mp"><option value="all"><?php _e('Tümü', 'api-isarud'); ?></option><option value="hepsiburada">Hepsiburada</option></select>
-                    <button type="button" class="button-primary" id="isarud-fetch-returns"><?php _e('İadeleri Getir', 'api-isarud'); ?></button>
+                    <select id="isarud-return-mp"><option value="all"><?php _e('All', 'api-isarud'); ?></option><option value="hepsiburada">Hepsiburada</option></select>
+                    <button type="button" class="button-primary" id="isarud-fetch-returns"><?php _e('Import Returns', 'api-isarud'); ?></button>
                 </div>
                 <div id="isarud-returns-list"></div>
             </div>
@@ -1300,12 +1308,12 @@ class Isarud_Plugin {
         <script>
         jQuery(function($) {
             $('#isarud-fetch-returns').on('click', function() {
-                var btn = $(this).prop('disabled', true).text('Yükleniyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Loading...','api-isarud')); ?>');
                 $.post(isarud.ajax, {action:'isarud_fetch_returns', nonce:isarud.nonce, marketplace:$('#isarud-return-mp').val()}, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('İadeleri Getir', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Import Returns', 'api-isarud'); ?>');
                     if (r.success && r.data.returns) {
-                        var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Platform', 'api-isarud'); ?></th><th><?php _e('Sipariş', 'api-isarud'); ?></th><th><?php _e('Müşteri', 'api-isarud'); ?></th><th><?php _e('Durum', 'api-isarud'); ?></th><th><?php _e('Sebep', 'api-isarud'); ?></th><th><?php _e('Tarih', 'api-isarud'); ?></th></tr></thead><tbody>';
-                        if (r.data.returns.length === 0) html += '<tr><td colspan="6" style="text-align:center;color:#999"><?php _e('İade bulunamadı.', 'api-isarud'); ?></td></tr>';
+                        var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th><?php _e('Platform', 'api-isarud'); ?></th><th><?php _e('Order', 'api-isarud'); ?></th><th><?php _e('Customer', 'api-isarud'); ?></th><th><?php _e('Status', 'api-isarud'); ?></th><th><?php _e('Reason', 'api-isarud'); ?></th><th><?php _e('Date', 'api-isarud'); ?></th></tr></thead><tbody>';
+                        if (r.data.returns.length === 0) html += '<tr><td colspan="6" style="text-align:center;color:#999"><?php _e('No returns found.', 'api-isarud'); ?></td></tr>';
                         $.each(r.data.returns, function(i, ret) {
                             html += '<tr><td>' + ret.marketplace + '</td><td>' + ret.order_number + '</td><td>' + ret.customer + '</td><td>' + ret.status + '</td><td>' + (ret.reason || '-') + '</td><td>' + ret.created_at + '</td></tr>';
                         });
@@ -1323,12 +1331,12 @@ class Isarud_Plugin {
     public function page_questions() {
         ?>
         <div class="wrap">
-            <h1><?php _e('Müşteri Soruları', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('Trendyol\'dan gelen müşteri sorularını görüntüleyin ve yanıtlayın.', 'api-isarud'); ?></p>
+            <h1><?php _e('Customer Questions', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('View and respond to customer inquiries from Trendyol.', 'api-isarud'); ?></p>
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:900px">
                 <div style="display:flex;gap:10px;margin-bottom:15px">
-                    <select id="isarud-q-status"><option value=""><?php _e('Tümü', 'api-isarud'); ?></option><option value="WAITING_FOR_ANSWER"><?php _e('Yanıt Bekliyor', 'api-isarud'); ?></option><option value="ANSWERED"><?php _e('Yanıtlandı', 'api-isarud'); ?></option></select>
-                    <button type="button" class="button-primary" id="isarud-fetch-questions"><?php _e('Soruları Getir', 'api-isarud'); ?></button>
+                    <select id="isarud-q-status"><option value=""><?php _e('All', 'api-isarud'); ?></option><option value="WAITING_FOR_ANSWER"><?php _e('Awaiting Response', 'api-isarud'); ?></option><option value="ANSWERED"><?php _e('Replied', 'api-isarud'); ?></option></select>
+                    <button type="button" class="button-primary" id="isarud-fetch-questions"><?php _e('Fetch Questions', 'api-isarud'); ?></button>
                 </div>
                 <div id="isarud-questions-list"></div>
             </div>
@@ -1336,19 +1344,19 @@ class Isarud_Plugin {
         <script>
         jQuery(function($) {
             $('#isarud-fetch-questions').on('click', function() {
-                var btn = $(this).prop('disabled', true).text('Yükleniyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Loading...','api-isarud')); ?>');
                 $.post(isarud.ajax, {action:'isarud_fetch_questions', nonce:isarud.nonce, marketplace:'trendyol', status:$('#isarud-q-status').val()}, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Soruları Getir', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Fetch Questions', 'api-isarud'); ?>');
                     if (r.success && r.data.questions) {
                         var html = '';
-                        if (r.data.questions.length === 0) { html = '<p style="color:#999"><?php _e('Soru bulunamadı.', 'api-isarud'); ?></p>'; }
+                        if (r.data.questions.length === 0) { html = '<p style="color:#999"><?php _e('No question found', 'api-isarud'); ?></p>'; }
                         $.each(r.data.questions, function(i, q) {
                             html += '<div style="border:1px solid #eee;border-radius:8px;padding:15px;margin-bottom:10px">';
                             html += '<div style="display:flex;justify-content:space-between"><strong>' + (q.product_name || '') + '</strong><small style="color:#999">' + q.created_at + '</small></div>';
                             html += '<p style="margin:8px 0"><strong>' + (q.customer || '') + ':</strong> ' + q.question + '</p>';
                             if (q.answer) { html += '<p style="color:#00a32a;margin:4px 0">✓ ' + q.answer + '</p>'; }
                             else {
-                                html += '<div style="display:flex;gap:8px;margin-top:8px"><input type="text" class="regular-text isarud-answer-input" data-qid="' + q.id + '" placeholder="<?php _e('Yanıtınız...', 'api-isarud'); ?>"><button type="button" class="button isarud-answer-btn" data-qid="' + q.id + '"><?php _e('Yanıtla', 'api-isarud'); ?></button></div>';
+                                html += '<div style="display:flex;gap:8px;margin-top:8px"><input type="text" class="regular-text isarud-answer-input" data-qid="' + q.id + '" placeholder="<?php _e('Your reply...', 'api-isarud'); ?>"><button type="button" class="button isarud-answer-btn" data-qid="' + q.id + '"><?php _e('Reply', 'api-isarud'); ?></button></div>';
                             }
                             html += '</div>';
                         });
@@ -1376,35 +1384,35 @@ class Isarud_Plugin {
         $mps = $wpdb->get_results("SELECT marketplace FROM {$wpdb->prefix}isarud_credentials WHERE is_active=1");
         ?>
         <div class="wrap">
-            <h1><?php _e('Sipariş Aktarımı', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('Pazar yerlerinden siparişleri WooCommerce\'e aktarın.', 'api-isarud'); ?></p>
+            <h1><?php _e('Order Import', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('Import orders from marketplaces to WooCommerce.', 'api-isarud'); ?></p>
 
             <?php if (empty($mps)): ?>
-                <p style="color:#999"><?php _e('Aktif pazar yeri yok.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Ekle', 'api-isarud'); ?> →</a></p>
+                <p style="color:#999"><?php _e('No active marketplaces.', 'api-isarud'); ?> <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>"><?php _e('Add', 'api-isarud'); ?> →</a></p>
             <?php else: ?>
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:600px">
                 <table class="form-table" style="margin:0">
-                    <tr><th><?php _e('Pazar Yeri', 'api-isarud'); ?></th><td>
+                    <tr><th><?php _e('Marketplace', 'api-isarud'); ?></th><td>
                         <select id="isarud-import-mp">
-                            <option value="all"><?php _e('Tümü', 'api-isarud'); ?></option>
+                            <option value="all"><?php _e('All', 'api-isarud'); ?></option>
                             <?php foreach ($mps as $m): ?><option value="<?php echo esc_attr($m->marketplace); ?>"><?php echo esc_html(ucfirst($m->marketplace)); ?></option><?php endforeach; ?>
                         </select>
                     </td></tr>
-                    <tr><th><?php _e('Son kaç gün?', 'api-isarud'); ?></th><td>
+                    <tr><th><?php _e('How many days back?', 'api-isarud'); ?></th><td>
                         <select id="isarud-import-days">
-                            <option value="1">1 gün</option>
-                            <option value="3">3 gün</option>
-                            <option value="7" selected>7 gün</option>
-                            <option value="14">14 gün</option>
-                            <option value="30">30 gün</option>
+                            <option value="1"><?php printf(esc_html__('%d day','api-isarud'), 1); ?></option>
+                            <option value="3"><?php printf(esc_html__('%d days','api-isarud'), 3); ?></option>
+                            <option value="7" selected><?php printf(esc_html__('%d days','api-isarud'), 7); ?></option>
+                            <option value="14"><?php printf(esc_html__('%d days','api-isarud'), 14); ?></option>
+                            <option value="30"><?php printf(esc_html__('%d days','api-isarud'), 30); ?></option>
                         </select>
                     </td></tr>
-                    <tr><th><?php _e('Otomatik aktarım', 'api-isarud'); ?></th><td>
-                        <label><input type="checkbox" id="isarud-auto-import" <?php checked(get_option('isarud_auto_import_orders'), 'yes'); ?>> <?php _e('Saatlik otomatik sipariş çekme', 'api-isarud'); ?></label>
+                    <tr><th><?php _e('Automatic transfer', 'api-isarud'); ?></th><td>
+                        <label><input type="checkbox" id="isarud-auto-import" <?php checked(get_option('isarud_auto_import_orders'), 'yes'); ?>> <?php _e('Automatic hourly order pull', 'api-isarud'); ?></label>
                     </td></tr>
                 </table>
                 <p style="margin-top:15px">
-                    <button type="button" class="button-primary" id="isarud-import-orders-btn"><?php _e('Siparişleri Aktar', 'api-isarud'); ?></button>
+                    <button type="button" class="button-primary" id="isarud-import-orders-btn"><?php _e('Import Orders', 'api-isarud'); ?></button>
                 </p>
                 <div id="isarud-import-result" style="margin-top:10px"></div>
             </div>
@@ -1413,23 +1421,23 @@ class Isarud_Plugin {
         <script>
         jQuery(function($) {
             $('#isarud-import-orders-btn').on('click', function() {
-                var btn = $(this).prop('disabled', true).text('Aktarılıyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Importing...','api-isarud')); ?>');
                 $.post(isarud.ajax, {
                     action: 'isarud_import_orders',
                     nonce: isarud.nonce,
                     marketplace: $('#isarud-import-mp').val(),
                     days: $('#isarud-import-days').val()
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Siparişleri Aktar', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Import Orders', 'api-isarud'); ?>');
                     if (r.success) {
                         var d = r.data;
                         var html = '<div class="notice notice-success"><p>✅ ';
                         if (d.results) {
                             $.each(d.results, function(mp, res) {
-                                html += ucfirst(mp) + ': ' + (res.imported || 0) + ' aktarıldı, ' + (res.skipped || 0) + ' atlandı<br>';
+                                html += ucfirst(mp) + ': ' + (res.imported || 0) + ' <?php echo esc_js(__('imported','api-isarud')); ?>, ' + (res.skipped || 0) + ' <?php echo esc_js(__('skipped','api-isarud')); ?><br>';
                             });
                         } else {
-                            html += (d.imported || 0) + ' aktarıldı, ' + (d.skipped || 0) + ' atlandı';
+                            html += (d.imported || 0) + ' <?php echo esc_js(__('imported','api-isarud')); ?>, ' + (d.skipped || 0) + ' <?php echo esc_js(__('skipped','api-isarud')); ?>';
                         }
                         html += '</p></div>';
                         $('#isarud-import-result').html(html);
@@ -1450,35 +1458,35 @@ class Isarud_Plugin {
         $mps = $wpdb->get_results("SELECT marketplace FROM {$wpdb->prefix}isarud_credentials WHERE is_active=1");
         ?>
         <div class="wrap">
-            <h1><?php _e('Ürün Aktarımı', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('Pazar yerlerinden ürünleri WooCommerce\'e aktarın.', 'api-isarud'); ?></p>
+            <h1><?php _e('Product Import', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('Import products from marketplaces to WooCommerce.', 'api-isarud'); ?></p>
 
             <?php if (empty($mps)): ?>
-                <p style="color:#999"><?php _e('Aktif pazar yeri yok.', 'api-isarud'); ?></p>
+                <p style="color:#999"><?php _e('No active marketplaces.', 'api-isarud'); ?></p>
             <?php else: ?>
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;max-width:600px">
                 <table class="form-table" style="margin:0">
-                    <tr><th><?php _e('Pazar Yeri', 'api-isarud'); ?></th><td>
+                    <tr><th><?php _e('Marketplace', 'api-isarud'); ?></th><td>
                         <select id="isarud-product-mp">
                             <?php foreach ($mps as $m): ?><option value="<?php echo esc_attr($m->marketplace); ?>"><?php echo esc_html(ucfirst($m->marketplace)); ?></option><?php endforeach; ?>
                         </select>
                     </td></tr>
-                    <tr><th><?php _e('Ürün durumu', 'api-isarud'); ?></th><td>
+                    <tr><th><?php _e('Product Status', 'api-isarud'); ?></th><td>
                         <select id="isarud-product-status">
-                            <option value="draft"><?php _e('Taslak', 'api-isarud'); ?></option>
-                            <option value="publish"><?php _e('Yayında', 'api-isarud'); ?></option>
-                            <option value="private"><?php _e('Özel', 'api-isarud'); ?></option>
+                            <option value="draft"><?php _e('Draft', 'api-isarud'); ?></option>
+                            <option value="publish"><?php _e('Published', 'api-isarud'); ?></option>
+                            <option value="private"><?php _e('Custom', 'api-isarud'); ?></option>
                         </select>
                     </td></tr>
-                    <tr><th><?php _e('Seçenekler', 'api-isarud'); ?></th><td>
-                        <label><input type="checkbox" id="isarud-update-existing" value="1"> <?php _e('Mevcut ürünleri güncelle', 'api-isarud'); ?></label><br>
-                        <label><input type="checkbox" id="isarud-update-stock" value="1" checked> <?php _e('Stok güncelle', 'api-isarud'); ?></label><br>
-                        <label><input type="checkbox" id="isarud-update-price" value="1" checked> <?php _e('Fiyat güncelle', 'api-isarud'); ?></label>
+                    <tr><th><?php _e('Options', 'api-isarud'); ?></th><td>
+                        <label><input type="checkbox" id="isarud-update-existing" value="1"> <?php _e('Update existing products', 'api-isarud'); ?></label><br>
+                        <label><input type="checkbox" id="isarud-update-stock" value="1" checked> <?php _e('Update Stock', 'api-isarud'); ?></label><br>
+                        <label><input type="checkbox" id="isarud-update-price" value="1" checked> <?php _e('Update Price', 'api-isarud'); ?></label>
                     </td></tr>
                 </table>
                 <p style="margin-top:15px">
-                    <button type="button" class="button" id="isarud-preview-products"><?php _e('Önizle', 'api-isarud'); ?></button>
-                    <button type="button" class="button-primary" id="isarud-import-products-btn"><?php _e('Ürünleri Aktar', 'api-isarud'); ?></button>
+                    <button type="button" class="button" id="isarud-preview-products"><?php _e('Preview', 'api-isarud'); ?></button>
+                    <button type="button" class="button-primary" id="isarud-import-products-btn"><?php _e('Import Products', 'api-isarud'); ?></button>
                 </p>
                 <div id="isarud-product-result" style="margin-top:10px"></div>
             </div>
@@ -1487,21 +1495,21 @@ class Isarud_Plugin {
         <script>
         jQuery(function($) {
             $('#isarud-preview-products').on('click', function() {
-                var btn = $(this).prop('disabled', true).text('Yükleniyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Loading...','api-isarud')); ?>');
                 $.post(isarud.ajax, {
                     action: 'isarud_fetch_mp_products',
                     nonce: isarud.nonce,
                     marketplace: $('#isarud-product-mp').val(),
                     page: 0
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Önizle', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Preview', 'api-isarud'); ?>');
                     if (r.success && r.data.products) {
-                        var html = '<table class="wp-list-table widefat fixed striped" style="margin-top:10px"><thead><tr><th>SKU</th><th>Ürün</th><th>Fiyat</th><th>Stok</th></tr></thead><tbody>';
+                        var html = '<table class="wp-list-table widefat fixed striped" style="margin-top:10px"><thead><tr><th>SKU</th><th><?php echo esc_js(__('Product','api-isarud')); ?></th><th><?php echo esc_js(__('Price','api-isarud')); ?></th><th><?php echo esc_js(__('Stock','api-isarud')); ?></th></tr></thead><tbody>';
                         $.each(r.data.products.slice(0, 20), function(i, p) {
                             html += '<tr><td>' + (p.barcode || '-') + '</td><td>' + (p.title || '-') + '</td><td>' + (p.price || 0) + '</td><td>' + (p.stock || 0) + '</td></tr>';
                         });
                         html += '</tbody></table>';
-                        if (r.data.total > 20) html += '<p style="color:#999">' + r.data.total + ' üründen ilk 20 gösteriliyor</p>';
+                        if (r.data.total > 20) html += '<p style="color:#999">' + r.data.total + ' <?php echo esc_js(__('products, showing first 20','api-isarud')); ?></p>';
                         $('#isarud-product-result').html(html);
                     } else {
                         $('#isarud-product-result').html('<div class="notice notice-error"><p>' + (r.data?.error || 'Hata') + '</p></div>');
@@ -1510,8 +1518,8 @@ class Isarud_Plugin {
             });
 
             $('#isarud-import-products-btn').on('click', function() {
-                if (!confirm('<?php _e('Tüm ürünleri aktarmak istediğinize emin misiniz?', 'api-isarud'); ?>')) return;
-                var btn = $(this).prop('disabled', true).text('Aktarılıyor...');
+                if (!confirm('<?php _e('Are you sure you want to import all products?', 'api-isarud'); ?>')) return;
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Importing...','api-isarud')); ?>');
                 $.post(isarud.ajax, {
                     action: 'isarud_import_products',
                     nonce: isarud.nonce,
@@ -1521,9 +1529,9 @@ class Isarud_Plugin {
                     update_stock: $('#isarud-update-stock').is(':checked') ? '1' : '0',
                     update_price: $('#isarud-update-price').is(':checked') ? '1' : '0'
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Ürünleri Aktar', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Import Products', 'api-isarud'); ?>');
                     if (r.success) {
-                        $('#isarud-product-result').html('<div class="notice notice-success"><p>✅ ' + (r.data.imported || 0) + ' aktarıldı, ' + (r.data.updated || 0) + ' güncellendi, ' + (r.data.skipped || 0) + ' atlandı</p></div>');
+                        $('#isarud-product-result').html('<div class="notice notice-success"><p>✅ ' + (r.data.imported || 0) + ' <?php echo esc_js(__('imported','api-isarud')); ?>, ' + (r.data.updated || 0) + ' <?php echo esc_js(__('updated','api-isarud')); ?>, ' + (r.data.skipped || 0) + ' <?php echo esc_js(__('skipped','api-isarud')); ?></p></div>');
                     } else {
                         $('#isarud-product-result').html('<div class="notice notice-error"><p>' + (r.data?.error || 'Hata') + '</p></div>');
                     }
@@ -1538,7 +1546,7 @@ class Isarud_Plugin {
     public function page_categories() {
         ?>
         <div class="wrap">
-            <h1><?php _e('Kategori Eşleştirme', 'api-isarud'); ?></h1>
+            <h1><?php _e('Category Matching', 'api-isarud'); ?></h1>
             <?php Isarud_Category_Map::instance()->render_mapping_ui(); ?>
         </div>
         <?php
@@ -1550,44 +1558,44 @@ class Isarud_Plugin {
             $secret = sanitize_text_field($_POST['webhook_secret'] ?? '');
             if (empty($secret)) $secret = wp_generate_password(32, false);
             update_option('isarud_webhook_secret', $secret);
-            echo '<div class="notice notice-success"><p>' . __('Kaydedildi.', 'api-isarud') . '</p></div>';
+            echo '<div class="notice notice-success"><p>' . __('Saved.', 'api-isarud') . '</p></div>';
         }
         $urls = Isarud_Webhook::get_webhook_urls();
         $secret = get_option('isarud_webhook_secret', '');
         ?>
         <div class="wrap">
-            <h1><?php _e('Webhook Ayarları', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('Pazar yerlerinden gelen stok ve sipariş bildirimlerini almak için aşağıdaki URL\'leri ilgili pazar yeri panellerine ekleyin.', 'api-isarud'); ?></p>
+            <h1><?php _e('Webhook Settings', 'api-isarud'); ?></h1>
+            <p style="color:#666"><?php _e('Add the following URLs to the relevant marketplace panels to receive stock and order notifications from marketplaces.', 'api-isarud'); ?></p>
 
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                <h2 style="margin-top:0"><?php _e('Webhook URL\'leri', 'api-isarud'); ?></h2>
+                <h2 style="margin-top:0"><?php _e('Webhook URLs', 'api-isarud'); ?></h2>
                 <table class="form-table" style="margin:0">
                     <tr><th>Hepsiburada</th><td><code style="font-size:12px;word-break:break-all"><?php echo esc_html($urls['hepsiburada']); ?></code><br><small style="color:#999">merchant.hepsiburada.com → Entegrasyon → Webhook</small></td></tr>
-                    <tr><th>N11</th><td><code style="font-size:12px;word-break:break-all"><?php echo esc_html($urls['n11']); ?></code><br><small style="color:#999">uye.n11.com → API Ayarları → Webhook</small></td></tr>
-                    <tr><th>Generic</th><td><code style="font-size:12px;word-break:break-all"><?php echo esc_html($urls['generic']); ?></code><br><small style="color:#999"><?php _e('Özel entegrasyonlar için. Header: X-Isarud-Webhook-Key gerekir', 'api-isarud'); ?></small></td></tr>
+                    <tr><th>N11</th><td><code style="font-size:12px;word-break:break-all"><?php echo esc_html($urls['n11']); ?></code><br><small style="color:#999">uye.n11.com → <?php esc_html_e('API Settings','api-isarud'); ?> → Webhook</small></td></tr>
+                    <tr><th>Generic</th><td><code style="font-size:12px;word-break:break-all"><?php echo esc_html($urls['generic']); ?></code><br><small style="color:#999"><?php _e('For custom integrations. Header: X-Isarud-Webhook-Key required', 'api-isarud'); ?></small></td></tr>
                 </table>
             </div>
 
             <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                <h2 style="margin-top:0"><?php _e('Webhook Güvenlik', 'api-isarud'); ?></h2>
+                <h2 style="margin-top:0"><?php _e('Webhook Security', 'api-isarud'); ?></h2>
                 <form method="post"><?php wp_nonce_field('isarud_webhook'); ?>
                     <table class="form-table" style="margin:0">
                         <tr><th>Webhook Secret</th><td>
-                            <input type="text" name="webhook_secret" value="<?php echo esc_attr($secret); ?>" class="regular-text" placeholder="<?php _e('Otomatik oluşturulur', 'api-isarud'); ?>">
-                            <p class="description"><?php _e('Generic webhook endpoint için gerekli. Pazar yeri webhook\'ları için gerekmez.', 'api-isarud'); ?></p>
+                            <input type="text" name="webhook_secret" value="<?php echo esc_attr($secret); ?>" class="regular-text" placeholder="<?php _e('Auto-generated', 'api-isarud'); ?>">
+                            <p class="description"><?php _e('Required for generic webhook endpoint. Not required for marketplace webhooks.', 'api-isarud'); ?></p>
                         </td></tr>
                     </table>
-                    <p class="submit"><input type="submit" name="isarud_save_webhook" class="button-primary" value="<?php _e('Kaydet', 'api-isarud'); ?>"></p>
+                    <p class="submit"><input type="submit" name="isarud_save_webhook" class="button-primary" value="<?php _e('Save', 'api-isarud'); ?>"></p>
                 </form>
             </div>
 
             <div style="background:#f0f6fc;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                <h3 style="margin-top:0"><?php _e('Nasıl Çalışır?', 'api-isarud'); ?></h3>
+                <h3 style="margin-top:0"><?php _e('How It Works?', 'api-isarud'); ?></h3>
                 <ul style="list-style:disc;padding-left:20px;color:#666">
-                    <li><?php _e('Pazar yerinden sipariş geldiğinde WooCommerce stoğu otomatik düşer', 'api-isarud'); ?></li>
-                    <li><?php _e('Pazar yerinde stok değiştiğinde WooCommerce da güncellenir', 'api-isarud'); ?></li>
-                    <li><?php _e('Çift yönlü senkronizasyon — stok her zaman güncel', 'api-isarud'); ?></li>
-                    <li><?php _e('Tüm değişiklikler Senkronizasyon Günlüğü\'nde kaydedilir', 'api-isarud'); ?></li>
+                    <li><?php _e('WooCommerce stock is automatically reduced when orders arrive from marketplaces', 'api-isarud'); ?></li>
+                    <li><?php _e('WooCommerce inventory is updated when marketplace stock changes', 'api-isarud'); ?></li>
+                    <li><?php _e('Bi-directional synchronization — inventory always up to date', 'api-isarud'); ?></li>
+                    <li><?php _e('All changes are recorded in the Synchronization Log', 'api-isarud'); ?></li>
                 </ul>
             </div>
         </div>
@@ -1605,7 +1613,7 @@ class Isarud_Plugin {
 
             if ($enabled === 'no') {
                 $cloud->disconnect();
-                echo '<div class="notice notice-info"><p>' . __('Cloud sync devre dışı bırakıldı.', 'api-isarud') . '</p></div>';
+                echo '<div class="notice notice-info"><p>' . __('Cloud sync has been disabled.', 'api-isarud') . '</p></div>';
             }
 
             $status = $cloud->get_status();
@@ -1613,50 +1621,50 @@ class Isarud_Plugin {
         ?>
         <div class="wrap">
             <h1><?php _e('Isarud Cloud Sync', 'api-isarud'); ?></h1>
-            <p style="color:#666"><?php _e('WooCommerce verilerinizi isarud.com hesabınıza senkronize edin. Ürünlerinizi ve siparişlerinizi web, mobil ve masaüstü uygulamalarında görün.', 'api-isarud'); ?></p>
+            <p style="color:#666"><?php _e('Sync your WooCommerce data to your isarud.com account. View your products and orders in web, mobile, and desktop applications.', 'api-isarud'); ?></p>
 
             <?php if ($status['enabled']): ?>
                 <!-- Connected State -->
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                    <h2 style="margin-top:0;color:#00a32a">🟢 <?php _e('Bağlı', 'api-isarud'); ?></h2>
+                    <h2 style="margin-top:0;color:#00a32a">🟢 <?php _e('Connected', 'api-isarud'); ?></h2>
                     <table class="form-table" style="margin:0">
                         <tr><th>API Key</th><td><code><?php echo esc_html($status['cloud_key']); ?></code></td></tr>
-                        <tr><th><?php _e('Son Sync', 'api-isarud'); ?></th><td><?php echo $status['last_sync'] ? esc_html($status['last_sync']) : '—'; ?></td></tr>
-                        <tr><th><?php _e('Son Ürün Sync', 'api-isarud'); ?></th><td><?php echo $status['last_product_sync'] ? esc_html($status['last_product_sync']) : '—'; ?></td></tr>
-                        <tr><th><?php _e('Son Sipariş Sync', 'api-isarud'); ?></th><td><?php echo $status['last_order_sync'] ? esc_html($status['last_order_sync']) : '—'; ?></td></tr>
+                        <tr><th><?php _e('Last Sync', 'api-isarud'); ?></th><td><?php echo $status['last_sync'] ? esc_html($status['last_sync']) : '—'; ?></td></tr>
+                        <tr><th><?php _e('Last Product Sync', 'api-isarud'); ?></th><td><?php echo $status['last_product_sync'] ? esc_html($status['last_product_sync']) : '—'; ?></td></tr>
+                        <tr><th><?php _e('Last Order Sync', 'api-isarud'); ?></th><td><?php echo $status['last_order_sync'] ? esc_html($status['last_order_sync']) : '—'; ?></td></tr>
                     </table>
                     <p style="margin-top:15px">
-                        <button type="button" class="button-primary" id="isarud-cloud-sync-now"><?php _e('Şimdi Senkronize Et', 'api-isarud'); ?></button>
-                        <button type="button" class="button" id="isarud-cloud-disconnect" style="color:#d63638;border-color:#d63638"><?php _e('Bağlantıyı Kes', 'api-isarud'); ?></button>
+                        <button type="button" class="button-primary" id="isarud-cloud-sync-now"><?php _e('Sync Now', 'api-isarud'); ?></button>
+                        <button type="button" class="button" id="isarud-cloud-disconnect" style="color:#d63638;border-color:#d63638"><?php _e('Disconnect', 'api-isarud'); ?></button>
                     </p>
                     <div id="isarud-cloud-result" style="margin-top:10px"></div>
                 </div>
             <?php else: ?>
                 <!-- Setup State -->
                 <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                    <h2 style="margin-top:0"><?php _e('isarud.com\'a Bağlan', 'api-isarud'); ?></h2>
-                    <p><?php _e('isarud.com hesabınızla bu WordPress sitesini bağlayın.', 'api-isarud'); ?></p>
+                    <h2 style="margin-top:0"><?php _e('Connect to isarud.com', 'api-isarud'); ?></h2>
+                    <p><?php _e('Connect this WordPress site with your isarud.com account.', 'api-isarud'); ?></p>
                     <ol>
                         <li><?php _e('<a href="https://isarud.com/login" target="_blank">isarud.com\'a giriş yapın</a>', 'api-isarud'); ?></li>
-                        <li><?php _e('Account → API Keys sayfasından Bearer Token kopyalayın', 'api-isarud'); ?></li>
-                        <li><?php _e('Aşağıya yapıştırın ve "Bağlan" butonuna tıklayın', 'api-isarud'); ?></li>
+                        <li><?php _e('Copy Bearer Token from Account → API Keys page', 'api-isarud'); ?></li>
+                        <li><?php _e('Paste below and click the "Connect" button', 'api-isarud'); ?></li>
                     </ol>
                     <p>
                         <input type="text" id="isarud-cloud-token" class="regular-text" placeholder="Bearer Token (isarud.com API key)">
-                        <button type="button" class="button-primary" id="isarud-cloud-connect"><?php _e('Bağlan', 'api-isarud'); ?></button>
+                        <button type="button" class="button-primary" id="isarud-cloud-connect"><?php _e('Connect', 'api-isarud'); ?></button>
                     </p>
                     <div id="isarud-cloud-result" style="margin-top:10px"></div>
                 </div>
             <?php endif; ?>
 
             <div style="background:#f0f6fc;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0;max-width:700px">
-                <h3 style="margin-top:0"><?php _e('Cloud Sync Nedir?', 'api-isarud'); ?></h3>
+                <h3 style="margin-top:0"><?php _e('What is Cloud Sync?', 'api-isarud'); ?></h3>
                 <ul style="list-style:disc;padding-left:20px;color:#666">
-                    <li><?php _e('WooCommerce ürünleriniz ve siparişleriniz isarud.com\'da görünür', 'api-isarud'); ?></li>
-                    <li><?php _e('Tüm pazar yeri verileriniz tek panelde birleşir', 'api-isarud'); ?></li>
-                    <li><?php _e('iOS, Android, Windows, macOS uygulamalarından erişim', 'api-isarud'); ?></li>
-                    <li><?php _e('Otomatik saatlik senkronizasyon', 'api-isarud'); ?></li>
-                    <li><?php _e('Sipariş müşterileri otomatik yaptırım taramasından geçer', 'api-isarud'); ?></li>
+                    <li><?php _e('Your WooCommerce products and orders are visible on isarud.com', 'api-isarud'); ?></li>
+                    <li><?php _e('All your marketplace data is consolidated in one panel', 'api-isarud'); ?></li>
+                    <li><?php _e('Access from iOS, Android, Windows, macOS apps', 'api-isarud'); ?></li>
+                    <li><?php _e('Automatic hourly synchronization', 'api-isarud'); ?></li>
+                    <li><?php _e('Order customers automatically pass through sanctions screening', 'api-isarud'); ?></li>
                 </ul>
             </div>
         </div>
@@ -1667,13 +1675,13 @@ class Isarud_Plugin {
             $('#isarud-cloud-connect').on('click', function() {
                 var token = $('#isarud-cloud-token').val();
                 if (!token) { alert('Token gerekli'); return; }
-                var btn = $(this).prop('disabled', true).text('Bağlanıyor...');
+                var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Connecting...','api-isarud')); ?>');
                 $.post(isarud.ajax, {
                     action: 'isarud_cloud_connect',
                     nonce: isarud.nonce,
                     token: token
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Bağlan', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Connect', 'api-isarud'); ?>');
                     if (r.success) {
                         $('#isarud-cloud-result').html('<div class="notice notice-success"><p>' + r.data.message + '</p></div>');
                         setTimeout(function() { location.reload(); }, 1500);
@@ -1690,12 +1698,12 @@ class Isarud_Plugin {
                     action: 'isarud_cloud_sync_now',
                     nonce: isarud.nonce
                 }, function(r) {
-                    btn.prop('disabled', false).text('<?php _e('Şimdi Senkronize Et', 'api-isarud'); ?>');
+                    btn.prop('disabled', false).text('<?php _e('Sync Now', 'api-isarud'); ?>');
                     if (r.success) {
                         var d = r.data;
                         $('#isarud-cloud-result').html(
-                            '<div class="notice notice-success"><p>✅ Ürünler: ' + (d.products?.synced || 0) + ' sync, ' + (d.products?.failed || 0) + ' hata<br>' +
-                            'Siparişler: ' + (d.orders?.synced || 0) + ' sync, ' + (d.orders?.failed || 0) + ' hata</p></div>'
+                            '<div class="notice notice-success"><p>✅ <?php echo esc_js(__('Products','api-isarud')); ?>: ' + (d.products?.synced || 0) + ' sync, ' + (d.products?.failed || 0) + ' <?php echo esc_js(__('errors','api-isarud')); ?><br>' +
+                            '<?php echo esc_js(__('Orders','api-isarud')); ?>: ' + (d.orders?.synced || 0) + ' sync, ' + (d.orders?.failed || 0) + ' <?php echo esc_js(__('errors','api-isarud')); ?></p></div>'
                         );
                     } else {
                         $('#isarud-cloud-result').html('<div class="notice notice-error"><p>' + (r.data?.message || r.data) + '</p></div>');
@@ -1705,7 +1713,7 @@ class Isarud_Plugin {
 
             // Disconnect
             $('#isarud-cloud-disconnect').on('click', function() {
-                if (!confirm('<?php _e('Bağlantıyı kesmek istediğinize emin misiniz?', 'api-isarud'); ?>')) return;
+                if (!confirm('<?php _e('Are you sure you want to disconnect?', 'api-isarud'); ?>')) return;
                 $.post(isarud.ajax, {
                     action: 'isarud_cloud_disconnect',
                     nonce: isarud.nonce
@@ -1730,9 +1738,9 @@ class Isarud_Plugin {
         $result = $cloud->connect_site($token);
 
         if (!empty($result['success'])) {
-            wp_send_json_success(['message' => 'isarud.com\'a bağlandı! Sayfa yenileniyor...']);
+            wp_send_json_success(['message' => __('Connected to isarud.com! Refreshing page...','api-isarud')]);
         } else {
-            wp_send_json_error(['message' => $result['error'] ?? 'Bağlantı başarısız']);
+            wp_send_json_error(['message' => $result['error'] ?? __('Connection failed','api-isarud')]);
         }
     }
 
@@ -1741,7 +1749,7 @@ class Isarud_Plugin {
         if (!current_user_can('manage_options')) wp_send_json_error('Unauthorized');
 
         $cloud = Isarud_Cloud_Sync::instance();
-        if (!$cloud->is_enabled()) wp_send_json_error(['message' => 'Cloud sync aktif değil']);
+        if (!$cloud->is_enabled()) wp_send_json_error(['message' => __('Cloud sync not active','api-isarud')]);
 
         $products = $cloud->sync_products();
         $orders = $cloud->sync_orders();

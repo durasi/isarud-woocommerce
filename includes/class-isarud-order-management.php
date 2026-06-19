@@ -26,7 +26,7 @@ class Isarud_Order_Management {
 
         $result = $this->update_marketplace_status($mp, $ext_id, $mp_status, $order);
         $order->add_order_note(sprintf(
-            'Isarud: %s sipariş durumu güncellendi → %s %s',
+            __('Isarud: order %s status updated → %s %s','api-isarud'),
             ucfirst($mp), $mp_status,
             isset($result['error']) ? '(Hata: ' . $result['error'] . ')' : '✓'
         ));
@@ -64,22 +64,22 @@ class Isarud_Order_Management {
 
     private function update_amazon_status(string $order_id, string $status, $order): array {
         if (!class_exists('Isarud_Amazon')) {
-            return ['error' => 'Amazon modülü yüklü değil'];
+            return ['error' => __('Amazon module not loaded','api-isarud')];
         }
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         // Amazon shipment confirmation Feeds API ile yapılır - şimdilik stub
         return [
             'success' => false,
-            'message' => 'Amazon sipariş güncelleme yakında - Feeds API entegrasyonu sonrası aktif olacak.',
+            'message' => __('Amazon order update coming soon - will be active after Feeds API integration.','api-isarud'),
             'order_id' => $order_id,
         ];
     }
 
     private function update_pazarama_status(string $order_id, string $status, $order): array {
         if (!class_exists('Isarud_Pazarama')) {
-            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil'];
+            return ['success' => false, 'message' => __('Pazarama module not loaded','api-isarud')];
         }
 
         $svc = \Isarud_Pazarama::instance();
@@ -102,10 +102,10 @@ class Isarud_Order_Management {
     private function update_hepsiburada_status(string $package_id, string $status, $order): array {
         // Bridge to Isarud_Hepsiburada (v6.6.6+ - server-side credentials)
         if (!class_exists('Isarud_Hepsiburada')) {
-            return ['error' => 'Hepsiburada modülü yüklü değil'];
+            return ['error' => __('Hepsiburada module not loaded','api-isarud')];
         }
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         $tracking = $order ? $order->get_meta('_tracking_number') : '';
 
@@ -118,11 +118,11 @@ class Isarud_Order_Management {
 
     private function update_n11_status(string $order_id, string $status): array {
         if (!class_exists('Isarud_N11')) {
-            return ['error' => 'N11 modülü yüklü değil'];
+            return ['error' => __('N11 module not loaded','api-isarud')];
         }
 
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         // N11 status mapping → modern REST
         $updates = match ($status) {

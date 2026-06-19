@@ -96,7 +96,7 @@ class Isarud_Etsy {
     private function bridge_request(string $endpoint, array $data = [], string $method = 'GET'): array {
         $key = get_option('isarud_cloud_api_key', '');
         if (empty($key)) {
-            return ['error' => __('Cloud API anahtarı yapılandırılmamış. Önce Cloud Sync sayfasından bağlantı kurun.', 'api-isarud')];
+            return ['error' => __('Cloud API key is not configured. First, establish a connection from the Cloud Sync page.', 'api-isarud')];
         }
 
         $args = [
@@ -188,7 +188,7 @@ class Isarud_Etsy {
 
     private function check_ajax(): void {
         if (!current_user_can('manage_options')) {
-            wp_send_json_error(['message' => __('Yetkisiz erişim', 'api-isarud')], 403);
+            wp_send_json_error(['message' => __('Unauthorized access', 'api-isarud')], 403);
         }
         check_ajax_referer('isarud_etsy_nonce', 'nonce');
     }
@@ -261,7 +261,7 @@ class Isarud_Etsy {
         // HTTPS zorunlu (Isarud sunucusu da kontrol eder)
         if (strpos($return_url, 'https://') !== 0) {
             wp_send_json_error([
-                'message' => __('OAuth bağlantısı için sitenizin HTTPS kullanması gerekir.', 'api-isarud')
+                'message' => __('Your site must use HTTPS for OAuth connection.', 'api-isarud')
             ], 400);
         }
 
@@ -284,9 +284,9 @@ class Isarud_Etsy {
         ?>
         <div class="notice notice-success is-dismissible" style="margin:15px 20px;">
             <p style="font-size:14px;">
-                ✅ <strong><?php esc_html_e('Etsy başarıyla bağlandı!', 'api-isarud'); ?></strong>
+                ✅ <strong><?php esc_html_e('Etsy connected successfully!', 'api-isarud'); ?></strong>
                 <?php if ($shop): ?>
-                    — <?php esc_html_e('Mağaza:', 'api-isarud'); ?> <strong><?php echo esc_html($shop); ?></strong>
+                    — <?php esc_html_e('Store:', 'api-isarud'); ?> <strong><?php echo esc_html($shop); ?></strong>
                 <?php endif; ?>
                 <?php if ($store_id): ?>
                     (Store ID: <?php echo esc_html((string)$store_id); ?>)

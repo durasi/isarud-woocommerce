@@ -39,17 +39,17 @@ class Isarud_Email_Marketing {
             'from_name' => get_bloginfo('name'),
             'from_email' => get_option('admin_email'),
             'welcome_enabled' => true,
-            'welcome_subject' => __('Hosgeldiniz! Ilk siparisine ozel indirim', 'api-isarud'),
+            'welcome_subject' => __('Welcome! Special discount on your first order', 'api-isarud'),
             'welcome_coupon' => '',
             'welcome_delay' => 0,
             'post_purchase_enabled' => true,
-            'post_purchase_subject' => __('Siparisini sevdin mi? Sana ozel oneriler', 'api-isarud'),
+            'post_purchase_subject' => __('Did you love your order? Special recommendations for you', 'api-isarud'),
             'post_purchase_delay' => 3,
             'review_request_enabled' => true,
-            'review_request_subject' => __('Urunumuzu degerlendirir misiniz?', 'api-isarud'),
+            'review_request_subject' => __('Would you rate our product?', 'api-isarud'),
             'review_request_delay' => 7,
             'winback_enabled' => true,
-            'winback_subject' => __('Sizi ozledik! Geri donun', 'api-isarud'),
+            'winback_subject' => __('We missed you! Come back', 'api-isarud'),
             'winback_days' => 60,
             'winback_coupon' => '',
         ]);
@@ -102,14 +102,14 @@ class Isarud_Email_Marketing {
         $shop_url = wc_get_page_permalink('shop');
 
         $html = $this->email_header($shop_name);
-        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Hosgeldiniz %s!', 'api-isarud'), esc_html($user->display_name ?: $user->first_name)) . '</h2>';
-        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . sprintf(__('%s ailesine katildiginiz icin tesekkur ederiz. Sizin icin en iyi urunleri hazirladik.', 'api-isarud'), esc_html($shop_name)) . '</p>';
+        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Welcome %s!', 'api-isarud'), esc_html($user->display_name ?: $user->first_name)) . '</h2>';
+        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . sprintf(__('Thank you for joining the %s family. We\'ve prepared the best products for you.', 'api-isarud'), esc_html($shop_name)) . '</p>';
 
         if (!empty($settings['welcome_coupon'])) {
-            $html .= $this->coupon_block($settings['welcome_coupon'], __('Ilk siparisine ozel indirim kodu:', 'api-isarud'));
+            $html .= $this->coupon_block($settings['welcome_coupon'], __('Exclusive discount code for your first order:', 'api-isarud'));
         }
 
-        $html .= $this->cta_button($shop_url, __('Alisverise Basla', 'api-isarud'));
+        $html .= $this->cta_button($shop_url, __('Start Shopping', 'api-isarud'));
         $html .= $this->email_footer($shop_name);
 
         $sent = $this->send($user->user_email, $settings['welcome_subject'], $html, $settings);
@@ -132,8 +132,8 @@ class Isarud_Email_Marketing {
         $shop_name = get_bloginfo('name');
 
         $html = $this->email_header($shop_name);
-        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Merhaba %s!', 'api-isarud'), esc_html($name)) . '</h2>';
-        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . __('Son siparisini umariz begendiniz! Sana ozel sectigimiz urunlere goz atmanizi oneririz.', 'api-isarud') . '</p>';
+        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Hello %s!', 'api-isarud'), esc_html($name)) . '</h2>';
+        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . __('We hope you enjoyed your last order! We recommend checking out our specially selected products for you.', 'api-isarud') . '</p>';
 
         $related = $this->get_related_products($order, 4);
         if (!empty($related)) {
@@ -148,7 +148,7 @@ class Isarud_Email_Marketing {
             $html .= '</table>';
         }
 
-        $html .= $this->cta_button(wc_get_page_permalink('shop'), __('Daha Fazla Urun', 'api-isarud'));
+        $html .= $this->cta_button(wc_get_page_permalink('shop'), __('View More Products', 'api-isarud'));
         $html .= $this->email_footer($shop_name);
 
         $sent = $this->send($email, $settings['post_purchase_subject'], $html, $settings);
@@ -175,11 +175,11 @@ class Isarud_Email_Marketing {
         $product = $first_item ? $first_item->get_product() : null;
 
         $html = $this->email_header($shop_name);
-        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Merhaba %s!', 'api-isarud'), esc_html($name)) . '</h2>';
-        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . __('Son siparisinizdeki urunlerimizi nasil buldunuz? Degerli goruslerinizi paylasmaniz diger musterilerimize yardimci olacaktir.', 'api-isarud') . '</p>';
+        $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Hello %s!', 'api-isarud'), esc_html($name)) . '</h2>';
+        $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . __('How did you find our products from your last order? Your valuable feedback will help our other customers.', 'api-isarud') . '</p>';
 
         if ($product) {
-            $html .= $this->cta_button($product->get_permalink() . '#reviews', __('Yorum Yaz', 'api-isarud'));
+            $html .= $this->cta_button($product->get_permalink() . '#reviews', __('Write a Review', 'api-isarud'));
         }
 
         $html .= $this->email_footer($shop_name);
@@ -207,14 +207,14 @@ class Isarud_Email_Marketing {
             if ($already) continue;
 
             $html = $this->email_header($shop_name);
-            $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('Sizi ozledik %s!', 'api-isarud'), esc_html($user->display_name ?: $user->first_name)) . '</h2>';
-            $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . sprintf(__('Uzun zamandir %s\'i ziyaret etmediniz. Sizin icin yeni urunler ekledik!', 'api-isarud'), esc_html($shop_name)) . '</p>';
+            $html .= '<h2 style="margin:0 0 12px;font-size:18px;color:#1a1a2e">' . sprintf(__('We missed you %s!', 'api-isarud'), esc_html($user->display_name ?: $user->first_name)) . '</h2>';
+            $html .= '<p style="font-size:14px;color:#555;line-height:1.6">' . sprintf(__('You haven\'t visited %s in a while. We\'ve added new products for you!', 'api-isarud'), esc_html($shop_name)) . '</p>';
 
             if (!empty($settings['winback_coupon'])) {
-                $html .= $this->coupon_block($settings['winback_coupon'], __('Size ozel geri donus indirimi:', 'api-isarud'));
+                $html .= $this->coupon_block($settings['winback_coupon'], __('Special comeback discount for you:', 'api-isarud'));
             }
 
-            $html .= $this->cta_button($shop_url, __('Magazayi Ziyaret Et', 'api-isarud'));
+            $html .= $this->cta_button($shop_url, __('Visit Store', 'api-isarud'));
             $html .= $this->email_footer($shop_name);
 
             $sent = $this->send($user->user_email, $settings['winback_subject'], $html, $settings);

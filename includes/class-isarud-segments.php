@@ -69,12 +69,12 @@ class Isarud_Segments {
         }
 
         $segments = [
-            'vip' => ['label' => __('VIP Musteriler', 'api-isarud'), 'color' => '#185fa5', 'customers' => []],
-            'loyal' => ['label' => __('Sadik Musteriler', 'api-isarud'), 'color' => '#0f6e56', 'customers' => []],
-            'new' => ['label' => __('Yeni Musteriler', 'api-isarud'), 'color' => '#534ab7', 'customers' => []],
-            'at_risk' => ['label' => __('Risk Altinda', 'api-isarud'), 'color' => '#ba7517', 'customers' => []],
-            'lost' => ['label' => __('Kaybedilen', 'api-isarud'), 'color' => '#a32d2d', 'customers' => []],
-            'one_time' => ['label' => __('Tek Seferlik', 'api-isarud'), 'color' => '#888780', 'customers' => []],
+            'vip' => ['label' => __('VIP Customers', 'api-isarud'), 'color' => '#185fa5', 'customers' => []],
+            'loyal' => ['label' => __('Loyal Customers', 'api-isarud'), 'color' => '#0f6e56', 'customers' => []],
+            'new' => ['label' => __('New Customers', 'api-isarud'), 'color' => '#534ab7', 'customers' => []],
+            'at_risk' => ['label' => __('At Risk', 'api-isarud'), 'color' => '#ba7517', 'customers' => []],
+            'lost' => ['label' => __('Lost', 'api-isarud'), 'color' => '#a32d2d', 'customers' => []],
+            'one_time' => ['label' => __('One-Time', 'api-isarud'), 'color' => '#888780', 'customers' => []],
         ];
 
         $total_customers = count($customers_raw);

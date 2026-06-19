@@ -573,7 +573,7 @@ class Isarud_Trendyol {
         ?>
         <div class="notice notice-success is-dismissible">
             <p>
-                <strong>✅ <?php _e('Trendyol bağlandı!', 'api-isarud'); ?></strong>
+                <strong>✅ <?php _e('Trendyol connected!', 'api-isarud'); ?></strong>
                 <?php if ($seller_id): ?>
                     <?php printf(esc_html__('Seller ID: %s', 'api-isarud'), '<code>' . esc_html($seller_id) . '</code>'); ?>
                 <?php endif; ?>

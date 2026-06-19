@@ -1,20 +1,23 @@
 === API Isarud Tüm Pazar Yerleri Ticaret Entegrasyonu ===
 Contributors: durasi
-Tags: marketplace, trendyol, etsy, hepsiburada, n11, woocommerce
+Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.6.11
+Stable tag: 6.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Trendyol, Etsy, Hepsiburada, N11, Amazon ve Pazarama için tek çatı altında pazaryeri entegrasyonu. WooCommerce'i 6 pazaryeri ile bağlayın, otomatik ürün gönderimi yapın.
+Trendyol, Etsy, Hepsiburada, N11, Amazon, Pazarama ve eBay için WooCommerce pazaryeri entegrasyonu ve ürün senkronizasyonu.
 
 == Description ==
 
+**API Isarud is the official WordPress plugin of the Isarud platform (https://isarud.com).** This plugin is for sellers who already run a WooCommerce store. **If you do not have a website, you do not need WordPress:** create a free account at https://isarud.com and connect your Trendyol, Hepsiburada, N11, Pazarama, Etsy and Amazon stores directly from the cloud dashboard - no website required.
+
+
 **API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi %100 ücretsiz.
 
-= 🚀 Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
+= Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
 
 WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncellediğinizde, ürün **otomatik olarak tüm bağlı pazaryerlerine gönderilir** — manuel işlem gerektirmeden. Trendyol, Etsy, N11, Hepsiburada ve daha fazlası için tek tıkla aktif edin.
 
@@ -152,6 +155,11 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.7 =
+* New: eBay marketplace integration — product, order, finance and analytics management
+* eBay OAuth (19 scopes) managed via isarud.com cloud bridge
+* eBay admin page with 4 tabs (Products, Orders, Finances, Analytics)
 
 = 6.6.11 =
 * Fixed dashboard widget database error (screening log column name)

@@ -165,7 +165,7 @@ class Isarud_EInvoice {
         }
 
         if (empty($userid) || empty($password)) {
-            return new WP_Error('missing_credentials', __('GİB kullanıcı bilgileri eksik.', 'api-isarud'));
+            return new WP_Error('missing_credentials', __('GIB user information is missing.', 'api-isarud'));
         }
 
         $url = $this->get_base_url() . self::TOKEN_PATH;
@@ -193,7 +193,7 @@ class Isarud_EInvoice {
         $body = json_decode(wp_remote_retrieve_body($response), true);
 
         if (empty($body['token'])) {
-            return new WP_Error('login_failed', __('GİB giriş başarısız. Kullanıcı bilgilerini kontrol edin.', 'api-isarud'));
+            return new WP_Error('login_failed', __('GIB login failed. Please check your user credentials.', 'api-isarud'));
         }
 
         $this->token = $body['token'];
@@ -272,7 +272,7 @@ class Isarud_EInvoice {
     public function build_invoice_data($order_id) {
         $order = wc_get_order($order_id);
         if (!$order) {
-            return new WP_Error('invalid_order', __('Sipariş bulunamadı.', 'api-isarud'));
+            return new WP_Error('invalid_order', __('Order not found.', 'api-isarud'));
         }
 
         $settings = $this->get_settings();
@@ -340,7 +340,7 @@ class Isarud_EInvoice {
         if ($shipping_total > 0) {
             $shipping_kdv_rate = $shipping_total > 0 ? round(($shipping_tax / $shipping_total) * 100) : intval($settings['default_kdv_rate']);
             $items[] = [
-                'malHizmet'    => __('Kargo', 'api-isarud'),
+                'malHizmet'    => __('Shipping', 'api-isarud'),
                 'miktar'       => 1,
                 'birim'        => 'C62',
                 'birimFiyat'   => number_format($shipping_total, 2, '.', ''),
@@ -386,7 +386,7 @@ class Isarud_EInvoice {
             'toppiamOdenecekTutar'=> number_format($toplam, 2, '.', ''),
             'not'                 => !empty($settings['invoice_note'])
                                      ? $settings['invoice_note']
-                                     : sprintf(__('Sipariş No: #%s', 'api-isarud'), $order->get_order_number()),
+                                     : sprintf(__('Order No: #%s', 'api-isarud'), $order->get_order_number()),
             'siparisNumarasi'     => $order->get_order_number(),
             'siparisTarihi'       => '',
             'irsaliyeNumarasi'    => '',
@@ -476,14 +476,14 @@ class Isarud_EInvoice {
         }
 
         $this->add_order_note($order_id, sprintf(
-            __('E-Arşiv fatura taslağı oluşturuldu. UUID: %s', 'api-isarud'),
+            __('E-Archive invoice draft created. UUID: %s', 'api-isarud'),
             $build['uuid']
         ));
 
         return [
             'success' => true,
             'uuid'    => $build['uuid'],
-            'message' => __('Fatura taslağı GİB portalda oluşturuldu.', 'api-isarud'),
+            'message' => __('Invoice draft created in GIB portal.', 'api-isarud'),
         ];
     }
 
@@ -517,14 +517,14 @@ class Isarud_EInvoice {
                 $order->save();
             }
             $this->add_order_note($row->order_id, sprintf(
-                __('E-Arşiv fatura imzalandı. UUID: %s', 'api-isarud'),
+                __('E-Archive invoice signed. UUID: %s', 'api-isarud'),
                 $uuid
             ));
         }
 
         return [
             'success' => true,
-            'message' => __('Fatura başarıyla imzalandı.', 'api-isarud'),
+            'message' => __('Invoice signed successfully.', 'api-isarud'),
         ];
     }
 
@@ -574,7 +574,7 @@ class Isarud_EInvoice {
      */
     public function cancel_invoice($uuid, $explanation = '') {
         if (empty($explanation)) {
-            $explanation = __('Fatura iptal edildi.', 'api-isarud');
+            $explanation = __('Invoice cancelled.', 'api-isarud');
         }
 
         $result = $this->dispatch(
@@ -602,12 +602,12 @@ class Isarud_EInvoice {
                 $order->save();
             }
             $this->add_order_note($row->order_id, sprintf(
-                __('E-Arşiv fatura iptal edildi. UUID: %s', 'api-isarud'),
+                __('E-Archive invoice cancelled. UUID: %s', 'api-isarud'),
                 $uuid
             ));
         }
 
-        return ['success' => true, 'message' => __('Fatura iptal talebi oluşturuldu.', 'api-isarud')];
+        return ['success' => true, 'message' => __('Invoice cancellation request created.', 'api-isarud')];
     }
 
     /**
@@ -616,7 +616,7 @@ class Isarud_EInvoice {
     public function send_invoice_email($order_id, $uuid = '') {
         $order = wc_get_order($order_id);
         if (!$order) {
-            return new WP_Error('invalid_order', __('Sipariş bulunamadı.', 'api-isarud'));
+            return new WP_Error('invalid_order', __('Order not found.', 'api-isarud'));
         }
 
         if (empty($uuid)) {
@@ -624,7 +624,7 @@ class Isarud_EInvoice {
         }
 
         if (empty($uuid)) {
-            return new WP_Error('no_invoice', __('Bu siparişe ait fatura bulunamadı.', 'api-isarud'));
+            return new WP_Error('no_invoice', __('No invoice found for this order.', 'api-isarud'));
         }
 
         $download_url = $this->get_download_url($uuid);
@@ -633,13 +633,13 @@ class Isarud_EInvoice {
         }
 
         $to = $order->get_billing_email();
-        $subject = sprintf(__('E-Arşiv Faturanız — Sipariş #%s', 'api-isarud'), $order->get_order_number());
+        $subject = sprintf(__('E-Archive Invoice — Order #%s', 'api-isarud'), $order->get_order_number());
 
         $settings = $this->get_settings();
         $company = !empty($settings['company_name']) ? $settings['company_name'] : get_bloginfo('name');
 
         $body = sprintf(
-            __("Sayın %s,\n\nSipariş numaranız #%s olan alışverişinize ait e-Arşiv faturanız hazırlanmıştır.\n\nFatura UUID: %s\n\nFaturanızı GİB e-Arşiv Portal üzerinden görüntüleyebilirsiniz.\n\nSaygılarımızla,\n%s", 'api-isarud'),
+            __("Dear %s,\\n\\nThe e-Archive invoice for your purchase with order number #%s has been prepared.\\n\\nInvoice UUID: %s\\n\\nYou can view your invoice through the GIB e-Archive Portal.\\n\\nBest regards,\\n%s", 'api-isarud'),
             $order->get_formatted_billing_full_name(),
             $order->get_order_number(),
             $uuid,
@@ -650,14 +650,14 @@ class Isarud_EInvoice {
 
         if ($sent) {
             $this->add_order_note($order_id, sprintf(
-                __('E-Arşiv fatura e-posta gönderildi: %s', 'api-isarud'),
+                __('E-Archive invoice email sent: %s', 'api-isarud'),
                 $to
             ));
         }
 
         return $sent
-            ? ['success' => true, 'message' => __('Fatura e-postası gönderildi.', 'api-isarud')]
-            : new WP_Error('email_failed', __('E-posta gönderilemedi.', 'api-isarud'));
+            ? ['success' => true, 'message' => __('Invoice email sent.', 'api-isarud')]
+            : new WP_Error('email_failed', __('Email could not be sent.', 'api-isarud'));
     }
 
     /**
@@ -714,7 +714,7 @@ class Isarud_EInvoice {
 
         add_meta_box(
             'isarud-einvoice-metabox',
-            '🧾 ' . __('E-Arşiv Fatura', 'api-isarud'),
+            '🧾 ' . __('E-Archive Invoice', 'api-isarud'),
             [$this, 'render_metabox'],
             $screen,
             'side',
@@ -735,7 +735,7 @@ class Isarud_EInvoice {
         $settings = $this->get_settings();
 
         if ($settings['enabled'] !== 'yes') {
-            echo '<p style="color:#999;">' . esc_html__('E-Fatura modülü devre dışı. Isarud → E-Fatura ayarlarından aktifleştirin.', 'api-isarud') . '</p>';
+            echo '<p style="color:#999;">' . esc_html__('E-Invoice module is disabled. Activate it from Isarud → E-Invoice settings.', 'api-isarud') . '</p>';
             return;
         }
 
@@ -745,49 +745,49 @@ class Isarud_EInvoice {
 
         if (empty($uuid)) {
             // Fatura yok, oluşturma butonu göster
-            echo '<p>' . esc_html__('Bu sipariş için henüz e-fatura oluşturulmadı.', 'api-isarud') . '</p>';
+            echo '<p>' . esc_html__('No e-invoice has been created for this order yet.', 'api-isarud') . '</p>';
             echo '<button type="button" class="button button-primary isarud-einvoice-action" data-action="create" data-order="' . esc_attr($order_id) . '" style="width:100%;margin-bottom:5px;">';
-            echo '📄 ' . esc_html__('Fatura Oluştur', 'api-isarud');
+            echo '📄 ' . esc_html__('Create Invoice', 'api-isarud');
             echo '</button>';
         } else {
             // Fatura var, durum göster
             $status_labels = [
-                'TASLAK'    => ['🟡', __('Taslak', 'api-isarud')],
-                'IMZALANDI' => ['🟢', __('İmzalandı', 'api-isarud')],
-                'IPTAL'     => ['🔴', __('İptal', 'api-isarud')],
+                'TASLAK'    => ['🟡', __('Draft', 'api-isarud')],
+                'IMZALANDI' => ['🟢', __('Signed', 'api-isarud')],
+                'IPTAL'     => ['🔴', __('Cancel', 'api-isarud')],
             ];
             $label = isset($status_labels[$status]) ? $status_labels[$status] : ['⚪', $status];
 
             echo '<div style="background:#f8f9fa;padding:10px;border-radius:6px;margin-bottom:10px;">';
-            echo '<strong>' . esc_html__('Durum:', 'api-isarud') . '</strong> ' . $label[0] . ' ' . esc_html($label[1]) . '<br>';
+            echo '<strong>' . esc_html__('Status:', 'api-isarud') . '</strong> ' . $label[0] . ' ' . esc_html($label[1]) . '<br>';
             echo '<strong>UUID:</strong> <code style="font-size:10px;word-break:break-all;">' . esc_html($uuid) . '</code>';
             echo '</div>';
 
             if ($status === 'TASLAK') {
                 echo '<button type="button" class="button button-primary isarud-einvoice-action" data-action="sign" data-order="' . esc_attr($order_id) . '" data-uuid="' . esc_attr($uuid) . '" style="width:100%;margin-bottom:5px;">';
-                echo '✍️ ' . esc_html__('İmzala', 'api-isarud');
+                echo '✍️ ' . esc_html__('Sign', 'api-isarud');
                 echo '</button>';
             }
 
             if ($status === 'IMZALANDI') {
                 echo '<button type="button" class="button isarud-einvoice-action" data-action="download" data-order="' . esc_attr($order_id) . '" data-uuid="' . esc_attr($uuid) . '" style="width:100%;margin-bottom:5px;">';
-                echo '📥 ' . esc_html__('PDF İndir', 'api-isarud');
+                echo '📥 ' . esc_html__('Download PDF', 'api-isarud');
                 echo '</button>';
             }
 
             echo '<button type="button" class="button isarud-einvoice-action" data-action="email" data-order="' . esc_attr($order_id) . '" data-uuid="' . esc_attr($uuid) . '" style="width:100%;margin-bottom:5px;">';
-            echo '📧 ' . esc_html__('E-posta Gönder', 'api-isarud');
+            echo '📧 ' . esc_html__('Send Email', 'api-isarud');
             echo '</button>';
 
             if ($status !== 'IPTAL') {
                 echo '<button type="button" class="button isarud-einvoice-action" data-action="cancel" data-order="' . esc_attr($order_id) . '" data-uuid="' . esc_attr($uuid) . '" style="width:100%;margin-bottom:5px;color:#d63638;">';
-                echo '❌ ' . esc_html__('İptal Et', 'api-isarud');
+                echo '❌ ' . esc_html__('Cancel', 'api-isarud');
                 echo '</button>';
             }
         }
 
         if ($this->is_test_mode()) {
-            echo '<p style="color:#dba617;font-size:11px;margin-top:8px;">⚠️ ' . esc_html__('Test modu aktif', 'api-isarud') . '</p>';
+            echo '<p style="color:#dba617;font-size:11px;margin-top:8px;">⚠️ ' . esc_html__('Test mode active', 'api-isarud') . '</p>';
         }
 
         echo '</div>';
@@ -802,11 +802,11 @@ class Isarud_EInvoice {
                 var orderId = btn.data('order');
                 var uuid = btn.data('uuid') || '';
 
-                if (action === 'cancel' && !confirm('<?php echo esc_js(__('Faturayı iptal etmek istediğinize emin misiniz?', 'api-isarud')); ?>')) {
+                if (action === 'cancel' && !confirm('<?php echo esc_js(__('Are you sure you want to cancel this invoice?', 'api-isarud')); ?>')) {
                     return;
                 }
 
-                btn.prop('disabled', true).text('<?php echo esc_js(__('İşleniyor...', 'api-isarud')); ?>');
+                btn.prop('disabled', true).text('<?php echo esc_js(__('Processing...', 'api-isarud')); ?>');
 
                 $.post(ajaxurl, {
                     action: 'isarud_' + action + '_invoice',
@@ -815,14 +815,14 @@ class Isarud_EInvoice {
                     nonce: $('#isarud_einvoice_nonce').val()
                 }, function(resp) {
                     if (resp.success) {
-                        alert(resp.data.message || '<?php echo esc_js(__('İşlem başarılı.', 'api-isarud')); ?>');
+                        alert(resp.data.message || '<?php echo esc_js(__('Operation completed successfully.', 'api-isarud')); ?>');
                         location.reload();
                     } else {
-                        alert(resp.data || '<?php echo esc_js(__('Bir hata oluştu.', 'api-isarud')); ?>');
+                        alert(resp.data || '<?php echo esc_js(__('An error occurred.', 'api-isarud')); ?>');
                         btn.prop('disabled', false);
                     }
                 }).fail(function() {
-                    alert('<?php echo esc_js(__('Bağlantı hatası.', 'api-isarud')); ?>');
+                    alert('<?php echo esc_js(__('Connection error.', 'api-isarud')); ?>');
                     btn.prop('disabled', false);
                 });
             });
@@ -908,7 +908,7 @@ class Isarud_EInvoice {
 
     public function ajax_create_invoice() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $order_id = intval($_POST['order_id']);
         $result = $this->create_invoice($order_id);
@@ -922,7 +922,7 @@ class Isarud_EInvoice {
 
     public function ajax_sign_invoice() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $uuid = sanitize_text_field($_POST['uuid']);
         $result = $this->sign_invoice($uuid);
@@ -936,7 +936,7 @@ class Isarud_EInvoice {
 
     public function ajax_download_invoice() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $uuid = sanitize_text_field($_POST['uuid']);
         $url = $this->get_download_url($uuid);
@@ -945,12 +945,12 @@ class Isarud_EInvoice {
             wp_send_json_error($url->get_error_message());
         }
 
-        wp_send_json_success(['url' => $url, 'message' => __('PDF indirme bağlantısı hazır.', 'api-isarud')]);
+        wp_send_json_success(['url' => $url, 'message' => __('PDF download link is ready.', 'api-isarud')]);
     }
 
     public function ajax_send_invoice_email() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $order_id = intval($_POST['order_id']);
         $uuid = sanitize_text_field($_POST['uuid']);
@@ -965,7 +965,7 @@ class Isarud_EInvoice {
 
     public function ajax_test_connection() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $result = $this->login();
         if (is_wp_error($result)) {
@@ -973,12 +973,12 @@ class Isarud_EInvoice {
         }
 
         $this->logout();
-        wp_send_json_success(['message' => __('GİB bağlantısı başarılı!', 'api-isarud')]);
+        wp_send_json_success(['message' => __('GIB connection successful!', 'api-isarud')]);
     }
 
     public function ajax_cancel_invoice() {
         check_ajax_referer('isarud_einvoice_nonce', 'nonce');
-        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Yetki yok.', 'api-isarud'));
+        if (!current_user_can('manage_woocommerce')) wp_send_json_error(__('Unauthorized.', 'api-isarud'));
 
         $uuid = sanitize_text_field($_POST['uuid']);
         $result = $this->cancel_invoice($uuid);

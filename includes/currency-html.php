@@ -28,7 +28,7 @@ if (isset($_POST['isarud_save_currency']) && wp_verify_nonce($_POST['_wpnonce'],
         wp_clear_scheduled_hook('isarud_currency_update');
     }
 
-    echo '<div class="notice notice-success"><p>' . __('Ayarlar kaydedildi.', 'api-isarud') . '</p></div>';
+    echo '<div class="notice notice-success"><p>' . __('Settings saved.', 'api-isarud') . '</p></div>';
 }
 
 $currencies = [
@@ -44,8 +44,8 @@ $currencies = [
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-            <div class="isd-title"><?php _e('TCMB Doviz Kuru', 'api-isarud'); ?></div>
-            <div class="isd-version"><?php _e('Dinamik fiyatlandirma — Merkez Bankasi kurlariyla', 'api-isarud'); ?></div>
+            <div class="isd-title"><?php _e('CBRT Exchange Rate', 'api-isarud'); ?></div>
+            <div class="isd-version"><?php _e('Dynamic pricing — Central Bank exchange rates', 'api-isarud'); ?></div>
         </div>
     </div>
 
@@ -64,69 +64,69 @@ $currencies = [
         <?php endforeach; ?>
         <div class="isd-metric">
             <div class="isd-metric-val green" style="font-size:14px"><?php echo esc_html($cached['date'] ?? '—'); ?></div>
-            <div class="isd-metric-label"><?php _e('TCMB Tarih', 'api-isarud'); ?></div>
+            <div class="isd-metric-label"><?php _e('CBRT Date', 'api-isarud'); ?></div>
         </div>
     </div>
     <?php endif; ?>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
         <div class="isd-activity">
-            <h3><?php _e('Kur Ayarlari', 'api-isarud'); ?></h3>
+            <h3><?php _e('Exchange Rate Settings', 'api-isarud'); ?></h3>
             <form method="post">
                 <?php wp_nonce_field('isarud_currency'); ?>
                 <table class="form-table" style="margin:0">
                     <tr>
-                        <th style="padding:10px 0;width:160px"><label><?php _e('Aktif', 'api-isarud'); ?></label></th>
-                        <td style="padding:10px 0"><label><input type="checkbox" name="enabled" value="1" <?php checked($settings['enabled']); ?>> <?php _e('Kur bazli fiyatlandirmayi etkinlestir', 'api-isarud'); ?></label></td>
+                        <th style="padding:10px 0;width:160px"><label><?php _e('Active', 'api-isarud'); ?></label></th>
+                        <td style="padding:10px 0"><label><input type="checkbox" name="enabled" value="1" <?php checked($settings['enabled']); ?>> <?php _e('Enable exchange rate-based pricing', 'api-isarud'); ?></label></td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Baz Para Birimi', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Base Currency', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
                             <select name="base_currency" style="min-width:200px">
                                 <?php foreach ($currencies as $code => $name): ?>
                                 <option value="<?php echo $code; ?>" <?php selected($settings['base_currency'], $code); ?>><?php echo esc_html($name); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <p class="description"><?php _e('Urunlerinizin baz fiyat para birimi', 'api-isarud'); ?></p>
+                            <p class="description"><?php _e('Base price currency of your products', 'api-isarud'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Hedef Para Birimi', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Target Currency', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
                             <select name="target_currency" style="min-width:200px">
                                 <?php foreach ($currencies as $code => $name): ?>
                                 <option value="<?php echo $code; ?>" <?php selected($settings['target_currency'], $code); ?>><?php echo esc_html($name); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <p class="description"><?php _e('Magaza satis para birimi', 'api-isarud'); ?></p>
+                            <p class="description"><?php _e('Store sales currency', 'api-isarud'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Kur Tipi', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Exchange Rate Type', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
                             <select name="rate_type" style="min-width:200px">
-                                <option value="forex_buying" <?php selected($settings['rate_type'], 'forex_buying'); ?>><?php _e('Doviz Alis', 'api-isarud'); ?></option>
-                                <option value="forex_selling" <?php selected($settings['rate_type'], 'forex_selling'); ?>><?php _e('Doviz Satis', 'api-isarud'); ?></option>
-                                <option value="banknote_buying" <?php selected($settings['rate_type'], 'banknote_buying'); ?>><?php _e('Efektif Alis', 'api-isarud'); ?></option>
-                                <option value="banknote_selling" <?php selected($settings['rate_type'], 'banknote_selling'); ?>><?php _e('Efektif Satis', 'api-isarud'); ?></option>
+                                <option value="forex_buying" <?php selected($settings['rate_type'], 'forex_buying'); ?>><?php _e('Currency Buy', 'api-isarud'); ?></option>
+                                <option value="forex_selling" <?php selected($settings['rate_type'], 'forex_selling'); ?>><?php _e('Currency Sell', 'api-isarud'); ?></option>
+                                <option value="banknote_buying" <?php selected($settings['rate_type'], 'banknote_buying'); ?>><?php _e('Effective Buy', 'api-isarud'); ?></option>
+                                <option value="banknote_selling" <?php selected($settings['rate_type'], 'banknote_selling'); ?>><?php _e('Effective Sell', 'api-isarud'); ?></option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Fiyat Margin', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Price Margin', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
                             <div style="display:flex;gap:8px;align-items:center">
                                 <select name="margin_type" style="width:100px">
                                     <option value="percent" <?php selected($settings['margin_type'], 'percent'); ?>>%</option>
-                                    <option value="fixed" <?php selected($settings['margin_type'], 'fixed'); ?>><?php _e('Sabit', 'api-isarud'); ?></option>
+                                    <option value="fixed" <?php selected($settings['margin_type'], 'fixed'); ?>><?php _e('Fixed', 'api-isarud'); ?></option>
                                 </select>
                                 <input type="number" name="margin_value" value="<?php echo esc_attr($settings['margin_value']); ?>" step="0.01" style="width:100px">
                             </div>
-                            <p class="description"><?php _e('Kur uzerine eklenecek kar marji', 'api-isarud'); ?></p>
+                            <p class="description"><?php _e('Profit margin to be added to exchange rate', 'api-isarud'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Yuvarlama', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Rounding', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
                             <select name="round_to" style="width:100px">
                                 <option value="0" <?php selected($settings['round_to'], 0); ?>>0 (tam sayi)</option>
@@ -137,47 +137,47 @@ $currencies = [
                         </td>
                     </tr>
                     <tr>
-                        <th style="padding:10px 0"><label><?php _e('Otomatik Guncelleme', 'api-isarud'); ?></label></th>
+                        <th style="padding:10px 0"><label><?php _e('Automatic Update', 'api-isarud'); ?></label></th>
                         <td style="padding:10px 0">
-                            <label><input type="checkbox" name="auto_update" value="1" <?php checked($settings['auto_update']); ?>> <?php _e('WP Cron ile otomatik fiyat guncelle', 'api-isarud'); ?></label>
+                            <label><input type="checkbox" name="auto_update" value="1" <?php checked($settings['auto_update']); ?>> <?php _e('Auto-update prices with WP Cron', 'api-isarud'); ?></label>
                             <div style="margin-top:8px">
                                 <select name="update_interval" style="min-width:150px">
-                                    <option value="hourly" <?php selected($settings['update_interval'], 'hourly'); ?>><?php _e('Saatlik', 'api-isarud'); ?></option>
-                                    <option value="twicedaily" <?php selected($settings['update_interval'], 'twicedaily'); ?>><?php _e('Gunde 2 kez', 'api-isarud'); ?></option>
-                                    <option value="daily" <?php selected($settings['update_interval'], 'daily'); ?>><?php _e('Gunluk', 'api-isarud'); ?></option>
+                                    <option value="hourly" <?php selected($settings['update_interval'], 'hourly'); ?>><?php _e('Hourly', 'api-isarud'); ?></option>
+                                    <option value="twicedaily" <?php selected($settings['update_interval'], 'twicedaily'); ?>><?php _e('Twice Daily', 'api-isarud'); ?></option>
+                                    <option value="daily" <?php selected($settings['update_interval'], 'daily'); ?>><?php _e('Daily', 'api-isarud'); ?></option>
                                 </select>
                             </div>
                         </td>
                     </tr>
                 </table>
                 <p style="margin-top:16px">
-                    <button type="submit" name="isarud_save_currency" class="button-primary"><?php _e('Ayarlari Kaydet', 'api-isarud'); ?></button>
+                    <button type="submit" name="isarud_save_currency" class="button-primary"><?php _e('Save Settings', 'api-isarud'); ?></button>
                 </p>
             </form>
         </div>
 
         <div>
             <div class="isd-activity" style="margin-bottom:16px">
-                <h3><?php _e('Islemler', 'api-isarud'); ?></h3>
+                <h3><?php _e('Operations', 'api-isarud'); ?></h3>
                 <?php if ($settings['last_update']): ?>
                 <div style="background:#f0fdf4;border-radius:8px;padding:12px;margin-bottom:12px;font-size:13px;color:#15803d">
-                    <?php _e('Son guncelleme:', 'api-isarud'); ?> <?php echo esc_html($settings['last_update']); ?><br>
-                    <?php _e('Uygulanan kur:', 'api-isarud'); ?> <?php echo number_format((float)$settings['last_rate'], 4, ',', '.'); ?>
+                    <?php _e('Last Update:', 'api-isarud'); ?> <?php echo esc_html($settings['last_update']); ?><br>
+                    <?php _e('Applied Exchange Rate:', 'api-isarud'); ?> <?php echo number_format((float)$settings['last_rate'], 4, ',', '.'); ?>
                 </div>
                 <?php endif; ?>
                 <div style="display:flex;flex-direction:column;gap:8px">
-                    <button type="button" class="button" id="isarud-fetch-rates"><?php _e('TCMB Kurlarini Cek', 'api-isarud'); ?></button>
-                    <button type="button" class="button-primary" id="isarud-apply-rates"><?php _e('Fiyatlari Simdi Guncelle', 'api-isarud'); ?></button>
+                    <button type="button" class="button" id="isarud-fetch-rates"><?php _e('Pull TCMB Exchange Rates', 'api-isarud'); ?></button>
+                    <button type="button" class="button-primary" id="isarud-apply-rates"><?php _e('Update Prices Now', 'api-isarud'); ?></button>
                 </div>
                 <div id="isarud-currency-result" style="margin-top:12px"></div>
             </div>
 
             <?php if (!empty($cached['rates'])): ?>
             <div class="isd-activity">
-                <h3><?php _e('Guncel TCMB Kurlari', 'api-isarud'); ?></h3>
+                <h3><?php _e('Current TCMB Exchange Rates', 'api-isarud'); ?></h3>
                 <div style="max-height:300px;overflow-y:auto">
                     <table class="wp-list-table widefat fixed striped" style="font-size:12px">
-                        <thead><tr><th><?php _e('Kod', 'api-isarud'); ?></th><th><?php _e('Para Birimi', 'api-isarud'); ?></th><th><?php _e('Alis', 'api-isarud'); ?></th><th><?php _e('Satis', 'api-isarud'); ?></th></tr></thead>
+                        <thead><tr><th><?php _e('Code', 'api-isarud'); ?></th><th><?php _e('Currency', 'api-isarud'); ?></th><th><?php _e('Buy', 'api-isarud'); ?></th><th><?php _e('Sell', 'api-isarud'); ?></th></tr></thead>
                         <tbody>
                         <?php foreach ($cached['rates'] as $r):
                             if ($r['code'] === 'TRY') continue;
@@ -193,14 +193,14 @@ $currencies = [
                         </tbody>
                     </table>
                 </div>
-                <p style="margin:8px 0 0;font-size:11px;color:#888"><?php _e('Kaynak: tcmb.gov.tr', 'api-isarud'); ?> | <?php _e('Guncelleme:', 'api-isarud'); ?> <?php echo esc_html($cached['fetched_at'] ?? '—'); ?></p>
+                <p style="margin:8px 0 0;font-size:11px;color:#888"><?php _e('Source: tcmb.gov.tr', 'api-isarud'); ?> | <?php _e('Update:', 'api-isarud'); ?> <?php echo esc_html($cached['fetched_at'] ?? '—'); ?></p>
             </div>
             <?php endif; ?>
         </div>
     </div>
 
     <div style="background:#f0f6fc;border:1px solid #b5d4f4;border-radius:10px;padding:16px;margin-top:16px;font-size:12px;color:#185fa5">
-        <?php _e('Nasil calisir: Urunlerinizin baz fiyatlarini (ornegin USD cinsinden) girin. Isarud, TCMB gunluk kurunu cekip WooCommerce fiyatlarini otomatik gunceller. Ilk uygulamada mevcut fiyatlar baz fiyat olarak kaydedilir.', 'api-isarud'); ?>
+        <?php _e('How it works: Enter your products\' base prices (for example in USD). Isarud pulls the daily TCMB exchange rate and automatically updates WooCommerce prices. On first application, existing prices are saved as base prices.', 'api-isarud'); ?>
     </div>
 </div>
 
@@ -208,27 +208,27 @@ $currencies = [
 jQuery(function($){
     $('#isarud-fetch-rates').on('click', function(){
         var btn = $(this);
-        btn.prop('disabled',true).text('<?php _e('Cekilliyor...', 'api-isarud'); ?>');
+        btn.prop('disabled',true).text('<?php _e('Pulling...', 'api-isarud'); ?>');
         $.post(isarud.ajax, {action:'isarud_fetch_rates',nonce:isarud.nonce}, function(r){
-            btn.prop('disabled',false).text('<?php _e('TCMB Kurlarini Cek', 'api-isarud'); ?>');
+            btn.prop('disabled',false).text('<?php _e('Pull TCMB Exchange Rates', 'api-isarud'); ?>');
             if(r.success){
-                $('#isarud-currency-result').html('<div style="background:#f0fdf4;border-radius:6px;padding:8px 12px;color:#15803d;font-size:12px"><?php _e('Kurlar basariyla cekildi. Tarih:', 'api-isarud'); ?> '+r.data.date+'</div>');
+                $('#isarud-currency-result').html('<div style="background:#f0fdf4;border-radius:6px;padding:8px 12px;color:#15803d;font-size:12px"><?php _e('Exchange rates successfully pulled. Date:', 'api-isarud'); ?> '+r.data.date+'</div>');
                 setTimeout(function(){ location.reload(); }, 1500);
             } else {
-                $('#isarud-currency-result').html('<div style="background:#fef2f2;border-radius:6px;padding:8px 12px;color:#dc2626;font-size:12px"><?php _e('Hata:', 'api-isarud'); ?> '+r.data+'</div>');
+                $('#isarud-currency-result').html('<div style="background:#fef2f2;border-radius:6px;padding:8px 12px;color:#dc2626;font-size:12px"><?php _e('Error:', 'api-isarud'); ?> '+r.data+'</div>');
             }
         });
     });
     $('#isarud-apply-rates').on('click', function(){
         var btn = $(this);
-        if(!confirm('<?php _e('Tum urun fiyatlari guncel TCMB kuruna gore guncellenecek. Devam edilsin mi?', 'api-isarud'); ?>')) return;
-        btn.prop('disabled',true).text('<?php _e('Guncelleniyor...', 'api-isarud'); ?>');
+        if(!confirm('<?php _e('All product prices will be updated according to the current TCMB exchange rate. Continue?', 'api-isarud'); ?>')) return;
+        btn.prop('disabled',true).text('<?php _e('Updating...', 'api-isarud'); ?>');
         $.post(isarud.ajax, {action:'isarud_apply_rates',nonce:isarud.nonce}, function(r){
-            btn.prop('disabled',false).text('<?php _e('Fiyatlari Simdi Guncelle', 'api-isarud'); ?>');
+            btn.prop('disabled',false).text('<?php _e('Update Prices Now', 'api-isarud'); ?>');
             if(r.success){
-                $('#isarud-currency-result').html('<div style="background:#f0fdf4;border-radius:6px;padding:8px 12px;color:#15803d;font-size:12px">'+r.data.updated+' <?php _e('urun guncellendi. Kur:', 'api-isarud'); ?> '+parseFloat(r.data.rate).toFixed(4)+'</div>');
+                $('#isarud-currency-result').html('<div style="background:#f0fdf4;border-radius:6px;padding:8px 12px;color:#15803d;font-size:12px">'+r.data.updated+' <?php _e('product updated. Exchange Rate:', 'api-isarud'); ?> '+parseFloat(r.data.rate).toFixed(4)+'</div>');
             } else {
-                $('#isarud-currency-result').html('<div style="background:#fef2f2;border-radius:6px;padding:8px 12px;color:#dc2626;font-size:12px"><?php _e('Hata:', 'api-isarud'); ?> '+r.data+'</div>');
+                $('#isarud-currency-result').html('<div style="background:#fef2f2;border-radius:6px;padding:8px 12px;color:#dc2626;font-size:12px"><?php _e('Error:', 'api-isarud'); ?> '+r.data+'</div>');
             }
         });
     });

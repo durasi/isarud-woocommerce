@@ -42,16 +42,16 @@ class Isarud_Upsell {
         return wp_parse_args(get_option($this->option_key, []), [
             'enabled' => false,
             'fbt_enabled' => true,
-            'fbt_title' => __('Birlikte Satin Alinanlar', 'api-isarud'),
+            'fbt_title' => __('Frequently Bought Together', 'api-isarud'),
             'fbt_auto' => true,
             'fbt_limit' => 4,
             'fbt_discount' => 0,
             'order_bump_enabled' => true,
-            'order_bump_title' => __('Bunu da ekleyin!', 'api-isarud'),
+            'order_bump_title' => __('Add this too!', 'api-isarud'),
             'cart_upsell_enabled' => true,
-            'cart_upsell_title' => __('Bunlari da begenebilirsiniz', 'api-isarud'),
+            'cart_upsell_title' => __('You might also like', 'api-isarud'),
             'thankyou_enabled' => true,
-            'thankyou_title' => __('Siparisini tamamladiniz! Bunlar da ilginizi cekebilir', 'api-isarud'),
+            'thankyou_title' => __('Order completed! These might interest you', 'api-isarud'),
             'thankyou_coupon' => '',
         ]);
     }
@@ -67,11 +67,11 @@ class Isarud_Upsell {
         ?>
         <div class="options_group">
             <p class="form-field">
-                <label for="isarud_fbt_products"><?php _e('Birlikte Satin Alinan Urunler', 'api-isarud'); ?></label>
-                <select class="wc-product-search" multiple="multiple" style="width:50%" id="isarud_fbt_products" name="isarud_fbt_products[]" data-placeholder="<?php esc_attr_e('Urun ara...', 'api-isarud'); ?>" data-action="woocommerce_json_search_products">
+                <label for="isarud_fbt_products"><?php _e('Frequently Bought Together Products', 'api-isarud'); ?></label>
+                <select class="wc-product-search" multiple="multiple" style="width:50%" id="isarud_fbt_products" name="isarud_fbt_products[]" data-placeholder="<?php esc_attr_e('Search products...', 'api-isarud'); ?>" data-action="woocommerce_json_search_products">
                     <?php if ($ids) { foreach ((array)$ids as $id) { $p = wc_get_product($id); if ($p) echo '<option value="' . esc_attr($id) . '" selected>' . esc_html($p->get_name()) . '</option>'; } } ?>
                 </select>
-                <?php echo wc_help_tip(__('Bu urunle birlikte onerilen urunleri secin', 'api-isarud')); ?>
+                <?php echo wc_help_tip(__('Select products recommended with this item', 'api-isarud')); ?>
             </p>
         </div>
         <?php
@@ -141,7 +141,7 @@ class Isarud_Upsell {
                     <a href="<?php echo esc_url($p->get_permalink()); ?>" style="font-size:13px;color:#333;text-decoration:none;font-weight:500;display:block;margin-bottom:4px"><?php echo esc_html($p->get_name()); ?></a>
                     <span style="font-size:14px;font-weight:600;color:#358a4f"><?php echo $p->get_price_html(); ?></span>
                     <div style="margin-top:8px">
-                        <a href="<?php echo esc_url($p->add_to_cart_url()); ?>" class="button" style="font-size:12px;padding:6px 12px"><?php _e('Sepete Ekle', 'api-isarud'); ?></a>
+                        <a href="<?php echo esc_url($p->add_to_cart_url()); ?>" class="button" style="font-size:12px;padding:6px 12px"><?php _e('Add to Cart', 'api-isarud'); ?></a>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -250,7 +250,7 @@ class Isarud_Upsell {
                 <div style="background:#f9fafb;border-radius:8px;padding:10px;text-align:center;border:1px solid #e5e7eb">
                     <a href="<?php echo esc_url($p->get_permalink()); ?>" style="font-size:12px;color:#333;text-decoration:none;font-weight:500"><?php echo esc_html($p->get_name()); ?></a>
                     <div style="margin-top:4px;font-size:13px;font-weight:600;color:#358a4f"><?php echo $p->get_price_html(); ?></div>
-                    <a href="<?php echo esc_url($p->add_to_cart_url()); ?>" class="button" style="font-size:11px;padding:4px 10px;margin-top:6px"><?php _e('Ekle', 'api-isarud'); ?></a>
+                    <a href="<?php echo esc_url($p->add_to_cart_url()); ?>" class="button" style="font-size:11px;padding:4px 10px;margin-top:6px"><?php _e('Add', 'api-isarud'); ?></a>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -279,7 +279,7 @@ class Isarud_Upsell {
             <h3 style="margin:0 0 12px;font-size:16px;font-weight:600;color:#15803d"><?php echo esc_html($settings['thankyou_title']); ?></h3>
             <?php if (!empty($settings['thankyou_coupon'])): ?>
             <div style="background:#fff;border:2px dashed #358a4f;border-radius:8px;padding:10px;text-align:center;margin-bottom:12px">
-                <span style="font-size:11px;color:#358a4f"><?php _e('Sonraki siparisinde kullan:', 'api-isarud'); ?></span>
+                <span style="font-size:11px;color:#358a4f"><?php _e('Use in your next order:', 'api-isarud'); ?></span>
                 <strong style="font-size:18px;color:#358a4f;margin-left:8px;letter-spacing:2px"><?php echo esc_html($settings['thankyou_coupon']); ?></strong>
             </div>
             <?php endif; ?>
@@ -288,7 +288,7 @@ class Isarud_Upsell {
                 <div style="background:#fff;border-radius:8px;padding:10px;text-align:center;border:1px solid #e5e7eb">
                     <a href="<?php echo esc_url($p->get_permalink()); ?>" style="font-size:12px;color:#333;text-decoration:none;font-weight:500"><?php echo esc_html($p->get_name()); ?></a>
                     <div style="margin-top:4px;font-size:13px;font-weight:600;color:#358a4f"><?php echo $p->get_price_html(); ?></div>
-                    <a href="<?php echo esc_url($p->get_permalink()); ?>" style="font-size:11px;color:#358a4f"><?php _e('Incele', 'api-isarud'); ?> &rarr;</a>
+                    <a href="<?php echo esc_url($p->get_permalink()); ?>" style="font-size:11px;color:#358a4f"><?php _e('Review', 'api-isarud'); ?> &rarr;</a>
                 </div>
                 <?php endforeach; ?>
             </div>

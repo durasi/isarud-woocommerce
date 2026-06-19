@@ -48,10 +48,10 @@ class Isarud_Currency {
         if (is_wp_error($response)) return ['error' => $response->get_error_message()];
 
         $body = wp_remote_retrieve_body($response);
-        if (empty($body)) return ['error' => __('TCMB yanit vermedi', 'api-isarud')];
+        if (empty($body)) return ['error' => __('TCMB did not respond', 'api-isarud')];
 
         $xml = @simplexml_load_string($body);
-        if (!$xml) return ['error' => __('XML ayristirma hatasi', 'api-isarud')];
+        if (!$xml) return ['error' => __('XML parsing error', 'api-isarud')];
 
         $rates = [];
         $date = (string)$xml['Tarih'];
@@ -102,11 +102,11 @@ class Isarud_Currency {
     }
 
     public function apply_to_products() {
-        if (!class_exists('WooCommerce')) return ['error' => __('WooCommerce gerekli', 'api-isarud')];
+        if (!class_exists('WooCommerce')) return ['error' => __('WooCommerce required', 'api-isarud')];
 
         $settings = $this->get_settings();
         $rate = $this->calculate_rate($settings['base_currency'], $settings['target_currency'], $settings['rate_type']);
-        if (!$rate) return ['error' => __('Kur hesaplanamadi', 'api-isarud')];
+        if (!$rate) return ['error' => __('Exchange rate could not be calculated', 'api-isarud')];
 
         if ($settings['margin_type'] === 'percent') {
             $rate *= (1 + $settings['margin_value'] / 100);

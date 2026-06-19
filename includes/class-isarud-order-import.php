@@ -98,10 +98,10 @@ class Isarud_Order_Import {
      */
     public function import_amazon_orders(int $days = 7): array {
         if (!class_exists('Isarud_Amazon')) {
-            return ['error' => 'Amazon modülü yüklü değil'];
+            return ['error' => __('Amazon module not loaded','api-isarud')];
         }
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         $result = Isarud_Amazon::instance()->get_orders(null, $days, 0, 50);
         if (isset($result['error'])) return $result;
@@ -148,7 +148,7 @@ class Isarud_Order_Import {
 
     public function import_pazarama_orders(int $days = 7): array {
         if (!class_exists('Isarud_Pazarama')) {
-            return ['success' => false, 'message' => 'Pazarama modülü yüklü değil', 'imported' => 0];
+            return ['success' => false, 'message' => __('Pazarama module not loaded','api-isarud'), 'imported' => 0];
         }
 
         $svc = \Isarud_Pazarama::instance();
@@ -173,10 +173,10 @@ class Isarud_Order_Import {
 
         // Bridge to Isarud_Hepsiburada (v6.6.6+ - server-side credentials)
         if (!class_exists('Isarud_Hepsiburada')) {
-            return ['error' => 'Hepsiburada modülü yüklü değil'];
+            return ['error' => __('Hepsiburada module not loaded','api-isarud')];
         }
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         $result = Isarud_Hepsiburada::instance()->get_orders(null, $days, 0, 50);
 
@@ -235,17 +235,17 @@ class Isarud_Order_Import {
      */
     public function import_n11_orders(int $days = 7): array {
         $api_key = get_option('isarud_cloud_api_key', '');
-        if (empty($api_key)) return ['error' => 'Cloud Sync bağlantısı yok'];
+        if (empty($api_key)) return ['error' => __('No Cloud Sync connection','api-isarud')];
 
         if (!class_exists('Isarud_N11')) {
-            return ['error' => 'N11 modülü yüklü değil'];
+            return ['error' => __('N11 module not loaded','api-isarud')];
         }
 
         // Modern REST: Isarud_N11 bridge → isarud.com → N11
         $result = Isarud_N11::instance()->get_orders(0, 50);
 
         if (!($result['success'] ?? false)) {
-            return ['error' => $result['message'] ?? 'N11 sipariş çekme başarısız'];
+            return ['error' => $result['message'] ?? __('N11 order fetch failed','api-isarud')];
         }
 
         $orders = $result['orders'] ?? $result['items'] ?? [];
@@ -412,7 +412,7 @@ class Isarud_Order_Import {
             }
 
             $order->add_order_note(sprintf(
-                'Isarud: %s siparişi aktarıldı (ID: %s)',
+                __('Isarud: order %s imported (ID: %s)','api-isarud'),
                 ucfirst($data['marketplace']),
                 $data['external_id']
             ));

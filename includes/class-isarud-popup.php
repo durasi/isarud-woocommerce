@@ -65,7 +65,7 @@ class Isarud_Popup {
                     <?php endif; ?>
                     <?php if (!empty($c['coupon'])): ?>
                     <div style="background:#f0fdf4;border:2px dashed #358a4f;border-radius:10px;padding:14px;text-align:center;margin-bottom:16px">
-                        <span style="font-size:11px;color:#358a4f;text-transform:uppercase;letter-spacing:1px"><?php _e('Indirim Kodunuz', 'api-isarud'); ?></span>
+                        <span style="font-size:11px;color:#358a4f;text-transform:uppercase;letter-spacing:1px"><?php _e('Your Discount Code', 'api-isarud'); ?></span>
                         <div style="font-size:24px;font-weight:800;color:#358a4f;margin-top:4px;letter-spacing:2px"><?php echo esc_html($c['coupon']); ?></div>
                     </div>
                     <?php endif; ?>

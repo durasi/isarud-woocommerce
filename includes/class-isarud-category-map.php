@@ -72,17 +72,17 @@ class Isarud_Category_Map {
         $wc_categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
         ?>
         <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0">
-            <h2 style="margin-top:0"><?php _e('Kategori Eşleştirme', 'api-isarud'); ?></h2>
-            <p style="color:#666"><?php _e('Pazar yeri kategorilerini WooCommerce kategorileriyle eşleştirin. Ürün aktarımında kullanılır.', 'api-isarud'); ?></p>
+            <h2 style="margin-top:0"><?php _e('Category Matching', 'api-isarud'); ?></h2>
+            <p style="color:#666"><?php _e('Match marketplace categories with WooCommerce categories. Used in product transfer.', 'api-isarud'); ?></p>
 
             <div id="isarud-category-mappings">
                 <?php if (empty($mappings)): ?>
-                    <p style="color:#999"><?php _e('Henüz eşleştirme yok. Ürün aktarımı sırasında otomatik oluşturulur veya aşağıdan ekleyin.', 'api-isarud'); ?></p>
+                    <p style="color:#999"><?php _e('No matches yet. Matches are created automatically during product import or add manually below.', 'api-isarud'); ?></p>
                 <?php else: ?>
                     <table class="wp-list-table widefat fixed striped">
                         <thead><tr>
-                            <th><?php _e('Pazar Yeri Kategorisi', 'api-isarud'); ?></th>
-                            <th><?php _e('WooCommerce Kategorisi', 'api-isarud'); ?></th>
+                            <th><?php _e('Marketplace Category', 'api-isarud'); ?></th>
+                            <th><?php _e('WooCommerce Category', 'api-isarud'); ?></th>
                             <th></th>
                         </tr></thead>
                         <tbody>
@@ -94,7 +94,7 @@ class Isarud_Category_Map {
                         ?>
                         <tr>
                             <td><strong><?php echo esc_html(ucfirst($mp)); ?>:</strong> <?php echo esc_html($mp_cat); ?></td>
-                            <td><?php echo $wc_term ? esc_html($wc_term->name) : '<em>Silinmiş</em>'; ?></td>
+                            <td><?php echo $wc_term ? esc_html($wc_term->name) : '<em>' . esc_html__('Deleted','api-isarud') . '</em>'; ?></td>
                             <td><button type="button" class="button button-small isarud-remove-mapping" data-key="<?php echo esc_attr($key); ?>">✗</button></td>
                         </tr>
                         <?php endforeach; ?>
@@ -109,13 +109,13 @@ class Isarud_Category_Map {
                     <option value="hepsiburada">Hepsiburada</option>
                     <option value="n11">N11</option>
                 </select>
-                <input type="text" id="isarud-map-mp-cat" placeholder="<?php _e('Pazar yeri kategori adı', 'api-isarud'); ?>" class="regular-text">
+                <input type="text" id="isarud-map-mp-cat" placeholder="<?php _e('Marketplace category name', 'api-isarud'); ?>" class="regular-text">
                 <select id="isarud-map-wc-cat">
                     <?php foreach ($wc_categories as $cat): ?>
                     <option value="<?php echo $cat->term_id; ?>"><?php echo esc_html($cat->name); ?></option>
                     <?php endforeach; ?>
                 </select>
-                <button type="button" class="button-primary" id="isarud-add-mapping"><?php _e('Ekle', 'api-isarud'); ?></button>
+                <button type="button" class="button-primary" id="isarud-add-mapping"><?php _e('Add', 'api-isarud'); ?></button>
             </div>
         </div>
 
@@ -147,7 +147,7 @@ class Isarud_Category_Map {
         $wc_cat = intval($_POST['wc_category'] ?? 0);
 
         if (empty($mp) || empty($mp_cat) || !$wc_cat) {
-            wp_send_json_error('Tüm alanları doldurun');
+            wp_send_json_error(__('Please fill in all fields','api-isarud'));
         }
 
         $this->save_mapping($mp, $mp_cat, $wc_cat);

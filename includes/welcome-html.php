@@ -13,8 +13,8 @@ $total_steps = 5;
             <div style="width:64px;height:64px;background:#358a4f;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
                 <svg style="width:36px;height:36px;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
-            <h1 style="color:#fff;font-size:28px;font-weight:800;margin:0 0 8px"><?php _e('Isarud\'a Hosgeldiniz!', 'api-isarud'); ?></h1>
-            <p style="color:rgba(255,255,255,0.7);font-size:14px;margin:0;max-width:500px;display:inline-block"><?php _e('Yaptirim tarama, pazaryeri entegrasyonu ve e-ticaret yonetim platformu. Hizli kuruluma baslayalim.', 'api-isarud'); ?></p>
+            <h1 style="color:#fff;font-size:28px;font-weight:800;margin:0 0 8px"><?php _e('Welcome to Isarud!', 'api-isarud'); ?></h1>
+            <p style="color:rgba(255,255,255,0.7);font-size:14px;margin:0;max-width:500px;display:inline-block"><?php _e('Sanction screening, marketplace integration, and e-commerce management platform. Let\'s get started with quick setup.', 'api-isarud'); ?></p>
         </div>
     </div>
 
@@ -26,41 +26,41 @@ $total_steps = 5;
 
     <?php if ($step === 1): ?>
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px">
-        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('1. Isarud Hesabinizi Baglayın', 'api-isarud'); ?></h2>
-        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('isarud.com uzerinden ucretsiz hesap olusturun ve API anahtarinizi alin. Bu anahtar yaptirim taramasi icin gereklidir.', 'api-isarud'); ?></p>
+        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('1. Connect Your Isarud Account', 'api-isarud'); ?></h2>
+        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('Create a free account on isarud.com and get your API key. This key is required for sanction screening.', 'api-isarud'); ?></p>
         <div style="background:#f9fafb;border-radius:10px;padding:20px;margin-bottom:16px">
             <div style="display:flex;align-items:start;gap:16px;margin-bottom:16px">
                 <div style="width:32px;height:32px;background:#358a4f;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:700;font-size:14px">1</div>
                 <div>
-                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('isarud.com\'da hesap oluşturun', 'api-isarud'); ?></p>
-                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('Google veya Apple hesabinizla hizli kayit olun', 'api-isarud'); ?></p>
+                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('Create an account on isarud.com', 'api-isarud'); ?></p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('Register quickly with your Google or Apple account', 'api-isarud'); ?></p>
                 </div>
             </div>
             <div style="display:flex;align-items:start;gap:16px;margin-bottom:16px">
                 <div style="width:32px;height:32px;background:#358a4f;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:700;font-size:14px">2</div>
                 <div>
-                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('Hesap > API Anahtarlari sayfasindan API key alin', 'api-isarud'); ?></p>
-                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('API anahtariniz otomatik olusturulur, kopyalayin', 'api-isarud'); ?></p>
+                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('Get your API key from the Account > API Keys page', 'api-isarud'); ?></p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('Your API key is generated automatically, copy it', 'api-isarud'); ?></p>
                 </div>
             </div>
             <div style="display:flex;align-items:start;gap:16px">
                 <div style="width:32px;height:32px;background:#358a4f;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:700;font-size:14px">3</div>
                 <div>
-                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('Isarud > Ayarlar sayfasina API anahtarinizi girin', 'api-isarud'); ?></p>
-                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('API key girildiginde yaptirim taramasi otomatik aktif olur', 'api-isarud'); ?></p>
+                    <p style="margin:0;font-weight:600;font-size:14px;color:#333"><?php _e('Enter your API key in the Isarud > Settings page', 'api-isarud'); ?></p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#888"><?php _e('When the API key is entered, sanction screening is automatically activated', 'api-isarud'); ?></p>
                 </div>
             </div>
         </div>
         <div style="display:flex;gap:10px">
-            <a href="https://isarud.com/register" target="_blank" class="button-primary" style="padding:10px 24px"><?php _e('isarud.com\'da Kayit Ol', 'api-isarud'); ?> &rarr;</a>
-            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=2'); ?>" class="button" style="padding:10px 24px"><?php _e('Sonraki Adim', 'api-isarud'); ?> &rarr;</a>
+            <a href="https://isarud.com/register" target="_blank" class="button-primary" style="padding:10px 24px"><?php _e('Sign Up on isarud.com', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=2'); ?>" class="button" style="padding:10px 24px"><?php _e('Next Step', 'api-isarud'); ?> &rarr;</a>
         </div>
     </div>
 
     <?php elseif ($step === 2): ?>
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px">
-        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('2. Pazaryeri API Bilgilerinizi Girin', 'api-isarud'); ?></h2>
-        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('Trendyol, Hepsiburada, N11 veya diger pazaryerlerinde satış yapıyorsanız API bilgilerinizi girerek entegrasyonu kurun.', 'api-isarud'); ?></p>
+        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('2. Enter Your Marketplace API Information', 'api-isarud'); ?></h2>
+        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('If you are selling on Trendyol, Hepsiburada, N11 or other marketplaces, set up the integration by entering your API information.', 'api-isarud'); ?></p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
             <?php
             $marketplaces = [
@@ -79,24 +79,24 @@ $total_steps = 5;
             <?php endforeach; ?>
         </div>
         <div style="display:flex;gap:10px">
-            <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('Pazaryeri API Ayarlari', 'api-isarud'); ?> &rarr;</a>
-            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=3'); ?>" class="button" style="padding:10px 24px"><?php _e('Sonraki Adim', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('Marketplace API Settings', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=3'); ?>" class="button" style="padding:10px 24px"><?php _e('Next Step', 'api-isarud'); ?> &rarr;</a>
         </div>
     </div>
 
     <?php elseif ($step === 3): ?>
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px">
-        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('3. E-ticaret Altyapinizi Tamamlayin', 'api-isarud'); ?></h2>
-        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('Odeme, kargo, SEO ve pazarlama araclarini kurmak icin E-ticaret Rehberini kullanin.', 'api-isarud'); ?></p>
+        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('3. Complete Your E-commerce Infrastructure', 'api-isarud'); ?></h2>
+        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('Use the E-commerce Guide to set up payment, shipping, SEO and marketing tools.', 'api-isarud'); ?></p>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px">
             <?php
             $features = [
-                ['icon' => '💳', 'title' => __('Odeme Sistemi', 'api-isarud'), 'desc' => __('iyzico, PayTR kurulumu', 'api-isarud')],
-                ['icon' => '🚚', 'title' => __('Kargo', 'api-isarud'), 'desc' => __('Hezarfen (23 firma)', 'api-isarud')],
+                ['icon' => '💳', 'title' => __('Payment System', 'api-isarud'), 'desc' => __('iyzico, PayTR setup', 'api-isarud')],
+                ['icon' => '🚚', 'title' => __('Shipping', 'api-isarud'), 'desc' => __('Hezarfen (23 companies)', 'api-isarud')],
                 ['icon' => '🔍', 'title' => __('SEO', 'api-isarud'), 'desc' => __('Yoast/RankMath', 'api-isarud')],
-                ['icon' => '📧', 'title' => __('Pazarlama', 'api-isarud'), 'desc' => __('E-posta, popup, sepet', 'api-isarud')],
-                ['icon' => '🧾', 'title' => __('E-Fatura', 'api-isarud'), 'desc' => __('GIB e-Arsiv Portal', 'api-isarud')],
-                ['icon' => '🏪', 'title' => __('POS', 'api-isarud'), 'desc' => __('Fiziksel magaza', 'api-isarud')],
+                ['icon' => '📧', 'title' => __('Marketing', 'api-isarud'), 'desc' => __('Email, popup, cart', 'api-isarud')],
+                ['icon' => '🧾', 'title' => __('E-Invoice', 'api-isarud'), 'desc' => __('GIB e-Archive Portal', 'api-isarud')],
+                ['icon' => '🏪', 'title' => __('POS', 'api-isarud'), 'desc' => __('Physical store', 'api-isarud')],
             ];
             foreach ($features as $f): ?>
             <div style="background:#f9fafb;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px;border:1px solid #e5e7eb">
@@ -109,27 +109,27 @@ $total_steps = 5;
             <?php endforeach; ?>
         </div>
         <div style="display:flex;gap:10px">
-            <a href="<?php echo admin_url('admin.php?page=isarud-ecosystem'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('E-ticaret Rehberi', 'api-isarud'); ?> &rarr;</a>
-            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=4'); ?>" class="button" style="padding:10px 24px"><?php _e('Sonraki Adim', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-ecosystem'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('E-commerce Guide', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=4'); ?>" class="button" style="padding:10px 24px"><?php _e('Next Step', 'api-isarud'); ?> &rarr;</a>
         </div>
     </div>
 
     <?php elseif ($step === 4): ?>
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px">
-        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('4. Cloud Sync ile Baglantinizi Kurun', 'api-isarud'); ?></h2>
-        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('Cloud Sync sayesinde WooCommerce magazaniz isarud.com hesabinizla otomatik senkronize olur. Urunlerinizi ve siparislerinizi her cihazdan takip edin.', 'api-isarud'); ?></p>
+        <h2 style="margin:0 0 8px;font-size:20px;color:#1a1a2e"><?php _e('4. Set Up Your Connection with Cloud Sync', 'api-isarud'); ?></h2>
+        <p style="color:#666;font-size:13px;margin-bottom:20px"><?php _e('With Cloud Sync, your WooCommerce store automatically synchronizes with your isarud.com account. Track your products and orders from any device.', 'api-isarud'); ?></p>
         <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:20px;margin-bottom:20px">
-            <h3 style="margin:0 0 12px;font-size:15px;color:#15803d"><?php _e('Her Yerden Erisim', 'api-isarud'); ?></h3>
+            <h3 style="margin:0 0 12px;font-size:15px;color:#15803d"><?php _e('Access From Anywhere', 'api-isarud'); ?></h3>
             <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
                 <?php
                 $platforms = [
-                    ['icon' => '🌐', 'name' => 'isarud.com', 'desc' => __('Web tarayici', 'api-isarud'), 'url' => 'https://isarud.com', 'live' => true],
+                    ['icon' => '🌐', 'name' => 'isarud.com', 'desc' => __('Web browser', 'api-isarud'), 'url' => 'https://isarud.com', 'live' => true],
                     ['icon' => '📱', 'name' => 'iOS / iPadOS / macOS', 'desc' => 'App Store', 'url' => 'https://apps.apple.com/tr/app/isarud-e-commerce-tools/id6761309959', 'live' => true],
                     ['icon' => '🖥️', 'name' => 'Windows', 'desc' => 'Microsoft Store', 'url' => 'https://www.microsoft.com/store/apps/9PM1Z57C4GT3', 'live' => true],
-                    ['icon' => '🤖', 'name' => 'Android', 'desc' => __('Yakinda', 'api-isarud'), 'url' => '', 'live' => false],
-                    ['icon' => '🔌', 'name' => 'WooCommerce', 'desc' => __('Bu eklenti', 'api-isarud'), 'url' => '', 'live' => true],
-                    ['icon' => '🛍️', 'name' => 'Shopify', 'desc' => __('Shopify uygulamasi', 'api-isarud'), 'url' => '', 'live' => true],
-                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Ozel entegrasyon', 'api-isarud'), 'url' => 'https://isarud.com/api-docs', 'live' => true],
+                    ['icon' => '🤖', 'name' => 'Android', 'desc' => __('Coming Soon', 'api-isarud'), 'url' => '', 'live' => false],
+                    ['icon' => '🔌', 'name' => 'WooCommerce', 'desc' => __('This plugin', 'api-isarud'), 'url' => '', 'live' => true],
+                    ['icon' => '🛍️', 'name' => 'Shopify', 'desc' => __('Shopify app', 'api-isarud'), 'url' => '', 'live' => true],
+                    ['icon' => '⚡', 'name' => 'REST API', 'desc' => __('Custom Integration', 'api-isarud'), 'url' => 'https://isarud.com/api-docs', 'live' => true],
                 ];
                 foreach ($platforms as $p): ?>
                 <?php if (!empty($p['url'])): ?>
@@ -147,8 +147,8 @@ $total_steps = 5;
             </div>
         </div>
         <div style="display:flex;gap:10px">
-            <a href="<?php echo admin_url('admin.php?page=isarud-cloud-sync'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('Cloud Sync Ayarlari', 'api-isarud'); ?> &rarr;</a>
-            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=5'); ?>" class="button" style="padding:10px 24px"><?php _e('Sonraki Adim', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-cloud-sync'); ?>" class="button-primary" style="padding:10px 24px"><?php _e('Cloud Sync Settings', 'api-isarud'); ?> &rarr;</a>
+            <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=5'); ?>" class="button" style="padding:10px 24px"><?php _e('Next Step', 'api-isarud'); ?> &rarr;</a>
         </div>
     </div>
 
@@ -157,21 +157,21 @@ $total_steps = 5;
         <div style="width:56px;height:56px;background:#f0fdf4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
             <svg style="width:28px;height:28px;color:#358a4f" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
         </div>
-        <h2 style="margin:0 0 8px;font-size:22px;color:#1a1a2e"><?php _e('Hazirsiniz!', 'api-isarud'); ?></h2>
-        <p style="color:#666;font-size:14px;margin-bottom:24px;max-width:450px;display:inline-block"><?php _e('Isarud kurulumu tamamlandi. Artik yaptirim taramasi yapabilir, pazaryerlerinizi yonetebilir ve e-ticaretinizi buyutebilirsiniz.', 'api-isarud'); ?></p>
+        <h2 style="margin:0 0 8px;font-size:22px;color:#1a1a2e"><?php _e('You\'re All Set!', 'api-isarud'); ?></h2>
+        <p style="color:#666;font-size:14px;margin-bottom:24px;max-width:450px;display:inline-block"><?php _e('Isarud setup is complete. You can now run compliance scans, manage your marketplaces, and grow your e-commerce business.', 'api-isarud'); ?></p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto">
             <a href="<?php echo admin_url('admin.php?page=isarud'); ?>" style="background:#358a4f;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600">
                 <?php _e('Dashboard', 'api-isarud'); ?>
             </a>
             <a href="<?php echo admin_url('admin.php?page=isarud-marketplaces'); ?>" style="background:#1a1a2e;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600">
-                <?php _e('Pazaryerleri', 'api-isarud'); ?>
+                <?php _e('Marketplaces', 'api-isarud'); ?>
             </a>
             <a href="<?php echo admin_url('admin.php?page=isarud-ecosystem'); ?>" style="background:#185fa5;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600">
-                <?php _e('Rehber', 'api-isarud'); ?>
+                <?php _e('Guide', 'api-isarud'); ?>
             </a>
         </div>
-        <button id="isarud-dismiss-welcome" class="button" style="padding:8px 20px"><?php _e('Karsilama ekranini kapat', 'api-isarud'); ?></button>
-        <p style="margin-top:12px;font-size:11px;color:#aaa"><?php _e('Isarud > Ayarlar sayfasindan karsilama ekranini tekrar acabilirsiniz.', 'api-isarud'); ?></p>
+        <button id="isarud-dismiss-welcome" class="button" style="padding:8px 20px"><?php _e('Close Welcome Screen', 'api-isarud'); ?></button>
+        <p style="margin-top:12px;font-size:11px;color:#aaa"><?php _e('You can reopen the welcome screen from Isarud > Settings page.', 'api-isarud'); ?></p>
     </div>
 
     <script>
@@ -185,9 +185,9 @@ $total_steps = 5;
 
     <?php if ($step > 1): ?>
     <div style="text-align:center;margin-top:16px">
-        <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=' . ($step - 1)); ?>" style="font-size:12px;color:#888;text-decoration:none">&larr; <?php _e('Onceki adim', 'api-isarud'); ?></a>
+        <a href="<?php echo admin_url('admin.php?page=isarud-welcome&step=' . ($step - 1)); ?>" style="font-size:12px;color:#888;text-decoration:none">&larr; <?php _e('Previous Step', 'api-isarud'); ?></a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="<?php echo admin_url('admin.php?page=isarud'); ?>" style="font-size:12px;color:#888;text-decoration:none"><?php _e('Atla, Dashboard\'a git', 'api-isarud'); ?></a>
+        <a href="<?php echo admin_url('admin.php?page=isarud'); ?>" style="font-size:12px;color:#888;text-decoration:none"><?php _e('Skip, Go to Dashboard', 'api-isarud'); ?></a>
     </div>
     <?php endif; ?>
 

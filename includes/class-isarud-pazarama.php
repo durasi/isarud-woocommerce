@@ -72,7 +72,7 @@ class Isarud_Pazarama {
         if (empty($api_key)) {
             return [
                 'success' => false,
-                'message' => 'Cloud Sync API key yok. Önce Cloud Sync sayfasından bağlanın.',
+                'message' => __('No Cloud Sync API key. Please connect from the Cloud Sync page first.','api-isarud'),
                 'data' => null,
             ];
         }
@@ -448,7 +448,7 @@ class Isarud_Pazarama {
         ?>
         <div class="notice notice-success is-dismissible">
             <p>
-                <strong>✅ <?php _e('Pazarama bağlandı!', 'api-isarud'); ?></strong>
+                <strong>✅ <?php _e('Pazarama connected!', 'api-isarud'); ?></strong>
                 <?php if ($merchant_id): ?>
                     <?php printf(esc_html__('Merchant ID: %s', 'api-isarud'), '<code>' . esc_html($merchant_id) . '</code>'); ?>
                 <?php endif; ?>

@@ -109,8 +109,8 @@ class Isarud_Attribute_Map {
         $wc_attributes = wc_get_attribute_taxonomies();
         ?>
         <div style="background:#fff;border:1px solid #c3c4c7;border-radius:8px;padding:20px;margin:15px 0">
-            <h2 style="margin-top:0"><?php _e('Attribute Eşleştirme', 'api-isarud'); ?></h2>
-            <p style="color:#666"><?php _e('WooCommerce ürün attribute\'larını (renk, beden, marka vb.) pazar yeri attribute\'larıyla eşleştirin. Ürün yüklemede kullanılır.', 'api-isarud'); ?></p>
+            <h2 style="margin-top:0"><?php _e('Attribute Mapping', 'api-isarud'); ?></h2>
+            <p style="color:#666"><?php _e('Match WooCommerce product attributes (color, size, brand, etc.) with marketplace attributes. Used in product uploads.', 'api-isarud'); ?></p>
 
             <?php foreach ($marketplaces as $mp):
                 $mappings = get_option("isarud_attr_map_{$mp}", []);
@@ -122,10 +122,10 @@ class Isarud_Attribute_Map {
                 <table class="wp-list-table widefat fixed striped" style="margin-bottom:10px">
                     <thead><tr>
                         <th>WC Attribute</th>
-                        <th>WC Değer</th>
+                        <th><?php esc_html_e('WC Value','api-isarud'); ?></th>
                         <th>MP Attribute</th>
                         <th>MP ID</th>
-                        <th>MP Değer</th>
+                        <th><?php esc_html_e('MP Value','api-isarud'); ?></th>
                         <th></th>
                     </tr></thead>
                     <tbody>
@@ -152,12 +152,12 @@ class Isarud_Attribute_Map {
                         <option value="category">Kategori</option>
                         <option value="brand">Marka</option>
                     </select>
-                    <input type="text" class="isarud-attr-wc-val" data-mp="<?php echo esc_attr($mp); ?>" placeholder="WC Değer (* = tümü)" style="width:100px">
-                    <input type="text" class="isarud-attr-mp-attr" data-mp="<?php echo esc_attr($mp); ?>" placeholder="MP Attribute Adı" style="width:120px">
+                    <input type="text" class="isarud-attr-wc-val" data-mp="<?php echo esc_attr($mp); ?>" placeholder="<?php echo esc_attr__('WC Value (* = all)','api-isarud'); ?>" style="width:100px">
+                    <input type="text" class="isarud-attr-mp-attr" data-mp="<?php echo esc_attr($mp); ?>" placeholder="<?php echo esc_attr__('MP Attribute Name','api-isarud'); ?>" style="width:120px">
                     <input type="text" class="isarud-attr-mp-id" data-mp="<?php echo esc_attr($mp); ?>" placeholder="MP Attribute ID" style="width:100px">
                     <input type="text" class="isarud-attr-mp-val-id" data-mp="<?php echo esc_attr($mp); ?>" placeholder="MP Value ID" style="width:100px">
-                    <input type="text" class="isarud-attr-mp-val" data-mp="<?php echo esc_attr($mp); ?>" placeholder="MP Değer" style="width:100px">
-                    <button type="button" class="button isarud-add-attr" data-mp="<?php echo esc_attr($mp); ?>"><?php _e('Ekle', 'api-isarud'); ?></button>
+                    <input type="text" class="isarud-attr-mp-val" data-mp="<?php echo esc_attr($mp); ?>" placeholder="<?php echo esc_attr__('MP Value','api-isarud'); ?>" style="width:100px">
+                    <button type="button" class="button isarud-add-attr" data-mp="<?php echo esc_attr($mp); ?>"><?php _e('Add', 'api-isarud'); ?></button>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -184,7 +184,7 @@ class Isarud_Attribute_Map {
             });
 
             $('.isarud-del-attr').on('click', function() {
-                if (!confirm('Silmek istediğinize emin misiniz?')) return;
+                if (!confirm('<?php echo esc_js(__('Are you sure you want to delete?','api-isarud')); ?>')) return;
                 $.post(isarud.ajax, {
                     action: 'isarud_delete_attribute_map',
                     nonce: isarud.nonce,

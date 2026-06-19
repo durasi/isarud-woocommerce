@@ -72,7 +72,7 @@ class Isarud_N11 {
     private function bridge_request(string $endpoint, array $data = [], string $method = 'GET'): array {
         $api_key = get_option('isarud_cloud_api_key', '');
         if (!$api_key) {
-            return ['success' => false, 'message' => 'Cloud Sync bağlantısı yok. Önce isarud.com hesabınızı bağlayın.'];
+            return ['success' => false, 'message' => __('No Cloud Sync connection. Please connect your isarud.com account first.','api-isarud')];
         }
 
         $url = $this->api_base . ltrim($endpoint, '/');
@@ -95,7 +95,7 @@ class Isarud_N11 {
         $resp = wp_remote_request($url, $args);
 
         if (is_wp_error($resp)) {
-            return ['success' => false, 'message' => 'Bağlantı hatası: ' . $resp->get_error_message()];
+            return ['success' => false, 'message' => __('Connection error: ','api-isarud') . $resp->get_error_message()];
         }
 
         $code = wp_remote_retrieve_response_code($resp);
@@ -103,7 +103,7 @@ class Isarud_N11 {
         $decoded = json_decode($body, true);
 
         if (!is_array($decoded)) {
-            return ['success' => false, 'message' => "Geçersiz yanıt (HTTP $code)", 'raw' => substr($body, 0, 200)];
+            return ['success' => false, 'message' => sprintf(__('Invalid response (HTTP %d)','api-isarud'), $code), 'raw' => substr($body, 0, 200)];
         }
 
         return $decoded;
@@ -172,7 +172,7 @@ class Isarud_N11 {
 
     private function check_ajax(): void {
         if (!current_user_can('manage_options')) wp_send_json_error(['message' => 'Yetki yok'], 403);
-        if (!check_ajax_referer('isarud_n11_nonce', 'nonce', false)) wp_send_json_error(['message' => 'Geçersiz nonce'], 400);
+        if (!check_ajax_referer('isarud_n11_nonce', 'nonce', false)) wp_send_json_error(['message' => __('Invalid nonce','api-isarud')], 400);
     }
 
     public function ajax_status(): void {
@@ -198,7 +198,7 @@ class Isarud_N11 {
         $this->check_ajax();
         $items_raw = $_POST['items'] ?? '[]';
         $items = is_string($items_raw) ? json_decode(stripslashes($items_raw), true) : $items_raw;
-        if (!is_array($items)) wp_send_json_error(['message' => 'items JSON olmalı'], 422);
+        if (!is_array($items)) wp_send_json_error(['message' => __('items must be JSON','api-isarud')], 422);
         wp_send_json($this->submit_product_batch($items));
     }
 
@@ -206,7 +206,7 @@ class Isarud_N11 {
         $this->check_ajax();
         $items_raw = $_POST['items'] ?? '[]';
         $items = is_string($items_raw) ? json_decode(stripslashes($items_raw), true) : $items_raw;
-        if (!is_array($items)) wp_send_json_error(['message' => 'items JSON olmalı'], 422);
+        if (!is_array($items)) wp_send_json_error(['message' => __('items must be JSON','api-isarud')], 422);
         wp_send_json($this->sync_stock_bulk($items));
     }
 
@@ -246,7 +246,7 @@ class Isarud_N11 {
         $updates_raw = $_POST['updates'] ?? '{}';
         $updates = is_string($updates_raw) ? json_decode(stripslashes($updates_raw), true) : $updates_raw;
         if (!$packageId) wp_send_json_error(['message' => 'package_id zorunlu'], 422);
-        if (!is_array($updates)) wp_send_json_error(['message' => 'updates JSON olmalı'], 422);
+        if (!is_array($updates)) wp_send_json_error(['message' => __('updates must be JSON','api-isarud')], 422);
         wp_send_json($this->update_order($packageId, $updates));
     }
 
@@ -273,7 +273,7 @@ class Isarud_N11 {
 
         $api_key = get_option('isarud_cloud_api_key', '');
         if (empty($api_key)) {
-            wp_send_json_error(['message' => 'Cloud Sync API key yok. Önce Cloud Sync sayfasından bağlanın.']);
+            wp_send_json_error(['message' => __('No Cloud Sync API key. Please connect from the Cloud Sync page first.','api-isarud')]);
         }
 
         $response = wp_remote_get('https://isarud.com/api/v2/marketplace/stores', [

@@ -1,13 +1,13 @@
 <?php if (!defined('ABSPATH')) exit;
 $webhook_urls = class_exists('Isarud_Webhook') ? Isarud_Webhook::get_webhook_urls() : [];
 $mp_meta = [
-    'etsy' => ['color'=>'#f1641e','grad'=>'linear-gradient(135deg,#f1641e 0%,#ff8a50 100%)','desc'=>__('Etsy v3 API listing senkronizasyonu','api-isarud'),'feat'=>['stock','price']],
-    'n11' => ['color'=>'#7b2b8e','grad'=>'linear-gradient(135deg,#7b2b8e 0%,#a855f7 100%)','desc'=>__('Doğan Online pazaryeri. Modern REST API entegrasyonu','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook']],
-    'trendyol' => ['color'=>'#f27a1a','grad'=>'linear-gradient(135deg,#f27a1a 0%,#ff9f43 100%)','desc'=>__('Türkiye\'nin en büyük e-ticaret platformu','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice','questions','brands']],
-    'hepsiburada' => ['color'=>'#ff6000','grad'=>'linear-gradient(135deg,#ff6000 0%,#ff8533 100%)','desc'=>__('Türkiye\'nin öncü online alışveriş sitesi','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice']],
-    'amazon' => ['color'=>'#ff9900','grad'=>'linear-gradient(135deg,#232f3e 0%,#37475a 100%)','desc'=>__('Amazon SP-API ile envanter senkronizasyonu','api-isarud'),'feat'=>['stock','price']],
+    'etsy' => ['color'=>'#f1641e','grad'=>'linear-gradient(135deg,#f1641e 0%,#ff8a50 100%)','desc'=>__('Etsy v3 API listing synchronization','api-isarud'),'feat'=>['stock','price']],
+    'n11' => ['color'=>'#7b2b8e','grad'=>'linear-gradient(135deg,#7b2b8e 0%,#a855f7 100%)','desc'=>__('Dogan Online marketplace. Modern REST API integration','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook']],
+    'trendyol' => ['color'=>'#f27a1a','grad'=>'linear-gradient(135deg,#f27a1a 0%,#ff9f43 100%)','desc'=>__('Turkey\'s largest e-commerce platform','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice','questions','brands']],
+    'hepsiburada' => ['color'=>'#ff6000','grad'=>'linear-gradient(135deg,#ff6000 0%,#ff8533 100%)','desc'=>__('Turkey\'s leading online shopping site','api-isarud'),'feat'=>['stock','price','upload','import','orders','webhook','returns','invoice']],
+    'amazon' => ['color'=>'#ff9900','grad'=>'linear-gradient(135deg,#232f3e 0%,#37475a 100%)','desc'=>__('Inventory synchronization with Amazon SP-API','api-isarud'),'feat'=>['stock','price']],
 ];
-$feat_labels = ['stock'=>'Stok','price'=>'Fiyat','upload'=>'Ürün Yükleme','import'=>'Ürün Çekme','orders'=>'Siparişler','webhook'=>'Webhook','returns'=>'İadeler','invoice'=>'Fatura','questions'=>'Müşteri Soruları','brands'=>'Marka Arama'];
+$feat_labels = ['stock'=>__('Stock','api-isarud'),'price'=>__('Price','api-isarud'),'upload'=>__('Product Upload','api-isarud'),'import'=>__('Product Import','api-isarud'),'orders'=>__('Orders','api-isarud'),'webhook'=>__('Webhook','api-isarud'),'returns'=>__('Returns','api-isarud'),'invoice'=>__('Invoice','api-isarud'),'questions'=>__('Customer Questions','api-isarud'),'brands'=>__('Brand Search','api-isarud')];
 $all_feat = array_keys($feat_labels);
 ?>
 <style>
@@ -61,9 +61,9 @@ $all_feat = array_keys($feat_labels);
         <span style="width:36px;height:36px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:10px;display:flex;align-items:center;justify-content:center">
             <span class="dashicons dashicons-store" style="font-size:20px;width:20px;height:20px;color:#fff"></span>
         </span>
-        <?php _e('Pazar Yeri API Ayarları', 'api-isarud'); ?>
+        <?php _e('Marketplace API Settings', 'api-isarud'); ?>
     </h1>
-    <p style="color:#64748b;margin:0 0 28px 48px;font-size:13px"><?php _e('Pazar yeri API bilgilerinizi girin ve bağlantıyı test edin.', 'api-isarud'); ?></p>
+    <p style="color:#64748b;margin:0 0 28px 48px;font-size:13px"><?php _e('Enter your marketplace API credentials and test the connection.', 'api-isarud'); ?></p>
 
     <div class="imp">
         <?php
@@ -80,30 +80,30 @@ $etsy_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div style="flex:1">
                 <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">Etsy</h3>
-                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e("Etsy v3 API ile mağazanızı yönetin — tek tıkla OAuth bağlantısı, API anahtarı oluşturmaya gerek yok","api-isarud"); ?></p>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e("Manage your store with Etsy v3 API — one-click OAuth connection, no need to create API keys","api-isarud"); ?></p>
             </div>
-            <div id="isarud-etsy-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Yükleniyor...","api-isarud"); ?></div>
+            <div id="isarud-etsy-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Loading...","api-isarud"); ?></div>
         </div>
     </div>
     <div style="padding:24px;background:#fff">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
             <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">📦 <?php esc_html_e("Listing CRUD","api-isarud"); ?></span>
-            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🖼️ <?php esc_html_e("Resim","api-isarud"); ?></span>
-            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🚚 <?php esc_html_e("Kargo","api-isarud"); ?></span>
-            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">📊 <?php esc_html_e("İstatistik","api-isarud"); ?></span>
-            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🌍 <?php esc_html_e("Çeviri","api-isarud"); ?></span>
-            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">↩️ <?php esc_html_e("İade","api-isarud"); ?></span>
+            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🖼️ <?php esc_html_e("Image","api-isarud"); ?></span>
+            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🚚 <?php esc_html_e("Shipping","api-isarud"); ?></span>
+            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">📊 <?php esc_html_e("Statistics","api-isarud"); ?></span>
+            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">🌍 <?php esc_html_e("Translation","api-isarud"); ?></span>
+            <span style="background:#fde4d4;color:#c2410c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid #fed7aa;display:inline-flex;align-items:center;gap:5px">↩️ <?php esc_html_e("Return","api-isarud"); ?></span>
         </div>
         <div id="isarud-etsy-modern-action">
         <?php if(!$etsy_cloud_set): ?>
             <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:14px;font-size:13px;color:#92400e">
-                ⚠️ <?php printf(esc_html__("Etsy bağlantısı için önce %s yapmanız gerekir.","api-isarud"), '<a href="' . esc_url(admin_url("admin.php?page=isarud-cloud")) . '" style="color:#92400e;font-weight:600">' . esc_html__("Cloud Sync","api-isarud") . '</a>'); ?>
+                ⚠️ <?php printf(esc_html__("You must first %s to connect Etsy.","api-isarud"), '<a href="' . esc_url(admin_url("admin.php?page=isarud-cloud")) . '" style="color:#92400e;font-weight:600">' . esc_html__("Cloud Sync","api-isarud") . '</a>'); ?>
             </div>
         <?php else: ?>
             <a href="<?php echo esc_url($etsy_url); ?>" id="isarud-etsy-modern-btn" class="button button-primary button-hero" style="background:#f1641e;border-color:#f1641e;text-shadow:none;box-shadow:0 2px 6px rgba(241,100,30,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
-                🔗 <?php esc_html_e("Etsy ile Bağlan ve Yönet","api-isarud"); ?>
+                🔗 <?php esc_html_e("Connect and Manage with Etsy","api-isarud"); ?>
             </a>
-            <p style="margin:12px 0 0;font-size:11px;color:#9ca3af">🔒 <?php esc_html_e("OAuth bilgileriniz Isarud sunucusunda güvenle saklanır","api-isarud"); ?></p>
+            <p style="margin:12px 0 0;font-size:11px;color:#9ca3af">🔒 <?php esc_html_e("Your OAuth information is securely stored on Isarud servers","api-isarud"); ?></p>
         <?php endif; ?>
         </div>
     </div>
@@ -121,14 +121,14 @@ $etsy_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
         }).done(function(r){
             if (r && r.success && r.connected) {
                 var shop = (r.data && r.data.shop_name) ? r.data.shop_name : "Etsy";
-                $("#isarud-etsy-modern-status").html("✅ <?php echo esc_js(__("Bağlı","api-isarud")); ?>").css({background:"#10b981",color:"#fff"});
+                $("#isarud-etsy-modern-status").html("✅ <?php echo esc_js(__("Connected","api-isarud")); ?>").css({background:"#10b981",color:"#fff"});
                 $("#isarud-etsy-modern-action").html(
                     '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
-                    '✅ <strong><?php echo esc_js(__("Bağlı","api-isarud")); ?></strong> — <?php echo esc_js(__("Mağaza:","api-isarud")); ?> <strong>' + escH(shop) + '</strong></div>' +
-                    '<a href="<?php echo esc_js($etsy_url); ?>" class="button button-primary" style="background:#f1641e;border-color:#f1641e;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__("Yönet","api-isarud")); ?></a>'
+                    '✅ <strong><?php echo esc_js(__("Connected","api-isarud")); ?></strong> — <?php echo esc_js(__("Store:","api-isarud")); ?> <strong>' + escH(shop) + '</strong></div>' +
+                    '<a href="<?php echo esc_js($etsy_url); ?>" class="button button-primary" style="background:#f1641e;border-color:#f1641e;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__("Manage","api-isarud")); ?></a>'
                 );
             } else {
-                $("#isarud-etsy-modern-status").html("⚪ <?php echo esc_js(__("Bağlı değil","api-isarud")); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-etsy-modern-status").html("⚪ <?php echo esc_js(__("Not Connected","api-isarud")); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
             }
         }).fail(function(){
             $("#isarud-etsy-modern-status").html("⚠️").css({background:"#fef2f2",color:"#dc2626"});
@@ -149,27 +149,27 @@ $pazarama_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div>
                 <div style="font-size:18px;font-weight:700;color:#fff">Pazarama</div>
-                <div style="font-size:12px;color:#fff;opacity:0.85;margin-top:2px"><?php esc_html_e("İş Bankası iştiraki — Modern REST API","api-isarud"); ?></div>
+                <div style="font-size:12px;color:#fff;opacity:0.85;margin-top:2px"><?php esc_html_e('Isbank subsidiary — Modern REST API','api-isarud'); ?></div>
             </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px">
-            <div id="isarud-pazarama-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Yükleniyor...","api-isarud"); ?></div>
+            <div id="isarud-pazarama-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Loading...","api-isarud"); ?></div>
         </div>
     </div>
     <div style="padding:16px 24px;background:#fafafa;border-top:1px solid rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px">
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📦 <?php esc_html_e("Stok","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💰 <?php esc_html_e("Fiyat","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📤 <?php esc_html_e("Yükleme","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📥 <?php esc_html_e("İçe Aktar","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📋 <?php esc_html_e("Sipariş","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🔄 <?php esc_html_e("İade","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💬 <?php esc_html_e("Soru","api-isarud"); ?></span>
-            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🏷️ <?php esc_html_e("Marka","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📦 <?php esc_html_e("Inventory","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💰 <?php esc_html_e("Price","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📤 <?php esc_html_e("Upload","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📥 <?php esc_html_e("Import","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">📋 <?php esc_html_e("Order","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🔄 <?php esc_html_e("Return","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">💬 <?php esc_html_e("Question","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#F3E8FF;color:#6B21A8;border-radius:6px;font-weight:600">🏷️ <?php esc_html_e("Brand","api-isarud"); ?></span>
         </div>
         <div id="isarud-pazarama-modern-action">
             <a href="<?php echo admin_url('admin.php?page=isarud-pazarama'); ?>" id="isarud-pazarama-modern-btn" class="button button-primary button-hero" style="background:#6B3FA0;border-color:#6B3FA0;text-shadow:none;box-shadow:0 2px 6px rgba(107,63,160,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
-                🔗 <?php esc_html_e("Pazarama Sayfasına Git","api-isarud"); ?>
+                🔗 <?php esc_html_e("Go to Pazarama Page","api-isarud"); ?>
             </a>
         </div>
     </div>
@@ -182,12 +182,12 @@ jQuery(function($){
         nonce: "<?php echo wp_create_nonce('isarud_pazarama_nonce'); ?>"
     }).done(function(r){
         if(r && r.success && r.data && r.data.success){
-            $("#isarud-pazarama-modern-status").html("✅ <?php echo esc_js(__('Bağlı','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
+            $("#isarud-pazarama-modern-status").html("✅ <?php echo esc_js(__('Connected','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
             $("#isarud-pazarama-modern-action").html(
-                '<a href="<?php echo admin_url('admin.php?page=isarud-pazarama'); ?>" class="button button-primary" style="background:#6B3FA0;border-color:#6B3FA0;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Yönet','api-isarud')); ?></a>'
+                '<a href="<?php echo admin_url('admin.php?page=isarud-pazarama'); ?>" class="button button-primary" style="background:#6B3FA0;border-color:#6B3FA0;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Manage','api-isarud')); ?></a>'
             );
         } else {
-            $("#isarud-pazarama-modern-status").html("⚪ <?php echo esc_js(__('Bağlı değil','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+            $("#isarud-pazarama-modern-status").html("⚪ <?php echo esc_js(__('Not Connected','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
         }
     }).fail(function(){
         $("#isarud-pazarama-modern-status").html("⚠️").css({background:"#fef2f2",color:"#dc2626"});
@@ -210,23 +210,23 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div style="min-width:0;flex:1">
                 <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">Amazon SP-API</h3>
-                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4">Amazon Selling Partner API entegrasyonu — listing, sipariş, stok, FBA, iade, rapor yönetimi</p>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e('Amazon Selling Partner API integration — listing, order, stock, FBA, returns, report management', 'api-isarud'); ?></p>
             </div>
-            <div id="isarud-amazon-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center">Yükleniyor...</div>
+            <div id="isarud-amazon-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e('Loading...', 'api-isarud'); ?></div>
         </div>
     </div>
     <div style="padding:18px 28px">
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
             <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 Listing CRUD</span>
             <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 Stok &amp; Fiyat</span>
-            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 Sipariş Yönetimi</span>
+            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e('Order Management', 'api-isarud'); ?></span>
             <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🏭 FBA Stok Takibi</span>
-            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ İade</span>
-            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📈 Satış Raporları</span>
+            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ <?php esc_html_e('Returns', 'api-isarud'); ?></span>
+            <span style="background:#fff3e0;color:#cc6600;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📈 <?php esc_html_e('Sales Reports', 'api-isarud'); ?></span>
         </div>
         <div id="isarud-amazon-modern-action">
             <a href="<?php echo admin_url('admin.php?page=isarud-amazon'); ?>" id="isarud-amazon-modern-btn" class="button button-primary button-hero" style="background:#ff9900;border-color:#ff9900;text-shadow:none;box-shadow:0 2px 6px rgba(255,153,0,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px;color:#232f3e">
-                🔗 Amazon SP-API Yönetim Paneli            </a>
+                🔗 <?php esc_html_e('Amazon SP-API Management Panel', 'api-isarud'); ?>            </a>
         </div>
     </div>
 </div>
@@ -242,21 +242,21 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
         }).done(function(r){
             if (r && r.success && r.connected) {
                 var name = (r.store && r.store.name) ? r.store.name : "Amazon";
-                $("#isarud-amazon-modern-status").html("✅ Bağlı").css({background:"#10b981",color:"#fff"});
+                $("#isarud-amazon-modern-status").html("✅ <?php echo esc_js(__('Connected','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
                 $("#isarud-amazon-modern-action").html(
                     '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
-                    '✅ <strong>Bağlı</strong> — Mağaza: <strong>' + escH(name) + '</strong>' +
+                    '✅ <strong><?php echo esc_js(__('Connected','api-isarud')); ?></strong> — <?php echo esc_js(__('Store','api-isarud')); ?>: <strong>' + escH(name) + '</strong>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-amazon'); ?>" class="button button-primary" style="background:#ff9900;border-color:#ff9900;font-weight:600;padding:0 24px;height:36px;line-height:34px;color:#232f3e">📋 Yönet</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-amazon'); ?>" class="button button-primary" style="background:#ff9900;border-color:#ff9900;font-weight:600;padding:0 24px;height:36px;line-height:34px;color:#232f3e">📋 <?php echo esc_js(__('Manage','api-isarud')); ?></a>'
                 );
             } else {
-                $("#isarud-amazon-modern-status").html("⚪ Bağlı değil").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-amazon-modern-status").html("⚪ <?php echo esc_js(__('Not connected','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
                 $("#isarud-amazon-modern-action").html(
                     '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#9a3412">' +
-                    '🛒 <strong>Amazon SP-API bağlantısı henüz yok</strong><br>' +
-                    '<small>Yönetim Paneli\'nden \"Amazon ile Bağlan\" butonuna tıklayıp Seller Central\'da onay verin (manuel API key girmeye gerek yok — OAuth flow).</small>' +
+                    '🛒 <strong><?php echo esc_js(__('No Amazon SP-API connection yet','api-isarud')); ?></strong><br>' +
+                    '<small><?php echo esc_js(__('Click the "Connect with Amazon" button in the Management Panel and approve in Seller Central (no manual API key needed — OAuth flow).','api-isarud')); ?></small>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-amazon'); ?>" class="button button-primary" style="background:#ff9900;border-color:#ff9900;font-weight:600;padding:0 24px;height:36px;line-height:34px;color:#232f3e">🔗 Amazon Sayfasına Git</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-amazon'); ?>" class="button button-primary" style="background:#ff9900;border-color:#ff9900;font-weight:600;padding:0 24px;height:36px;line-height:34px;color:#232f3e">🔗 <?php echo esc_js(__('Go to Amazon Page','api-isarud')); ?></a>'
                 );
             }
         }).fail(function(){
@@ -274,23 +274,23 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div style="min-width:0;flex:1">
                 <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">Hepsiburada</h3>
-                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4">Hepsiburada Marketplace API entegrasyonu — listing, sipariş, stok, kategori, iade yönetimi</p>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e('Hepsiburada Marketplace API integration — listing, order, stock, category, returns management', 'api-isarud'); ?></p>
             </div>
-            <div id="isarud-hepsiburada-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center">Yükleniyor...</div>
+            <div id="isarud-hepsiburada-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e('Loading...', 'api-isarud'); ?></div>
         </div>
     </div>
     <div style="padding:18px 28px">
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 Ürün Yönetimi</span>
+            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 <?php esc_html_e('Product Management', 'api-isarud'); ?></span>
             <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 Stok &amp; Fiyat</span>
-            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 Sipariş</span>
+            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e('Order', 'api-isarud'); ?></span>
             <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🏷️ Kategori</span>
-            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ İade</span>
+            <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ <?php esc_html_e('Returns', 'api-isarud'); ?></span>
             <span style="background:#fde4d4;color:#c2410c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🚚 Kargo</span>
         </div>
         <div id="isarud-hepsiburada-modern-action">
             <a href="<?php echo admin_url('admin.php?page=isarud-hepsiburada'); ?>" id="isarud-hepsiburada-modern-btn" class="button button-primary button-hero" style="background:#ff6000;border-color:#ff6000;text-shadow:none;box-shadow:0 2px 6px rgba(255,96,0,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
-                🔗 Hepsiburada Yönetim Paneli            </a>
+                🔗 <?php esc_html_e('Hepsiburada Management Panel', 'api-isarud'); ?>            </a>
         </div>
     </div>
 </div>
@@ -306,21 +306,21 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
         }).done(function(r){
             if (r && r.success && r.connected) {
                 var name = (r.store && r.store.name) ? r.store.name : "Hepsiburada";
-                $("#isarud-hepsiburada-modern-status").html("✅ Bağlı").css({background:"#10b981",color:"#fff"});
+                $("#isarud-hepsiburada-modern-status").html("✅ <?php echo esc_js(__('Connected','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
                 $("#isarud-hepsiburada-modern-action").html(
                     '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
-                    '✅ <strong>Bağlı</strong> — Mağaza: <strong>' + escH(name) + '</strong>' +
+                    '✅ <strong><?php echo esc_js(__('Connected','api-isarud')); ?></strong> — <?php echo esc_js(__('Store','api-isarud')); ?>: <strong>' + escH(name) + '</strong>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-hepsiburada'); ?>" class="button button-primary" style="background:#ff6000;border-color:#ff6000;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 Yönet</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-hepsiburada'); ?>" class="button button-primary" style="background:#ff6000;border-color:#ff6000;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Manage','api-isarud')); ?></a>'
                 );
             } else {
-                $("#isarud-hepsiburada-modern-status").html("⚪ Bağlı değil").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-hepsiburada-modern-status").html("⚪ <?php echo esc_js(__('Not connected','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
                 $("#isarud-hepsiburada-modern-action").html(
                     '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#9a3412">' +
-                    '🛒 <strong>Hepsiburada bağlantısı henüz yok</strong><br>' +
-                    '<small>isarud.com hesabınızdan Hepsiburada mağazanızı bağlayın, sonra bu sayfada yönetin.</small>' +
+                    '🛒 <strong><?php echo esc_js(__('No Hepsiburada connection yet','api-isarud')); ?></strong><br>' +
+                    '<small><?php echo esc_js(__('Connect your Hepsiburada store from your isarud.com account, then manage it on this page.','api-isarud')); ?></small>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-hepsiburada'); ?>" class="button button-primary" style="background:#ff6000;border-color:#ff6000;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 Hepsiburada Sayfasına Git</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-hepsiburada'); ?>" class="button button-primary" style="background:#ff6000;border-color:#ff6000;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 <?php echo esc_js(__('Go to Hepsiburada Page','api-isarud')); ?></a>'
                 );
             }
         }).fail(function(){
@@ -338,23 +338,23 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div style="min-width:0;flex:1">
                 <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">N11</h3>
-                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4">Doğan Online pazaryeri — modern REST API entegrasyonu, listing, sipariş, stok, kategori yönetimi</p>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e('Dogan Online marketplace — modern REST API integration, listing, order, stock, category management', 'api-isarud'); ?></p>
             </div>
-            <div id="isarud-n11-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center">Yükleniyor...</div>
+            <div id="isarud-n11-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e('Loading...', 'api-isarud'); ?></div>
         </div>
     </div>
     <div style="padding:18px 28px">
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-            <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 Ürün Yönetimi</span>
+            <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 <?php esc_html_e('Product Management', 'api-isarud'); ?></span>
             <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 Stok &amp; Fiyat</span>
-            <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 Sipariş</span>
+            <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e('Order', 'api-isarud'); ?></span>
             <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🏷️ Kategori</span>
             <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🔄 Async Tasks</span>
             <span style="background:#f5e8fa;color:#5b1f6b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🔔 Webhook</span>
         </div>
         <div id="isarud-n11-modern-action">
                     <a href="<?php echo admin_url('admin.php?page=isarud-n11'); ?>" id="isarud-n11-modern-btn" class="button button-primary button-hero" style="background:#7b2b8e;border-color:#7b2b8e;text-shadow:none;box-shadow:0 2px 6px rgba(123,43,142,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
-                🔗 N11 Yönetim Paneli            </a>
+                🔗 <?php esc_html_e('N11 Management Panel', 'api-isarud'); ?>            </a>
                 </div>
     </div>
 </div>
@@ -370,21 +370,21 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
         }).done(function(r){
             if (r && r.success && r.connected) {
                 var name = (r.store && r.store.name) ? r.store.name : "N11";
-                $("#isarud-n11-modern-status").html("✅ Bağlı").css({background:"#10b981",color:"#fff"});
+                $("#isarud-n11-modern-status").html("✅ <?php echo esc_js(__('Connected','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
                 $("#isarud-n11-modern-action").html(
                     '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
-                    '✅ <strong>Bağlı</strong> — Mağaza: <strong>' + escH(name) + '</strong>' +
+                    '✅ <strong><?php echo esc_js(__('Connected','api-isarud')); ?></strong> — <?php echo esc_js(__('Store','api-isarud')); ?>: <strong>' + escH(name) + '</strong>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-n11'); ?>" class="button button-primary" style="background:#7b2b8e;border-color:#7b2b8e;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 Yönet</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-n11'); ?>" class="button button-primary" style="background:#7b2b8e;border-color:#7b2b8e;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Manage','api-isarud')); ?></a>'
                 );
             } else {
-                $("#isarud-n11-modern-status").html("⚪ Bağlı değil").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-n11-modern-status").html("⚪ <?php echo esc_js(__('Not connected','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
                 $("#isarud-n11-modern-action").html(
                     '<div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#5b1f6b">' +
-                    '🛒 <strong>N11 bağlantısı henüz yok</strong><br>' +
-                    '<small>isarud.com hesabınızdan N11 mağazanızı bağlayın, sonra bu sayfada yönetin.</small>' +
+                    '🛒 <strong><?php echo esc_js(__('No N11 connection yet','api-isarud')); ?></strong><br>' +
+                    '<small><?php echo esc_js(__('Connect your N11 store from your isarud.com account, then manage it on this page.','api-isarud')); ?></small>' +
                     '</div>' +
-                    '<a href="<?php echo admin_url('admin.php?page=isarud-n11'); ?>" class="button button-primary" style="background:#7b2b8e;border-color:#7b2b8e;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 N11 Sayfasına Git</a>'
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-n11'); ?>" class="button button-primary" style="background:#7b2b8e;border-color:#7b2b8e;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 <?php echo esc_js(__('Go to N11 Page','api-isarud')); ?></a>'
                 );
             }
         }).fail(function(){
@@ -402,29 +402,29 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             </div>
             <div style="min-width:0;flex:1">
                 <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">Trendyol</h3>
-                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e("Türkiye'nin en büyük e-ticaret platformu — listing, sipariş, iade, fatura, müşteri soruları, webhook","api-isarud"); ?></p>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e('Turkey\'s largest e-commerce platform — listing, order, returns, invoice, customer questions, webhook','api-isarud'); ?></p>
             </div>
-            <div id="isarud-trendyol-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Yükleniyor...","api-isarud"); ?></div>
+            <div id="isarud-trendyol-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e("Loading...","api-isarud"); ?></div>
         </div>
     </div>
     <div style="padding:18px 28px">
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 <?php esc_html_e("Ürün Yönetimi","api-isarud"); ?></span>
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 <?php esc_html_e("Stok & Fiyat","api-isarud"); ?></span>
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e("Sipariş","api-isarud"); ?></span>
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ <?php esc_html_e("İade","api-isarud"); ?></span>
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">💬 <?php esc_html_e("Soru","api-isarud"); ?></span>
-            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📄 <?php esc_html_e("Fatura","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 <?php esc_html_e("Product Management","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 <?php esc_html_e("Stock & Price","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e("Order","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">↩️ <?php esc_html_e("Return","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">💬 <?php esc_html_e("Question","api-isarud"); ?></span>
+            <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📄 <?php esc_html_e("Invoice","api-isarud"); ?></span>
             <span style="background:#fef3e8;color:#9a3412;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">🔔 <?php esc_html_e("Webhook","api-isarud"); ?></span>
         </div>
         <div id="isarud-trendyol-modern-action">
         <?php if(!$trendyol_cloud_set): ?>
             <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:14px;font-size:13px;color:#92400e">
-                ⚠️ <?php printf(esc_html__("Trendyol bağlantısı için önce %s yapmanız gerekir.","api-isarud"), '<a href="' . esc_url(admin_url("admin.php?page=isarud-cloud")) . '" style="color:#92400e;font-weight:600">' . esc_html__("Cloud Sync","api-isarud") . '</a>'); ?>
+                ⚠️ <?php printf(esc_html__("You must first %s to connect Trendyol.","api-isarud"), '<a href="' . esc_url(admin_url("admin.php?page=isarud-cloud")) . '" style="color:#92400e;font-weight:600">' . esc_html__("Cloud Sync","api-isarud") . '</a>'); ?>
             </div>
         <?php else: ?>
             <a href="<?php echo esc_url($trendyol_url); ?>" id="isarud-trendyol-modern-btn" class="button button-primary button-hero" style="background:#f27a1a;border-color:#f27a1a;text-shadow:none;box-shadow:0 2px 6px rgba(242,122,26,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
-                🔗 <?php esc_html_e("Trendyol Yönetim Paneli","api-isarud"); ?>
+                🔗 <?php esc_html_e("Trendyol Management Panel","api-isarud"); ?>
             </a>
         <?php endif; ?>
         </div>
@@ -444,22 +444,22 @@ $trendyol_cloud_set = !empty(get_option('isarud_cloud_api_key', ''));
             if (r && r.success && r.connected) {
                 var name = (r.store && r.store.name) ? r.store.name : "Trendyol";
                 var sellerId = r.seller_id || "";
-                $("#isarud-trendyol-modern-status").html("✅ <?php echo esc_js(__("Bağlı","api-isarud")); ?>").css({background:"#10b981",color:"#fff"});
+                $("#isarud-trendyol-modern-status").html("✅ <?php echo esc_js(__("Connected","api-isarud")); ?>").css({background:"#10b981",color:"#fff"});
                 $("#isarud-trendyol-modern-action").html(
                     '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
-                    '✅ <strong><?php echo esc_js(__("Bağlı","api-isarud")); ?></strong> — <?php echo esc_js(__("Mağaza:","api-isarud")); ?> <strong>' + escH(name) + '</strong>' +
+                    '✅ <strong><?php echo esc_js(__("Connected","api-isarud")); ?></strong> — <?php echo esc_js(__("Store:","api-isarud")); ?> <strong>' + escH(name) + '</strong>' +
                     (sellerId ? ' · Seller ID: <code>' + escH(sellerId) + '</code>' : '') +
                     '</div>' +
-                    '<a href="<?php echo esc_js($trendyol_url); ?>" class="button button-primary" style="background:#f27a1a;border-color:#f27a1a;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__("Yönet","api-isarud")); ?></a>'
+                    '<a href="<?php echo esc_js($trendyol_url); ?>" class="button button-primary" style="background:#f27a1a;border-color:#f27a1a;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__("Manage","api-isarud")); ?></a>'
                 );
             } else {
-                $("#isarud-trendyol-modern-status").html("⚪ <?php echo esc_js(__("Bağlı değil","api-isarud")); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-trendyol-modern-status").html("⚪ <?php echo esc_js(__("Not Connected","api-isarud")); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
                 $("#isarud-trendyol-modern-action").html(
                     '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#9a3412">' +
-                    '🛒 <strong><?php echo esc_js(__("Trendyol bağlantısı henüz yok","api-isarud")); ?></strong><br>' +
-                    '<small><?php echo esc_js(__("isarud.com hesabınızdan Trendyol mağazanızı bağlayın, sonra bu sayfada yönetin.","api-isarud")); ?></small>' +
+                    '🛒 <strong><?php echo esc_js(__("No Trendyol connection yet","api-isarud")); ?></strong><br>' +
+                    '<small><?php echo esc_js(__("Connect your Trendyol store from your isarud.com account, then manage it on this page.","api-isarud")); ?></small>' +
                     '</div>' +
-                    '<a href="<?php echo esc_js($trendyol_url); ?>" class="button button-primary" style="background:#f27a1a;border-color:#f27a1a;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 <?php echo esc_js(__("Trendyol Sayfasına Git","api-isarud")); ?></a>'
+                    '<a href="<?php echo esc_js($trendyol_url); ?>" class="button button-primary" style="background:#f27a1a;border-color:#f27a1a;font-weight:600;padding:0 24px;height:36px;line-height:34px">🔗 <?php echo esc_js(__("Go to Trendyol Page","api-isarud")); ?></a>'
                 );
             }
         }).fail(function(){
@@ -500,7 +500,7 @@ foreach ($marketplaces as $key => $mp):
                     <p><?php echo esc_html($m['desc'] ?? ''); ?></p>
                 </div>
                 <span class="ims <?php echo $is_ok ? 'ims-ok' : ($is_err ? 'ims-err' : 'ims-off'); ?>" <?php if ($is_ok) echo 'style="color:' . esc_attr($color) . '"'; ?>>
-                    <?php if ($is_ok): ?>● <?php _e('Bağlı', 'api-isarud'); ?><?php elseif ($is_err): ?>✕ <?php _e('Hata', 'api-isarud'); ?><?php elseif ($row): ?><?php _e('Kaydedildi', 'api-isarud'); ?><?php else: ?><?php _e('Yapılandırılmadı', 'api-isarud'); ?><?php endif; ?>
+                    <?php if ($is_ok): ?>● <?php _e('Connected', 'api-isarud'); ?><?php elseif ($is_err): ?>✕ <?php _e('Error', 'api-isarud'); ?><?php elseif ($row): ?><?php _e('Saved', 'api-isarud'); ?><?php else: ?><?php _e('Not Configured', 'api-isarud'); ?><?php endif; ?>
                 </span>
                 <span class="ima">▾</span>
             </div>
@@ -516,7 +516,7 @@ foreach ($marketplaces as $key => $mp):
                     <?php wp_nonce_field('isarud_mp'); ?>
                     <input type="hidden" name="marketplace" value="<?php echo esc_attr($key); ?>">
                     <div class="ims-box">
-                        <h4><?php _e('API Bilgileri', 'api-isarud'); ?></h4>
+                        <h4><?php _e('API Information', 'api-isarud'); ?></h4>
                         <?php if (!empty($mp['docs'])): ?><p class="imd">📖 <?php echo esc_html($mp['docs']); ?></p><?php endif; ?>
                         <div class="img">
                             <?php foreach ($mp['fields'] as $fk => $field): ?>
@@ -526,9 +526,9 @@ foreach ($marketplaces as $key => $mp):
                         </div>
                     </div>
                     <div class="ims-box">
-                        <h4><?php _e('Senkronizasyon Ayarları', 'api-isarud'); ?></h4>
+                        <h4><?php _e('Synchronization Settings', 'api-isarud'); ?></h4>
                         <div class="img">
-                            <label><?php _e('Fiyat Margin', 'api-isarud'); ?></label>
+                            <label><?php _e('Price Margin', 'api-isarud'); ?></label>
                             <div class="imsr">
                                 <input type="number" step="0.01" name="price_margin" value="<?php echo esc_attr($row->price_margin ?? 0); ?>" style="width:80px">
                                 <select name="price_margin_type" style="width:70px">
@@ -537,7 +537,7 @@ foreach ($marketplaces as $key => $mp):
                                 </select>
                             </div>
                             <?php /* @@shipping_addition_v1@@ */ ?>
-                            <label><?php _e('Kargo Ek Ücreti', 'api-isarud'); ?></label>
+                            <label><?php _e('Shipping Surcharge', 'api-isarud'); ?></label>
                             <div class="imsr">
                                 <input type="number" step="0.01" min="0" name="shipping_addition" value="<?php echo esc_attr($row->shipping_addition ?? 0); ?>" style="width:80px" placeholder="0">
                                 <select name="shipping_addition_currency" style="width:70px">
@@ -546,36 +546,36 @@ foreach ($marketplaces as $key => $mp):
                                     <option value="EUR" <?php selected($row->shipping_addition_currency ?? 'TRY', 'EUR'); ?>>€</option>
                                     <option value="GBP" <?php selected($row->shipping_addition_currency ?? 'TRY', 'GBP'); ?>>£</option>
                                 </select>
-                                <span style="font-size:11px;color:#94a3b8;margin-left:8px"><?php _e('Pazaryeri fiyatına eklenecek tutar', 'api-isarud'); ?></span>
+                                <span style="font-size:11px;color:#94a3b8;margin-left:8px"><?php _e('Amount to be added to marketplace price', 'api-isarud'); ?></span>
                             </div>
-                            <label><?php _e('Oto-Sync', 'api-isarud'); ?></label>
+                            <label><?php _e('Auto-Sync', 'api-isarud'); ?></label>
                             <div class="imsr">
                                 <select name="auto_sync" style="width:85px">
-                                    <option value="0" <?php selected($row->auto_sync ?? 0, 0); ?>><?php _e('Kapalı', 'api-isarud'); ?></option>
-                                    <option value="1" <?php selected($row->auto_sync ?? 0, 1); ?>><?php _e('Açık', 'api-isarud'); ?></option>
+                                    <option value="0" <?php selected($row->auto_sync ?? 0, 0); ?>><?php _e('Closed', 'api-isarud'); ?></option>
+                                    <option value="1" <?php selected($row->auto_sync ?? 0, 1); ?>><?php _e('Open', 'api-isarud'); ?></option>
                                 </select>
                                 <select name="sync_interval" style="width:100px">
                                     <option value="15min" <?php selected($row->sync_interval ?? 'daily', '15min'); ?>>15 dk</option>
                                     <option value="hourly" <?php selected($row->sync_interval ?? 'daily', 'hourly'); ?>>1 saat</option>
                                     <option value="6hours" <?php selected($row->sync_interval ?? 'daily', '6hours'); ?>>6 saat</option>
-                                    <option value="daily" <?php selected($row->sync_interval ?? 'daily', 'daily'); ?>><?php _e('Günlük', 'api-isarud'); ?></option>
+                                    <option value="daily" <?php selected($row->sync_interval ?? 'daily', 'daily'); ?>><?php _e('Daily', 'api-isarud'); ?></option>
                                 </select>
                             </div>
                             <?php if ($row && $row->last_sync): ?>
-                            <label><?php _e('Son Sync', 'api-isarud'); ?></label>
-                            <span style="font-size:12px;color:#64748b"><?php echo esc_html(human_time_diff(strtotime($row->last_sync))) . ' ' . __('önce', 'api-isarud'); ?></span>
+                            <label><?php _e('Last Sync', 'api-isarud'); ?></label>
+                            <span style="font-size:12px;color:#64748b"><?php echo esc_html(human_time_diff(strtotime($row->last_sync))) . ' ' . __('first', 'api-isarud'); ?></span>
                             <?php endif; ?>
                         </div>
                     </div>
                     <?php if (!empty($webhook_urls[$key])): ?>
                     <div class="imw">
                         <strong>Webhook URL:</strong> <code><?php echo esc_html($webhook_urls[$key]); ?></code>
-                        <small><?php _e('Bu URL\'yi pazar yeri panelinizdeki webhook ayarlarına ekleyin.', 'api-isarud'); ?></small>
+                        <small><?php _e('Add this URL to the webhook settings in your marketplace panel.', 'api-isarud'); ?></small>
                     </div>
                     <?php endif; ?>
                     <div class="imx">
-                        <input type="submit" name="isarud_save_marketplace" class="button-primary" value="<?php esc_attr_e('Kaydet', 'api-isarud'); ?>" style="background:<?php echo esc_attr($color); ?>;border-color:<?php echo esc_attr($color); ?>">
-                        <button type="button" class="button isarud-test-btn" data-marketplace="<?php echo esc_attr($key); ?>"><?php _e('Bağlantıyı Test Et', 'api-isarud'); ?></button>
+                        <input type="submit" name="isarud_save_marketplace" class="button-primary" value="<?php esc_attr_e('Save', 'api-isarud'); ?>" style="background:<?php echo esc_attr($color); ?>;border-color:<?php echo esc_attr($color); ?>">
+                        <button type="button" class="button isarud-test-btn" data-marketplace="<?php echo esc_attr($key); ?>"><?php _e('Test Connection', 'api-isarud'); ?></button>
                         <span class="isarud-test-result" data-marketplace="<?php echo esc_attr($key); ?>"></span>
                     </div>
                 </form>

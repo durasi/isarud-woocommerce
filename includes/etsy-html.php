@@ -15,35 +15,35 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
 <div class="wrap">
     <h1 style="display:flex;align-items:center;gap:12px;">
         <span style="font-size:28px;">🛍️</span>
-        <?php esc_html_e('Etsy Pazaryeri Yönetimi', 'api-isarud'); ?>
+        <?php esc_html_e('Etsy Marketplace Management', 'api-isarud'); ?>
         <span style="background:linear-gradient(135deg,#f56565 0%,#ed8936 100%);color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">v6.5.0</span>
     </h1>
 
     <?php if ($callback_status === 'connected'): ?>
-        <div class="notice notice-success is-dismissible"><p><?php esc_html_e('✅ Etsy bağlantısı başarılı!', 'api-isarud'); ?></p></div>
+        <div class="notice notice-success is-dismissible"><p><?php esc_html_e('✅ Etsy connection successful!', 'api-isarud'); ?></p></div>
     <?php elseif ($callback_status === 'failed'): ?>
-        <div class="notice notice-error is-dismissible"><p><?php esc_html_e('❌ Etsy bağlantısı başarısız oldu.', 'api-isarud'); ?></p></div>
+        <div class="notice notice-error is-dismissible"><p><?php esc_html_e('❌ Etsy connection failed.', 'api-isarud'); ?></p></div>
     <?php endif; ?>
 
     <!-- Status Bar (Üst tarafta her zaman görünür) -->
     <div id="isarud-etsy-status-bar" style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;">
         <div id="isarud-etsy-status-content" style="display:flex;align-items:center;gap:12px;">
             <span style="font-size:18px;">⏳</span>
-            <span><?php esc_html_e('Bağlantı kontrol ediliyor...', 'api-isarud'); ?></span>
+            <span><?php esc_html_e('Checking connection...', 'api-isarud'); ?></span>
         </div>
-        <button type="button" class="button" id="isarud-etsy-refresh-status">🔄 <?php esc_html_e('Yenile', 'api-isarud'); ?></button>
+        <button type="button" class="button" id="isarud-etsy-refresh-status">🔄 <?php esc_html_e('Refresh', 'api-isarud'); ?></button>
     </div>
 
     <!-- Tab Navigation -->
     <nav class="nav-tab-wrapper" id="isarud-etsy-tabs" style="margin-top:20px;">
-        <a href="#listings" class="nav-tab nav-tab-active" data-tab="listings">📦 <?php esc_html_e('Ürünler', 'api-isarud'); ?></a>
-        <a href="#images" class="nav-tab" data-tab="images">🖼️ <?php esc_html_e('Resimler', 'api-isarud'); ?></a>
-        <a href="#sections" class="nav-tab" data-tab="sections">📋 <?php esc_html_e('Bölümler', 'api-isarud'); ?></a>
-        <a href="#translations" class="nav-tab" data-tab="translations">🌍 <?php esc_html_e('Çeviriler', 'api-isarud'); ?></a>
-        <a href="#shipping" class="nav-tab" data-tab="shipping">🚚 <?php esc_html_e('Kargo Profilleri', 'api-isarud'); ?></a>
-        <a href="#shop" class="nav-tab" data-tab="shop">🏪 <?php esc_html_e('Mağaza', 'api-isarud'); ?></a>
-        <a href="#stats" class="nav-tab" data-tab="stats">📊 <?php esc_html_e('İstatistik', 'api-isarud'); ?></a>
-        <a href="#returns" class="nav-tab" data-tab="returns">↩️ <?php esc_html_e('İade Politikaları', 'api-isarud'); ?></a>
+        <a href="#listings" class="nav-tab nav-tab-active" data-tab="listings">📦 <?php esc_html_e('Products', 'api-isarud'); ?></a>
+        <a href="#images" class="nav-tab" data-tab="images">🖼️ <?php esc_html_e('Images', 'api-isarud'); ?></a>
+        <a href="#sections" class="nav-tab" data-tab="sections">📋 <?php esc_html_e('Sections', 'api-isarud'); ?></a>
+        <a href="#translations" class="nav-tab" data-tab="translations">🌍 <?php esc_html_e('Translations', 'api-isarud'); ?></a>
+        <a href="#shipping" class="nav-tab" data-tab="shipping">🚚 <?php esc_html_e('Shipping Profiles', 'api-isarud'); ?></a>
+        <a href="#shop" class="nav-tab" data-tab="shop">🏪 <?php esc_html_e('Store', 'api-isarud'); ?></a>
+        <a href="#stats" class="nav-tab" data-tab="stats">📊 <?php esc_html_e('Statistics', 'api-isarud'); ?></a>
+        <a href="#returns" class="nav-tab" data-tab="returns">↩️ <?php esc_html_e('Return Policies', 'api-isarud'); ?></a>
     </nav>
 
     <!-- TAB CONTENT WRAPPER -->
@@ -52,96 +52,96 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
         <!-- TAB: LISTINGS -->
         <div class="isarud-tab-pane active" data-tab-pane="listings">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <h2 style="margin:0;"><?php esc_html_e('Etsy Ürün Listesi', 'api-isarud'); ?></h2>
+                <h2 style="margin:0;"><?php esc_html_e('Etsy Product Listings', 'api-isarud'); ?></h2>
                 <div>
                     <select id="isarud-etsy-page-size" style="margin-right:8px;">
-                        <option value="10">10 / <?php esc_html_e('sayfa', 'api-isarud'); ?></option>
-                        <option value="25" selected>25 / <?php esc_html_e('sayfa', 'api-isarud'); ?></option>
-                        <option value="50">50 / <?php esc_html_e('sayfa', 'api-isarud'); ?></option>
-                        <option value="100">100 / <?php esc_html_e('sayfa', 'api-isarud'); ?></option>
+                        <option value="10">10 / <?php esc_html_e('page', 'api-isarud'); ?></option>
+                        <option value="25" selected>25 / <?php esc_html_e('page', 'api-isarud'); ?></option>
+                        <option value="50">50 / <?php esc_html_e('page', 'api-isarud'); ?></option>
+                        <option value="100">100 / <?php esc_html_e('page', 'api-isarud'); ?></option>
                     </select>
-                    <button type="button" class="button button-primary" id="isarud-etsy-refresh-listings">🔄 <?php esc_html_e('Yenile', 'api-isarud'); ?></button>
+                    <button type="button" class="button button-primary" id="isarud-etsy-refresh-listings">🔄 <?php esc_html_e('Refresh', 'api-isarud'); ?></button>
                 </div>
             </div>
-            <div id="isarud-etsy-listings-container"><p style="text-align:center;padding:40px;color:#6b7280;">⏳ <?php esc_html_e('Yükleniyor...', 'api-isarud'); ?></p></div>
+            <div id="isarud-etsy-listings-container"><p style="text-align:center;padding:40px;color:#6b7280;">⏳ <?php esc_html_e('Loading...', 'api-isarud'); ?></p></div>
         </div>
 
         <!-- TAB: IMAGES -->
         <div class="isarud-tab-pane" data-tab-pane="images" style="display:none;">
-            <h2><?php esc_html_e('Listing Resim Yönetimi', 'api-isarud'); ?></h2>
-            <p style="color:#6b7280;"><?php esc_html_e('Bir listing seçin, resimlerini yönetin.', 'api-isarud'); ?></p>
+            <h2><?php esc_html_e('Listing Image Management', 'api-isarud'); ?></h2>
+            <p style="color:#6b7280;"><?php esc_html_e('Select a listing to manage its images.', 'api-isarud'); ?></p>
             <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
                 <label><?php esc_html_e('Listing ID:', 'api-isarud'); ?></label>
-                <input type="number" id="isarud-img-listing-id" class="regular-text" placeholder="<?php esc_attr_e('Listing ID girin', 'api-isarud'); ?>">
-                <button type="button" class="button button-primary" id="isarud-img-load">📥 <?php esc_html_e('Resimleri Yükle', 'api-isarud'); ?></button>
+                <input type="number" id="isarud-img-listing-id" class="regular-text" placeholder="<?php esc_attr_e('Enter Listing ID', 'api-isarud'); ?>">
+                <button type="button" class="button button-primary" id="isarud-img-load">📥 <?php esc_html_e('Upload Images', 'api-isarud'); ?></button>
             </div>
             <div id="isarud-img-container" style="margin-top:20px;"></div>
 
-            <h3 style="margin-top:32px;"><?php esc_html_e('Yeni Resim Yükle', 'api-isarud'); ?></h3>
+            <h3 style="margin-top:32px;"><?php esc_html_e('Upload New Image', 'api-isarud'); ?></h3>
             <div style="background:#f9fafb;padding:16px;border-radius:6px;">
                 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                     <input type="url" id="isarud-img-url" class="regular-text" style="flex:1;min-width:300px;" placeholder="https://example.com/image.jpg">
-                    <input type="number" id="isarud-img-rank" placeholder="<?php esc_attr_e('Sıra', 'api-isarud'); ?>" value="1" min="1" style="width:80px;">
-                    <button type="button" class="button button-primary" id="isarud-img-upload-btn">⬆️ <?php esc_html_e('Yükle', 'api-isarud'); ?></button>
+                    <input type="number" id="isarud-img-rank" placeholder="<?php esc_attr_e('Order', 'api-isarud'); ?>" value="1" min="1" style="width:80px;">
+                    <button type="button" class="button button-primary" id="isarud-img-upload-btn">⬆️ <?php esc_html_e('Upload', 'api-isarud'); ?></button>
                 </div>
             </div>
         </div>
 
         <!-- TAB: SECTIONS -->
         <div class="isarud-tab-pane" data-tab-pane="sections" style="display:none;">
-            <h2><?php esc_html_e('Mağaza Bölümleri', 'api-isarud'); ?></h2>
-            <p style="color:#6b7280;"><?php esc_html_e('Etsy mağazanızın bölümlerini (kategorileri) yönetin.', 'api-isarud'); ?></p>
-            <button type="button" class="button button-primary" id="isarud-sections-load">📥 <?php esc_html_e('Bölümleri Yükle', 'api-isarud'); ?></button>
+            <h2><?php esc_html_e('Store Sections', 'api-isarud'); ?></h2>
+            <p style="color:#6b7280;"><?php esc_html_e('Manage your Etsy store sections (categories).', 'api-isarud'); ?></p>
+            <button type="button" class="button button-primary" id="isarud-sections-load">📥 <?php esc_html_e('Load Sections', 'api-isarud'); ?></button>
             <div id="isarud-sections-container" style="margin-top:16px;"></div>
 
-            <h3 style="margin-top:32px;"><?php esc_html_e('Yeni Bölüm Ekle', 'api-isarud'); ?></h3>
+            <h3 style="margin-top:32px;"><?php esc_html_e('Add New Section', 'api-isarud'); ?></h3>
             <div style="background:#f9fafb;padding:16px;border-radius:6px;">
-                <input type="text" id="isarud-section-title" class="regular-text" placeholder="<?php esc_attr_e('Bölüm adı', 'api-isarud'); ?>">
-                <button type="button" class="button button-primary" id="isarud-section-create-btn">➕ <?php esc_html_e('Oluştur', 'api-isarud'); ?></button>
+                <input type="text" id="isarud-section-title" class="regular-text" placeholder="<?php esc_attr_e('Section Name', 'api-isarud'); ?>">
+                <button type="button" class="button button-primary" id="isarud-section-create-btn">➕ <?php esc_html_e('Create', 'api-isarud'); ?></button>
             </div>
         </div>
 
         <!-- TAB: TRANSLATIONS -->
         <div class="isarud-tab-pane" data-tab-pane="translations" style="display:none;">
-            <h2><?php esc_html_e('Listing Çevirileri', 'api-isarud'); ?></h2>
-            <p style="color:#6b7280;"><?php esc_html_e('16 dilde listing çevirilerini görüntüleyin ve düzenleyin.', 'api-isarud'); ?></p>
+            <h2><?php esc_html_e('Listing Translations', 'api-isarud'); ?></h2>
+            <p style="color:#6b7280;"><?php esc_html_e('View and edit listing translations in 16 languages.', 'api-isarud'); ?></p>
             <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
                 <label><?php esc_html_e('Listing ID:', 'api-isarud'); ?></label>
-                <input type="number" id="isarud-tr-listing-id" class="regular-text" placeholder="<?php esc_attr_e('Listing ID girin', 'api-isarud'); ?>">
-                <button type="button" class="button button-primary" id="isarud-tr-load">📥 <?php esc_html_e('Çevirileri Yükle', 'api-isarud'); ?></button>
+                <input type="number" id="isarud-tr-listing-id" class="regular-text" placeholder="<?php esc_attr_e('Enter Listing ID', 'api-isarud'); ?>">
+                <button type="button" class="button button-primary" id="isarud-tr-load">📥 <?php esc_html_e('Load Translations', 'api-isarud'); ?></button>
             </div>
             <div id="isarud-tr-container" style="margin-top:20px;"></div>
         </div>
 
         <!-- TAB: SHIPPING -->
         <div class="isarud-tab-pane" data-tab-pane="shipping" style="display:none;">
-            <h2><?php esc_html_e('Kargo Profilleri', 'api-isarud'); ?></h2>
-            <p style="color:#6b7280;"><?php esc_html_e('Etsy mağazanızın kargo profillerini yönetin.', 'api-isarud'); ?></p>
-            <button type="button" class="button button-primary" id="isarud-ship-load">📥 <?php esc_html_e('Profilleri Yükle', 'api-isarud'); ?></button>
+            <h2><?php esc_html_e('Shipping Profiles', 'api-isarud'); ?></h2>
+            <p style="color:#6b7280;"><?php esc_html_e('Manage your Etsy store shipping profiles.', 'api-isarud'); ?></p>
+            <button type="button" class="button button-primary" id="isarud-ship-load">📥 <?php esc_html_e('Load Profiles', 'api-isarud'); ?></button>
             <div id="isarud-ship-container" style="margin-top:16px;"></div>
         </div>
 
         <!-- TAB: SHOP -->
         <div class="isarud-tab-pane" data-tab-pane="shop" style="display:none;">
-            <h2><?php esc_html_e('Mağaza Bilgileri', 'api-isarud'); ?></h2>
-            <button type="button" class="button button-primary" id="isarud-shop-load">📥 <?php esc_html_e('Mağaza Bilgilerini Yükle', 'api-isarud'); ?></button>
+            <h2><?php esc_html_e('Store Information', 'api-isarud'); ?></h2>
+            <button type="button" class="button button-primary" id="isarud-shop-load">📥 <?php esc_html_e('Load Store Information', 'api-isarud'); ?></button>
             <div id="isarud-shop-container" style="margin-top:20px;"></div>
         </div>
 
         <!-- TAB: STATS -->
         <div class="isarud-tab-pane" data-tab-pane="stats" style="display:none;">
-            <h2><?php esc_html_e('İstatistik & Envanter', 'api-isarud'); ?></h2>
+            <h2><?php esc_html_e('Statistics & Inventory', 'api-isarud'); ?></h2>
             <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;">
                 <div style="flex:1;min-width:300px;background:#f9fafb;padding:16px;border-radius:8px;">
-                    <h3 style="margin-top:0;">📊 <?php esc_html_e('Listing İstatistik', 'api-isarud'); ?></h3>
+                    <h3 style="margin-top:0;">📊 <?php esc_html_e('Listing Statistics', 'api-isarud'); ?></h3>
                     <input type="number" id="isarud-stats-listing-id" class="regular-text" placeholder="<?php esc_attr_e('Listing ID', 'api-isarud'); ?>">
-                    <button type="button" class="button" id="isarud-stats-listing-btn"><?php esc_html_e('İstatistik', 'api-isarud'); ?></button>
-                    <button type="button" class="button" id="isarud-inv-btn"><?php esc_html_e('Envanter', 'api-isarud'); ?></button>
+                    <button type="button" class="button" id="isarud-stats-listing-btn"><?php esc_html_e('Statistics', 'api-isarud'); ?></button>
+                    <button type="button" class="button" id="isarud-inv-btn"><?php esc_html_e('Inventory', 'api-isarud'); ?></button>
                     <div id="isarud-stats-listing-out" style="margin-top:12px;"></div>
                 </div>
                 <div style="flex:1;min-width:300px;background:#f9fafb;padding:16px;border-radius:8px;">
-                    <h3 style="margin-top:0;">💰 <?php esc_html_e('Satılan Ürünler', 'api-isarud'); ?></h3>
-                    <button type="button" class="button button-primary" id="isarud-sold-btn"><?php esc_html_e('Yükle', 'api-isarud'); ?></button>
+                    <h3 style="margin-top:0;">💰 <?php esc_html_e('Products Sold', 'api-isarud'); ?></h3>
+                    <button type="button" class="button button-primary" id="isarud-sold-btn"><?php esc_html_e('Upload', 'api-isarud'); ?></button>
                     <div id="isarud-sold-out" style="margin-top:12px;"></div>
                 </div>
             </div>
@@ -149,9 +149,9 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
 
         <!-- TAB: RETURNS -->
         <div class="isarud-tab-pane" data-tab-pane="returns" style="display:none;">
-            <h2><?php esc_html_e('İade Politikaları', 'api-isarud'); ?></h2>
-            <p style="color:#6b7280;"><?php esc_html_e('Etsy mağazanızın iade politikalarını yönetin.', 'api-isarud'); ?></p>
-            <button type="button" class="button button-primary" id="isarud-ret-load">📥 <?php esc_html_e('Politikaları Yükle', 'api-isarud'); ?></button>
+            <h2><?php esc_html_e('Return Policies', 'api-isarud'); ?></h2>
+            <p style="color:#6b7280;"><?php esc_html_e('Manage return policies for your Etsy store.', 'api-isarud'); ?></p>
+            <button type="button" class="button button-primary" id="isarud-ret-load">📥 <?php esc_html_e('Load Policies', 'api-isarud'); ?></button>
             <div id="isarud-ret-container" style="margin-top:16px;"></div>
         </div>
 
@@ -159,19 +159,19 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
 
     <!-- Connect Card (sadece bağlı değilse görünür) -->
     <div id="isarud-etsy-connect-card" style="display:none;background:linear-gradient(135deg,#fff5f5 0%,#ffe8e8 100%);border:1px solid #fc8181;border-radius:8px;padding:24px;margin-top:20px;">
-        <h3 style="margin:0 0 12px 0;"><?php esc_html_e('Etsy Mağazanızı Bağlayın', 'api-isarud'); ?></h3>
-        <p style="margin:0 0 16px 0;color:#5b6770;"><?php esc_html_e('Etsy hesabınıza Isarud uygulaması üzerinden tek tıkla bağlanın.', 'api-isarud'); ?></p>
+        <h3 style="margin:0 0 12px 0;"><?php esc_html_e('Connect Your Etsy Store', 'api-isarud'); ?></h3>
+        <p style="margin:0 0 16px 0;color:#5b6770;"><?php esc_html_e('Connect to your Etsy account with one click through the Isarud application.', 'api-isarud'); ?></p>
         <button type="button" class="button button-primary" id="isarud-etsy-connect-btn" style="background:#f56565;border-color:#e53e3e;color:white;font-size:14px;padding:8px 20px;height:auto;">
-            🔗 <?php esc_html_e('Etsy ile Bağlan', 'api-isarud'); ?>
+            🔗 <?php esc_html_e('Connect with Etsy', 'api-isarud'); ?>
         </button>
     </div>
 
     <!-- Store Selection Modal -->
     <div id="isarud-etsy-store-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:99999;align-items:center;justify-content:center;">
         <div style="background:white;border-radius:8px;padding:24px;max-width:500px;width:90%;">
-            <h3 style="margin-top:0;"><?php esc_html_e('Hangi Isarud mağazası?', 'api-isarud'); ?></h3>
+            <h3 style="margin-top:0;"><?php esc_html_e('Which Isarud store?', 'api-isarud'); ?></h3>
             <div id="isarud-etsy-store-list"></div>
-            <button type="button" class="button" id="isarud-etsy-store-cancel" style="margin-top:16px;"><?php esc_html_e('İptal', 'api-isarud'); ?></button>
+            <button type="button" class="button" id="isarud-etsy-store-cancel" style="margin-top:16px;"><?php esc_html_e('Cancel', 'api-isarud'); ?></button>
         </div>
     </div>
 
@@ -183,25 +183,25 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
     var nonce = '<?php echo esc_js($nonce); ?>';
 
     var i18n = {
-        loading: <?php echo wp_json_encode(__('Yükleniyor...', 'api-isarud')); ?>,
-        error: <?php echo wp_json_encode(__('Hata', 'api-isarud')); ?>,
-        success: <?php echo wp_json_encode(__('Başarılı', 'api-isarud')); ?>,
-        confirmDelete: <?php echo wp_json_encode(__('Silmek istediğinize emin misiniz?', 'api-isarud')); ?>,
-        active: <?php echo wp_json_encode(__('Aktif', 'api-isarud')); ?>,
-        inactive: <?php echo wp_json_encode(__('Pasif', 'api-isarud')); ?>,
-        draft: <?php echo wp_json_encode(__('Taslak', 'api-isarud')); ?>,
-        sold_out: <?php echo wp_json_encode(__('Tükendi', 'api-isarud')); ?>,
-        noListings: <?php echo wp_json_encode(__('Etsy mağazanızda ürün bulunamadı.', 'api-isarud')); ?>,
-        noImages: <?php echo wp_json_encode(__('Bu listing için resim yok.', 'api-isarud')); ?>,
-        noSections: <?php echo wp_json_encode(__('Henüz bölüm yok.', 'api-isarud')); ?>,
-        noShipping: <?php echo wp_json_encode(__('Kargo profili yok.', 'api-isarud')); ?>,
-        noReturns: <?php echo wp_json_encode(__('İade politikası yok.', 'api-isarud')); ?>,
-        actionActivate: <?php echo wp_json_encode(__('Aktifleştir', 'api-isarud')); ?>,
-        actionDeactivate: <?php echo wp_json_encode(__('Pasifleştir', 'api-isarud')); ?>,
-        actionDelete: <?php echo wp_json_encode(__('Sil', 'api-isarud')); ?>,
-        actionView: <?php echo wp_json_encode(__('Etsy\'de Gör', 'api-isarud')); ?>,
-        actionEdit: <?php echo wp_json_encode(__('Düzenle', 'api-isarud')); ?>,
-        actionSave: <?php echo wp_json_encode(__('Kaydet', 'api-isarud')); ?>
+        loading: <?php echo wp_json_encode(__('Loading...', 'api-isarud')); ?>,
+        error: <?php echo wp_json_encode(__('Error', 'api-isarud')); ?>,
+        success: <?php echo wp_json_encode(__('Successful', 'api-isarud')); ?>,
+        confirmDelete: <?php echo wp_json_encode(__('Are you sure you want to delete?', 'api-isarud')); ?>,
+        active: <?php echo wp_json_encode(__('Active', 'api-isarud')); ?>,
+        inactive: <?php echo wp_json_encode(__('Inactive', 'api-isarud')); ?>,
+        draft: <?php echo wp_json_encode(__('Draft', 'api-isarud')); ?>,
+        sold_out: <?php echo wp_json_encode(__('Out of Stock', 'api-isarud')); ?>,
+        noListings: <?php echo wp_json_encode(__('No products found in your Etsy store.', 'api-isarud')); ?>,
+        noImages: <?php echo wp_json_encode(__('No image for this listing.', 'api-isarud')); ?>,
+        noSections: <?php echo wp_json_encode(__('No sections yet.', 'api-isarud')); ?>,
+        noShipping: <?php echo wp_json_encode(__('No shipping profile.', 'api-isarud')); ?>,
+        noReturns: <?php echo wp_json_encode(__('No return policy.', 'api-isarud')); ?>,
+        actionActivate: <?php echo wp_json_encode(__('Activate', 'api-isarud')); ?>,
+        actionDeactivate: <?php echo wp_json_encode(__('Deactivate', 'api-isarud')); ?>,
+        actionDelete: <?php echo wp_json_encode(__('Delete', 'api-isarud')); ?>,
+        actionView: <?php echo wp_json_encode(__('View on Etsy', 'api-isarud')); ?>,
+        actionEdit: <?php echo wp_json_encode(__('Edit', 'api-isarud')); ?>,
+        actionSave: <?php echo wp_json_encode(__('Save', 'api-isarud')); ?>
     };
 
     function escapeHtml(s) {
@@ -257,15 +257,15 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
 
             if (r && r.success && r.connected) {
                 var name = (r.data && r.data.data && r.data.data.shop_name) || ('Store ' + (r.store_id || ''));
-                $c.html('<span style="font-size:18px;">✅</span><strong>' + escapeHtml(i18n.active) + '</strong>—<?php esc_html_e('Mağaza:', 'api-isarud'); ?> <strong>' + escapeHtml(name) + '</strong>');
+                $c.html('<span style="font-size:18px;">✅</span><strong>' + escapeHtml(i18n.active) + '</strong>—<?php esc_html_e('Store:', 'api-isarud'); ?> <strong>' + escapeHtml(name) + '</strong>');
                 $card.hide();
             } else {
-                $c.html('<span style="font-size:18px;">⚠️</span><strong><?php esc_html_e('Bağlı değil', 'api-isarud'); ?></strong>');
+                $c.html('<span style="font-size:18px;">⚠️</span><strong><?php esc_html_e('Not Connected', 'api-isarud'); ?></strong>');
                 $card.show();
             }
         })
         .fail(function() {
-            $('#isarud-etsy-status-content').html('<span style="color:#dc2626;">❌ <?php esc_html_e('Durum kontrol edilemedi', 'api-isarud'); ?></span>');
+            $('#isarud-etsy-status-content').html('<span style="color:#dc2626;">❌ <?php esc_html_e('Status could not be checked', 'api-isarud'); ?></span>');
         });
     }
 
@@ -298,11 +298,11 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
             }
 
             var html = '<table class="wp-list-table widefat fixed striped"><thead><tr>';
-            html += '<th style="width:90px;">ID</th><th><?php esc_html_e('Başlık', 'api-isarud'); ?></th>';
-            html += '<th style="width:100px;"><?php esc_html_e('Durum', 'api-isarud'); ?></th>';
-            html += '<th style="width:80px;"><?php esc_html_e('Stok', 'api-isarud'); ?></th>';
-            html += '<th style="width:130px;"><?php esc_html_e('Fiyat', 'api-isarud'); ?></th>';
-            html += '<th style="width:280px;"><?php esc_html_e('İşlemler', 'api-isarud'); ?></th></tr></thead><tbody>';
+            html += '<th style="width:90px;">ID</th><th><?php esc_html_e('Title', 'api-isarud'); ?></th>';
+            html += '<th style="width:100px;"><?php esc_html_e('Status', 'api-isarud'); ?></th>';
+            html += '<th style="width:80px;"><?php esc_html_e('Inventory', 'api-isarud'); ?></th>';
+            html += '<th style="width:130px;"><?php esc_html_e('Price', 'api-isarud'); ?></th>';
+            html += '<th style="width:280px;"><?php esc_html_e('Actions', 'api-isarud'); ?></th></tr></thead><tbody>';
 
             list.forEach(function(item) {
                 var id = item.listing_id || item.id;
@@ -336,11 +336,11 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
                 html += '</td></tr>';
             });
             html += '</tbody></table>';
-            html += '<p style="margin-top:14px;color:#6b7280;"><?php esc_html_e('Toplam:', 'api-isarud'); ?> <strong>' + list.length + '</strong> <?php esc_html_e('ürün', 'api-isarud'); ?></p>';
+            html += '<p style="margin-top:14px;color:#6b7280;"><?php esc_html_e('Total:', 'api-isarud'); ?> <strong>' + list.length + '</strong> <?php esc_html_e('product', 'api-isarud'); ?></p>';
             $cont.html(html);
         })
         .fail(function(xhr) {
-            $cont.html('<div class="notice notice-error"><p><?php esc_html_e('Yükleme başarısız:', 'api-isarud'); ?> HTTP ' + xhr.status + '</p></div>');
+            $cont.html('<div class="notice notice-error"><p><?php esc_html_e('Loading failed:', 'api-isarud'); ?> HTTP ' + xhr.status + '</p></div>');
         });
     }
 
@@ -366,7 +366,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
     // ═══════════════════════════════════════════════════════
     $('#isarud-img-load').on('click', function() {
         var id = parseInt($('#isarud-img-listing-id').val(), 10);
-        if (!id || id <= 0) { alert('<?php esc_html_e('Geçerli Listing ID girin', 'api-isarud'); ?>'); return; }
+        if (!id || id <= 0) { alert('<?php esc_html_e('Enter valid Listing ID', 'api-isarud'); ?>'); return; }
         var $cont = $('#isarud-img-container');
         $cont.html('<p>⏳ ' + escapeHtml(i18n.loading) + '</p>');
 
@@ -383,7 +383,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
                 var rank = img.rank || 0;
                 html += '<div style="border:1px solid #e5e7eb;border-radius:8px;padding:8px;max-width:200px;">';
                 html += '<img src="' + escapeHtml(url) + '" style="width:100%;border-radius:4px;">';
-                html += '<p style="font-size:12px;margin:8px 0 4px 0;"><strong><?php esc_html_e('Sıra:', 'api-isarud'); ?></strong> ' + rank + '</p>';
+                html += '<p style="font-size:12px;margin:8px 0 4px 0;"><strong><?php esc_html_e('Order:', 'api-isarud'); ?></strong> ' + rank + '</p>';
                 html += '<p style="font-size:11px;color:#6b7280;margin:0 0 8px 0;">ID: ' + imgId + '</p>';
                 html += '<button class="button button-small isarud-img-del" data-listing="' + id + '" data-img="' + imgId + '" style="color:#dc2626;">🗑 ' + escapeHtml(i18n.actionDelete) + '</button>';
                 html += '</div>';
@@ -408,7 +408,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
         var lid = parseInt($('#isarud-img-listing-id').val(), 10);
         var url = $('#isarud-img-url').val().trim();
         var rank = parseInt($('#isarud-img-rank').val(), 10) || 1;
-        if (!lid || !url) { alert('<?php esc_html_e('Listing ID ve URL girin', 'api-isarud'); ?>'); return; }
+        if (!lid || !url) { alert('<?php esc_html_e('Enter Listing ID and URL', 'api-isarud'); ?>'); return; }
         $.post(ajaxUrl, { action:'isarud_etsy_image_upload', nonce:nonce, listing_id:lid, image_url:url, rank:rank })
         .done(function(r){
             if (r.success){ alert(i18n.success); $('#isarud-img-url').val(''); $('#isarud-img-load').click(); }
@@ -428,7 +428,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
             var secs = (r.data && (r.data.sections || r.data.results || [])) || [];
             if (!Array.isArray(secs) || secs.length === 0) { $cont.html('<p style="color:#6b7280;">' + escapeHtml(i18n.noSections) + '</p>'); return; }
 
-            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Başlık', 'api-isarud'); ?></th><th><?php esc_html_e('Aktif Listing', 'api-isarud'); ?></th><th><?php esc_html_e('İşlemler', 'api-isarud'); ?></th></tr></thead><tbody>';
+            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Title', 'api-isarud'); ?></th><th><?php esc_html_e('Active Listing', 'api-isarud'); ?></th><th><?php esc_html_e('Actions', 'api-isarud'); ?></th></tr></thead><tbody>';
             secs.forEach(function(s) {
                 var sid = s.shop_section_id || s.section_id;
                 html += '<tr data-sid="' + sid + '"><td><code>' + escapeHtml(sid) + '</code></td>';
@@ -445,7 +445,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
 
     $('#isarud-section-create-btn').on('click', function() {
         var title = $('#isarud-section-title').val().trim();
-        if (!title) { alert('<?php esc_html_e('Bölüm adı girin', 'api-isarud'); ?>'); return; }
+        if (!title) { alert('<?php esc_html_e('Enter category name', 'api-isarud'); ?>'); return; }
         $.post(ajaxUrl, { action:'isarud_etsy_section_create', nonce:nonce, title:title })
         .done(function(r){
             if (r.success){ alert(i18n.success); $('#isarud-section-title').val(''); loadSections(); }
@@ -457,7 +457,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
         var sid = $(this).data('sid');
         var $row = $('tr[data-sid="' + sid + '"]');
         var current = $row.find('.sec-title').text();
-        var newTitle = prompt('<?php esc_html_e('Yeni başlık:', 'api-isarud'); ?>', current);
+        var newTitle = prompt('<?php esc_html_e('New title:', 'api-isarud'); ?>', current);
         if (!newTitle || newTitle === current) return;
         $.post(ajaxUrl, { action:'isarud_etsy_section_update', nonce:nonce, section_id:sid, title:newTitle })
         .done(function(r){
@@ -482,7 +482,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
     var locales = ['de','en','es','fr','it','ja','nl','pl','pt','ru','tr'];
     $('#isarud-tr-load').on('click', function() {
         var lid = parseInt($('#isarud-tr-listing-id').val(), 10);
-        if (!lid) { alert('<?php esc_html_e('Listing ID girin', 'api-isarud'); ?>'); return; }
+        if (!lid) { alert('<?php esc_html_e('Enter Listing ID', 'api-isarud'); ?>'); return; }
         var $cont = $('#isarud-tr-container');
         $cont.html('<p>⏳ ' + escapeHtml(i18n.loading) + '</p>');
         $.get(ajaxUrl, { action:'isarud_etsy_translations_all', nonce:nonce, listing_id:lid })
@@ -494,8 +494,8 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
                 var t = trs[loc] || {};
                 html += '<div style="border:1px solid #e5e7eb;border-radius:8px;padding:14px;">';
                 html += '<h4 style="margin-top:0;">🌍 ' + loc.toUpperCase() + '</h4>';
-                html += '<p style="margin:4px 0;"><strong><?php esc_html_e('Başlık:', 'api-isarud'); ?></strong> <input type="text" class="regular-text isarud-tr-title" data-locale="' + loc + '" value="' + escapeHtml(t.title || '') + '" style="width:100%;"></p>';
-                html += '<p style="margin:4px 0;"><strong><?php esc_html_e('Açıklama:', 'api-isarud'); ?></strong> <textarea class="isarud-tr-desc" data-locale="' + loc + '" style="width:100%;height:80px;">' + escapeHtml(t.description || '') + '</textarea></p>';
+                html += '<p style="margin:4px 0;"><strong><?php esc_html_e('Title:', 'api-isarud'); ?></strong> <input type="text" class="regular-text isarud-tr-title" data-locale="' + loc + '" value="' + escapeHtml(t.title || '') + '" style="width:100%;"></p>';
+                html += '<p style="margin:4px 0;"><strong><?php esc_html_e('Description:', 'api-isarud'); ?></strong> <textarea class="isarud-tr-desc" data-locale="' + loc + '" style="width:100%;height:80px;">' + escapeHtml(t.description || '') + '</textarea></p>';
                 html += '<button class="button button-small button-primary isarud-tr-save" data-locale="' + loc + '">💾 ' + escapeHtml(i18n.actionSave) + '</button>';
                 html += '</div>';
             });
@@ -527,7 +527,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
             if (!r.success) { $cont.html('<div class="notice notice-error"><p>' + escapeHtml(r.error||r.message) + '</p></div>'); return; }
             var profiles = (r.data && (r.data.profiles || r.data.results || [])) || [];
             if (!Array.isArray(profiles) || profiles.length === 0) { $cont.html('<p style="color:#6b7280;">' + escapeHtml(i18n.noShipping) + '</p>'); return; }
-            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Başlık', 'api-isarud'); ?></th><th><?php esc_html_e('Menşe', 'api-isarud'); ?></th><th><?php esc_html_e('Min Süre', 'api-isarud'); ?></th><th><?php esc_html_e('Max Süre', 'api-isarud'); ?></th><th><?php esc_html_e('İşlemler', 'api-isarud'); ?></th></tr></thead><tbody>';
+            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Title', 'api-isarud'); ?></th><th><?php esc_html_e('Origin', 'api-isarud'); ?></th><th><?php esc_html_e('Min Duration', 'api-isarud'); ?></th><th><?php esc_html_e('Max Duration', 'api-isarud'); ?></th><th><?php esc_html_e('Actions', 'api-isarud'); ?></th></tr></thead><tbody>';
             profiles.forEach(function(p) {
                 var pid = p.shipping_profile_id || p.profile_id;
                 html += '<tr><td><code>' + escapeHtml(pid) + '</code></td>';
@@ -565,11 +565,11 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
             var s = (r.data && r.data.shop) || {};
             var html = '<div style="background:#f9fafb;padding:16px;border-radius:8px;">';
             html += '<h3 style="margin-top:0;">🏪 ' + escapeHtml(s.shop_name || '-') + '</h3>';
-            html += '<p><strong><?php esc_html_e('Başlık:', 'api-isarud'); ?></strong> <input type="text" id="isarud-shop-title" class="regular-text" value="' + escapeHtml(s.title || '') + '"></p>';
-            html += '<p><strong><?php esc_html_e('Duyuru:', 'api-isarud'); ?></strong> <textarea id="isarud-shop-announce" class="regular-text" style="width:100%;height:80px;">' + escapeHtml(s.announcement || '') + '</textarea></p>';
-            html += '<p><strong><?php esc_html_e('Tatilde mi?', 'api-isarud'); ?></strong> <input type="checkbox" id="isarud-shop-vacation"' + (s.is_vacation?' checked':'') + '></p>';
-            html += '<p><strong><?php esc_html_e('Tatil Mesajı:', 'api-isarud'); ?></strong> <textarea id="isarud-shop-vacmsg" class="regular-text" style="width:100%;height:60px;">' + escapeHtml(s.vacation_message || '') + '</textarea></p>';
-            html += '<p><strong><?php esc_html_e('Para Birimi:', 'api-isarud'); ?></strong> ' + escapeHtml(s.currency_code || '-') + '</p>';
+            html += '<p><strong><?php esc_html_e('Title:', 'api-isarud'); ?></strong> <input type="text" id="isarud-shop-title" class="regular-text" value="' + escapeHtml(s.title || '') + '"></p>';
+            html += '<p><strong><?php esc_html_e('Announcement:', 'api-isarud'); ?></strong> <textarea id="isarud-shop-announce" class="regular-text" style="width:100%;height:80px;">' + escapeHtml(s.announcement || '') + '</textarea></p>';
+            html += '<p><strong><?php esc_html_e('On Vacation?', 'api-isarud'); ?></strong> <input type="checkbox" id="isarud-shop-vacation"' + (s.is_vacation?' checked':'') + '></p>';
+            html += '<p><strong><?php esc_html_e('Vacation Message:', 'api-isarud'); ?></strong> <textarea id="isarud-shop-vacmsg" class="regular-text" style="width:100%;height:60px;">' + escapeHtml(s.vacation_message || '') + '</textarea></p>';
+            html += '<p><strong><?php esc_html_e('Currency:', 'api-isarud'); ?></strong> ' + escapeHtml(s.currency_code || '-') + '</p>';
             html += '<button class="button button-primary" id="isarud-shop-save">💾 ' + escapeHtml(i18n.actionSave) + '</button>';
             html += '</div>';
             $cont.html(html);
@@ -625,7 +625,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
         .done(function(r) {
             if (!r.success) { $out.html('<p style="color:#dc2626;">' + escapeHtml(r.error||r.message) + '</p>'); return; }
             var items = (r.data && (r.data.items || r.data.results || [])) || [];
-            if (!items.length) { $out.html('<p style="color:#6b7280;"><?php esc_html_e('Henüz satış yok.', 'api-isarud'); ?></p>'); return; }
+            if (!items.length) { $out.html('<p style="color:#6b7280;"><?php esc_html_e('No sales yet.', 'api-isarud'); ?></p>'); return; }
             var html = '<ul style="margin:0;padding-left:20px;">';
             items.forEach(function(it) {
                 html += '<li>' + escapeHtml(it.title || it.listing_id || '?') + ' — <strong>' + escapeHtml(it.quantity || 1) + 'x</strong></li>';
@@ -647,7 +647,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
             if (!r.success) { $cont.html('<div class="notice notice-error"><p>' + escapeHtml(r.error||r.message) + '</p></div>'); return; }
             var policies = (r.data && (r.data.policies || r.data.results || [])) || [];
             if (!Array.isArray(policies) || policies.length === 0) { $cont.html('<p style="color:#6b7280;">' + escapeHtml(i18n.noReturns) + '</p>'); return; }
-            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Kabul Edilir Mi?', 'api-isarud'); ?></th><th><?php esc_html_e('Değişim', 'api-isarud'); ?></th><th><?php esc_html_e('Süre (gün)', 'api-isarud'); ?></th><th><?php esc_html_e('İşlemler', 'api-isarud'); ?></th></tr></thead><tbody>';
+            var html = '<table class="wp-list-table widefat fixed striped"><thead><tr><th>ID</th><th><?php esc_html_e('Acceptable?', 'api-isarud'); ?></th><th><?php esc_html_e('Exchange', 'api-isarud'); ?></th><th><?php esc_html_e('Duration (days)', 'api-isarud'); ?></th><th><?php esc_html_e('Actions', 'api-isarud'); ?></th></tr></thead><tbody>';
             policies.forEach(function(p) {
                 var pid = p.return_policy_id || p.policy_id;
                 html += '<tr><td><code>' + escapeHtml(pid) + '</code></td>';
@@ -680,7 +680,7 @@ $nonce = wp_create_nonce('isarud_etsy_nonce');
         .done(function(r) {
             if (!r.success) { alert(i18n.error + ': ' + (r.error||r.message)); return; }
             var stores = (r.data && (r.data.stores || r.data.results || [])) || [];
-            if (!stores.length) { alert('<?php esc_html_e('Isarud mağazası yok.', 'api-isarud'); ?>'); return; }
+            if (!stores.length) { alert('<?php esc_html_e('No isarud store found.', 'api-isarud'); ?>'); return; }
             if (stores.length === 1) { initiateAuth(stores[0].id); return; }
             var html = '';
             stores.forEach(function(s) {

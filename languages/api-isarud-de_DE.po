@@ -5031,3 +5031,12 @@ msgstr "Vorheriger Schritt"
 #: includes/welcome-html.php:190
 msgid "Skip, Go to Dashboard"
 msgstr "Überspringen, zum Dashboard gehen"
+
+msgid "eBay Management Panel"
+msgstr "eBay-Verwaltungspanel"
+
+msgid "Global eBay marketplace integration via isarud.com cloud bridge"
+msgstr "Globale eBay-Marktplatzintegration über die isarud.com Cloud-Bridge"
+
+msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
+msgstr "Die eBay-Verbindung wird über OAuth auf isarud.com verwaltet. Sobald Sie Ihr eBay-Konto im isarud.com-Panel verbinden, erscheint es hier automatisch."

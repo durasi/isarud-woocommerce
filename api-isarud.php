@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.7.1
+ * Version: 6.7.2
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0

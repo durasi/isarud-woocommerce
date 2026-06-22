@@ -5031,3 +5031,12 @@ msgstr "上一步"
 #: includes/welcome-html.php:190
 msgid "Skip, Go to Dashboard"
 msgstr "跳过，转到仪表板"
+
+msgid "eBay Management Panel"
+msgstr "eBay 管理面板"
+
+msgid "Global eBay marketplace integration via isarud.com cloud bridge"
+msgstr "通过 isarud.com 云桥实现的全球 eBay 市场平台集成"
+
+msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
+msgstr "eBay 连接通过 isarud.com 上的 OAuth 管理。在 isarud.com 面板中连接您的 eBay 账户后，它会自动显示在此处。"

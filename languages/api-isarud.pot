@@ -5261,3 +5261,12 @@ msgstr ""
 #: includes/welcome-html.php:190
 msgid "Skip, Go to Dashboard"
 msgstr ""
+
+msgid "eBay Management Panel"
+msgstr ""
+
+msgid "Global eBay marketplace integration via isarud.com cloud bridge"
+msgstr ""
+
+msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
+msgstr ""

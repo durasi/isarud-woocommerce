@@ -584,6 +584,66 @@ foreach ($marketplaces as $key => $mp):
         <?php endforeach; ?>
     </div>
 </div>
+<div id="isarud-ebay-modern-card" style="border-radius:14px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;max-width:920px">
+    <div style="background:linear-gradient(135deg,#e53238 0%,#ff5b5f 100%);padding:22px 28px;color:#fff;display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0">
+            <div style="width:48px;height:48px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <span style="font-weight:800;font-size:18px;color:#e53238;letter-spacing:-0.5px">eB</span>
+            </div>
+            <div style="min-width:0;flex:1">
+                <h3 style="margin:0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2)">eBay</h3>
+                <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.4"><?php esc_html_e('Global eBay marketplace integration via isarud.com cloud bridge', 'api-isarud'); ?></p>
+            </div>
+            <div id="isarud-ebay-modern-status" style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center"><?php esc_html_e('Loading...', 'api-isarud'); ?></div>
+        </div>
+    </div>
+    <div style="padding:18px 28px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+            <span style="background:#fde2e3;color:#b91c1c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📦 <?php esc_html_e('Product Management', 'api-isarud'); ?></span>
+            <span style="background:#fde2e3;color:#b91c1c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📊 Stok &amp; Fiyat</span>
+            <span style="background:#fde2e3;color:#b91c1c;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600">📋 <?php esc_html_e('Order', 'api-isarud'); ?></span>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 14px;margin-bottom:12px;font-size:12px;color:#1e40af;line-height:1.5">
+            <?php esc_html_e('eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically.', 'api-isarud'); ?>
+        </div>
+        <div id="isarud-ebay-modern-action">
+            <a href="<?php echo admin_url('admin.php?page=isarud-ebay'); ?>" id="isarud-ebay-modern-btn" class="button button-primary button-hero" style="background:#e53238;border-color:#e53238;text-shadow:none;box-shadow:0 2px 6px rgba(229,50,56,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
+                🔗 <?php esc_html_e('eBay Management Panel', 'api-isarud'); ?>            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function($){
+    "use strict";
+    function escH(t){return String(t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+    $(document).ready(function(){
+        $.post("<?php echo admin_url('admin-ajax.php'); ?>", {
+            action: "isarud_ebay_status",
+            nonce: "<?php echo wp_create_nonce('isarud_ebay_nonce'); ?>"
+        }).done(function(r){
+            if (r && r.success && r.connected) {
+                var name = (r.store && r.store.name) ? r.store.name : "eBay";
+                $("#isarud-ebay-modern-status").html("✅ <?php echo esc_js(__('Connected','api-isarud')); ?>").css({background:"#10b981",color:"#fff"});
+                $("#isarud-ebay-modern-action").html(
+                    '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-bottom:12px;font-size:13px;color:#15803d">' +
+                    '✅ <strong><?php echo esc_js(__('Connected','api-isarud')); ?></strong> — <?php echo esc_js(__('Store','api-isarud')); ?>: <strong>' + escH(name) + '</strong>' +
+                    '</div>' +
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-ebay'); ?>" class="button button-primary" style="background:#e53238;border-color:#e53238;font-weight:600;padding:0 24px;height:36px;line-height:34px">📋 <?php echo esc_js(__('Manage','api-isarud')); ?></a>'
+                );
+            } else {
+                $("#isarud-ebay-modern-status").html("⚪ <?php echo esc_js(__('Not connected','api-isarud')); ?>").css({background:"rgba(255,255,255,0.25)",color:"#fff"});
+                $("#isarud-ebay-modern-action").html(
+                    '<a href="<?php echo admin_url('admin.php?page=isarud-ebay'); ?>" class="button button-primary" style="background:#e53238;border-color:#e53238;font-weight:600;padding:0 24px;height:44px;line-height:42px">🔗 <?php echo esc_js(__('eBay Management Panel','api-isarud')); ?></a>'
+                );
+            }
+        }).fail(function(){
+            $("#isarud-ebay-modern-status").html("⚠️").css({background:"#fef2f2",color:"#dc2626"});
+        });
+    });
+})(jQuery);
+</script>
+
 <script>
 function isarudT(k){var e=document.getElementById('mp-'+k);if(e)e.classList.toggle('open')}
 document.addEventListener('DOMContentLoaded',function(){

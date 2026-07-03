@@ -5156,3 +5156,7 @@ msgstr "转到 Ciceksepeti 页面"
 #: ciceksepeti-v6.8
 msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
 msgstr "产品页面上的亚马逊风格\"购买此商品的客户也购买了\"模块。可手动选择产品或根据订单历史自动推荐。"
+
+#: ciceksepeti-v6.8
+msgid "To select FBT products manually for each product: go to Edit Product > Linked Products. A \"Frequently Bought Together\" field has been added."
+msgstr "要为每个产品手动选择FBT产品：请转到编辑产品 > 关联产品。已添加\"经常一起购买\"字段。"

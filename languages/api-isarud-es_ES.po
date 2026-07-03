@@ -5156,3 +5156,7 @@ msgstr "Ir a la página de Ciceksepeti"
 #: ciceksepeti-v6.8
 msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
 msgstr "Bloque estilo Amazon \"Los clientes que compraron esto también compraron\" en la página del producto. Selección manual de productos o automática según el historial de pedidos."
+
+#: ciceksepeti-v6.8
+msgid "To select FBT products manually for each product: go to Edit Product > Linked Products. A \"Frequently Bought Together\" field has been added."
+msgstr "Para seleccionar productos FBT manualmente para cada producto: ve a Editar Producto > Productos Vinculados. Se ha añadido un campo \"Frecuentemente Comprados Juntos\"."

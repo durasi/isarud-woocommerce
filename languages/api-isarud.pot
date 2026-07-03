@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-03 17:33+0300\n"
+"POT-Creation-Date: 2026-07-03 21:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5823,8 +5823,8 @@ msgstr ""
 
 #: /Users/seckin/projeler/isarud-svn/trunk/includes/upsell-html.php:91
 msgid ""
-"Her urun icin manuel FBT secimi yapmak isterseniz: Urun Duzenle > Bagli "
-"Urunler bolumune gidin. \"Birlikte Satin Alinan Urunler\" alani eklendi."
+"To select FBT products manually for each product: go to Edit Product > "
+"Linked Products. A \"Frequently Bought Together\" field has been added."
 msgstr ""
 
 #: /Users/seckin/projeler/isarud-svn/trunk/includes/upsell-html.php:97

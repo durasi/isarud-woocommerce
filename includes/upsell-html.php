@@ -88,7 +88,7 @@ if (isset($_POST['isarud_save_upsell']) && wp_verify_nonce($_POST['_wpnonce'], '
 
             <div class="isd-activity" style="margin-top:16px">
                 <h3><?php _e('Product-Based FBT Selection', 'api-isarud'); ?></h3>
-                <p style="font-size:12px;color:#888"><?php _e('Her urun icin manuel FBT secimi yapmak isterseniz: Urun Duzenle > Bagli Urunler bolumune gidin. "Birlikte Satin Alinan Urunler" alani eklendi.', 'api-isarud'); ?></p>
+                <p style="font-size:12px;color:#888"><?php _e('To select FBT products manually for each product: go to Edit Product > Linked Products. A "Frequently Bought Together" field has been added.', 'api-isarud'); ?></p>
             </div>
         </div>
     </div>

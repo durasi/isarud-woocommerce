@@ -5156,3 +5156,7 @@ msgstr "Ciceksepeti 페이지로 이동"
 #: ciceksepeti-v6.8
 msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
 msgstr "상품 페이지의 Amazon 스타일 \"이 상품을 구매한 고객이 함께 구매한 상품\" 블록. 수동 상품 선택 또는 주문 이력 기반 자동 선택."
+
+#: ciceksepeti-v6.8
+msgid "To select FBT products manually for each product: go to Edit Product > Linked Products. A \"Frequently Bought Together\" field has been added."
+msgstr "각 제품에 대해 FBT 제품을 수동으로 선택하려면: 제품 편집 > 연결된 제품으로 이동하세요. \"함께 자주 구매됨\" 필드가 추가되었습니다."

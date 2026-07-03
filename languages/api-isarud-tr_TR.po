@@ -5040,3 +5040,119 @@ msgstr "isarud.com bulut köprüsü ile global eBay pazaryeri entegrasyonu"
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "eBay bağlantısı isarud.com üzerinde OAuth ile yönetilir. eBay hesabınızı isarud.com panelinden bağladığınızda burada otomatik görünür."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Ciceksepeti modülü yüklenmedi"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com'a giriş yapın</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "Ciceksepeti bağlantısı kontrol ediliyor..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "Ciceksepeti'ye bağlan"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "Ciceksepeti ile bağlan"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "Ciceksepeti Satıcı Panelinden API Key, API Secret ve Satıcı (Hesap) Numarasını kullanarak mağazanızı entegre edebilirsiniz."
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "Ciceksepeti'ye bağlanmak için Isarud mağazanızı seçin:"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Ciceksepeti Ürünleri"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Ciceksepeti Kategorileri"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "Ciceksepeti kategori ağacını görüntüleyin ve özniteliklerini gözden geçirin."
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "Bir ürünün barkod, stok ve fiyat bilgisini Ciceksepeti'ye gönderin."
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "Bu özellik etkinleştirildiğinde, WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncellediğinizde, ürün otomatik olarak tüm etkin pazaryerlerine (Ciceksepeti dahil) gönderilir."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Ciceksepeti kategori ve marka eşlemeleri"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "Manuel Toplu Gönderme (WooCommerce → Ciceksepeti)"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "Tüm WooCommerce ürünlerinizi Ciceksepeti'ye aynı anda göndermek için bu düğmeyi kullanın. Yalnızca kategorisi ve markası eşlenmiş ürünler aktarılacaktır."
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "Tüm Ürünleri Ciceksepeti'ye Gönder"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "Ciceksepeti siparişlerine takip numaraları ekleyin."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Ciceksepeti Bağlantı Bilgileri"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "Ciceksepeti API bağlantınızla ilgili durum ve bilgiler."
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "Satıcı ID"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "Bu ürünü Ciceksepeti'den silmek istiyor musunuz? Bu işlem geri alınamaz."
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "Tüm WooCommerce ürünleri Ciceksepeti'ye gönderilecektir. Devam etmek istiyor musunuz?"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "\"%s\" için minimum sipariş miktarı %d birimdir."
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "Yetersiz izinler"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti bağlandı!"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7 pazar yeri (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "Ciceksepeti Sayfasına Git"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "Ürün sayfasında Amazon tarzı \"Bunu satın alanlar şunu da satın aldı\" bloğu. Manuel ürün seçimi veya sipariş geçmişine göre otomatik."

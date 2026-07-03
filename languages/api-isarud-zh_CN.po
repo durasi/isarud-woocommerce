@@ -5040,3 +5040,119 @@ msgstr "通过 isarud.com 云桥实现的全球 eBay 市场平台集成"
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "eBay 连接通过 isarud.com 上的 OAuth 管理。在 isarud.com 面板中连接您的 eBay 账户后，它会自动显示在此处。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Ciceksepeti 模块未加载"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">登录到 isarud.com</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "正在检查 Ciceksepeti 连接..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "连接到 Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "与 Ciceksepeti 连接"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "您可以使用来自 Ciceksepeti 卖家面板的 API 密钥、API Secret 和卖家（账户）编号来集成您的商店。"
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "选择您的 Isarud 商店以连接到 Ciceksepeti："
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Ciceksepeti 产品"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Ciceksepeti 分类"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "查看 Ciceksepeti 分类树并检查其属性。"
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "将产品的条形码、库存和价格信息发送到 Ciceksepeti。"
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "启用此功能后，每当您在 WooCommerce 中添加新产品或更新现有产品时，该产品将自动发送到所有活跃的市场（包括 Ciceksepeti）。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Ciceksepeti 分类和品牌映射"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "手动批量提交（WooCommerce → Ciceksepeti）"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "使用此按钮一次性将您的所有 WooCommerce 产品发送到 Ciceksepeti。只有完成分类和品牌映射的产品才会被转移。"
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "将所有产品发送到 Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "将跟踪号码添加到 Ciceksepeti 订单。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Ciceksepeti 连接信息"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "关于您的 Ciceksepeti API 连接的状态和信息。"
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "卖家 ID"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "从 Ciceksepeti 删除此产品？此操作无法撤销。"
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "所有 WooCommerce 产品将被发送到 Ciceksepeti。继续？"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "\"%s\" 的最小订购数量是 %d 个单位。"
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "权限不足"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti 已连接！"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7个市场平台（Trendyol、Hepsiburada、N11、Amazon、Pazarama、Ciceksepeti、Etsy）"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "转到 Ciceksepeti 页面"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "产品页面上的亚马逊风格\"购买此商品的客户也购买了\"模块。可手动选择产品或根据订单历史自动推荐。"

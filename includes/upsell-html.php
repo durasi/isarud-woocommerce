@@ -79,7 +79,7 @@ if (isset($_POST['isarud_save_upsell']) && wp_verify_nonce($_POST['_wpnonce'], '
             <div class="isd-activity">
                 <h3><?php _e('Feature Descriptions', 'api-isarud'); ?></h3>
                 <div style="font-size:12px;color:#666;line-height:1.8">
-                    <div style="margin-bottom:8px"><strong><?php _e('Frequently Bought Together:', 'api-isarud'); ?></strong> <?php _e('Urun sayfasinda Amazon tarzı "Bu urunu alanlar sunlari da aldi" blogu. Manuel urun secimi veya siparis gecmisinden otomatik.', 'api-isarud'); ?></div>
+                    <div style="margin-bottom:8px"><strong><?php _e('Frequently Bought Together:', 'api-isarud'); ?></strong> <?php _e('Amazon-style "Customers who bought this also bought" block on the product page. Manual product selection or automatic based on order history.', 'api-isarud'); ?></div>
                     <div style="margin-bottom:8px"><strong><?php _e('Order Bump:', 'api-isarud'); ?></strong> <?php _e('One-click product recommendation that can be added before the payment button. Instantly added to cart with checkbox.', 'api-isarud'); ?></div>
                     <div style="margin-bottom:8px"><strong><?php _e('Cart Recommendation:', 'api-isarud'); ?></strong> <?php _e('Related products on cart page based on items in cart. Automatically selected from category.', 'api-isarud'); ?></div>
                     <div><strong><?php _e('Post-Order:', 'api-isarud'); ?></strong> <?php _e('Product recommendation for next order on thank you page + coupon code.', 'api-isarud'); ?></div>

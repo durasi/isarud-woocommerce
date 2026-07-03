@@ -5040,3 +5040,119 @@ msgstr "isarud.com クラウドブリッジによるグローバル eBay マー�
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "eBay 接続は isarud.com 上の OAuth で管理されます。isarud.com パネルで eBay アカウントを接続すると、ここに自動的に表示されます。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Ciceksepeti モジュールが読み込まれていません"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com にログイン</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "Ciceksepeti 接続を確認中..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "Ciceksepeti に接続"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "Ciceksepeti で接続"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "Ciceksepeti セラーパネルから API キー、API シークレット、およびセラー（アカウント）番号を使用してストアを統合できます。"
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "Ciceksepeti に接続する Isarud ストアを選択してください："
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Ciceksepeti 商品"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Ciceksepeti カテゴリ"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "Ciceksepeti カテゴリツリーを表示し、その属性を確認します。"
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "商品のバーコード、在庫、および価格情報を Ciceksepeti に送信します。"
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "この機能が有効な場合、WooCommerce で新しい商品を追加したり、既存の商品を更新したりするたびに、商品はすべてのアクティブなマーケットプレイス（Ciceksepeti を含む）に自動的に送信されます。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Ciceksepeti カテゴリとブランドのマッピング"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "手動一括送信（WooCommerce → Ciceksepeti）"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "このボタンを使用して、すべての WooCommerce 商品を一度に Ciceksepeti に送信します。カテゴリとブランドのマッピングが完了した商品のみが転送されます。"
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "すべての商品を Ciceksepeti に送信"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "Ciceksepeti 注文に追跡番号を追加します。"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Ciceksepeti 接続情報"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "Ciceksepeti API 接続のステータスと情報。"
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "セラー ID"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "この商品を Ciceksepeti から削除しますか？この操作は取り消せません。"
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "すべての WooCommerce 商品が Ciceksepeti に送信されます。続行しますか？"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "\"%s\" の最小注文数量は %d 単位です。"
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "権限が不足しています"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti に接続しました！"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7 つのマーケットプレイス (Trendyol、Hepsiburada、N11、Amazon、Pazarama、Ciceksepeti、Etsy)"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "Ciceksepeti ページに移動"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "商品ページ上の Amazon スタイルの「この商品を買った人はこんな商品も買っています」ブロック。手動での商品選択または注文履歴に基づく自動選択。"

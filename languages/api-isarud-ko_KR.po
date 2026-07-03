@@ -5040,3 +5040,119 @@ msgstr "isarud.com 클라우드 브리지를 통한 글로벌 eBay 마켓플레�
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "eBay 연결은 isarud.com에서 OAuth로 관리됩니다. isarud.com 패널에서 eBay 계정을 연결하면 여기에 자동으로 표시됩니다."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Ciceksepeti 모듈이 로드되지 않았습니다"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com에 로그인</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "Ciceksepeti 연결 확인 중..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "Ciceksepeti에 연결"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "Ciceksepeti와 연결"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "Ciceksepeti 판매자 패널에서 API Key, API Secret 및 판매자(계정) 번호를 사용하여 스토어를 통합할 수 있습니다."
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "Ciceksepeti에 연결할 Isarud 스토어를 선택하세요:"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Ciceksepeti 상품"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Ciceksepeti 카테고리"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "Ciceksepeti 카테고리 트리를 보고 속성을 검토하세요."
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "상품의 바코드, 재고 및 가격 정보를 Ciceksepeti로 보내세요."
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "이 기능을 활성화하면 WooCommerce에서 새 상품을 추가하거나 기존 상품을 업데이트할 때마다 상품이 모든 활성 마켓플레이스(Ciceksepeti 포함)로 자동 전송됩니다."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Ciceksepeti 카테고리 및 브랜드 매핑"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "수동 일괄 제출 (WooCommerce → Ciceksepeti)"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "이 버튼을 사용하여 모든 WooCommerce 상품을 Ciceksepeti로 한 번에 보내세요. 카테고리 및 브랜드 매핑이 완료된 상품만 전송됩니다."
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "모든 상품을 Ciceksepeti로 보내기"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "Ciceksepeti 주문에 추적 번호 추가."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Ciceksepeti 연결 정보"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "Ciceksepeti API 연결 상태 및 정보."
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "판매자 ID"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "Ciceksepeti에서 이 상품을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "모든 WooCommerce 상품이 Ciceksepeti로 전송됩니다. 계속하시겠습니까?"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "\"%s\"의 최소 주문 수량은 %d개입니다."
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "권한 부족"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti 연결되었습니다!"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7개 마켓플레이스 (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "Ciceksepeti 페이지로 이동"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "상품 페이지의 Amazon 스타일 \"이 상품을 구매한 고객이 함께 구매한 상품\" 블록. 수동 상품 선택 또는 주문 이력 기반 자동 선택."

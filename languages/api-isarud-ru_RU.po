@@ -5040,3 +5040,119 @@ msgstr "Глобальная интеграция маркетплейса eBay 
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "Подключение eBay управляется через OAuth на isarud.com. После подключения аккаунта eBay в панели isarud.com он автоматически появится здесь."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Модуль Ciceksepeti не загружен"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">Войдите в isarud.com</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "Проверка подключения к Ciceksepeti..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "Подключиться к Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "Подключиться с Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "Вы можете интегрировать свой магазин, используя API Key, API Secret и номер продавца (учетной записи) из панели продавца Ciceksepeti."
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "Выберите свой магазин Isarud для подключения к Ciceksepeti:"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Продукты Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Категории Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "Просмотрите дерево категорий Ciceksepeti и проверьте его атрибуты."
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "Отправьте штрих-код, информацию о наличии и цене товара в Ciceksepeti."
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "Когда эта функция включена, каждый раз, когда вы добавляете новый товар или обновляете существующий товар в WooCommerce, товар автоматически отправляется на все активные маркетплейсы (включая Ciceksepeti)."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Сопоставления категорий и брендов Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "Ручная массовая отправка (WooCommerce → Ciceksepeti)"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "Используйте эту кнопку, чтобы отправить все ваши товары WooCommerce в Ciceksepeti одновременно. Будут переданы только товары с завершенными сопоставлениями категорий и брендов."
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "Отправить все товары в Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "Добавьте номера отслеживания к заказам Ciceksepeti."
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Информация о подключении Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "Статус и информация о вашем подключении к API Ciceksepeti."
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "ID продавца"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "Удалить этот товар из Ciceksepeti? Это действие нельзя отменить."
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "Все товары WooCommerce будут отправлены в Ciceksepeti. Продолжить?"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "Минимальное количество заказа для \"%s\" составляет %d единиц."
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "Недостаточно прав"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti подключен!"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7 маркетплейсов (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "Перейти на страницу Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "Блок в стиле Amazon \"Клиенты также купили\" на странице товара. Ручной выбор товаров или автоматический на основе истории заказов."

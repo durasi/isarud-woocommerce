@@ -2,8 +2,8 @@
 /**
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
- * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
- * Version: 6.7.2
+ * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Çiçeksepeti, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. %100 ücretsiz.
+ * Version: 6.8
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -50,6 +50,7 @@ require_once ISARUD_DIR . 'includes/class-isarud-trendyol.php';
 require_once ISARUD_DIR . 'includes/class-isarud-n11.php';
 require_once ISARUD_DIR . 'includes/class-isarud-hepsiburada.php';
 require_once ISARUD_DIR . 'includes/class-isarud-pazarama.php';
+require_once ISARUD_DIR . 'includes/class-isarud-ciceksepeti.php';
 require_once ISARUD_DIR . 'includes/class-isarud-amazon.php';
 require_once ISARUD_DIR . 'includes/class-isarud-ebay.php';
 
@@ -232,6 +233,7 @@ add_action('plugins_loaded', function() {
     Isarud_N11::instance();
     Isarud_Hepsiburada::instance();
     Isarud_Pazarama::instance();
+    Isarud_Ciceksepeti::instance();
     Isarud_Amazon::instance();
     Isarud_Ebay::instance();
     Isarud_Webhook::instance();
@@ -371,6 +373,7 @@ class Isarud_Plugin {
         add_submenu_page('isarud', 'N11', __('N11', 'api-isarud'), 'manage_options', 'isarud-n11', [$this, 'page_n11']);
         add_submenu_page('isarud', 'Hepsiburada', __('Hepsiburada', 'api-isarud'), 'manage_options', 'isarud-hepsiburada', [$this, 'page_hepsiburada']);
         add_submenu_page('isarud', 'Pazarama', __('Pazarama', 'api-isarud'), 'manage_options', 'isarud-pazarama', [$this, 'page_pazarama']);
+        add_submenu_page('isarud', 'Ciceksepeti', __('Ciceksepeti', 'api-isarud'), 'manage_options', 'isarud-ciceksepeti', [$this, 'page_ciceksepeti']);
         add_submenu_page('isarud', 'Amazon', __('Amazon SP-API', 'api-isarud'), 'manage_options', 'isarud-amazon', [$this, 'page_amazon']);
         add_submenu_page('isarud', 'eBay', __('eBay', 'api-isarud'), 'manage_options', 'isarud-ebay', [$this, 'page_ebay']);
         add_submenu_page('isarud', 'Bulk Sync', __('Bulk Sync', 'api-isarud'), 'manage_options', 'isarud-bulk', [$this, 'page_bulk_sync']);
@@ -578,6 +581,10 @@ class Isarud_Plugin {
     }
 
     
+
+    public function page_ciceksepeti() {
+        require_once ISARUD_DIR . 'includes/ciceksepeti-html.php';
+    }
 
     public function page_pazarama() {
         require_once ISARUD_DIR . 'includes/pazarama-html.php';
@@ -858,6 +865,7 @@ class Isarud_Plugin {
             'n11' => $this->test_n11(),
             'amazon' => class_exists('Isarud_Amazon') ? Isarud_Amazon::instance()->get_status() : $this->marketplace_request('amazon', 'sellers/v1/marketplaceParticipations'),
             'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->get_status() : $this->marketplace_request('pazarama', 'product/products?page=0&size=1'),
+            'ciceksepeti' => class_exists('Isarud_Ciceksepeti') ? Isarud_Ciceksepeti::instance()->get_status() : ['success' => false, 'message' => __('Ciceksepeti module not loaded','api-isarud')],
             'etsy' => $this->marketplace_request('etsy', 'application/shops/' . $this->get_cred($mp, 'shop_id')),
             default => ['error' => 'Unknown'],
         };
@@ -905,6 +913,7 @@ class Isarud_Plugin {
         $result = match($mp) {
             'hepsiburada' => class_exists('Isarud_Hepsiburada') ? Isarud_Hepsiburada::instance()->sync_stock_single($barcode, $stock, $price) : ['error' => __('Hepsiburada module not loaded','api-isarud')],
             'pazarama' => class_exists('Isarud_Pazarama') ? Isarud_Pazarama::instance()->sync_stock_single($barcode, $stock, $price) : $this->marketplace_request('pazarama', 'product/products/price-and-inventory', 'PUT', ['items' => [['barcode' => $barcode, 'quantity' => $stock, 'salePrice' => $price]]]),
+            'ciceksepeti' => class_exists('Isarud_Ciceksepeti') ? Isarud_Ciceksepeti::instance()->sync_stock_single($barcode, $stock, $price) : ['success' => false, 'message' => __('Ciceksepeti module not loaded','api-isarud')],
             default => ['error' => 'Not implemented for ' . $mp],
         };
 
@@ -1664,7 +1673,7 @@ class Isarud_Plugin {
                     <h2 style="margin-top:0"><?php _e('Connect to isarud.com', 'api-isarud'); ?></h2>
                     <p><?php _e('Connect this WordPress site with your isarud.com account.', 'api-isarud'); ?></p>
                     <ol>
-                        <li><?php _e('<a href="https://isarud.com/login" target="_blank">isarud.com\'a giriş yapın</a>', 'api-isarud'); ?></li>
+                        <li><?php _e('<a href="https://isarud.com/login" target="_blank">Log in to isarud.com</a>', 'api-isarud'); ?></li>
                         <li><?php _e('Copy Bearer Token from Account → API Keys page', 'api-isarud'); ?></li>
                         <li><?php _e('Paste below and click the "Connect" button', 'api-isarud'); ?></li>
                     </ol>

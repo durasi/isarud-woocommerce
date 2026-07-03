@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.7.2
+Stable tag: 6.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncelle
 * Otomatik kategori ve marka eşleştirme kontrolü
 * Async batch işleme (Trendyol için 1000 ürüne kadar tek istek)
 
-= 6 Pazaryeri Tam Entegrasyonu =
+= 7 Pazaryeri Tam Entegrasyonu =
 
 **Trendyol** (modern API ile yeniden yazıldı)
 * 8 sekmeli modern yönetim paneli (Listings, Marka & Kategori, Stok & Fiyat, Siparişler, İadeler, Sorular, Fatura, Webhook)
@@ -145,7 +145,7 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 
 == Screenshots ==
 
-1. 6 pazaryeri için marka renkli kartlar — modern yönetim paneli
+1. 7 pazaryeri için marka renkli kartlar — modern yönetim paneli
 2. Trendyol bağlantı modal'ı — mağaza seçim ekranı
 3. Trendyol 8-sekmeli yönetim paneli
 4. Etsy 8-sekmeli yönetim paneli
@@ -155,6 +155,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.8 =
+* New: Ciceksepeti marketplace integration - products, stock/price sync with async batch tracking, orders, returns (approve/reject/received), customer questions with reply, connect flow
+* Fix: two remaining Turkish source strings converted to English originals
 
 = 6.7.2 =
 * eBay marketplace card added to the Marketplaces hub page (cloud bridge connection status, management panel link)

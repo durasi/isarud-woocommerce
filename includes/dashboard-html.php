@@ -94,7 +94,7 @@
             <h3><?php _e('Free with WooCommerce', 'api-isarud'); ?></h3>
             <p class="subtitle"><?php _e('Additional if WooCommerce is installed', 'api-isarud'); ?></p>
             <ul class="isd-feat-list">
-                <li><span class="check blue"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('6 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Etsy)', 'api-isarud'); ?></li>
+                <li><span class="check blue"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)', 'api-isarud'); ?></li>
                 <li><span class="check blue"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('Bi-directional inventory sync + Webhook', 'api-isarud'); ?></li>
                 <li><span class="check blue"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('Product upload + pull + order transfer', 'api-isarud'); ?></li>
                 <li><span class="check blue"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('Variable Product Support (Size, Color)', 'api-isarud'); ?></li>

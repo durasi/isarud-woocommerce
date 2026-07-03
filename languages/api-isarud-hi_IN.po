@@ -5040,3 +5040,119 @@ msgstr "isarud.com क्लाउड ब्रिज के माध्यम 
 
 msgid "eBay connection is managed via OAuth on isarud.com. Once you connect your eBay account in the isarud.com panel, it appears here automatically."
 msgstr "eBay कनेक्शन isarud.com पर OAuth के माध्यम से प्रबंधित होता है। isarud.com पैनल में अपना eBay खाता कनेक्ट करने पर यह यहाँ स्वतः दिखाई देता है।"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti"
+msgstr "Ciceksepeti"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti module not loaded"
+msgstr "Ciceksepeti मॉड्यूल लोड नहीं हुआ"
+
+#: ciceksepeti-v6.8
+msgid "<a href=\"https://isarud.com/login\" target=\"_blank\">Log in to isarud.com</a>"
+msgstr "<a href=\"https://isarud.com/login\" target=\"_blank\">isarud.com पर लॉगिन करें</a>"
+
+#: ciceksepeti-v6.8
+msgid "Checking Ciceksepeti connection..."
+msgstr "Ciceksepeti कनेक्शन जांच रहे हैं..."
+
+#: ciceksepeti-v6.8
+msgid "Connect to Ciceksepeti"
+msgstr "Ciceksepeti से जुड़ें"
+
+#: ciceksepeti-v6.8
+msgid "Connect with Ciceksepeti"
+msgstr "Ciceksepeti के साथ कनेक्ट करें"
+
+#: ciceksepeti-v6.8
+msgid "You can integrate your store using the API Key, API Secret, and Seller (Account) Number from the Ciceksepeti Seller Panel."
+msgstr "आप Ciceksepeti विक्रेता पैनल से API कुंजी, API गुप्त, और विक्रेता (खाता) संख्या का उपयोग करके अपने स्टोर को एकीकृत कर सकते हैं।"
+
+#: ciceksepeti-v6.8
+msgid "Select your Isarud store to connect to Ciceksepeti:"
+msgstr "Ciceksepeti से जुड़ने के लिए अपना Isarud स्टोर चुनें:"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Products"
+msgstr "Ciceksepeti उत्पाद"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Categories"
+msgstr "Ciceksepeti श्रेणियां"
+
+#: ciceksepeti-v6.8
+msgid "View the Ciceksepeti category tree and review its attributes."
+msgstr "Ciceksepeti श्रेणी वृक्ष देखें और इसकी विशेषताओं की समीक्षा करें।"
+
+#: ciceksepeti-v6.8
+msgid "Send a product's barcode, stock, and price information to Ciceksepeti."
+msgstr "किसी उत्पाद की बारकोड, स्टॉक, और मूल्य जानकारी Ciceksepeti को भेजें।"
+
+#: ciceksepeti-v6.8
+msgid "When this feature is enabled, whenever you add a new product or update an existing product in WooCommerce, the product is automatically sent to all active marketplaces (including Ciceksepeti)."
+msgstr "जब यह सुविधा सक्षम होती है, तो जब भी आप WooCommerce में एक नया उत्पाद जोड़ते हैं या किसी मौजूदा उत्पाद को अपडेट करते हैं, तो उत्पाद स्वचालित रूप से सभी सक्रिय बाजारों (Ciceksepeti सहित) को भेजा जाता है।"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti category and brand mappings"
+msgstr "Ciceksepeti श्रेणी और ब्रांड मैपिंग"
+
+#: ciceksepeti-v6.8
+msgid "Manual Bulk Submit (WooCommerce → Ciceksepeti)"
+msgstr "मैनुअल बल्क सबमिट (WooCommerce → Ciceksepeti)"
+
+#: ciceksepeti-v6.8
+msgid "Use this button to send all your WooCommerce products to Ciceksepeti at once. Only products with completed category and brand mappings will be transferred."
+msgstr "अपने सभी WooCommerce उत्पादों को एक साथ Ciceksepeti को भेजने के लिए इस बटन का उपयोग करें। केवल पूर्ण श्रेणी और ब्रांड मैपिंग वाले उत्पादों को स्थानांतरित किया जाएगा।"
+
+#: ciceksepeti-v6.8
+msgid "Send All Products to Ciceksepeti"
+msgstr "सभी उत्पाद Ciceksepeti को भेजें"
+
+#: ciceksepeti-v6.8
+msgid "Add tracking numbers to Ciceksepeti orders."
+msgstr "Ciceksepeti आदेशों में ट्रैकिंग संख्याएं जोड़ें।"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti Connection Information"
+msgstr "Ciceksepeti कनेक्शन जानकारी"
+
+#: ciceksepeti-v6.8
+msgid "Status and information about your Ciceksepeti API connection."
+msgstr "आपके Ciceksepeti API कनेक्शन के बारे में स्थिति और जानकारी।"
+
+#: ciceksepeti-v6.8
+msgid "Seller ID"
+msgstr "विक्रेता ID"
+
+#: ciceksepeti-v6.8
+msgid "Delete this product from Ciceksepeti? This cannot be undone."
+msgstr "इस उत्पाद को Ciceksepeti से हटाएं? यह पूर्ववत नहीं किया जा सकता।"
+
+#: ciceksepeti-v6.8
+msgid "All WooCommerce products will be sent to Ciceksepeti. Continue?"
+msgstr "सभी WooCommerce उत्पाद Ciceksepeti को भेजे जाएंगे। जारी रखें?"
+
+#: ciceksepeti-v6.8
+msgid "Minimum order quantity for \"%s\" is %d units."
+msgstr "\"%s\" के लिए न्यूनतम ऑर्डर मात्रा %d इकाइयां है।"
+
+#: ciceksepeti-v6.8
+msgid "Insufficient permissions"
+msgstr "अपर्याप्त अनुमतियां"
+
+#: ciceksepeti-v6.8
+msgid "Ciceksepeti connected!"
+msgstr "Ciceksepeti जुड़ा हुआ है!"
+
+#: ciceksepeti-v6.8
+msgid "7 marketplaces (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+msgstr "7 मार्केटप्लेस (Trendyol, Hepsiburada, N11, Amazon, Pazarama, Ciceksepeti, Etsy)"
+
+#: ciceksepeti-v6.8
+msgid "Go to Ciceksepeti Page"
+msgstr "Ciceksepeti पृष्ठ पर जाएं"
+
+#: ciceksepeti-v6.8
+msgid "Amazon-style \"Customers who bought this also bought\" block on the product page. Manual product selection or automatic based on order history."
+msgstr "उत्पाद पृष्ठ पर Amazon-शैली \"इस उत्पाद को खरीदने वाले ग्राहकों ने यह भी खरीदा\" ब्लॉक। मैनुअल उत्पाद चयन या ऑर्डर इतिहास के आधार पर स्वचालित।"

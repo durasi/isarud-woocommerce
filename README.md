@@ -42,19 +42,11 @@ All features are free for the first 30 days. After the trial, sync and API featu
 1. **Marketplaces:** Isarud → Pazaryeri API → "Bağlan ve Yönet" on any card → sign in at isarud.com → authorize.
 2. **Cloud Sync:** Isarud → Cloud Sync → connect with your isarud.com account.
 
-## Recent Releases
+## Changelog / Sürüm Notları
 
-### v6.9.2
-- Instant trial-expired feedback on the sync button (early abort + upgrade link)
+**EN:** All release notes are published at **[isarud.com/changelog](https://isarud.com/changelog)**.
 
-### v6.9.1
-- Honest trial messaging: "Always Free / 100% free" texts updated to "30-day free trial"
-
-### v6.9
-- Trial-expired admin notice: detects 402 responses centrally, shows a self-healing upgrade banner
-- Version constant alignment
-
-Full changelog in [readme.txt](readme.txt).
+**TR:** Tüm sürüm notları **[isarud.com/changelog](https://isarud.com/changelog)** adresinde yayınlanır.
 
 ## Support
 

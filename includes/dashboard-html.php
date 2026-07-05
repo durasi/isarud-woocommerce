@@ -77,7 +77,7 @@
 
     <div class="isd-features">
         <div class="isd-feature-card">
-            <h3><?php _e('Always Free', 'api-isarud'); ?></h3>
+            <h3><?php _e('30 Gün Ücretsiz', 'api-isarud'); ?></h3>
             <p class="subtitle"><?php _e('Can be used without WooCommerce', 'api-isarud'); ?></p>
             <ul class="isd-feat-list">
                 <li><span class="check green"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><?php _e('Sanctions Screening (8 lists, 32K+ records)', 'api-isarud'); ?></li>

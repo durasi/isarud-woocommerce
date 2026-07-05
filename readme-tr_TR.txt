@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.9
+Stable tag: 6.9.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Trendyol, Etsy, Hepsiburada, N11, Amazon ve Pazarama için tek çatı altında p
 
 == Description ==
 
-**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi %100 ücretsiz.
+**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi 30 gün ücretsiz denemeyle.
 
 = Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
 
@@ -114,7 +114,7 @@ Tek tıkla bağlantı, otomatik API anahtarı, multi-device erişim.
 == Frequently Asked Questions ==
 
 = Bu eklenti gerçekten ücretsiz mi? =
-Evet. Premium sürüm, özellik kısıtlaması ve gizli maliyet olmadan %100 ücretsiz.
+İlk 30 gün tüm özellikler ücretsizdir. Deneme süresi sonunda Pro veya Business planlarıyla devam edebilirsiniz.
 
 = Hangi pazaryerleri destekleniyor? =
 Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama.
@@ -152,6 +152,9 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.9.1 =
+* Metin: "Her Zaman Ücretsiz / %100 ücretsiz" ifadeleri "30 gün ücretsiz deneme" olarak güncellendi (deneme modeliyle uyum).
 
 = 6.9 =
 * Yeni: 30 günlük deneme süresi dolduğunda yönetici panelinde bilgilendirme bannerı gösterilir (yükseltme bağlantısıyla). Plan yenilendiğinde banner otomatik kaldırılır.

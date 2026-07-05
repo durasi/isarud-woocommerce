@@ -1,149 +1,69 @@
 # API Isarud — Trade Compliance & Marketplace Platform for WooCommerce
 
-**Sanctions screening + full marketplace integration + cloud sync for WooCommerce.**
-100% free — no premium version.
+Sanctions screening + full marketplace integration + cloud sync for WooCommerce. Free 30-day trial; continue with Pro or Business plans.
 
 🌐 [isarud.com](https://isarud.com) · 📦 [WordPress.org](https://wordpress.org/plugins/api-isarud/) · 🐙 [GitHub](https://github.com/durasi/isarud-woocommerce)
 
-**Current Version:** 6.6.8
+**Current Version: 6.9.2**
 
----
+## Pricing
+
+All features are free for the first 30 days. After the trial, sync and API features require a [Pro or Business plan](https://isarud.com/pricing). The plugin shows a clear notice in your admin panel when the trial ends — nothing breaks silently, and your data stays intact.
 
 ## Features
 
 ### 🛡️ Sanctions Screening
-- Screen customers and companies against **32,500+ sanctioned entities**
+- Screen customers and companies against 32,500+ sanctioned entities
 - 8 global lists: OFAC SDN, OFAC Consolidated, EU, UN, UK HMT, Canada SEMA, Australia DFAT, World Bank
-- Fuzzy matching algorithm with configurable threshold
-- Automatic screening on new orders (configurable)
-- Block orders on match (optional)
-- Alert email notifications
-- Screening log with full audit trail
+- Fuzzy matching with configurable threshold, automatic screening on new orders, order blocking on match, alert emails, full audit trail
 
-### 📦 Order Management
-- Auto-sync order status: WooCommerce → marketplace (Picking / Shipped / Cancelled / Delivered)
-- Cargo assignment via Trendyol API (Aras, Yurtiçi, MNG, Sürat, etc.)
-- Order import from Trendyol, Hepsiburada, N11, Pazarama, Etsy
-- Auto-import orders on schedule (configurable)
-
-### 🔁 Returns & Refunds
-- Fetch return/claim requests from Trendyol, Hepsiburada, Pazarama, Etsy
-- Approve or reject returns from WP admin
-- Dedicated admin page with marketplace filtering
-
-### 🧾 Invoice Management
-- Send invoice links to Trendyol and Hepsiburada
-- Auto-send on WooCommerce order completion
-- Manual send from admin
-
-### 💬 Customer Questions (Trendyol, Pazarama)
-- Fetch buyer questions
-- Reply directly from WP admin
-- Auto-notification on new questions
-
-### 🏷️ Brand Management (Trendyol, Pazarama)
-- Browse and search marketplace brand catalogs
-- Map WooCommerce brand attributes to marketplace brand IDs
-- Cached for performance
-
-### 🎨 Etsy Integration (v3 API)
-- Listing CRUD (create, update, delete)
-- Images, sections, personalization
-- Translations (9 listing + 7 shop locales)
-- Shipping templates and tracking
-- Inventory, statistics, sold listings
-- Returns and shop settings
-
-### 🛍️ Pazarama Integration (v2 API)
-- OAuth 2.0 client_credentials authentication
-- Product CRUD with batch operations
-- Category tree and attributes
-- Stock and price sync
-- Order management with status updates
-- Returns handling
-- Customer questions
-- Brand search
-- 9 features marked active in admin dashboard
+### 🛒 Marketplaces
+- **Trendyol, Hepsiburada, N11, Amazon (SP-API), Pazarama, Çiçeksepeti, Etsy, eBay** — connected through isarud.com cloud bridge
+- Product export with category/attribute mapping, stock & price sync, brand catalog search
+- Order import and status sync (Picking / Shipped / Cancelled / Delivered), cargo assignment
+- Returns & claims handling, invoice link sending, customer questions — all from WP admin
 
 ### ☁️ Cloud Sync
-- Sync to [isarud.com](https://isarud.com) account
-- Mobile app companion (iOS / Android)
-- Centralized multi-store management
-- Real-time order notifications via Slack
+- Sync WooCommerce products and orders to your isarud.com account
+- Mobile app companion (iOS / Android), centralized multi-store management
+- Real-time order notifications
 
 ### 🌐 Internationalization
-- 16 language support: Turkish, English, German, French, Spanish, Italian, Japanese, Chinese, Korean, Russian, Arabic, Portuguese, Dutch, Polish, Hindi, Indonesian
-- Storefront and admin UI fully translated
-- Marketplace-specific terminology localized
-
----
+- 16 languages: Turkish, English, German, French, Spanish, Italian, Japanese, Chinese, Korean, Russian, Arabic, Portuguese, Dutch, Polish, Hindi, Indonesian
 
 ## Installation
 
-### From WordPress.org (Recommended)
-1. Go to **Plugins → Add New** in WP admin
-2. Search for "Isarud" or "api-isarud"
-3. Click **Install Now** then **Activate**
+**From WordPress.org (recommended):** Plugins → Add New → search "Isarud" → Install & Activate.
 
-### Manual Installation
-1. Download from [WordPress.org](https://wordpress.org/plugins/api-isarud/) or [GitHub](https://github.com/durasi/isarud-woocommerce)
-2. Upload `api-isarud` folder to `/wp-content/plugins/`
-3. Activate via **Plugins** menu
-
----
+**Manual:** download from WordPress.org or GitHub, upload the `api-isarud` folder to `/wp-content/plugins/`, activate.
 
 ## Configuration
 
-### Connect Marketplaces
-1. Go to **Isarud → Pazaryeri API**
-2. Click "Bağlan ve Yönet" on any marketplace card
-3. Sign in or create account at isarud.com
-4. Select your marketplace store
-5. Authorize the connection
-6. Configure sync settings per marketplace
-
-### Cloud Sync
-1. Go to **Isarud → Cloud Sync**
-2. Enter your isarud.com API key
-3. Enable auto-sync for orders, stock, returns
-
----
+1. **Marketplaces:** Isarud → Pazaryeri API → "Bağlan ve Yönet" on any card → sign in at isarud.com → authorize.
+2. **Cloud Sync:** Isarud → Cloud Sync → connect with your isarud.com account.
 
 ## Recent Releases
 
-### v6.6.8 (May 11, 2026)
-- **Pazarama Marketplace** full integration (9 features)
-- Pazarama OAuth 2.0 authentication
-- Modern card UI with #6B3FA0 purple theme
-- 16 language localization for Pazarama
-- Bridge pattern for product export, order import, status sync
-- Old marketplace config form removed for modern card marketplaces
+### v6.9.2
+- Instant trial-expired feedback on the sync button (early abort + upgrade link)
 
-### v6.6.7 (May 10, 2026)
-- Amazon SP-API integration with LWA OAuth
-- Marketplace card cleanup (modern card UI for all 6 platforms)
+### v6.9.1
+- Honest trial messaging: "Always Free / 100% free" texts updated to "30-day free trial"
 
-### v6.6.2 (May 10, 2026)
-- N11 SOAP → REST API migration
-- Etsy 8-phase integration complete (30 features)
+### v6.9
+- Trial-expired admin notice: detects 402 responses centrally, shows a self-healing upgrade banner
+- Version constant alignment
 
-### Earlier versions
-See full changelog in [readme.txt](readme.txt).
-
----
+Full changelog in [readme.txt](readme.txt).
 
 ## Support
 
-- **Documentation:** [isarud.com/docs](https://isarud.com)
-- **Issues:** [GitHub Issues](https://github.com/durasi/isarud-woocommerce/issues)
-- **Email:** support@isarud.com
-
----
+- Documentation: [isarud.com/docs](https://isarud.com/docs)
+- Issues: [GitHub Issues](https://github.com/durasi/isarud-woocommerce/issues)
+- Email: support@isarud.com
 
 ## License
 
 GPL v2 or later
 
----
-
-**Developed by [Seçkin Sefa Durası](https://github.com/durasi)** · Made with ❤️ in Istanbul
+Developed by [Seçkin Sefa Durası](https://isarud.com)

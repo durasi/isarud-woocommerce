@@ -37,6 +37,15 @@ class Isarud_Cloud_Sync {
         if (is_wp_error($response)) return ['error' => $response->get_error_message()];
         $code = wp_remote_retrieve_response_code($response);
         $body = json_decode(wp_remote_retrieve_body($response), true) ?: [];
+        if ($code === 402 && (($body['error'] ?? '') === 'trial_expired')) {
+            // v6.9.2: trial isaretini ezme — net mesaj + upgrade_url yukariya tasinir
+            $up = $body['upgrade_url'] ?? 'https://isarud.com/billing';
+            return [
+                'error' => '⛔ ' . __('Deneme süreniz doldu — planınızı yükselterek devam edebilirsiniz', 'api-isarud') . ': ' . $up,
+                'trial_expired' => true,
+                'upgrade_url' => $up,
+            ];
+        }
         if ($code >= 400) return ['error' => $body['error'] ?? "HTTP {$code}"];
         return $body;
     }
@@ -74,6 +83,7 @@ class Isarud_Cloud_Sync {
         $total_synced = 0; $total_failed = 0;
         foreach (array_chunk($products_data, 100) as $chunk) {
             $result = $this->api_request('products/sync', ['products' => $chunk]);
+            if (!empty($result['trial_expired'])) return $result; // v6.9.2: kalan chunk'lari dovme, net mesajla don
             if (isset($result['error'])) $total_failed += count($chunk); else { $total_synced += $result['synced'] ?? 0; $total_failed += $result['failed'] ?? 0; }
         }
         update_option('isarud_cloud_last_product_sync', current_time('mysql'));
@@ -90,6 +100,7 @@ class Isarud_Cloud_Sync {
         $total_synced = 0; $total_failed = 0;
         foreach (array_chunk($orders_data, 100) as $chunk) {
             $result = $this->api_request('orders/sync', ['orders' => $chunk]);
+            if (!empty($result['trial_expired'])) return $result; // v6.9.2
             if (isset($result['error'])) $total_failed += count($chunk); else { $total_synced += $result['synced'] ?? 0; $total_failed += $result['failed'] ?? 0; }
         }
         update_option('isarud_cloud_last_order_sync', current_time('mysql'));

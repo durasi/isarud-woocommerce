@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 6.8
+Stable tag: 6.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 6.9 =
+* Yeni: 30 günlük deneme süresi dolduğunda yönetici panelinde bilgilendirme bannerı gösterilir (yükseltme bağlantısıyla). Plan yenilendiğinde banner otomatik kaldırılır.
+* Düzeltme: eklenti sürüm sabiti (ISARUD_VERSION) başlıktaki sürümle hizalandı.
 
 = 6.8 =
 * Yeni: Çiçeksepeti pazaryeri entegrasyonu - ürünler, asenkron batch takipli stok/fiyat senkronu, siparişler, iadeler (onay/red/teslim alındı), cevaplanabilir müşteri soruları, bağlantı akışı

@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.8
+Stable tag: 6.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -163,6 +163,10 @@ Visit [isarud.com](https://isarud.com) or open an issue on [GitHub](https://gith
 8. Sanctions screening interface
 
 == Changelog ==
+
+= 6.9 =
+* Yeni: 30 günlük deneme süresi dolduğunda yönetici panelinde bilgilendirme bannerı gösterilir (yükseltme bağlantısıyla). Plan yenilendiğinde banner otomatik kaldırılır.
+* Düzeltme: eklenti sürüm sabiti (ISARUD_VERSION) başlıktaki sürümle hizalandı.
 
 = 6.8 =
 * New: Ciceksepeti marketplace integration - products, stock/price sync with async batch tracking, orders, returns (approve/reject/received), customer questions with reply, connect flow

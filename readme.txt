@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 6.9.2
+Stable tag: 6.9.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -163,6 +163,9 @@ Visit [isarud.com](https://isarud.com) or open an issue on [GitHub](https://gith
 8. Sanctions screening interface
 
 == Changelog ==
+
+= 6.9.3 =
+* İyileştirme: senkronizasyon sonucu ekranı deneme süresi dolduğunda sayaç yerine net uyarı ve "Planı Yükselt" butonu gösterir.
 
 = 6.9.2 =
 * İyileştirme: deneme süresi dolduğunda "Şimdi Senkronize Et" artık anında net uyarı gösterir (yükseltme bağlantısıyla); istek zinciri gereksiz yere devam etmez.

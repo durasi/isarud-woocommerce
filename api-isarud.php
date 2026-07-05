@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Çiçeksepeti, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. 30 gün ücretsiz deneme.
- * Version: 6.9.2
+ * Version: 6.9.3
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define("ISARUD_VERSION", "6.9.2");
+define("ISARUD_VERSION", "6.9.3");
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -1731,6 +1731,12 @@ class Isarud_Plugin {
                     btn.prop('disabled', false).text('<?php _e('Sync Now', 'api-isarud'); ?>');
                     if (r.success) {
                         var d = r.data;
+                        // v6.9.3: deneme dolduysa sayac yerine net uyari — satici 0 sync'in SEBEBINI gorur
+                        var isrTrial = (d.products && d.products.trial_expired) ? d.products : ((d.orders && d.orders.trial_expired) ? d.orders : null);
+                        if (isrTrial) {
+                            $('#isarud-cloud-result').html('<div class="notice notice-error"><p>' + (isrTrial.error || '⛔ <?php echo esc_js(__('Deneme süreniz doldu.','api-isarud')); ?>') + ' <a href="' + (isrTrial.upgrade_url || 'https://isarud.com/billing') + '" target="_blank" class="button button-primary" style="margin-left:8px"><?php echo esc_js(__('Planı Yükselt','api-isarud')); ?></a></p></div>');
+                            return;
+                        }
                         $('#isarud-cloud-result').html(
                             '<div class="notice notice-success"><p>✅ <?php echo esc_js(__('Products','api-isarud')); ?>: ' + (d.products?.synced || 0) + ' sync, ' + (d.products?.failed || 0) + ' <?php echo esc_js(__('errors','api-isarud')); ?><br>' +
                             '<?php echo esc_js(__('Orders','api-isarud')); ?>: ' + (d.orders?.synced || 0) + ' sync, ' + (d.orders?.failed || 0) + ' <?php echo esc_js(__('errors','api-isarud')); ?></p></div>'

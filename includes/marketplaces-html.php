@@ -253,6 +253,37 @@ jQuery(function($){
 });
 </script>
 
+<?php /* ===== İdefix (v7.0) — statik rozet; yönetim v7.1'de ===== */ ?>
+<div id="isarud-idefix-modern-card" style="border-radius:14px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;max-width:920px">
+    <div style="background:linear-gradient(135deg,#EA580C 0%,#F59E0B 100%);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+        <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:42px;height:42px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(0,0,0,0.1)">
+                <span style="font-weight:800;font-size:14px;color:#EA580C;letter-spacing:-0.5px">idefix</span>
+            </div>
+            <div>
+                <div style="font-size:18px;font-weight:700;color:#fff">İdefix</div>
+                <div style="font-size:12px;color:#fff;opacity:0.85;margin-top:2px"><?php esc_html_e('D&R family — Books, music, electronics','api-isarud'); ?></div>
+            </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-size:11px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.25);color:#fff;font-weight:600;backdrop-filter:blur(4px);min-width:80px;text-align:center">🆕 <?php esc_html_e("New","api-isarud"); ?></div>
+        </div>
+    </div>
+    <div style="padding:16px 24px;background:#fafafa;border-top:1px solid rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px">
+            <span style="padding:4px 10px;background:#FFEDD5;color:#9A3412;border-radius:6px;font-weight:600">📦 <?php esc_html_e("Inventory","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#FFEDD5;color:#9A3412;border-radius:6px;font-weight:600">💰 <?php esc_html_e("Price","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#FFEDD5;color:#9A3412;border-radius:6px;font-weight:600">📋 <?php esc_html_e("Order","api-isarud"); ?></span>
+            <span style="padding:4px 10px;background:#FFEDD5;color:#9A3412;border-radius:6px;font-weight:600">🏷️ <?php esc_html_e("Barcode matching","api-isarud"); ?></span>
+        </div>
+        <div>
+            <a href="<?php echo admin_url('admin.php?page=isarud-idefix'); ?>" class="button button-primary button-hero" style="background:#EA580C;border-color:#EA580C;text-shadow:none;box-shadow:0 2px 6px rgba(234,88,12,0.3);font-weight:600;padding:0 24px;height:44px;line-height:42px">
+                🔗 <?php esc_html_e("Go to İdefix Page","api-isarud"); ?>
+            </a>
+        </div>
+    </div>
+</div>
+
 
 <?php endif; ?>
 

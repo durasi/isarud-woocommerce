@@ -2,8 +2,8 @@
 /**
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
- * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Çiçeksepeti, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. 30 gün ücretsiz deneme.
- * Version: 6.9.3
+ * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Çiçeksepeti, İdefix, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. 30 gün ücretsiz deneme.
+ * Version: 7.0
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define("ISARUD_VERSION", "6.9.3");
+define("ISARUD_VERSION", "7.0");
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -53,6 +53,7 @@ require_once ISARUD_DIR . 'includes/class-isarud-n11.php';
 require_once ISARUD_DIR . 'includes/class-isarud-hepsiburada.php';
 require_once ISARUD_DIR . 'includes/class-isarud-pazarama.php';
 require_once ISARUD_DIR . 'includes/class-isarud-ciceksepeti.php';
+require_once ISARUD_DIR . 'includes/idefix-html.php'; // v7.0: Idefix tanitim/baglanti sayfasi
 require_once ISARUD_DIR . 'includes/class-isarud-amazon.php';
 require_once ISARUD_DIR . 'includes/class-isarud-ebay.php';
 
@@ -376,6 +377,7 @@ class Isarud_Plugin {
         add_submenu_page('isarud', 'Hepsiburada', __('Hepsiburada', 'api-isarud'), 'manage_options', 'isarud-hepsiburada', [$this, 'page_hepsiburada']);
         add_submenu_page('isarud', 'Pazarama', __('Pazarama', 'api-isarud'), 'manage_options', 'isarud-pazarama', [$this, 'page_pazarama']);
         add_submenu_page('isarud', 'Ciceksepeti', __('Ciceksepeti', 'api-isarud'), 'manage_options', 'isarud-ciceksepeti', [$this, 'page_ciceksepeti']);
+        add_submenu_page('isarud', 'İdefix', __('İdefix', 'api-isarud'), 'manage_options', 'isarud-idefix', 'isarud_idefix_page_render'); // v7.0
         add_submenu_page('isarud', 'Amazon', __('Amazon SP-API', 'api-isarud'), 'manage_options', 'isarud-amazon', [$this, 'page_amazon']);
         add_submenu_page('isarud', 'eBay', __('eBay', 'api-isarud'), 'manage_options', 'isarud-ebay', [$this, 'page_ebay']);
         add_submenu_page('isarud', 'Bulk Sync', __('Bulk Sync', 'api-isarud'), 'manage_options', 'isarud-bulk', [$this, 'page_bulk_sync']);

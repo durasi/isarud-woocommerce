@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, idefix, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 7.0
+Stable tag: 7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -165,6 +165,10 @@ Visit [isarud.com](https://isarud.com) or open an issue on [GitHub](https://gith
 8. Sanctions screening interface
 
 == Changelog ==
+
+= 7.1 =
+* İdefix management page: connection status, category browser, order list (last 7/14/30 days) and manual stock/price submission — all via the isarud.com bridge
+* Product listing & management, returns and customer questions arrive in v7.2
 
 = 7.0 =
 * New: İdefix marketplace (D&R family) — hub card and introduction/connection page; link your seller account via the isarud.com bridge (barcode matching, stock/price sync, order import)

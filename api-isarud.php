@@ -3,7 +3,7 @@
  * Plugin Name: API Isarud Tüm Pazaryerleri Ticaret Entegrasyonu
  * Plugin URI: https://isarud.com/integrations
  * Description: Yaptırım tarama + Trendyol, Hepsiburada, N11, Amazon, Pazarama, Çiçeksepeti, İdefix, Etsy API entegrasyonu + sipariş yönetimi + iade + fatura + müşteri soruları + marka arama. 30 gün ücretsiz deneme.
- * Version: 7.0
+ * Version: 7.1
  * Requires at least: 6.0
  * Tested up to: 7.0
  * Requires PHP: 8.0
@@ -16,7 +16,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define("ISARUD_VERSION", "7.0");
+define("ISARUD_VERSION", "7.1");
 define('ISARUD_DIR', plugin_dir_path(__FILE__));
 define('ISARUD_URL', plugin_dir_url(__FILE__));
 
@@ -53,7 +53,8 @@ require_once ISARUD_DIR . 'includes/class-isarud-n11.php';
 require_once ISARUD_DIR . 'includes/class-isarud-hepsiburada.php';
 require_once ISARUD_DIR . 'includes/class-isarud-pazarama.php';
 require_once ISARUD_DIR . 'includes/class-isarud-ciceksepeti.php';
-require_once ISARUD_DIR . 'includes/idefix-html.php'; // v7.0: Idefix tanitim/baglanti sayfasi
+require_once ISARUD_DIR . 'includes/class-isarud-idefix.php'; // v7.1: Idefix bridge istemci
+require_once ISARUD_DIR . 'includes/idefix-html.php'; // v7.1: Idefix yonetim sayfasi
 require_once ISARUD_DIR . 'includes/class-isarud-amazon.php';
 require_once ISARUD_DIR . 'includes/class-isarud-ebay.php';
 
@@ -237,6 +238,7 @@ add_action('plugins_loaded', function() {
     Isarud_Hepsiburada::instance();
     Isarud_Pazarama::instance();
     Isarud_Ciceksepeti::instance();
+    Isarud_Idefix::instance(); // v7.1
     Isarud_Amazon::instance();
     Isarud_Ebay::instance();
     Isarud_Webhook::instance();

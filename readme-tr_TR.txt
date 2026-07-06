@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, idefix, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 7.0
+Stable tag: 7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -154,6 +154,10 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 7.1 =
+* İdefix yönetim sayfası: bağlantı durumu, kategori tarayıcı, sipariş listesi (son 7/14/30 gün) ve manuel stok/fiyat gönderimi — tümü isarud.com köprüsüyle
+* Ürün listeleme & yönetimi, iadeler ve müşteri soruları v7.2'de
 
 = 7.0 =
 * Yeni: İdefix pazaryeri (D&R ailesi) — hub kartı ve tanıtım/bağlantı sayfası; satıcı hesabınızı isarud.com köprüsüyle bağlayın (barkod eşleştirme, stok/fiyat senkronu, sipariş çekme)

@@ -1,6 +1,6 @@
 === API Isarud Tüm Pazar Yerleri Ticaret Entegrasyonu ===
 Contributors: durasi
-Tags: marketplace, trendyol, etsy, hepsiburada, n11
+Tags: marketplace, trendyol, etsy, idefix, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -8,11 +8,11 @@ Stable tag: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Trendyol, Etsy, Hepsiburada, N11, Amazon ve Pazarama için tek çatı altında pazaryeri entegrasyonu. WooCommerce'i 6 pazaryeri ile bağlayın, otomatik ürün gönderimi yapın.
+Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon ve Pazarama için tek çatı altında pazaryeri entegrasyonu. WooCommerce'i 9 pazaryeri ile bağlayın, otomatik ürün gönderimi yapın.
 
 == Description ==
 
-**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi 30 gün ücretsiz denemeyle.
+**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi 30 gün ücretsiz denemeyle.
 
 = Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
 
@@ -38,6 +38,8 @@ WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncelle
 * Webhook CRUD (yenilik bildirimleri)
 
 **Etsy** (8-Phase tam entegrasyon, OAuth 2.0)
+
+**İdefix** (D&R ailesi pazaryeri — isarud.com köprüsüyle bağlantı, barkod eşleştirme, stok/fiyat senkronu)
 * Listing CRUD (oluşturma, güncelleme, silme, aktif/pasif)
 * Görsel yükleme + sıralama + silme (10 görsel/listing)
 * Bölümler (sections) yönetimi + kişiselleştirme
@@ -117,7 +119,7 @@ Tek tıkla bağlantı, otomatik API anahtarı, multi-device erişim.
 İlk 30 gün tüm özellikler ücretsizdir. Deneme süresi sonunda Pro veya Business planlarıyla devam edebilirsiniz.
 
 = Hangi pazaryerleri destekleniyor? =
-Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API ve Pazarama.
+Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon SP-API ve Pazarama.
 
 = Auto-Export nasıl çalışır? =
 WooCommerce'de bir ürün ekler veya günceller iken hook'lar otomatik tetiklenir. Eklenti, etkin tüm pazaryerlerine paralel olarak ürün payload'ını gönderir. Trendyol/N11 için isarud.com bridge üzerinden async batch API çağrılır, batch_request_id veya taskId ile durum takibi yapılır.

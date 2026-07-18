@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, idefix, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 7.1
+Stable tag: 7.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,9 @@ WooCommerce marketplace integration and product sync for Trendyol, Etsy, Hepsibu
 
 == Description ==
 
-**API Isarud is the official WordPress plugin of the Isarud platform (https://isarud.com).** This plugin is for sellers who already run a WooCommerce store. **If you do not have a website, you do not need WordPress:** create a free account at https://isarud.com and connect your Trendyol, Hepsiburada, N11, Pazarama, Ciceksepeti, Idefix, Etsy and Amazon stores directly from the cloud dashboard - no website required.
+**API Isarud is the official WordPress plugin of the Isarud platform (https://isarud.com).** This plugin is for sellers who already run a WooCommerce store. **If you do not have a website, you do not need WordPress:** create a free account at https://isarud.com and connect your Trendyol, Hepsiburada, N11, Pazarama, Ciceksepeti, Idefix, Etsy, Amazon and eBay stores directly from the cloud dashboard - no website required.
 
-**API Isarud** is the most comprehensive free multi-marketplace integration plugin for WooCommerce. It connects Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API, Pazarama, Ciceksepeti, Idefix and eBay to a single WordPress panel. Sanctions screening, bi-directional stock sync, automatic product export, order management, returns and invoicing, customer questions - all 100% free.
+**API Isarud** is the most comprehensive free multi-marketplace integration plugin for WooCommerce. It connects Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API, Pazarama, Ciceksepeti, Idefix and eBay to a single WordPress panel. Sanctions screening, bi-directional stock sync, automatic product export, order management, returns and invoicing, customer questions - all free for the first 30 days, then continue with a Pro or Business plan.
 
 = New: Automatic Product Export (Auto-Export) =
 
@@ -127,7 +127,7 @@ One-click connection, automatic API key, multi-device access.
 == Frequently Asked Questions ==
 
 = Is this plugin really free? =
-Yes. 100% free with no premium version, no feature restrictions and no hidden costs.
+The plugin is free to install. All features are free for the first 30 days; after the trial, sync and API features require a Pro or Business plan.
 
 = Which marketplaces are supported? =
 Trendyol, Etsy, Hepsiburada, N11, Amazon SP-API, Pazarama, Ciceksepeti, Idefix and eBay.
@@ -165,6 +165,9 @@ Visit [isarud.com](https://isarud.com) or open an issue on [GitHub](https://gith
 8. Sanctions screening interface
 
 == Changelog ==
+
+= 7.1.1 =
+* Minor text improvements
 
 = 7.1 =
 * İdefix management page: connection status, category browser, order list (last 7/14/30 days) and manual stock/price submission — all via the isarud.com bridge

@@ -4,7 +4,7 @@ Sanctions screening + full marketplace integration + cloud sync for WooCommerce.
 
 🌐 [isarud.com](https://isarud.com) · 📦 [WordPress.org](https://wordpress.org/plugins/api-isarud/) · 🐙 [GitHub](https://github.com/durasi/isarud-woocommerce)
 
-**Current Version: 6.9.2**
+**Current Version: 7.1.1**
 
 ## Pricing
 

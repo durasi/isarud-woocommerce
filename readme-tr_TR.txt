@@ -4,7 +4,7 @@ Tags: marketplace, trendyol, etsy, idefix, hepsiburada, n11
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 7.1
+Stable tag: 7.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon ve Pazarama için tek çatı a
 
 == Description ==
 
-**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon SP-API ve Pazarama'yı tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi 30 gün ücretsiz denemeyle.
+**API Isarud** WooCommerce için en kapsamlı ücretsiz çoklu pazaryeri entegrasyon eklentisidir. Trendyol, Etsy, İdefix, Hepsiburada, N11, Amazon SP-API, Pazarama, Çiçeksepeti ve eBay'i tek WordPress paneline bağlar. Yaptırım taraması, çift yönlü stok sync, otomatik ürün gönderimi (auto-export), sipariş yönetimi, iade ve fatura, müşteri soruları — hepsi 30 gün ücretsiz denemeyle.
 
 = Yeni: Otomatik Ürün Gönderimi (Auto-Export) =
 
@@ -23,7 +23,7 @@ WooCommerce'de yeni bir ürün eklediğinizde veya mevcut bir ürünü güncelle
 * Otomatik kategori ve marka eşleştirme kontrolü
 * Async batch işleme (Trendyol için 1000 ürüne kadar tek istek)
 
-= 7 Pazaryeri Tam Entegrasyonu =
+= 9 Pazaryeri Tam Entegrasyonu =
 
 **Trendyol** (modern API ile yeniden yazıldı)
 * 8 sekmeli modern yönetim paneli (Listings, Marka & Kategori, Stok & Fiyat, Siparişler, İadeler, Sorular, Fatura, Webhook)
@@ -144,7 +144,7 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 
 == Screenshots ==
 
-1. 7 pazaryeri için marka renkli kartlar — modern yönetim paneli
+1. 9 pazaryeri için marka renkli kartlar — modern yönetim paneli
 2. Trendyol bağlantı modal'ı — mağaza seçim ekranı
 3. Trendyol 8-sekmeli yönetim paneli
 4. Etsy 8-sekmeli yönetim paneli
@@ -154,6 +154,9 @@ N11 ürün/stok/fiyat güncellemeleri async çalışır. Her işlem için bir ta
 8. Yaptırım tarama arayüzü
 
 == Changelog ==
+
+= 7.1.1 =
+* Kucuk metin iyilestirmeleri
 
 = 7.1 =
 * İdefix yönetim sayfası: bağlantı durumu, kategori tarayıcı, sipariş listesi (son 7/14/30 gün) ve manuel stok/fiyat gönderimi — tümü isarud.com köprüsüyle
